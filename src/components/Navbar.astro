@@ -1,0 +1,237 @@
+---
+/**
+ * Navbar.astro — Navy & Gold Design System
+ */
+
+export interface Props {
+  theme?: "dark" | "light";
+}
+
+const { theme = "dark" } = Astro.props;
+
+const universos = [
+  { label: "África", href: "/universos/africa" },
+  { label: "Asia", href: "/universos/asia" },
+  { label: "Europa", href: "/universos/europa" },
+  { label: "Medio Oriente", href: "/universos/medio-oriente" },
+];
+
+const mainLinks = [
+  { label: "Journey", href: "/journey" },
+  { label: "Contacto", href: "/contacto" },
+];
+---
+
+<nav
+  id="main-nav"
+  data-theme={theme}
+  class={`fixed top-0 w-full z-50 transition-colors duration-500 flex justify-center px-4 md:px-8 pointer-events-none ${theme === 'dark' ? 'text-white' : 'text-[#1C1713]'}`}
+  aria-label="Navegación principal"
+>
+  <div 
+    id="nav-pill" 
+    class="pointer-events-auto flex justify-between items-center px-6 transition-all duration-500 w-full border border-transparent bg-transparent py-6 max-w-[1920px]"
+  >
+    <!-- Logo -->
+    <a href="/" aria-label="Luxury Voyage Collection - Inicio" class="block shrink-0">
+      <img
+        src="/logo.png"
+        alt="Luxury Voyage Collection"
+        class="h-10 md:h-12 w-auto object-contain transition-all duration-500"
+        id="nav-logo"
+        width="160"
+        height="112"
+      />
+    </a>
+
+    <!-- Navigation Links (desktop) -->
+    <div class="hidden lg:flex items-center gap-8 xl:gap-12 absolute left-1/2 -translate-x-1/2" role="list">
+      
+      <!-- Dropdown Universos -->
+      <div class="relative group" role="listitem">
+        <button class="relative group/btn flex items-center gap-1 font-label text-xs uppercase tracking-widest hover:text-[#D4AD65] transition-colors duration-300 font-medium py-4">
+          Universos
+          <span class="absolute bottom-2 left-0 w-full h-[1px] bg-[#D4AD65] scale-x-0 group-hover/btn:scale-x-100 origin-right group-hover/btn:origin-left transition-transform duration-500 ease-out"></span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-70 group-hover:rotate-180 transition-transform duration-300"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        
+        <!-- Dropdown Menu Horizontal (Avora Effect) -->
+        <div class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-max opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 transform-gpu z-[60]">
+          <div class="bg-[#1C1713]/90 backdrop-blur-xl border border-[#D4AD65]/30 shadow-2xl rounded-full px-4 py-1.5 flex flex-row items-center gap-2">
+            {
+              universos.map((link) => (
+                <a
+                  href={link.href}
+                  class="font-label text-[10px] sm:text-xs px-4 py-2 text-white/70 hover:text-[#D4AD65] transition-colors duration-300 uppercase tracking-widest whitespace-nowrap"
+                >
+                  {link.label}
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Links -->
+      {
+        mainLinks.map((link) => (
+          <a
+            href={link.href}
+            role="listitem"
+            class="relative group/link font-label text-xs uppercase tracking-widest hover:text-[#D4AD65] transition-colors duration-300 font-medium py-4"
+          >
+            {link.label}
+            <span class="absolute bottom-2 left-0 w-full h-[1px] bg-[#D4AD65] scale-x-0 group-hover/link:scale-x-100 origin-right group-hover/link:origin-left transition-transform duration-500 ease-out"></span>
+          </a>
+        ))
+      }
+    </div>
+
+    <!-- CTA + Hamburguesa -->
+    <div class="flex items-center gap-4 shrink-0">
+      <a
+        href="/contacto"
+        id="nav-cta"
+        class="hidden md:inline-flex relative group/cta overflow-hidden items-center font-label text-[10px] uppercase tracking-widest font-bold text-[#1C1713] bg-[#D4AD65] transition-all duration-500 rounded-[2px] px-6 py-2.5 ml-8"
+      >
+        <span class="absolute inset-0 bg-white transform translate-y-[100%] group-hover/cta:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]"></span>
+        <span class="relative z-10 transition-colors duration-500">Diseña tu experiencia</span>
+      </a>
+
+      <!-- Hamburguesa mobile -->
+      <button
+        id="nav-hamburger"
+        class="lg:hidden flex flex-col gap-1.5 p-2 group z-50 relative ml-4"
+        aria-label="Abrir menú de navegación"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="hamburger-line block w-6 h-[1px] bg-current transition-all duration-300 origin-center group-aria-expanded:rotate-45 group-aria-expanded:translate-y-[7px]"></span>
+        <span class="hamburger-line-mid block w-6 h-[1px] bg-current transition-all duration-300 group-aria-expanded:opacity-0"></span>
+        <span class="hamburger-line block w-6 h-[1px] bg-current transition-all duration-300 ml-auto origin-center group-aria-expanded:-rotate-45 group-aria-expanded:-translate-y-[7px]"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 bg-gradient-to-b from-[#362b21] via-[#1C1713] to-[#0C0A09] z-[100] hidden flex-col items-center justify-center px-8 pointer-events-auto overflow-y-auto"
+    role="navigation"
+    aria-label="Menú móvil"
+  >
+    <!-- Top Bar inside Mobile Menu -->
+    <div class="absolute top-0 left-0 w-full flex justify-between items-start p-6 md:p-8">
+      <img src="/logo.png" alt="Luxury Voyage Collection" class="h-10 md:h-12 w-auto object-contain" />
+      <button id="mobile-close" aria-label="Cerrar menú" class="p-2 text-white/50 hover:text-[#D4AD65] transition-colors duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <!-- Star ornament -->
+    <div class="text-[#D4AD65] text-lg mb-10 opacity-70 mt-24">✦</div>
+
+    <div class="flex flex-col items-center gap-7 w-full max-w-sm mx-auto pb-20">
+      <a href="/" class="font-label text-xs md:text-sm uppercase tracking-[0.25em] text-white hover:text-[#D4AD65] transition-colors">
+        Home
+      </a>
+      
+      <div class="flex flex-col items-center gap-1">
+        <span class="font-label text-xs md:text-sm uppercase tracking-[0.25em] text-white/50 mb-4 flex items-center gap-2">
+          Universos
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-50"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </span>
+        {
+          universos.map((link) => (
+            <a href={link.href} class="font-label text-xs uppercase tracking-[0.2em] text-[#D4AD65]/80 hover:text-[#D4AD65] transition-colors py-2">
+              {link.label}
+            </a>
+          ))
+        }
+      </div>
+
+      {
+        mainLinks.map((link) => (
+          <a href={link.href} class="font-label text-xs md:text-sm uppercase tracking-[0.25em] text-white hover:text-[#D4AD65] transition-colors">
+            {link.label}
+          </a>
+        ))
+      }
+
+      <a
+        href="/contacto"
+        class="font-label text-xs md:text-sm uppercase tracking-[0.25em] text-[#D4AD65] hover:text-white transition-colors mt-4"
+      >
+        Diseña tu experiencia
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const navRoot = document.getElementById("main-nav");
+  const navPill = document.getElementById("nav-pill");
+  const navLogo = document.getElementById("nav-logo");
+  const hamburger = document.getElementById("nav-hamburger");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileClose = document.getElementById("mobile-close");
+
+  function updateNav() {
+    if (!navPill) return;
+    
+    if (window.scrollY > 80) {
+      // Estado con SCROLL: Se convierte en la cápsula
+      navPill.classList.remove("border-transparent", "bg-transparent", "py-6", "max-w-[1920px]");
+      navPill.classList.add(
+        "border-white/10", 
+        "bg-gradient-to-r", "from-[#D4AD65]/40", "via-[#1C1713]/95", "to-[#1C1713]/95",
+        "backdrop-blur-xl", "rounded-full", "py-2", "shadow-xl", "mt-4", "max-w-[1600px]"
+      );
+      
+      // Forzar texto blanco dentro del pill oscuro si estamos en tema claro
+      if (navRoot?.dataset.theme === "light") {
+        navRoot.classList.remove("text-[#1C1713]");
+        navRoot.classList.add("text-white");
+      }
+
+      if(navLogo) navLogo.classList.replace("h-10", "h-8");
+      if(navLogo) navLogo.classList.replace("md:h-12", "md:h-10");
+    } else {
+      // Estado INICIAL: Transparente y ancho
+      navPill.classList.remove(
+        "border-white/10", 
+        "bg-gradient-to-r", "from-[#D4AD65]/40", "via-[#1C1713]/95", "to-[#1C1713]/95",
+        "backdrop-blur-xl", "rounded-full", "py-2", "shadow-xl", "mt-4", "max-w-[1600px]"
+      );
+      navPill.classList.add("border-transparent", "bg-transparent", "py-6", "max-w-[1920px]");
+      
+      // Revertir a texto oscuro si estamos en el top de la página y el tema es light
+      if (navRoot?.dataset.theme === "light") {
+        navRoot.classList.remove("text-white");
+        navRoot.classList.add("text-[#1C1713]");
+      }
+
+      if(navLogo) navLogo.classList.replace("h-8", "h-10");
+      if(navLogo) navLogo.classList.replace("md:h-10", "md:h-12");
+    }
+  }
+
+  window.addEventListener("scroll", updateNav, { passive: true });
+  updateNav(); // Ejecutar al cargar para inicializar el estado
+
+  hamburger?.addEventListener("click", () => {
+    hamburger.setAttribute("aria-expanded", "true");
+    mobileMenu?.classList.remove("hidden");
+    mobileMenu?.classList.add("flex");
+    navPill?.classList.add("opacity-0", "pointer-events-none");
+    document.body.style.overflow = "hidden";
+  });
+
+  mobileClose?.addEventListener("click", () => {
+    hamburger.setAttribute("aria-expanded", "false");
+    mobileMenu?.classList.add("hidden");
+    mobileMenu?.classList.remove("flex");
+    navPill?.classList.remove("opacity-0", "pointer-events-none");
+    document.body.style.overflow = "";
+  });
+</script>

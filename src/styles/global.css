@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+/* =============================================
+   LVC GRAND ATELIER — Design System Tokens
+   Paleta: Primary #775A19 · Secondary #645D5A
+           Tertiary #D4AD65 · Neutral #FAF9F6
+   Tipografía: Noto Serif · Manrope · Inter
+   ============================================= */
+
+@theme {
+  /* ── Color Palette — Light Cream + Olive Gold ── */
+  --color-surface: #FAF9F6;
+  --color-background: #FAF9F6;
+  --color-surface-bright: #FFFFFF;
+  --color-surface-container-lowest: #F0EEE9;
+  --color-surface-container-low: #EAE7E1;
+  --color-surface-container: #E2DED7;
+  --color-surface-container-high: #D8D4CC;
+  --color-surface-container-highest: #CEC9C0;
+  --color-surface-dim: #DDD9D2;
+  --color-surface-variant: #EDE9E2;
+
+  /* Primary — Olive Brown #775A19 */
+  --color-primary: #775A19;
+  --color-on-primary: #FAF9F6;
+  --color-primary-container: #E8D8B0;
+  --color-on-primary-container: #3B2A06;
+  --color-primary-fixed: #F5EAC8;
+  --color-primary-fixed-dim: #D4AD65;
+  --color-on-primary-fixed: #3B2A06;
+  --color-on-primary-fixed-variant: #5A4212;
+  --color-inverse-primary: #D4AD65;
+
+  /* Secondary — Warm Gray #645D5A */
+  --color-secondary: #645D5A;
+  --color-on-secondary: #FAF9F6;
+  --color-secondary-container: #DDD5CF;
+  --color-on-secondary-container: #1E1917;
+  --color-secondary-fixed: #EDE7E3;
+  --color-secondary-fixed-dim: #C5BCB7;
+  --color-on-secondary-fixed: #1E1917;
+  --color-on-secondary-fixed-variant: #4A4440;
+
+  /* Tertiary — Champagne Gold #D4AD65 */
+  --color-tertiary: #D4AD65;
+  --color-on-tertiary: #3B2A06;
+  --color-tertiary-container: #F5EAC8;
+  --color-on-tertiary-container: #3B2A06;
+  --color-tertiary-fixed: #FBF2DC;
+  --color-tertiary-fixed-dim: #D4AD65;
+  --color-on-tertiary-fixed: #3B2A06;
+  --color-on-tertiary-fixed-variant: #775A19;
+
+  /* Texto sobre fondo crema */
+  --color-on-background: #1C1713;
+  --color-on-surface: #1C1713;
+  --color-on-surface-variant: #645D5A;
+  --color-inverse-surface: #1C1713;
+  --color-inverse-on-surface: #FAF9F6;
+  --color-surface-tint: #775A19;
+
+  /* Outlines */
+  --color-outline: #9E9590;
+  --color-outline-variant: #D0C9C3;
+
+  /* Error */
+  --color-error: #BA1A1A;
+  --color-on-error: #FAF9F6;
+  --color-error-container: #FFDAD6;
+  --color-on-error-container: #410002;
+
+  /* ── Font Families — LVC Grand Atelier ── */
+  --font-family-headline: "Noto Serif", Georgia, serif;
+  --font-family-body: "Manrope", system-ui, sans-serif;
+  --font-family-label: "Inter", system-ui, sans-serif;
+
+  /* ── Border Radius ── */
+  --radius: 6px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+  --radius-full: 9999px;
+}
+
+/* =============================================
+   Base Styles
+   ============================================= */
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+    font-family: var(--font-family-body);
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-tertiary) 35%, transparent);
+    color: var(--color-on-primary);
+  }
+}
+
+/* =============================================
+   Utilities
+   ============================================= */
+@layer utilities {
+  /* Light glassmorphism — crema translúcida */
+  .glass-panel {
+    background: rgba(250, 249, 246, 0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(119, 90, 25, 0.18);
+  }
+
+  /* Navbar glassmorphism en claro */
+  .glass-nav {
+    background: rgba(250, 249, 246, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(119, 90, 25, 0.15);
+    box-shadow: 0 1px 24px rgba(0,0,0,0.06);
+  }
+
+  /* Gradiente dorado primario */
+  .antique-gold-gradient {
+    background: linear-gradient(135deg, #5A4212 0%, #775A19 50%, #9A7522 100%);
+  }
+
+  /* Gradiente champagne acento */
+  .champagne-gradient {
+    background: linear-gradient(135deg, #C09340 0%, #D4AD65 55%, #EAC97A 100%);
+  }
+
+  /* Texto vertical decorativo */
+  .text-vertical {
+    writing-mode: vertical-rl;
+  }
+
+  /* Font families */
+  .font-headline {
+    font-family: var(--font-family-headline);
+  }
+
+  .font-body {
+    font-family: var(--font-family-body);
+  }
+
+  .font-label {
+    font-family: var(--font-family-label);
+  }
+
+  /* Texto sobre fondo crema */
+  .text-on-background {
+    color: var(--color-on-background);
+  }
+
+  .text-on-surface-variant {
+    color: var(--color-on-surface-variant);
+  }
+
+  /* ── Section Backgrounds ── */
+  .section-navy {
+    background-color: #FAF9F6;
+  }
+
+  .section-navy-alt {
+    background-color: #F0EEE9;
+  }
+
+  /* Sección oscura para contraste (hero overlays, CTA banners) */
+  .section-dark {
+    background-color: #1C1713;
+  }
+}

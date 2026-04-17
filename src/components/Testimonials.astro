@@ -1,0 +1,92 @@
+---
+/**
+ * Testimonials.astro — Navy & Gold Design System
+ *
+ * Sección de testimonios de viajeros de lujo.
+ * Inspirado en la sección "Nuestros Novios dicen..." de Honimunn.
+ * Diseño en grid de 3 columnas con borde superior dorado en cada card.
+ */
+
+const testimonials = [
+  {
+    quote:
+      "Luxury Voyages transformó nuestra idea de un viaje en algo completamente mágico. Cada detalle fue perfecto, desde el ryokan privado en Kioto hasta el amanecer sobre el desierto de Namibia.",
+    name: "Andrea & Miguel",
+    trip: "Asia & África · 21 días",
+    initials: "AM",
+  },
+  {
+    quote:
+      "El nivel de atención personal es incomparable. Sentimos desde el primer día que estábamos en las mejores manos. Los pequeños detalles —una botella de vino en la villa, la mesa reservada— hicieron la diferencia.",
+    name: "Sofía & Carlos",
+    trip: "Costa Amalfitana · 14 días",
+    initials: "SC",
+  },
+  {
+    quote:
+      "No sabíamos que Al Ula existía hasta que nos lo recomendaron. Fue el viaje más impactante de nuestras vidas. Gracias por abrirnos los ojos a un mundo que pocas personas conocen.",
+    name: "Elena & Rodrigo",
+    trip: "Medio Oriente · 10 días",
+    initials: "ER",
+  },
+];
+---
+
+<section
+  id="testimonios"
+  class="py-28 section-navy"
+  aria-label="Testimonios de viajeros"
+>
+  <div class="max-w-[1920px] mx-auto px-8 md:px-12">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <span
+        class="font-label uppercase tracking-[0.45em] text-[#D4AD65] text-xs block mb-4"
+      >
+        Nuestros Viajeros
+      </span>
+      <h2
+        class="font-headline text-on-background"
+        style="font-size: clamp(2rem, 4vw, 3rem);"
+      >
+        Historias Reales
+      </h2>
+    </div>
+
+    <!-- Grid de testimonios -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+      {
+        testimonials.map((t) => (
+          <article
+            class="border-t-2 border-[#D4AD65] pt-8 px-2 pb-4 flex flex-col"
+            aria-label={`Testimonio de ${t.name}`}
+          >
+            <!-- Comilla decorativa -->
+            <span class="font-headline text-6xl text-[#D4AD65] leading-none block mb-4 select-none">
+              "
+            </span>
+            <p class="font-body text-on-surface-variant leading-relaxed mb-8 italic text-[15px] flex-1">
+              {t.quote}
+            </p>
+            <!-- Autor -->
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-[#D4AD65]/15 border border-[#D4AD65]/40 flex items-center justify-center flex-none">
+                <span class="font-label text-[#D4AD65] text-xs font-semibold">
+                  {t.initials}
+                </span>
+              </div>
+              <div>
+                <p class="font-label font-semibold text-on-background text-sm">
+                  {t.name}
+                </p>
+                <p class="font-label text-[#D4AD65] text-xs uppercase tracking-[0.2em] mt-0.5">
+                  {t.trip}
+                </p>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

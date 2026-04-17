@@ -1,0 +1,201 @@
+---
+/**
+ * Footer.astro — Navy & Gold Design System
+ *
+ * Footer estilo Honimunn: logo textual, listas de destinos/compañía,
+ * columna de contacto con 3 ciudades y redes sociales circulares.
+ * Fondo #F0EEE9 (navy más oscuro) para contraste con el resto de secciones.
+ */
+
+const destinations = [
+  { label: "África", href: "#destinos-africa" },
+  { label: "Asia", href: "#destinos-asia" },
+  { label: "Europa", href: "#destinos-europa" },
+  { label: "Medio Oriente", href: "#destinos-medio-oriente" },
+  { label: "Mejores Destinos 2026", href: "#top-destinos" },
+];
+
+const company = [
+  { label: "Sobre Nosotros", href: "#por-que-nosotros" },
+  { label: "Journal de Viaje", href: "#" },
+  { label: "Financia tu Viaje", href: "#" },
+  { label: "¿Eres una agencia?", href: "#" },
+  { label: "Aviso Legal", href: "#" },
+];
+
+const offices = [
+  {
+    city: "CIUDAD DE MÉXICO",
+    address: "Presidente Masaryk 61, Polanco\nCDMX 11560, México",
+    phone: "+52 55 1234 5678",
+  },
+  {
+    city: "MADRID",
+    address: "C. José Abascal 45, Piso 3\n28003 Madrid, España",
+    phone: "+34 91 000 1234",
+  },
+  {
+    city: "MIAMI",
+    address: "1221 Brickell Ave, Suite 900\nMiami, FL 33131, EE.UU.",
+    phone: "+1 305 000 1234",
+  },
+];
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer id="footer" class="w-full bg-[#F0EEE9]" aria-label="Pie de página">
+  <!-- Cuerpo principal del footer -->
+  <div class="max-w-[1920px] mx-auto px-8 md:px-12 pt-20 pb-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+      <!-- Columna marca -->
+      <div>
+      <img
+        src="/logo.png"
+        alt="Luxury Voyage Collection"
+        class="h-20 w-auto object-contain mb-5 logo-footer"
+        width="80"
+        height="80"
+        loading="lazy"
+      />
+        <p
+          class="font-body text-sm text-[#1C1713]/50 leading-relaxed mb-8 max-w-[240px]"
+        >
+          La agencia de viajes de ultra-lujo a medida. Diseñamos las aventuras
+          más importantes de tu vida.
+        </p>
+        <!-- Redes sociales — círculos como Honimunn -->
+        <div class="flex gap-3" aria-label="Redes sociales">
+          <a
+            href="#"
+            aria-label="Instagram"
+            class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-white/50 hover:border-[#D4AD65] hover:text-[#D4AD65] transition-all duration-300 text-xs font-bold tracking-tight"
+          >
+            IG
+          </a>
+          <a
+            href="#"
+            aria-label="TikTok"
+            class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-white/50 hover:border-[#D4AD65] hover:text-[#D4AD65] transition-all duration-300 text-xs font-bold"
+          >
+            TK
+          </a>
+          <a
+            href="#"
+            aria-label="LinkedIn"
+            class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-white/50 hover:border-[#D4AD65] hover:text-[#D4AD65] transition-all duration-300 text-xs font-bold"
+          >
+            in
+          </a>
+        </div>
+      </div>
+
+      <!-- Columna destinos -->
+      <nav aria-label="Destinos">
+        <h4
+          class="font-label uppercase tracking-[0.25em] text-xs text-[#D4AD65] mb-6"
+        >
+          Destinos
+        </h4>
+        <div class="flex flex-col gap-3">
+          {
+            destinations.map((link) => (
+              <a
+                href={link.href}
+                class="font-body text-sm text-[#1C1713]/50 hover:text-white transition-colors duration-300"
+              >
+                {link.label}
+              </a>
+            ))
+          }
+        </div>
+      </nav>
+
+      <!-- Columna compañía -->
+      <nav aria-label="Compañía">
+        <h4
+          class="font-label uppercase tracking-[0.25em] text-xs text-[#D4AD65] mb-6"
+        >
+          Compañía
+        </h4>
+        <div class="flex flex-col gap-3">
+          {
+            company.map((link) => (
+              <a
+                href={link.href}
+                class="font-body text-sm text-[#1C1713]/50 hover:text-white transition-colors duration-300"
+              >
+                {link.label}
+              </a>
+            ))
+          }
+        </div>
+      </nav>
+
+      <!-- Columna contacto con oficinas — clave en Honimunn -->
+      <div>
+        <h4
+          class="font-label uppercase tracking-[0.25em] text-xs text-[#D4AD65] mb-6"
+        >
+          Contacto
+        </h4>
+        <a
+          href="mailto:hola@luxuryvoyages.com"
+          class="font-body text-sm text-[#1C1713]/50 hover:text-[#D4AD65] transition-colors duration-300 block mb-6"
+        >
+          hola@luxuryvoyages.com
+        </a>
+        <div class="flex flex-col gap-5">
+          {
+            offices.map((office) => (
+              <div class="border-t border-white/8 pt-5">
+                <p class="font-label uppercase text-[11px] tracking-[0.2em] text-white mb-1.5">
+                  {office.city}
+                </p>
+                <p class="font-body text-xs text-[#1C1713]/45 leading-relaxed whitespace-pre-line">
+                  {office.address}
+                </p>
+                <p class="font-body text-xs text-[#1C1713]/45 mt-1">
+                  {office.phone}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Barra inferior -->
+  <div
+    class="border-t border-white/5 px-8 md:px-12 py-6 max-w-[1920px] mx-auto flex flex-col md:flex-row justify-between items-center gap-3"
+  >
+    <p class="font-label text-xs text-[#1C1713]/30">
+      © {currentYear} Luxury Voyage Collection · Todos los derechos reservados.
+    </p>
+    <div class="flex gap-6">
+      <a
+        href="#"
+        class="font-label text-xs text-[#1C1713]/30 hover:text-white/60 transition-colors duration-300"
+        >Privacidad</a
+      >
+      <a
+        href="#"
+        class="font-label text-xs text-[#1C1713]/30 hover:text-white/60 transition-colors duration-300"
+        >Términos</a
+      >
+      <a
+        href="#"
+        class="font-label text-xs text-[#1C1713]/30 hover:text-white/60 transition-colors duration-300"
+        >Cookies</a
+      >
+    </div>
+  </div>
+</footer>
+
+<style>
+  .logo-footer {
+    mix-blend-mode: multiply;
+    filter: brightness(1.05);
+  }
+</style>

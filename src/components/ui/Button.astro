@@ -1,0 +1,69 @@
+---
+/**
+ * Button.astro — Ivory & Espresso Design System
+ *
+ * Variantes:
+ *  - "gold"    → antique-gold-gradient background (Primary CTA)
+ *  - "outline" → border-b only, text link style (Secondary CTA)
+ *  - "ghost"   → transparent with white border (Nav CTA)
+ *
+ * Props:
+ *  - href?: string        — renders <a> if set, <button> otherwise
+ *  - variant?: string     — "gold" | "outline" | "ghost"
+ *  - icon?: string        — Material Symbol name (e.g. "arrow_forward")
+ *  - class?: string       — extra utility classes
+ */
+
+interface Props {
+  href?: string;
+  variant?: "gold" | "outline" | "ghost";
+  icon?: string;
+  class?: string;
+  id?: string;
+}
+
+const {
+  href,
+  variant = "gold",
+  icon,
+  class: extraClass = "",
+  id,
+} = Astro.props;
+
+const baseClasses =
+  "inline-flex items-center gap-4 font-label uppercase tracking-[0.2em] text-[11px] transition-all duration-300 cursor-pointer group";
+
+const variants: Record<string, string> = {
+  gold: "antique-gold-gradient text-white px-10 py-4 hover:opacity-90",
+  outline:
+    "border-b border-primary text-on-background px-0 py-2 hover:text-primary",
+  ghost:
+    "px-8 py-2 border border-white text-white hover:bg-white hover:text-on-background tracking-[0.3em] text-[11px]",
+};
+
+const classes = [baseClasses, variants[variant], extraClass]
+  .filter(Boolean)
+  .join(" ");
+---
+
+{
+  href ? (
+    <a href={href} class={classes} id={id}>
+      <slot />
+      {icon && (
+        <span class="material-symbols-outlined text-sm group-hover:translate-x-2 transition-transform duration-300">
+          {icon}
+        </span>
+      )}
+    </a>
+  ) : (
+    <button class={classes} id={id}>
+      <slot />
+      {icon && (
+        <span class="material-symbols-outlined text-sm group-hover:translate-x-2 transition-transform duration-300">
+          {icon}
+        </span>
+      )}
+    </button>
+  )
+}

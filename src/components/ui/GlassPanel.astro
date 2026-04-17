@@ -1,0 +1,27 @@
+---
+/**
+ * GlassPanel.astro — Ivory & Espresso Design System
+ *
+ * Contenedor glassmorphism reutilizable.
+ * Aplica: rgba(250,249,246,0.65) + backdrop-blur(12px)
+ *
+ * Props:
+ *  - class?: string  — clases extra (padding, border acento, etc.)
+ *  - as?: string     — elemento HTML a renderizar (default: "div")
+ *  - id?: string
+ */
+
+interface Props {
+  class?: string;
+  as?: string;
+  id?: string;
+}
+
+const { class: extraClass = "", as: Tag = "div", id } = Astro.props;
+
+const classes = ["glass-panel", extraClass].filter(Boolean).join(" ");
+---
+
+<Tag class={classes} id={id}>
+  <slot />
+</Tag>

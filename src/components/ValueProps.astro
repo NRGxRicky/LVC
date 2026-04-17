@@ -1,0 +1,119 @@
+---
+/**
+ * ValueProps.astro — Navy & Gold Design System
+ *
+ * Sección "¿Por qué elegirnos?" con 4 pilares y íconos.
+ * Inspirado en la sección de ventajas de Honimunn.
+ * Animación de entrada con IntersectionObserver.
+ */
+
+const props = [
+  {
+    icon: "workspace_premium",
+    title: "Expertos en Lujo",
+    desc: "Más de 15 años cubriendo los destinos más exclusivos del mundo con criterio editorial.",
+  },
+  {
+    icon: "support_agent",
+    title: "Atención 24/7",
+    desc: "Tu viaje nos importa en todo momento. Soporte continuo antes, durante y después.",
+  },
+  {
+    icon: "design_services",
+    title: "Diseño a Tu Medida",
+    desc: "Cada itinerario es único. Creamos tu experiencia desde cero según tus deseos y ritmos.",
+  },
+  {
+    icon: "diamond",
+    title: "Redes Exclusivas",
+    desc: "Acceso a propiedades, mesas y experiencias no disponibles al público general.",
+  },
+];
+---
+
+<section
+  id="por-que-nosotros"
+  class="py-28 section-navy-alt"
+  aria-label="Por qué elegirnos"
+>
+  <div class="max-w-[1920px] mx-auto px-8 md:px-12">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <span
+        class="font-label uppercase tracking-[0.45em] text-[#D4AD65] text-xs block mb-4"
+      >
+        Nuestra Diferencia
+      </span>
+      <h2
+        class="font-headline text-on-background"
+        style="font-size: clamp(2rem, 4vw, 3rem);"
+      >
+        ¿Por qué elegirnos?
+      </h2>
+    </div>
+
+    <!-- Grid de pilares -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      {
+        props.map((item, i) => (
+          <article
+            class="value-prop-card text-center px-6 py-10 border border-white/5 rounded-lg hover:border-[#D4AD65]/30 transition-all duration-500 group opacity-0"
+            aria-label={item.title}
+            style={`animation-delay: ${i * 120}ms`}
+          >
+            <!-- Ícono circular -->
+            <div class="w-16 h-16 mx-auto mb-6 border border-[#D4AD65]/35 rounded-full flex items-center justify-center group-hover:bg-[#D4AD65]/10 group-hover:border-[#D4AD65]/70 transition-all duration-500">
+              <span class="material-symbols-outlined text-[#D4AD65] text-2xl">
+                {item.icon}
+              </span>
+            </div>
+            <h3 class="font-headline text-xl text-on-background mb-3">
+              {item.title}
+            </h3>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed">
+              {item.desc}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .value-prop-card {
+    transform: translateY(30px);
+    transition:
+      opacity 0.6s ease-out,
+      transform 0.6s ease-out,
+      border-color 0.5s ease,
+      background-color 0.5s ease;
+  }
+
+  .value-prop-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  const cards = document.querySelectorAll<HTMLElement>(".value-prop-card");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const card = entry.target as HTMLElement;
+          const delay = card.style.animationDelay || "0ms";
+          setTimeout(() => {
+            card.classList.add("visible");
+          }, parseInt(delay));
+          observer.unobserve(card);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  cards.forEach((card) => observer.observe(card));
+</script>

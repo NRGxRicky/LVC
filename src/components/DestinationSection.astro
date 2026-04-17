@@ -1,0 +1,170 @@
+---
+/**
+ * DestinationSection.astro — Ivory & Espresso Design System
+ *
+ * Componente dinámico reutilizable para secciones de destino.
+ * Elimina la repetición de código para Asia, Europa, África y Medio Oriente.
+ *
+ * Props:
+ *  - title: string         — Título principal (e.g. "Asia: El Susurro del Zen")
+ *  - subtitle: string      — Label superior (e.g. "Destinos de Oriente")
+ *  - description: string   — Texto narrativo del cuerpo
+ *  - imageSrc: string      — URL de la imagen de fondo
+ *  - imageAlt: string      — Alt text descriptivo
+ *  - alignment: "left" | "center" | "right"  — Posición del panel de cristal
+ *  - ctaText: string       — Texto del CTA principal
+ *  - ctaVariant: "gold" | "outline"
+ *  - accentBorder?: string — clase extra de borde accent (e.g. "border-l-4 border-primary")
+ *  - extraText?: string    — texto vertical decorativo (África)
+ *  - quote?: string        — cita en itálica (Medio Oriente)
+ *  - centerLayout?: boolean — layout centrado (Medio Oriente)
+ *  - id?: string
+ */
+
+import GlassPanel from "./ui/GlassPanel.astro";
+import Button from "./ui/Button.astro";
+
+interface Props {
+  title: string;
+  subtitle: string;
+  description: string;
+  imageSrc: string;
+  imageAlt: string;
+  alignment?: "left" | "center" | "right";
+  ctaText: string;
+  ctaVariant?: "gold" | "outline";
+  accentBorder?: string;
+  extraText?: string;
+  quote?: string;
+  centerLayout?: boolean;
+  id?: string;
+  bgClass?: string;
+}
+
+const {
+  title,
+  subtitle,
+  description,
+  imageSrc,
+  imageAlt,
+  alignment = "left",
+  ctaText,
+  ctaVariant = "gold",
+  accentBorder = "",
+  extraText,
+  quote,
+  centerLayout = false,
+  id,
+  bgClass = "",
+} = Astro.props;
+
+// Determine grid column placement
+const colPlacement: Record<string, string> = {
+  left: "col-start-2 col-span-10 md:col-span-5",
+  center: "col-start-4 col-span-10 md:col-span-6",
+  right: "col-start-7 col-span-10 md:col-span-5",
+};
+
+const sectionJustify: Record<string, string> = {
+  left: "flex items-center",
+  center: "flex items-center justify-center",
+  right: "flex items-center justify-end",
+};
+---
+
+<section
+  id={id}
+  class={`min-h-screen w-full relative ${sectionJustify[alignment]} ${bgClass}`}
+  aria-label={title}
+>
+  <!-- Background image -->
+  <img
+    class="absolute inset-0 w-full h-full object-cover"
+    src={imageSrc}
+    alt={imageAlt}
+    width="1920"
+    height="1080"
+    loading="lazy"
+  />
+
+  {/* Optional overlay for center sections */}
+  {
+    centerLayout && (
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-[#1a1c1a]/40 to-transparent"
+        aria-hidden="true"
+      />
+    )
+  }
+
+  <!-- Content grid -->
+  <div class="w-full max-w-[1920px] mx-auto px-12 relative z-10 grid grid-cols-12">
+    {
+      centerLayout ? (
+        /* ── Medio Oriente: layout centrado con quote ── */
+        <div class="col-span-12 flex justify-center">
+          <GlassPanel
+            class={`p-20 text-center max-w-3xl w-full border-t-8 border-primary ${accentBorder}`}
+          >
+            <span class="font-label uppercase tracking-[0.4em] text-primary text-[10px] mb-6 block">
+              {subtitle}
+            </span>
+            <h2 class="font-headline text-on-background leading-tight mb-8"
+                style="font-size: clamp(2.5rem, 6vw, 5rem);">
+              {title}
+            </h2>
+            {quote && (
+              <p class="font-body text-xl leading-relaxed text-on-surface-variant mb-12 italic">
+                "{quote}"
+              </p>
+            )}
+            {!quote && (
+              <p class="font-body text-lg leading-relaxed text-on-surface-variant mb-12 max-w-md mx-auto">
+                {description}
+              </p>
+            )}
+            <Button href="#" variant={ctaVariant} icon={ctaVariant === "gold" ? undefined : "arrow_forward"}>
+              {ctaText}
+            </Button>
+          </GlassPanel>
+        </div>
+      ) : (
+        /* ── Asia / Europa / África ── */
+        <>
+          <div class={colPlacement[alignment]}>
+            <GlassPanel class={`p-16 ${accentBorder}`}>
+              <span class="font-label uppercase tracking-[0.4em] text-primary text-[10px] mb-4 block">
+                {subtitle}
+              </span>
+              <h2
+                class="font-headline text-on-background leading-tight mb-8"
+                style="font-size: clamp(2.25rem, 5vw, 4.5rem);"
+              >
+                {title}
+              </h2>
+              <p class="font-body text-lg leading-relaxed text-on-surface-variant mb-10 max-w-md">
+                {description}
+              </p>
+              <Button
+                href="#"
+                variant={ctaVariant}
+                icon="arrow_forward"
+              >
+                {ctaText}
+              </Button>
+            </GlassPanel>
+          </div>
+
+          {/* Vertical decorative text (África only) */}
+          {extraText && (
+            <div class="hidden md:flex flex-col justify-center items-center col-start-10 col-span-2">
+              <span class="text-vertical font-label uppercase tracking-[1em] text-white/60 text-[10px]">
+                {extraText}
+              </span>
+            </div>
+          )}
+        </>
+      )
+    }
+  </div>
+</section>

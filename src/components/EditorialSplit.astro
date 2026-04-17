@@ -1,0 +1,75 @@
+---
+export interface Props {
+  imageSrc: string;
+  imageAlt: string;
+  subtitle: string;
+  headingText1: string;
+  accentWord: string;
+  headingText2?: string;
+  paragraph: string;
+  ctaText?: string;
+  ctaLink?: string;
+  reverse?: boolean;
+}
+
+const {
+  imageSrc,
+  imageAlt,
+  subtitle,
+  headingText1,
+  accentWord,
+  headingText2 = "",
+  paragraph,
+  ctaText = "Descubrir",
+  ctaLink = "/contacto",
+  reverse = false,
+} = Astro.props;
+---
+
+<section class="w-full bg-[#FAF9F6] py-32 md:py-48 overflow-hidden">
+  <div class="max-w-[1920px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-16 md:gap-24 lg:gap-32">
+    
+    <!-- Bloque de Fotografía (50%) -->
+    <div class={`w-full md:w-1/2 flex justify-center reveal-up ${reverse ? 'md:order-2' : ''}`}>
+      <!-- Margen negativo para empujar la imagen estilo revista o mantenerla alta -->
+      <div class="w-full max-w-lg aspect-[3/4] relative group">
+        <img 
+          src={imageSrc} 
+          alt={imageAlt}
+          class="w-full h-full object-cover transition-transform duration-[6000ms] ease-out group-hover:scale-105"
+        />
+        <!-- Sutil capa oscura que se extingue al hover -->
+        <div class="absolute inset-0 bg-[#1C1713]/10 transition-opacity duration-1000 group-hover:opacity-0 mix-blend-multiply"></div>
+      </div>
+    </div>
+
+    <!-- Bloque de Tipografía Asimétrica (50%) -->
+    <div class={`w-full md:w-1/2 flex flex-col items-start ${reverse ? 'md:order-1' : ''}`}>
+      <div class="max-w-xl">
+        <span class="font-label text-[10px] md:text-xs font-bold text-[#D4AD65] uppercase tracking-[0.2em] block mb-8 reveal-up">
+          {subtitle}
+        </span>
+        
+        <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl text-[#1C1713] leading-[1.2] mb-10 reveal-up reveal-delay-100">
+          {headingText1} 
+          <span class="text-[#D4AD65] italic font-serif opacity-90">{accentWord}</span>
+          {headingText2 && <span> {headingText2}</span>}
+        </h2>
+        
+        <p class="font-sans text-sm md:text-base text-[#1C1713]/70 leading-relaxed mb-12 reveal-up reveal-delay-200">
+          {paragraph}
+        </p>
+        
+        <a 
+          href={ctaLink} 
+          class="group/cta overflow-hidden relative inline-flex items-center gap-4 font-label text-xs uppercase tracking-[0.2em] font-medium text-[#1C1713] pb-4 border-b border-[#1C1713]/20 hover:border-[#1C1713] transition-colors duration-500 reveal-up reveal-delay-300"
+        >
+          <span class="absolute bottom-0 left-0 w-full h-[1px] bg-[#D4AD65] scale-x-0 group-hover/cta:scale-x-100 origin-right group-hover/cta:origin-left transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)]"></span>
+          <span class="group-hover/cta:text-[#D4AD65] transition-colors duration-500 delay-75">{ctaText}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover/cta:translate-x-3 transition-transform duration-700 opacity-60 group-hover/cta:opacity-100"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>

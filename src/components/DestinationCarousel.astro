@@ -1,0 +1,223 @@
+---
+/**
+ * DestinationCarousel.astro — Navy & Gold Design System
+ *
+ * Carrusel horizontal de cards de destinos — similar al de Honimunn.
+ * Includes navigation arrows (prev/next) and hover overlay effect.
+ */
+
+interface DestCard {
+  title: string;
+  region: string;
+  imageSrc: string;
+  imageAlt: string;
+  href?: string;
+}
+
+const destinations: DestCard[] = [
+  {
+    title: "Kioto, Japón",
+    region: "Asia",
+    // Templo Fushimi Inari de Kioto con toriis rojos en el bosque
+    imageSrc: "https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?w=1200&q=90",
+    imageAlt: "Puertas torii naranjas del santuario Fushimi Inari de Kioto al amanecer",
+    href: "#destinos-asia",
+  },
+  {
+    title: "Costa Amalfitana",
+    region: "Europa",
+    // Costa Amalfitana con villas coloridas
+    imageSrc: "https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=1200&q=90",
+    imageAlt: "Villas de colores escalonadas en el acantilado de la Costa Amalfitana",
+    href: "#destinos-europa",
+  },
+  {
+    title: "Namibia",
+    region: "África",
+    // Dunas de Sossusvlei, Namibia
+    imageSrc: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=1200&q=90",
+    imageAlt: "Dunas de arena doradas de Sossusvlei en Namibia al amanecer",
+    href: "#destinos-africa",
+  },
+  {
+    title: "Al Ula, Arabia Saudita",
+    region: "Medio Oriente",
+    // Ruinas de Hegra / AlUla en el desierto de Arabia
+    imageSrc: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1200&q=90",
+    imageAlt: "Desierto y arquitectura lujosa en Al Ula, Arabia Saudita",
+    href: "#destinos-medio-oriente",
+  },
+  {
+    title: "Bután",
+    region: "Asia",
+    // Monasterio Tigernest de Bután en la montaña
+    imageSrc: "https://images.unsplash.com/photo-1553856622-d1b352e9a211?w=1200&q=90",
+    imageAlt: "Monasterio Taktsang colgante en los acantilados brumosos de Bután",
+    href: "#destinos-asia",
+  },
+  {
+    title: "Alpes Suizos",
+    region: "Europa",
+    // Alpes suizos con picos nevados y lago
+    imageSrc: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=1200&q=90",
+    imageAlt: "Picos nevados de los Alpes suizos reflejados en un lago alpino cristalino",
+    href: "#destinos-europa",
+  },
+];
+---
+
+<section
+  id="top-destinos"
+  class="py-24 section-navy overflow-hidden"
+  aria-label="Top Destinos"
+>
+  <div class="max-w-[1920px] mx-auto px-8 md:px-12">
+    <!-- Header de sección -->
+    <div class="flex justify-between items-end mb-12">
+      <div>
+        <span
+          class="font-label uppercase tracking-[0.45em] text-[#D4AD65] text-xs block mb-3"
+        >
+          Descubre el Mundo
+        </span>
+        <h2
+          class="font-headline text-on-background"
+          style="font-size: clamp(2rem, 4vw, 3rem);"
+        >
+          Top Destinos
+        </h2>
+      </div>
+
+      <!-- Flechas de navegación (desktop) -->
+      <div class="hidden md:flex gap-3">
+        <button
+          id="carousel-prev"
+          class="w-12 h-12 border border-[#D4AD65]/40 rounded-full flex items-center justify-center text-[#D4AD65] hover:bg-[#D4AD65] hover:text-[#1C1713] transition-all duration-300"
+          aria-label="Destinos anteriores"
+        >
+          <span class="material-symbols-outlined text-xl leading-none"
+            >arrow_back</span
+          >
+        </button>
+        <button
+          id="carousel-next"
+          class="w-12 h-12 border border-[#D4AD65]/40 rounded-full flex items-center justify-center text-[#D4AD65] hover:bg-[#D4AD65] hover:text-[#1C1713] transition-all duration-300"
+          aria-label="Destinos siguientes"
+        >
+          <span class="material-symbols-outlined text-xl leading-none"
+            >arrow_forward</span
+          >
+        </button>
+      </div>
+    </div>
+
+    <!-- Track de cards -->
+    <div class="relative overflow-hidden">
+      <div
+        id="carousel-track"
+        class="flex gap-5 md:gap-7 transition-transform duration-500 ease-out"
+      >
+        {
+          destinations.map((dest) => (
+            <article
+              class="carousel-card flex-none w-64 md:w-72 lg:w-80 group"
+              aria-label={`${dest.title}, ${dest.region}`}
+            >
+              <a href={dest.href ?? "#"} class="block">
+                <!-- Imagen con overlay hover -->
+                <div class="aspect-[3/4] overflow-hidden rounded-lg mb-4 relative">
+                  <img
+                    src={dest.imageSrc}
+                    alt={dest.imageAlt}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    width="320"
+                    height="427"
+                    loading="lazy"
+                  />
+                  <!-- Hover overlay con CTA -->
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713]/85 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
+                    <span class="font-label text-[#D4AD65] text-xs uppercase tracking-[0.3em]">
+                      Ver Destino →
+                    </span>
+                  </div>
+                </div>
+                <!-- Texto de card -->
+                <span class="font-label text-[#D4AD65] text-xs uppercase tracking-[0.35em] block mb-1.5">
+                  {dest.region}
+                </span>
+                <h3 class="font-headline text-xl text-on-background group-hover:text-[#D4AD65] transition-colors duration-300">
+                  {dest.title}
+                </h3>
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const track = document.getElementById(
+    "carousel-track"
+  ) as HTMLElement | null;
+  const prevBtn = document.getElementById("carousel-prev");
+  const nextBtn = document.getElementById("carousel-next");
+
+  if (track && prevBtn && nextBtn) {
+    // Gap + card-width combinado
+    const GAP = 28; // gap-7 = 28px
+    let currentOffset = 0;
+
+    function getCardWidth(): number {
+      const card = track.querySelector(".carousel-card") as HTMLElement | null;
+      return card ? card.offsetWidth + GAP : 320 + GAP;
+    }
+
+    function getMaxOffset(): number {
+      const totalCards = track.children.length;
+      const containerWidth = track.parentElement?.offsetWidth ?? 0;
+      const cardW = getCardWidth();
+      const visibleCards = Math.floor(containerWidth / cardW);
+      return Math.max(0, (totalCards - visibleCards) * cardW);
+    }
+
+    prevBtn.addEventListener("click", () => {
+      currentOffset = Math.max(0, currentOffset - getCardWidth() * 2);
+      track.style.transform = `translateX(-${currentOffset}px)`;
+    });
+
+    nextBtn.addEventListener("click", () => {
+      currentOffset = Math.min(
+        getMaxOffset(),
+        currentOffset + getCardWidth() * 2
+      );
+      track.style.transform = `translateX(-${currentOffset}px)`;
+    });
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    track.addEventListener(
+      "touchstart",
+      (e) => {
+        touchStartX = e.touches[0].clientX;
+      },
+      { passive: true }
+    );
+    track.addEventListener(
+      "touchend",
+      (e) => {
+        const delta = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(delta) > 50) {
+          if (delta > 0) {
+            currentOffset = Math.min(getMaxOffset(), currentOffset + getCardWidth());
+          } else {
+            currentOffset = Math.max(0, currentOffset - getCardWidth());
+          }
+          track.style.transform = `translateX(-${currentOffset}px)`;
+        }
+      },
+      { passive: true }
+    );
+  }
+</script>

@@ -1,0 +1,190 @@
+---
+/**
+ * Hero.astro — Navy & Gold Design System
+ *
+ * Slideshow automático a pantalla completa con 3 imágenes.
+ * Indicadores de slide en dorado champagne.
+ * Doble CTA: botón gold primario + link outline secundario.
+ * Scroll indicator vertical en el lado derecho.
+ */
+
+const slides = [
+  {
+    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBCpPqImO6xvv-jaqujsZNMiWaUQ5CMy1wYC8f5cdzhUS4ZanBp2xfppRTJC_40OGYZJiTIyyU1fx04nrphNUMhakw7yLfGTltan8iTeW5pJiIsmpjZ5lMbdCioHdcPVsnQnadj9atY1Y4TNR4FpwyDs_4MYKadg_I4miJjgxr_rvwbKjxQ7ZDjefc90luHaSf99VQKmfZ5MABXYqXmHrQa9NJGOKNsVEctiCYowvVzyz-UjxONw9Rvr6MutQTguuioSNe_RXlCAP4",
+    alt: "Arquitectura minimalista de lujo con líneas limpias y luz solar cálida sobre muros de piedra",
+  },
+  {
+    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAp1qlGTnJ5p0nJvus26JSYeJkUqY174pEnEMc-SM4SiJWkTlilg8172Kg91dilso7Se6JAS_Mns9vmmrEktFKU7gkEAXfg7zq1LNVIIxYcvCTyfD5MLwSIzqoZ7UJhoT8RXWSrOPFb8Py-Ze_8jpHis8TQ8S-tMHU4QyRTayd4hCahH2a_1gjuhTElteHwbt9yd6IPX7XDR1aW9Er2am9xl0I8t1ma-_P9ESo3d7bheUtX-QIDCIsUqeSFcdKVDIh3naQbuSEKc2E",
+    alt: "Paisaje zen en Kioto con templo de madera antiguo entre arces rojos en la mañana neblinosa",
+  },
+  {
+    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuCSqJ2385T9cXkHNPDcCuKiqw5VbcWkq39R2QPQDSeHE_bpeoEeIp_i9lNaPMS0ZL1ni9m6QRtbAJ8_n2K4b3lImgMjVoJfVTYLKMBt8ZdXzDB8wB8W5vH6CzDZWL00JrmfFQJqtJ9_5pqfZGJHF9Kb6Wz5k-tCG_Kwv1eKLSoTttE9_SyBk5X02EqFlGtfysN0XJrCSM6SGVElqImfRtw9e-DyjsgslFNPOQreikck0v0YXMC4uleD7xGLjjjw-VtLAcuYFA1Jpy0",
+    alt: "Lodge de safari de lujo minimalista en Namibia con dunas de arena naranja al atardecer",
+  },
+];
+---
+
+<header
+  id="hero"
+  class="h-screen w-full relative flex items-center justify-center overflow-hidden"
+  aria-label="Luxury Voyage Collection — Hero"
+>
+  <!-- Slideshow Images -->
+  {
+    slides.map((slide, i) => (
+      <img
+        class={`slide-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${i === 0 ? "opacity-100" : "opacity-0"}`}
+        src={slide.src}
+        alt={slide.alt}
+        width="1920"
+        height="1080"
+        fetchpriority={i === 0 ? "high" : undefined}
+        loading={i === 0 ? undefined : "lazy"}
+        data-slide={i}
+      />
+    ))
+  }
+
+  <!-- Overlay gradient oscuro -->
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-black/65 via-black/30 to-black/70"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Contenido hero -->
+  <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+    <span
+      class="font-label uppercase tracking-[0.6em] text-[#D4AD65] text-xs mb-8 block"
+      aria-label="Marca"
+    >
+      Luxury Voyage Collection
+    </span>
+
+    <h1
+      class="font-headline italic text-white leading-none mb-6"
+      style="font-size: clamp(3.5rem, 8vw, 6.5rem);"
+    >
+      Diseñamos la aventura
+      <br />
+      <span class="not-italic opacity-90">más importante de tu vida</span>
+    </h1>
+
+    <p
+      class="font-label text-white/70 text-base md:text-lg mb-12 max-w-xl mx-auto font-light leading-relaxed"
+    >
+      Curaduría global de experiencias de ultra-lujo a medida. Desde los
+      templos zen de Asia hasta los desiertos de Namibia.
+    </p>
+
+    <!-- Doble CTA -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <a
+        href="#top-destinos"
+        id="hero-cta-primary"
+        class="antique-gold-gradient text-white font-label text-sm uppercase tracking-[0.25em] px-10 py-4 rounded-md hover:opacity-90 transition-opacity duration-300"
+      >
+        Explorar Destinos
+      </a>
+      <a
+        href="#footer"
+        id="hero-cta-secondary"
+        class="font-label text-sm uppercase tracking-[0.25em] text-white/80 border-b border-white/40 pb-1 hover:border-[#D4AD65] hover:text-[#D4AD65] transition-all duration-300"
+      >
+        Contactar un Experto
+      </a>
+    </div>
+  </div>
+
+  <!-- Indicadores de slide -->
+  <div
+    class="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-2 z-10"
+    aria-label="Navegación de slides"
+  >
+    {
+      slides.map((_, i) => (
+        <button
+          class={`slide-dot rounded-full transition-all duration-400 ${i === 0 ? "bg-[#D4AD65] w-7 h-2" : "bg-white/35 w-2 h-2"}`}
+          data-dot={i}
+          aria-label={`Slide ${i + 1}`}
+        />
+      ))
+    }
+  </div>
+
+  <!-- Scroll indicator (derecha) -->
+  <div
+    class="absolute bottom-10 right-8 md:right-14 flex flex-col items-center gap-3"
+    aria-hidden="true"
+  >
+    <span
+      class="text-[#1C1713]/40 text-[10px] uppercase tracking-[0.4em] font-label"
+      style="writing-mode: vertical-rl;">Scroll</span
+    >
+    <div class="w-[1px] h-14 bg-white/20 overflow-hidden relative">
+      <div class="scroll-line w-full bg-[#D4AD65] absolute top-0 left-0"></div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .scroll-line {
+    height: 50%;
+    animation: scrollDrop 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollDrop {
+    0% {
+      transform: translateY(-100%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(200%);
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  const slides =
+    document.querySelectorAll<HTMLImageElement>(".slide-img");
+  const dots =
+    document.querySelectorAll<HTMLButtonElement>(".slide-dot");
+
+  let current = 0;
+  let autoplay: ReturnType<typeof setInterval>;
+
+  function goTo(index: number) {
+    // Fade out current
+    slides[current].classList.remove("opacity-100");
+    slides[current].classList.add("opacity-0");
+    dots[current].classList.remove("bg-[#D4AD65]", "w-7");
+    dots[current].classList.add("bg-white/35", "w-2");
+
+    current = index;
+
+    // Fade in new
+    slides[current].classList.remove("opacity-0");
+    slides[current].classList.add("opacity-100");
+    dots[current].classList.remove("bg-white/35", "w-2");
+    dots[current].classList.add("bg-[#D4AD65]", "w-7");
+  }
+
+  function next() {
+    goTo((current + 1) % slides.length);
+  }
+
+  function startAutoplay() {
+    autoplay = setInterval(next, 5000);
+  }
+
+  // Click en dots
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+      clearInterval(autoplay);
+      goTo(i);
+      startAutoplay();
+    });
+  });
+
+  startAutoplay();
+</script>
