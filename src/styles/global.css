@@ -73,6 +73,7 @@
   --font-family-headline: "Noto Serif", Georgia, serif;
   --font-family-body: "Manrope", system-ui, sans-serif;
   --font-family-label: "Inter", system-ui, sans-serif;
+  --font-family-montserrat: "Montserrat", sans-serif;
 
   /* ── Border Radius ── */
   --radius: 6px;
@@ -154,6 +155,10 @@
 
   .font-label {
     font-family: var(--font-family-label);
+  }
+
+  .font-montserrat {
+    font-family: var(--font-family-montserrat);
   }
 
   /* Texto sobre fondo crema */

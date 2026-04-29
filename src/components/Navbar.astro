@@ -35,9 +35,9 @@ const mainLinks = [
     <!-- Logo -->
     <a href="/" aria-label="Luxury Voyage Collection - Inicio" class="block shrink-0">
       <img
-        src="/logo.png"
+        src="/images/logo-diamond.png"
         alt="Luxury Voyage Collection"
-        class="h-10 md:h-12 w-auto object-contain transition-all duration-500"
+        class="h-12 md:h-16 w-auto object-contain transition-all duration-500"
         id="nav-logo"
         width="160"
         height="112"
@@ -122,7 +122,7 @@ const mainLinks = [
   >
     <!-- Top Bar inside Mobile Menu -->
     <div class="absolute top-0 left-0 w-full flex justify-between items-start p-6 md:p-8">
-      <img src="/logo.png" alt="Luxury Voyage Collection" class="h-10 md:h-12 w-auto object-contain" />
+      <img src="/images/logo-diamond.png" alt="Luxury Voyage Collection" class="h-12 md:h-16 w-auto object-contain" />
       <button id="mobile-close" aria-label="Cerrar menú" class="p-2 text-white/50 hover:text-[#D4AD65] transition-colors duration-300">
         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </button>
@@ -183,36 +183,34 @@ const mainLinks = [
       // Estado con SCROLL: Se convierte en la cápsula
       navPill.classList.remove("border-transparent", "bg-transparent", "py-6", "max-w-[1920px]");
       navPill.classList.add(
-        "border-white/10", 
-        "bg-gradient-to-r", "from-[#D4AD65]/40", "via-[#1C1713]/95", "to-[#1C1713]/95",
+        "border-white/20", 
+        "bg-gradient-to-r", "from-[#FAF9F6]/95", "via-[#D4AD65]/95", "to-[#9A7522]/95",
         "backdrop-blur-xl", "rounded-full", "py-2", "shadow-xl", "mt-4", "max-w-[1600px]"
       );
       
-      // Forzar texto blanco dentro del pill oscuro si estamos en tema claro
-      if (navRoot?.dataset.theme === "light") {
-        navRoot.classList.remove("text-[#1C1713]");
-        navRoot.classList.add("text-white");
-      }
+      // Forzar texto oscuro dentro del pill dorado
+      navRoot.classList.remove("text-white");
+      navRoot.classList.add("text-[#1C1713]");
 
-      if(navLogo) navLogo.classList.replace("h-10", "h-8");
-      if(navLogo) navLogo.classList.replace("md:h-12", "md:h-10");
+      if(navLogo) navLogo.classList.replace("h-12", "h-10");
+      if(navLogo) navLogo.classList.replace("md:h-16", "md:h-12");
     } else {
       // Estado INICIAL: Transparente y ancho
       navPill.classList.remove(
-        "border-white/10", 
-        "bg-gradient-to-r", "from-[#D4AD65]/40", "via-[#1C1713]/95", "to-[#1C1713]/95",
+        "border-white/20", 
+        "bg-gradient-to-r", "from-[#FAF9F6]/95", "via-[#D4AD65]/95", "to-[#9A7522]/95",
         "backdrop-blur-xl", "rounded-full", "py-2", "shadow-xl", "mt-4", "max-w-[1600px]"
       );
       navPill.classList.add("border-transparent", "bg-transparent", "py-6", "max-w-[1920px]");
       
-      // Revertir a texto oscuro si estamos en el top de la página y el tema es light
-      if (navRoot?.dataset.theme === "light") {
-        navRoot.classList.remove("text-white");
-        navRoot.classList.add("text-[#1C1713]");
+      // Revertir a texto original
+      if (navRoot?.dataset.theme === "dark") {
+        navRoot.classList.remove("text-[#1C1713]");
+        navRoot.classList.add("text-white");
       }
 
-      if(navLogo) navLogo.classList.replace("h-8", "h-10");
-      if(navLogo) navLogo.classList.replace("md:h-10", "md:h-12");
+      if(navLogo) navLogo.classList.replace("h-10", "h-12");
+      if(navLogo) navLogo.classList.replace("md:h-12", "md:h-16");
     }
   }
 
