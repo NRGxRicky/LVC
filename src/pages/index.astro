@@ -83,13 +83,14 @@ const experiencias = [
       </style>
       
       <div class="absolute inset-0 z-0 bg-[#1C1713]">
-        <img 
-          src="/images/home_hero_architecture.png" 
-          alt="Lujo Arquitectónico" 
-          class="w-full h-full object-cover object-[70%_50%] md:object-center opacity-80 animate-ken-burns"
-        />
-        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent pointer-events-none"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713] via-transparent to-transparent pointer-events-none"></div>
+        <img src="/images/hero_carousel/slide1.jpg" alt="Safari Lujo" class="hero-slide absolute inset-0 w-full h-full object-cover object-[70%_50%] md:object-center opacity-80 transition-opacity duration-1000 ease-in-out animate-ken-burns" />
+        <img src="/images/hero_carousel/slide2.jpg" alt="Safari Amanecer" class="hero-slide absolute inset-0 w-full h-full object-cover object-[70%_50%] md:object-center opacity-0 transition-opacity duration-1000 ease-in-out animate-ken-burns" />
+        <img src="/images/hero_carousel/slide3.jpg" alt="Japón Lujo" class="hero-slide absolute inset-0 w-full h-full object-cover object-[70%_50%] md:object-center opacity-0 transition-opacity duration-1000 ease-in-out animate-ken-burns" />
+        <img src="/images/hero_carousel/slide4.jpg" alt="Playa Lujo" class="hero-slide absolute inset-0 w-full h-full object-cover object-[70%_50%] md:object-center opacity-0 transition-opacity duration-1000 ease-in-out animate-ken-burns" />
+        <img src="/images/hero_carousel/slide5.jpg" alt="Globo Lujo" class="hero-slide absolute inset-0 w-full h-full object-cover object-[70%_50%] md:object-center opacity-0 transition-opacity duration-1000 ease-in-out animate-ken-burns" />
+        
+        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent pointer-events-none z-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713] via-transparent to-transparent pointer-events-none z-10"></div>
       </div>
       
       <div class="relative z-10 w-full max-w-[1920px] mx-auto px-6 md:px-12 flex flex-col items-start translate-y-4">
@@ -229,3 +230,25 @@ const experiencias = [
 
   <Footer />
 </Layout>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const slides = document.querySelectorAll('.hero-slide');
+    let currentSlide = 0;
+    
+    if (slides.length > 1) {
+      setInterval(() => {
+        // Remove active classes
+        slides[currentSlide].classList.remove('opacity-80', 'z-0');
+        slides[currentSlide].classList.add('opacity-0', '-z-10');
+        
+        // Next slide
+        currentSlide = (currentSlide + 1) % slides.length;
+        
+        // Add active classes
+        slides[currentSlide].classList.remove('opacity-0', '-z-10');
+        slides[currentSlide].classList.add('opacity-80', 'z-0');
+      }, 5000); // Change image every 5 seconds
+    }
+  });
+</script>
