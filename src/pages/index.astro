@@ -232,23 +232,33 @@ const experiencias = [
 </Layout>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
+  (function() {
     const slides = document.querySelectorAll('.hero-slide');
-    let currentSlide = 0;
+    if (!slides || slides.length <= 1) return;
     
-    if (slides.length > 1) {
-      setInterval(() => {
-        // Remove active classes
-        slides[currentSlide].classList.remove('opacity-80', 'z-0');
-        slides[currentSlide].classList.add('opacity-0', '-z-10');
-        
-        // Next slide
-        currentSlide = (currentSlide + 1) % slides.length;
-        
-        // Add active classes
-        slides[currentSlide].classList.remove('opacity-0', '-z-10');
-        slides[currentSlide].classList.add('opacity-80', 'z-0');
-      }, 5000); // Change image every 5 seconds
-    }
-  });
+    let current = 0;
+
+    // Set initial z-index stacking
+    slides.forEach((slide, i) => {
+      (slide as HTMLElement).style.zIndex = i === 0 ? '2' : '1';
+    });
+
+    setInterval(() => {
+      const prev = current;
+      current = (current + 1) % slides.length;
+
+      // New slide comes on top and fades in
+      (slides[current] as HTMLElement).style.zIndex = '3';
+      slides[current].classList.remove('opacity-0');
+      slides[current].classList.add('opacity-80');
+
+      // After transition completes, hide old slide
+      setTimeout(() => {
+        slides[prev].classList.remove('opacity-80');
+        slides[prev].classList.add('opacity-0');
+        (slides[prev] as HTMLElement).style.zIndex = '1';
+        (slides[current] as HTMLElement).style.zIndex = '2';
+      }, 1200);
+    }, 5000);
+  })();
 </script>
