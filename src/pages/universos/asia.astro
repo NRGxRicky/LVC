@@ -61,7 +61,7 @@ const experiencias = [
           class="w-full h-full object-cover"
         />
         <div class="absolute inset-0 bg-gradient-to-r from-[#1C1713]/80 via-[#1C1713]/40 to-transparent"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#FAF9F6]"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent via-50% to-[#FAF9F6]"></div>
       </div>
       
       <div class="relative z-10 w-full max-w-[1920px] mx-auto px-6 md:px-12 md:pl-24 pt-32 pb-24 flex flex-col items-start h-full justify-center">
@@ -71,7 +71,7 @@ const experiencias = [
         </div>
         <h1 class="font-heading text-6xl md:text-8xl lg:text-9xl text-white mb-8 tracking-wide">ASIA</h1>
         <p class="font-sans text-lg text-white/90 max-w-sm mb-12 leading-relaxed">
-          Donde la tradición ancestral se encuentra con la belleza en cada detalle.
+          Donde la tradición ancestral se encuentra con la <span class="text-[#D4AD65] italic">belleza</span> en cada detalle.
         </p>
         <a 
           href="#lugares" 
@@ -92,12 +92,12 @@ const experiencias = [
     </section>
 
     <!-- LUGARES QUE INSPIRAN -->
-    <section id="lugares" class="w-full max-w-[1920px] mx-auto px-6 md:px-12 py-24 md:py-32">
+    <section id="lugares" class="w-full max-w-[1920px] mx-auto px-6 md:px-12 py-12 md:py-16">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
             <!-- Left Info -->
             <div class="lg:col-span-3 flex flex-col pt-8">
                 <span class="font-label text-[10px] font-bold text-[#775A19] uppercase tracking-widest block mb-4">Escenarios</span>
-                <h2 class="font-heading text-4xl md:text-5xl text-[#1C1713] mb-8 leading-tight">Lugares que <span class="italic">inspiran</span></h2>
+                <h2 class="font-heading text-4xl md:text-5xl text-[#1C1713] mb-8 leading-tight">Lugares que <span class="italic text-[#D4AD65]">inspiran</span></h2>
                 <p class="font-sans text-sm text-[#1C1713]/80 leading-relaxed max-w-[280px]">
                     Destinos seleccionados por su esencia, su cultura y su capacidad de transformar cada viaje en una historia única.
                 </p>
@@ -110,7 +110,7 @@ const experiencias = [
                         <img 
                           src={lugar.image} 
                           alt={lugar.name}
-                          class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                          class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.08] opacity-80 group-hover:opacity-100"
                         />
                         <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713] via-[#1C1713]/20 to-transparent opacity-90"></div>
                         
@@ -146,11 +146,11 @@ const experiencias = [
     </section>
 
     <!-- EXPERIENCIAS QUE TRANSFORMAN -->
-    <section class="w-full max-w-[1920px] mx-auto px-6 md:px-12 py-24 md:py-32">
+    <section class="w-full max-w-[1920px] mx-auto px-6 md:px-12 py-12 md:py-16">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
             <div class="lg:col-span-3">
                 <span class="font-label text-[10px] font-bold text-[#775A19] uppercase tracking-widest block mb-4">Momentos diseñados</span>
-                <h2 class="font-heading text-4xl md:text-5xl text-[#1C1713] leading-tight">Experiencias<br>que <span class="italic">transforman</span></h2>
+                <h2 class="font-heading text-4xl md:text-5xl text-[#1C1713] leading-tight">Experiencias<br>que <span class="italic text-[#D4AD65]">transforman</span></h2>
             </div>
             <div class="lg:col-span-9 flex items-end">
                 <p class="font-sans text-sm text-[#1C1713]/80 leading-relaxed max-w-md mb-2">
@@ -165,7 +165,7 @@ const experiencias = [
                     <img 
                         src={exp.image} 
                         alt={exp.name}
-                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.08] opacity-80 group-hover:opacity-100"
                     />
                     <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713] via-[#1C1713]/40 to-transparent opacity-90"></div>
                     
@@ -201,7 +201,7 @@ const experiencias = [
     </section>
 
     <!-- BOTTOM CTA -->
-    <section class="w-full bg-[#FAF9F6] py-24 text-center">
+    <section class="w-full bg-[#FAF9F6] py-12 md:py-16 text-center">
         <div class="max-w-2xl mx-auto px-6">
             <span class="font-label text-[10px] font-bold text-[#D4AD65] uppercase tracking-[0.2em] block mb-6">Tu viaje, diseñado a tu medida</span>
             <h2 class="font-heading text-4xl md:text-5xl text-[#1C1713] mb-6">Diseña tu experiencia en Asia</h2>

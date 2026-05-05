@@ -10,8 +10,8 @@ export interface Props {
 const { theme = "dark" } = Astro.props;
 
 const universos = [
-  { label: "África", href: "/universos/africa" },
   { label: "Asia", href: "/universos/asia" },
+  { label: "África", href: "/universos/africa" },
   { label: "Europa", href: "/universos/europa" },
   { label: "Medio Oriente", href: "/universos/medio-oriente" },
 ];
@@ -70,6 +70,14 @@ const mainLinks = [
             }
           </div>
         </div>
+      </div>
+
+      <!-- Dropdown Colecciones -->
+      <div class="relative group" role="listitem">
+        <a href="/colecciones" class="relative group/btn flex items-center gap-1 font-label text-xs uppercase tracking-widest hover:text-[#D4AD65] transition-colors duration-300 font-medium py-4">
+          Colecciones
+          <span class="absolute bottom-2 left-0 w-full h-[1px] bg-[#D4AD65] scale-x-0 group-hover/btn:scale-x-100 origin-right group-hover/btn:origin-left transition-transform duration-500 ease-out"></span>
+        </a>
       </div>
 
       <!-- Main Links -->
@@ -150,6 +158,10 @@ const mainLinks = [
         }
       </div>
 
+      <a href="/colecciones" class="font-label text-xs md:text-sm uppercase tracking-[0.25em] text-white hover:text-[#D4AD65] transition-colors">
+        Colecciones
+      </a>
+
       {
         mainLinks.map((link) => (
           <a href={link.href} class="font-label text-xs md:text-sm uppercase tracking-[0.25em] text-white hover:text-[#D4AD65] transition-colors">
@@ -192,8 +204,8 @@ const mainLinks = [
       navRoot.classList.remove("text-white");
       navRoot.classList.add("text-[#1C1713]");
 
-      if(navLogo) navLogo.classList.replace("h-16", "h-12");
-      if(navLogo) navLogo.classList.replace("md:h-24", "md:h-16");
+      if(navLogo) navLogo.classList.replace("h-16", "h-14");
+      if(navLogo) navLogo.classList.replace("md:h-24", "md:h-20");
     } else {
       // Estado INICIAL: Transparente y ancho
       navPill.classList.remove(
@@ -209,8 +221,8 @@ const mainLinks = [
         navRoot.classList.add("text-white");
       }
 
-      if(navLogo) navLogo.classList.replace("h-12", "h-16");
-      if(navLogo) navLogo.classList.replace("md:h-16", "md:h-24");
+      if(navLogo) navLogo.classList.replace("h-14", "h-16");
+      if(navLogo) navLogo.classList.replace("md:h-20", "md:h-24");
     }
   }
 

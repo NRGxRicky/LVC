@@ -17,89 +17,103 @@ import Footer from "../components/Footer.astro";
 
   <main class="w-full bg-[#FAF9F6]">
     
-    <!-- HEADER OSCURO CON PARALLAX NATIVO -->
-    <div class="relative w-full h-[60vh] min-h-[500px] bg-[#1C1713] bg-[url('/images/safari_split_media.jpg')] bg-fixed bg-cover bg-center flex flex-col justify-center items-center text-center px-6 md:px-12">
-        <div class="absolute inset-0 bg-black/70 backdrop-blur-[2px]"></div> <!-- Oscurecimiento profundo -->
+    <!-- HEADER CON IMAGEN SUTIL -->
+    <div class="relative w-full h-[50vh] min-h-[400px] bg-[#1C1713] flex flex-col justify-center items-center text-center px-6 md:px-12 overflow-hidden">
+        <img 
+          src="/images/contacto_bottom_1776311078622.png" 
+          alt="Experiencias de lujo" 
+          class="absolute inset-0 w-full h-full object-cover opacity-30"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-[#1C1713]/60 via-[#1C1713]/40 to-[#FAF9F6]"></div>
         
-        <div class="relative z-10 max-w-[1000px] mx-auto mt-16">
-            <span class="font-label text-[10px] md:text-xs font-bold text-[#D4AD65] uppercase tracking-[0.2em] block mb-6 reveal-up">Privacidad y Exclusividad</span>
+        <div class="relative z-10 max-w-[800px] mx-auto mt-16">
+            <span class="font-label text-[10px] md:text-xs font-bold text-[#D4AD65] uppercase tracking-[0.2em] block mb-6 reveal-up">Diseña tu experiencia</span>
             <h1 class="font-heading text-4xl md:text-6xl lg:text-7xl text-white mb-6 reveal-up reveal-delay-100">
-              Diseña tu <span class="italic text-[#D4AD65]">próximo viaje</span>
+              Empieza a dar forma <span class="italic text-[#D4AD65]">a tu viaje</span>
             </h1>
             <p class="font-sans text-sm text-white/70 max-w-xl mx-auto leading-relaxed reveal-up reveal-delay-200">
-              Nuestros especialistas están listos para orquestar cada detalle de tu expedición.
+              Comparte lo esencial. Nosotros nos encargamos del resto.
             </p>
         </div>
     </div>
 
-    <!-- FORMULARIO ELEGANTE (MODO CLARO - TIER 1) -->
-    <section class="max-w-[800px] mx-auto px-6 md:px-12 py-24 reveal-up reveal-delay-300">
-      <form class="flex flex-col gap-10">
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
-          <!-- DESTINO -->
-          <div class="flex flex-col gap-2 relative group">
-            <label for="destino" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Destino de interés</label>
-            <select id="destino" class="w-full appearance-none bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none cursor-pointer">
-              <option value="" disabled selected>Selecciona un destino</option>
-              <option value="asia">Asia</option>
-              <option value="africa">África</option>
-              <option value="europa">Europa</option>
-              <option value="oriente">Medio Oriente</option>
-              <option value="multiple">Múltiples Destinos</option>
-            </select>
-            <div class="absolute right-0 bottom-4 pointer-events-none opacity-40 text-[#1C1713]">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-            </div>
-          </div>
+    <!-- PREÁMBULO + FORMULARIO -->
+    <section class="max-w-[800px] mx-auto px-6 md:px-12 py-12 md:py-16">
+      
+      <!-- Preámbulo -->
+      <div class="text-center mb-12 reveal-up">
+        <p class="font-sans text-sm md:text-base text-[#1C1713]/70 leading-relaxed max-w-2xl mx-auto">
+          En <span class="text-[#775A19] font-medium">Luxury Voyage Collection</span> nos encargamos de cada detalle para que solo tengas que preocuparte por disfrutar. Permítenos crear recuerdos que perdurarán para siempre.
+        </p>
+      </div>
 
-          <!-- TIPO DE EXPERIENCIA -->
-          <div class="flex flex-col gap-2 relative group">
-            <label for="tipo" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Tipo de experiencia</label>
-            <select id="tipo" class="w-full appearance-none bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none cursor-pointer">
-              <option value="" disabled selected>Selecciona una opción</option>
-              <option value="desconexion">Desconexión y Spa</option>
-              <option value="aventura">Aventura Activa</option>
-              <option value="gastronomia">Gastronomía y Cultura</option>
-              <option value="romance">Romance / Luna de Miel</option>
-            </select>
-            <div class="absolute right-0 bottom-4 pointer-events-none opacity-40 text-[#1C1713]">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-            </div>
+      <!-- FORMULARIO PRINCIPAL -->
+      <form class="flex flex-col gap-10 reveal-up reveal-delay-300">
+        
+        <!-- DESTINO DE INTERÉS -->
+        <div class="flex flex-col gap-3">
+          <label class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Destino de interés</label>
+          <p class="font-sans text-sm text-[#1C1713]/60 -mt-1">¿A dónde te gustaría ir?</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-2">
+            <label class="group cursor-pointer">
+              <input type="checkbox" name="destino" value="asia" class="peer sr-only" />
+              <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                Asia
+              </div>
+            </label>
+            <label class="group cursor-pointer">
+              <input type="checkbox" name="destino" value="africa" class="peer sr-only" />
+              <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                África
+              </div>
+            </label>
+            <label class="group cursor-pointer">
+              <input type="checkbox" name="destino" value="europa" class="peer sr-only" />
+              <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                Europa
+              </div>
+            </label>
+            <label class="group cursor-pointer">
+              <input type="checkbox" name="destino" value="medio-oriente" class="peer sr-only" />
+              <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                Medio Oriente
+              </div>
+            </label>
           </div>
+          <label class="flex items-center gap-3 mt-2 cursor-pointer group">
+            <input type="checkbox" name="destino" value="indefinido" class="peer sr-only" />
+            <div class="w-4 h-4 border border-[#1C1713]/20 flex items-center justify-center transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 peer-checked:opacity-100 transition-opacity"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <span class="font-sans text-xs text-[#1C1713]/50">Aún no lo tengo definido</span>
+          </label>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
-          <!-- FECHAS -->
-          <div class="flex flex-col gap-2 relative group">
-            <label for="fecha" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Fechas aproximadas</label>
-            <input type="text" id="fecha" placeholder="¿Cuándo quieres viajar?" class="w-full bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30 cursor-text" />
+        <!-- FECHAS APROXIMADAS -->
+        <div class="flex flex-col gap-3">
+          <label for="fecha" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Fechas aproximadas</label>
+          <p class="font-sans text-sm text-[#1C1713]/60 -mt-1">¿Cuándo te gustaría viajar?</p>
+          <div class="relative">
+            <input type="text" id="fecha" placeholder="Selecciona o escribe tus fechas" class="w-full bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30 cursor-text" />
             <div class="absolute right-0 bottom-4 pointer-events-none opacity-30 text-[#1C1713]">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
             </div>
           </div>
-
-          <!-- VIAJEROS -->
-          <div class="flex flex-col gap-2 relative group">
-            <label for="viajeros" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Número de viajeros</label>
-            <select id="viajeros" class="w-full appearance-none bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none cursor-pointer">
-              <option value="" disabled selected>Selecciona cantidad</option>
-              <option value="1">1 Persona</option>
-              <option value="2">2 Personas</option>
-              <option value="3-4">3 a 4 Personas</option>
-              <option value="5+">5 o más</option>
-            </select>
-            <div class="absolute right-0 bottom-4 pointer-events-none opacity-40 text-[#1C1713]">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          <label class="flex items-center gap-3 mt-1 cursor-pointer group">
+            <input type="checkbox" name="fechas_flexible" value="true" class="peer sr-only" />
+            <div class="w-4 h-4 border border-[#1C1713]/20 flex items-center justify-center transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 peer-checked:opacity-100 transition-opacity"><polyline points="20 6 9 17 4 12"></polyline></svg>
             </div>
-          </div>
+            <span class="font-sans text-xs text-[#1C1713]/50">Soy flexible con las fechas</span>
+          </label>
         </div>
 
         <!-- NIVEL DE INVERSIÓN -->
         <div class="flex flex-col gap-2 relative group">
             <label for="inversion" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Nivel de inversión aproximado</label>
-            <select id="inversion" class="w-full appearance-none bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none cursor-pointer">
-              <option value="" disabled selected>Selecciona el rango que mejor se ajuste</option>
+            <p class="font-sans text-sm text-[#1C1713]/60">Selecciona el rango que mejor se ajuste</p>
+            <select id="inversion" class="w-full appearance-none bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 pt-1 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none cursor-pointer">
+              <option value="" disabled selected>Selecciona un rango</option>
               <option value="tier1">$10,000 - $25,000 USD</option>
               <option value="tier2">$25,000 - $50,000 USD</option>
               <option value="tier3">Más de $50,000 USD</option>
@@ -110,47 +124,102 @@ import Footer from "../components/Footer.astro";
             </div>
         </div>
 
+        <!-- TIPO DE EXPERIENCIA -->
+        <div class="flex flex-col gap-3">
+          <label class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Tipo de experiencia</label>
+          <p class="font-sans text-sm text-[#1C1713]/60 -mt-1">¿Qué tipo de experiencias te interesan?</p>
+          <div class="grid grid-cols-2 gap-3 mt-2">
+            <label class="cursor-pointer">
+              <input type="checkbox" name="experiencia" value="culinarias" class="peer sr-only" />
+              <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                Experiencias culinarias
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="checkbox" name="experiencia" value="estancias" class="peer sr-only" />
+              <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                Estancias seleccionadas
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="checkbox" name="experiencia" value="momentos" class="peer sr-only" />
+              <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                Momentos del viaje
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="checkbox" name="experiencia" value="todo" class="peer sr-only" />
+              <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                Me interesa todo
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- NÚMERO DE VIAJEROS -->
+        <div class="flex flex-col gap-3">
+          <label class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Número de viajeros</label>
+          <p class="font-sans text-sm text-[#1C1713]/60 -mt-1">¿Con quién viajas?</p>
+          <div class="grid grid-cols-4 gap-3 mt-2">
+            <label class="cursor-pointer">
+              <input type="radio" name="viajeros" value="solo" class="peer sr-only" />
+              <div class="border border-[#1C1713]/15 px-3 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                Solo
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="viajeros" value="pareja" class="peer sr-only" />
+              <div class="border border-[#1C1713]/15 px-3 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                Pareja
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="viajeros" value="familia" class="peer sr-only" />
+              <div class="border border-[#1C1713]/15 px-3 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                Familia
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="viajeros" value="grupo" class="peer sr-only" />
+              <div class="border border-[#1C1713]/15 px-3 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                Grupo
+              </div>
+            </label>
+          </div>
+        </div>
+
         <!-- TEXTAREA -->
-        <div class="flex flex-col gap-2 mt-4">
-            <label for="idea" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50 mb-4">Cuéntanos tu idea</label>
-            <textarea id="idea" rows="4" placeholder="Comparte detalles sobre tu viaje ideal, intereses, ocasiones especiales..." class="w-full bg-transparent border border-[#1C1713]/10 p-6 font-sans text-sm text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30 resize-none hover:border-[#1C1713]/20"></textarea>
+        <div class="flex flex-col gap-3">
+            <label for="idea" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">¿Cómo te gustaría vivir este viaje?</label>
+            <textarea id="idea" rows="4" placeholder="Cuéntanos lo que tienes en mente, aunque aún no esté completamente definido." class="w-full bg-transparent border border-[#1C1713]/10 p-6 font-sans text-sm text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30 resize-none hover:border-[#1C1713]/20"></textarea>
         </div>
 
         <!-- SEGURIDAD & SUBMIT -->
-        <div class="flex flex-col items-center mt-10 gap-8">
+        <div class="flex flex-col items-center mt-6 gap-6">
             <div class="flex items-center gap-2 text-[#1C1713]/40 text-[10px] md:text-xs font-sans text-center">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              <span>Tu información está protegida y será tratada con absoluta confidencialidad por nuestro equipo.</span>
+              <span>Tu información será tratada con absoluta confidencialidad.</span>
             </div>
 
-            <button type="button" class="bg-[#1C1713] text-[#D4AD65] font-label text-xs uppercase tracking-[0.2em] font-bold px-14 py-5 hover:bg-[#D4AD65] hover:text-white transition-colors duration-500 rounded-none w-full md:w-auto shadow-xl">
-              Enviar Solicitud
+            <button type="button" class="group/submit relative overflow-hidden bg-[#1C1713] text-[#D4AD65] font-label text-xs uppercase tracking-[0.2em] font-bold px-14 py-5 transition-all duration-500 rounded-none w-full md:w-auto shadow-xl">
+              <span class="absolute inset-0 bg-[#D4AD65] transform translate-y-[100%] group-hover/submit:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]"></span>
+              <span class="relative z-10 flex items-center justify-center gap-3 group-hover/submit:text-[#1C1713] transition-colors duration-500">
+                Enviar Solicitud
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover/submit:translate-x-1 transition-transform duration-500"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </span>
             </button>
         </div>
       </form>
-    </section>
-
-    <!-- BRAND FOOTER SECTION CON PARALLAX ADICIONAL -->
-    <section class="max-w-[1920px] mx-auto flex flex-col md:flex-row min-h-[500px]">
-        <div class="w-full md:w-1/2 relative bg-[#1C1713] overflow-hidden min-h-[300px] bg-[url('/images/contacto_bottom_1776311078622.png')] bg-fixed bg-cover bg-center">
-           <div class="absolute inset-0 bg-black/40 mix-blend-multiply"></div>
-        </div>
-        <div class="w-full md:w-1/2 bg-[#EFECE8] p-12 md:p-24 flex flex-col justify-center">
-            <span class="font-label text-[10px] md:text-xs font-bold text-[#D4AD65] uppercase tracking-[0.2em] block mb-4">Experiencias únicas</span>
-            <h2 class="font-heading text-4xl md:text-5xl text-[#1C1713] mb-8 leading-[1.2]">
-              Permítenos crear recuerdos que perdurarán para siempre.
-            </h2>
-            <p class="font-sans text-[#1C1713]/70 mb-10 max-w-sm">
-                En Luxury Voyage Collection nos encargamos de cada detalle para que solo tengas que preocuparte por disfrutar.
-            </p>
-            <a href="/journey" class="flex items-center gap-3 text-xs font-label uppercase tracking-[0.2em] text-[#775A19] group w-max">
-                <span class="hover:text-[#1C1713] transition-colors">Conoce nuestra historia</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-2 transition-transform duration-300"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </a>
-        </div>
     </section>
 
   </main>
 
   <Footer />
 </Layout>
+
+<style>
+  /* Make peer-checked checkmark visible */
+  input:checked ~ div svg {
+    opacity: 1;
+  }
+</style>
