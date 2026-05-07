@@ -40,23 +40,18 @@ const continentes = [
 // Data for Experiences
 const experiencias = [
   {
-    title: "CENA PRIVADA",
-    desc: "Bajo las estrellas en lugares excepcionales.",
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80"
-  },
-  {
-    title: "HOSPEDAJES EXCLUSIVOS",
-    desc: "Estancias únicas que elevan cada momento.",
+    title: "ESTANCIAS SELECCIONADAS",
+    desc: "Lugares que elevan cada momento.",
     image: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800&q=80"
   },
   {
-    title: "EXPERIENCIAS GASTRONÓMICAS",
-    desc: "Sabores locales, chefs privados y maridajes inolvidables.",
+    title: "EXPERIENCIAS CULINARIAS",
+    desc: "La forma en que se vive la alta cocina.",
     image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80"
   },
   {
-    title: "AVENTURAS PRIVADAS",
-    desc: "Actividades diseñadas según tus deseos.",
+    title: "EXPERIENCIAS DEL VIAJE",
+    desc: "Momentos que marcan el recorrido.",
     image: "https://images.unsplash.com/photo-1548013146-72479768bada?w=800&q=80"
   }
 ];
@@ -95,10 +90,10 @@ const experiencias = [
       
       <div class="relative z-10 w-full max-w-[1920px] mx-auto px-6 md:px-12 flex flex-col items-start translate-y-4">
         <h1 class="font-heading text-4xl md:text-6xl lg:text-7xl text-white max-w-2xl leading-[1.1] mb-6 reveal-up">
-          Donde viajar trasciende y se convierte en <span class="text-[#D4AD65] italic font-serif">arte.</span>
+          Donde viajar trasciende lo evidente y se transforma en <span class="text-[#D4AD65] italic font-serif">conexión.</span>
         </h1>
         <p class="font-label text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/80 max-w-md mb-10 leading-relaxed font-medium reveal-up reveal-delay-200">
-          Experiencias diseñadas para quienes entienden el verdadero lujo.
+          Curamos viajes para ser vividos con intención.
         </p>
         
         <a 
@@ -107,7 +102,7 @@ const experiencias = [
         >
           <span class="absolute inset-0 bg-[#D4AD65] transform translate-y-[100%] group-hover/cta:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]"></span>
           <span class="relative z-10 flex items-center gap-3">
-            Comienza a diseñar tu experiencia
+            Diseña tu experiencia
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover/cta:translate-x-1 transition-transform duration-500"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </span>
         </a>
@@ -138,7 +133,7 @@ const experiencias = [
     <section class="w-full bg-[#1C1713] py-12 md:py-16 px-4 md:px-8">
       <div class="max-w-[1920px] mx-auto">
         <div class="text-center mb-8 md:mb-12 reveal-up">
-          <span class="font-label text-[10px] md:text-xs font-bold text-[#D4AD65] uppercase tracking-widest block mb-4">Colecciones del mundo</span>
+          <span class="font-label text-[10px] md:text-xs font-bold text-[#D4AD65] uppercase tracking-widest block mb-4">Universos</span>
           <h2 class="font-heading text-4xl md:text-5xl text-white">El alma de cada <span class="italic text-[#D4AD65]">continente</span></h2>
         </div>
 
@@ -201,11 +196,11 @@ const experiencias = [
     <!-- SECCIÓN 4: EXPERIENCIAS (Generales) -->
     <section class="w-full bg-[#FAF9F6] max-w-[1920px] mx-auto px-6 md:px-12 py-12 md:py-16">
       <div class="text-center mb-8 md:mb-12 reveal-up">
-        <span class="font-label text-[10px] md:text-xs font-bold text-[#775A19] uppercase tracking-widest block mb-4">Momentos diseñados</span>
-        <h2 class="font-heading text-4xl md:text-5xl text-[#1C1713]">Experiencias a <span class="italic text-[#D4AD65]">medida</span></h2>
+        <span class="font-label text-[10px] md:text-xs font-bold text-[#775A19] uppercase tracking-widest block mb-4">Momentos del viaje</span>
+        <h2 class="font-heading text-4xl md:text-5xl text-[#1C1713]">Donde el viaje cobra <span class="italic text-[#D4AD65]">sentido</span></h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
         {experiencias.map((exp, i) => (
           <div class={`group cursor-pointer reveal-up ${i > 0 ? "reveal-delay-" + (i * 100) : ""}`}>
             <div class="w-full aspect-[4/3] overflow-hidden mb-6 relative">
@@ -230,7 +225,7 @@ const experiencias = [
         >
           <span class="absolute inset-0 bg-[#D4AD65] transform translate-y-[100%] group-hover/cta:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]"></span>
           <span class="relative z-10 flex items-center gap-4 transition-colors duration-500">
-            Hablemos de tu próximo viaje
+            Diseña tu experiencia
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover/cta:translate-x-1 transition-transform duration-500"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </span>
         </a>

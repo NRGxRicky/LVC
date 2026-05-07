@@ -37,7 +37,7 @@ const mainLinks = [
       <img
         src="/images/logo-diamond.png"
         alt="Luxury Voyage Collection"
-        class="h-16 md:h-24 w-auto object-contain transition-all duration-500"
+        class="h-12 md:h-16 w-auto object-contain transition-all duration-500"
         id="nav-logo"
         width="160"
         height="112"
@@ -130,7 +130,7 @@ const mainLinks = [
   >
     <!-- Top Bar inside Mobile Menu -->
     <div class="absolute top-0 left-0 w-full flex justify-between items-start p-6 md:p-8">
-      <img src="/images/logo-diamond.png" alt="Luxury Voyage Collection" class="h-16 md:h-20 w-auto object-contain" />
+      <img src="/images/logo-diamond.png" alt="Luxury Voyage Collection" class="h-12 md:h-16 w-auto object-contain" />
       <button id="mobile-close" aria-label="Cerrar menú" class="p-2 text-white/50 hover:text-[#D4AD65] transition-colors duration-300">
         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </button>
@@ -204,8 +204,8 @@ const mainLinks = [
       navRoot.classList.remove("text-white");
       navRoot.classList.add("text-[#1C1713]");
 
-      if(navLogo) navLogo.classList.replace("h-16", "h-14");
-      if(navLogo) navLogo.classList.replace("md:h-24", "md:h-20");
+      if(navLogo) navLogo.classList.replace("h-12", "h-10");
+      if(navLogo) navLogo.classList.replace("md:h-16", "md:h-12");
     } else {
       // Estado INICIAL: Transparente y ancho
       navPill.classList.remove(
@@ -221,8 +221,8 @@ const mainLinks = [
         navRoot.classList.add("text-white");
       }
 
-      if(navLogo) navLogo.classList.replace("h-14", "h-16");
-      if(navLogo) navLogo.classList.replace("md:h-20", "md:h-24");
+      if(navLogo) navLogo.classList.replace("h-10", "h-12");
+      if(navLogo) navLogo.classList.replace("md:h-12", "md:h-16");
     }
   }
 
