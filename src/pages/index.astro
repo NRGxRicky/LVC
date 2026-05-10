@@ -109,21 +109,28 @@ const experiencias = [
       </div>
     </section>
 
-    <!-- SECCIÓN 2: LOGO + FILOSOFÍA CENTRADO -->
-    <section class="w-full bg-[#FAF9F6] py-16 md:py-24 flex flex-col items-center justify-center text-center px-6">
-      <div class="reveal-up mb-12">
-        <img src="/images/logo-full.png" alt="Luxury Voyage Collection" class="w-64 md:w-80 h-auto opacity-90 mx-auto" />
+    <!-- SECCIÓN 2: LOGO + FILOSOFÍA EN 2 COLUMNAS -->
+    <section class="w-full bg-[#FAF9F6] py-16 md:py-24 flex flex-col items-center justify-center px-6 md:px-12 max-w-[1920px] mx-auto">
+      <div class="reveal-up mb-16 md:mb-24 w-full flex justify-center">
+        <img src="/images/logo-full.png" alt="Luxury Voyage Collection" class="w-72 md:w-96 h-auto opacity-90 mx-auto" />
       </div>
-      <div class="reveal-up reveal-delay-200 max-w-3xl">
-        <h2 class="font-heading text-3xl md:text-5xl text-[#1C1713] leading-tight mb-8 max-w-2xl mx-auto">
-          Viajar también es una forma de <span class="text-[#D4AD65] italic">sentir el mundo</span>
-        </h2>
-        <p class="font-sans text-sm md:text-base text-[#1C1713]/70 leading-relaxed max-w-2xl mx-auto">
-          Cada experiencia es concebida desde emociones, atmósferas y detalles diseñados para descubrir cada destino de manera distinta.
-        </p>
-        <div class="mt-12">
-          <a href="/contacto" class="font-label text-xs uppercase tracking-widest text-[#775A19] border-b border-[#775A19] pb-1 hover:text-[#1C1713] hover:border-[#1C1713] transition-colors">
-            Descubrir nuestra filosofía
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 w-full max-w-6xl items-center mx-auto">
+        <!-- Columna Izquierda: Imagen del folleto -->
+        <div class="reveal-up w-full flex justify-center md:justify-end">
+            <img src="/images/brochure_mockup.png" alt="Luxury Voyage Brochure" class="w-full max-w-lg h-auto shadow-[0_4px_30px_rgba(0,0,0,0.05)] object-contain" />
+        </div>
+
+        <!-- Columna Derecha: Textos -->
+        <div class="reveal-up reveal-delay-200 text-center flex flex-col items-center justify-center">
+          <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl text-[#1C1713] leading-[1.2] mb-6 max-w-[400px]">
+            Viajar también es una forma de <br><span class="text-[#D4AD65] italic">sentir el mundo</span>
+          </h2>
+          <p class="font-sans text-[13px] md:text-sm text-[#1C1713]/70 leading-relaxed max-w-[400px] mb-10">
+            Cada experiencia es concebida desde emociones, atmósferas y detalles diseñados para descubrir cada destino de manera distinta.
+          </p>
+          <a href="/contacto" class="font-label text-[10px] uppercase tracking-[0.2em] text-[#D4AD65] font-bold border-b border-[#D4AD65]/50 pb-1 hover:text-[#1C1713] hover:border-[#1C1713] transition-colors">
+            DESCUBRIR NUESTRA FILOSOFÍA
           </a>
         </div>
       </div>
