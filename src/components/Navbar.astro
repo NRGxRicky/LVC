@@ -62,7 +62,7 @@ const mainLinks = [
               universos.map((link) => (
                 <a
                   href={link.href}
-                  class="font-label text-[10px] sm:text-xs px-4 py-2 text-white/70 hover:text-[#D4AD65] transition-colors duration-300 uppercase tracking-widest whitespace-nowrap"
+                  class="font-label text-[10px] sm:text-xs px-4 py-2 text-white/70 hover:text-white transition-colors duration-300 uppercase tracking-widest whitespace-nowrap"
                 >
                   {link.label}
                 </a>
@@ -74,9 +74,9 @@ const mainLinks = [
 
       <!-- Dropdown Colecciones -->
       <div class="relative group" role="listitem">
-        <a href="/colecciones" class="relative group/btn flex items-center gap-1 font-label text-xs uppercase tracking-widest hover:text-[#D4AD65] transition-colors duration-300 font-medium py-4">
+        <a href="/colecciones" class="relative group/btn flex items-center gap-1 font-label text-xs uppercase tracking-widest hover:text-white transition-colors duration-300 font-medium py-4">
           Colecciones
-          <span class="absolute bottom-2 left-0 w-full h-[1px] bg-[#D4AD65] scale-x-0 group-hover/btn:scale-x-100 origin-right group-hover/btn:origin-left transition-transform duration-500 ease-out"></span>
+          <span class="absolute bottom-2 left-0 w-full h-[1px] bg-white scale-x-0 group-hover/btn:scale-x-100 origin-right group-hover/btn:origin-left transition-transform duration-500 ease-out"></span>
         </a>
       </div>
 
@@ -86,10 +86,10 @@ const mainLinks = [
           <a
             href={link.href}
             role="listitem"
-            class="relative group/link font-label text-xs uppercase tracking-widest hover:text-[#D4AD65] transition-colors duration-300 font-medium py-4"
+            class="relative group/link font-label text-xs uppercase tracking-widest hover:text-white transition-colors duration-300 font-medium py-4"
           >
             {link.label}
-            <span class="absolute bottom-2 left-0 w-full h-[1px] bg-[#D4AD65] scale-x-0 group-hover/link:scale-x-100 origin-right group-hover/link:origin-left transition-transform duration-500 ease-out"></span>
+            <span class="absolute bottom-2 left-0 w-full h-[1px] bg-white scale-x-0 group-hover/link:scale-x-100 origin-right group-hover/link:origin-left transition-transform duration-500 ease-out"></span>
           </a>
         ))
       }
