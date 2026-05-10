@@ -27,19 +27,19 @@ const lugares = [
 
 const experiencias = [
   {
-    title: "EXPERIENCIAS CULINARIAS",
-    desc: "La forma en que se vive la alta cocina.",
-    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80"
+    name: "CENA PRIVADA",
+    desc: "Bajo las estrellas, en escenarios exclusivos solo para ti.",
+    image: "/images/asia_cena_1776311284263.png"
   },
   {
-    title: "ESTANCIAS SELECCIONADAS",
-    desc: "Lugares que elevan cada momento.",
-    image: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800&q=80"
+    name: "VILLAS EXCLUSIVAS",
+    desc: "Estancias únicas que combinan lujo, privacidad y autenticidad.",
+    image: "/images/asia_villas_1776311298395.png"
   },
   {
-    title: "EXPERIENCIAS DEL VIAJE",
-    desc: "Momentos que marcan el recorrido.",
-    image: "https://images.unsplash.com/photo-1548013146-72479768bada?w=800&q=80"
+    name: "BIENESTAR Y SPA",
+    desc: "Rituales ancestrales para renovar cuerpo, mente y alma.",
+    image: "/images/asia_spa_1776311310552.png"
   }
 ];
 ---
@@ -93,12 +93,15 @@ const experiencias = [
 
     <!-- LUGARES QUE INSPIRAN -->
     <section id="lugares" class="w-full max-w-[1920px] mx-auto px-6 md:px-12 py-12 md:py-16">
-        <div class="text-center mb-12">
-            <span class="font-label text-[10px] font-bold text-[#775A19] uppercase tracking-widest block mb-4">Escenarios</span>
-            <h2 class="font-heading text-4xl md:text-5xl text-[#1C1713] leading-tight">Donde la esencia se vuelve <span class="italic text-[#D4AD65]">lugar</span></h2>
-        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+            <!-- Left Info -->
+            <div class="lg:col-span-3 flex flex-col pt-8">
+                <span class="font-label text-[10px] font-bold text-[#775A19] uppercase tracking-widest block mb-4">Escenarios</span>
+                <h2 class="font-heading text-4xl md:text-5xl text-[#1C1713] mb-8 leading-tight">Donde la esencia se vuelve <span class="italic text-[#D4AD65]">lugar</span></h2>
+            </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <!-- Right Cards -->
+            <div class="lg:col-span-9 grid grid-cols-1 md:grid-cols-3 gap-6">
                 {lugares.map((lugar) => (
                     <div class="group relative block w-full aspect-[2/3] overflow-hidden bg-[#1C1713]">
                         <img 
@@ -119,16 +122,41 @@ const experiencias = [
                         </div>
                     </div>
                 ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- FULL WIDTH SPLIT SECTION -->
+    <section class="w-full h-[200px] md:h-[300px] relative overflow-hidden flex items-center">
+        <img 
+            src="/images/asia_mid_landscape_1776311267084.png" 
+            alt="Paisaje de agua y montañas en Asia"
+            class="absolute inset-0 w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-[#FAF9F6] via-[#FAF9F6]/80 to-transparent w-[70%] md:w-[60%]"></div>
+        
+        <div class="relative z-10 w-full max-w-[1920px] mx-auto px-6 md:px-12 md:pl-24">
+            <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl text-[#1C1713] max-w-md leading-tight">
+                Cada lugar es<br>solo el <span class="italic text-[#775A19]">inicio</span>.
+            </h2>
+        </div>
     </section>
 
     <!-- EXPERIENCIAS QUE TRANSFORMAN -->
     <section class="w-full max-w-[1920px] mx-auto px-6 md:px-12 py-12 md:py-16">
-        <div class="text-center mb-12">
-            <span class="font-label text-[10px] font-bold text-[#775A19] uppercase tracking-widest block mb-4">Momentos del viaje</span>
-            <h2 class="font-heading text-4xl md:text-5xl text-[#1C1713] leading-tight">Donde el viaje cobra <span class="italic text-[#D4AD65]">sentido</span></h2>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+            <div class="lg:col-span-3">
+                <span class="font-label text-[10px] font-bold text-[#775A19] uppercase tracking-widest block mb-4">Momentos diseñados</span>
+                <h2 class="font-heading text-4xl md:text-5xl text-[#1C1713] leading-tight">Experiencias<br>que <span class="italic text-[#D4AD65]">transforman</span></h2>
+            </div>
+            <div class="lg:col-span-9 flex items-end">
+                <p class="font-sans text-sm text-[#1C1713]/80 leading-relaxed max-w-md mb-2">
+                    Momentos únicos, creados a la medida para que vivas Asia de una manera extraordinaria.
+                </p>
+            </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             {experiencias.map(exp => (
                 <div class="group relative block w-full aspect-[4/3] overflow-hidden bg-[#1C1713]">
                     <img 
@@ -139,7 +167,7 @@ const experiencias = [
                     <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713] via-[#1C1713]/40 to-transparent opacity-90"></div>
                     
                     <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col">
-                        <h3 class="font-heading text-xl text-white mb-2 uppercase tracking-wide">{exp.title}</h3>
+                        <h3 class="font-heading text-xl text-white mb-2 uppercase tracking-wide">{exp.name}</h3>
                         <p class="font-sans text-xs text-white/70 leading-relaxed mb-6">
                             {exp.desc}
                         </p>
