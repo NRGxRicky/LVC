@@ -116,9 +116,13 @@ const experiencias = [
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-24 w-full max-w-6xl items-center mx-auto px-4">
-        <!-- Columna Izquierda: Imagen del folleto -->
-        <div class="reveal-up w-full flex justify-center md:justify-center">
-            <img src="/images/brochure_mockup.png" alt="Luxury Voyage Brochure" class="w-full max-w-lg h-auto shadow-[0_4px_30px_rgba(0,0,0,0.05)] object-contain" />
+        <!-- Columna Izquierda: Carrusel 3D del folleto -->
+        <div class="reveal-up w-full flex justify-center md:justify-center overflow-visible py-8">
+            <div class="relative w-full max-w-lg h-[300px] md:h-[400px] flex items-center justify-center" style="perspective: 1000px;" id="brochure-carousel">
+                <img src="/images/brochure_mockup.png" alt="Luxury Voyage Brochure 1" class="absolute w-56 md:w-80 h-auto shadow-[0_10px_40px_rgba(0,0,0,0.15)] object-contain transition-all duration-700 ease-in-out cursor-pointer carousel-item select-none" data-index="0" />
+                <img src="/images/brochure_mockup_2.png" alt="Luxury Voyage Brochure 2" class="absolute w-56 md:w-80 h-auto shadow-[0_10px_40px_rgba(0,0,0,0.15)] object-contain transition-all duration-700 ease-in-out cursor-pointer carousel-item select-none" data-index="1" />
+                <img src="/images/brochure_mockup_3.png" alt="Luxury Voyage Brochure 3" class="absolute w-56 md:w-80 h-auto shadow-[0_10px_40px_rgba(0,0,0,0.15)] object-contain transition-all duration-700 ease-in-out cursor-pointer carousel-item select-none" data-index="2" />
+            </div>
         </div>
 
         <!-- Columna Derecha: Textos -->
@@ -244,6 +248,72 @@ const experiencias = [
 
   <Footer />
 </Layout>
+
+<script>
+  // Script para el carrusel 3D de folletos
+  document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll('.carousel-item');
+    if (!items.length) return;
+    
+    let currentIndex = 0;
+    const totalItems = items.length;
+    let autoRotateInterval;
+    
+    function updateCarousel() {
+      items.forEach((item, i) => {
+        // Calcular la distancia desde el índice actual
+        let diff = i - currentIndex;
+        // Ajustar para que el array sea circular
+        if (diff < -1) diff += totalItems;
+        if (diff > 1) diff -= totalItems;
+        
+        if (diff === 0) {
+          // Elemento central (Activo)
+          item.style.transform = 'translateX(0) scale(1) translateZ(50px) rotateY(0deg)';
+          item.style.zIndex = '30';
+          item.style.opacity = '1';
+          item.style.filter = 'brightness(1)';
+        } else if (diff === 1) {
+          // Elemento a la derecha
+          item.style.transform = 'translateX(40%) scale(0.85) translateZ(-50px) rotateY(-15deg)';
+          item.style.zIndex = '20';
+          item.style.opacity = '0.7';
+          item.style.filter = 'brightness(0.8)';
+        } else if (diff === -1) {
+          // Elemento a la izquierda
+          item.style.transform = 'translateX(-40%) scale(0.85) translateZ(-50px) rotateY(15deg)';
+          item.style.zIndex = '20';
+          item.style.opacity = '0.7';
+          item.style.filter = 'brightness(0.8)';
+        }
+      });
+    }
+    
+    function startAutoRotate() {
+        autoRotateInterval = setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalItems;
+            updateCarousel();
+        }, 4000);
+    }
+    
+    function resetAutoRotate() {
+        clearInterval(autoRotateInterval);
+        startAutoRotate();
+    }
+    
+    updateCarousel();
+    startAutoRotate();
+    
+    // Permitir clic para rotar
+    items.forEach((item, i) => {
+      item.addEventListener('click', () => {
+        currentIndex = i;
+        updateCarousel();
+        resetAutoRotate(); // Reiniciar el temporizador al hacer clic
+      });
+    });
+  });
+</script>
 
 <script>
   (function() {
