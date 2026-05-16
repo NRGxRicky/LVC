@@ -9,44 +9,44 @@ import Footer from "../../components/Footer.astro";
 
 const lugares = [
   {
-    name: "LUGAR 1",
-    desc: "Descripción de este lugar en Europa.",
+    name: "PARÍS",
+    desc: "Elegancia, romance y una herencia cultural inigualable.",
     image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80"
   },
   {
-    name: "LUGAR 2",
-    desc: "Descripción de este lugar en Europa.",
-    image: "https://images.unsplash.com/photo-1522083165195-3424ed129620?w=800&q=80"
+    name: "COSTA AMALFITANA",
+    desc: "Acantilados vibrantes y el encanto del Mediterráneo.",
+    image: "https://images.unsplash.com/photo-1533676802871-eca1ae998cd5?w=800&q=80"
   },
   {
-    name: "LUGAR 3",
-    desc: "Descripción de este lugar en Europa.",
-    image: "https://images.unsplash.com/photo-1515542622106-78b28af7815d?w=800&q=80"
+    name: "ALPES SUIZOS",
+    desc: "Cumbres nevadas y exclusividad en las alturas.",
+    image: "https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?w=800&q=80"
   }
 ];
 
 const experiencias = [
   {
-    title: "EXPERIENCIAS CULINARIAS",
-    desc: "La forma en que se vive la alta cocina.",
+    name: "GASTRONOMÍA ESTELAR",
+    desc: "Sabores que definen la excelencia culinaria.",
     image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80"
   },
   {
-    title: "ESTANCIAS SELECCIONADAS",
-    desc: "Lugares que elevan cada momento.",
-    image: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800&q=80"
+    name: "ARTE PRIVADO",
+    desc: "Acceso exclusivo a la historia y la cultura.",
+    image: "https://images.unsplash.com/photo-1544928147-79a2dbc1f389?w=800&q=80"
   },
   {
-    title: "EXPERIENCIAS DEL VIAJE",
-    desc: "Momentos que marcan el recorrido.",
-    image: "https://images.unsplash.com/photo-1548013146-72479768bada?w=800&q=80"
+    name: "CHÂTEAUX HISTÓRICOS",
+    desc: "Estancias que cuentan historias milenarias.",
+    image: "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?w=800&q=80"
   }
 ];
 ---
 
 <Layout
   title="Universo Europa — Luxury Voyage Collection"
-  description="Elegancia atemporal, historia y experiencias que despiertan los sentidos."
+  description="Donde la historia, el arte y el refinamiento convergen en cada rincón."
 >
   <Navbar />
 
@@ -58,7 +58,7 @@ const experiencias = [
         <img 
           src="/images/europa_card_1776310708089.png" 
           alt="Paisaje de Europa" 
-          class="w-full h-full object-cover object-top"
+          class="w-full h-full object-cover object-[50%_40%]"
         />
         <div class="absolute inset-0 bg-gradient-to-r from-[#1C1713]/80 via-[#1C1713]/40 to-transparent"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent via-50% to-[#FAF9F6]"></div>
@@ -71,73 +71,97 @@ const experiencias = [
         </div>
         <h1 class="font-heading text-6xl md:text-8xl lg:text-9xl text-white mb-8 tracking-wide">EUROPA</h1>
         <p class="font-sans text-lg text-white/90 max-w-sm mb-12 leading-relaxed">
-          Elegancia atemporal, historia y experiencias que <span class="text-[#D4AD65] italic">despiertan los sentidos.</span>
+          Donde la historia, el arte y el refinamiento <span class="text-[#D4AD65] italic">convergen</span> en cada rincón.
         </p>
         <a 
-          href="/contacto" 
+          href="#lugares" 
           class="flex items-center gap-3 font-label text-xs uppercase tracking-widest text-white/80 hover:text-[#D4AD65] transition-colors duration-300 group"
         >
-          Diseña tu experiencia
+          Explora Europa
           <div class="w-12 h-[1px] bg-white/30 group-hover:bg-[#D4AD65] group-hover:w-16 transition-all duration-300"></div>
         </a>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+            <div class="w-5 h-8 border border-white/30 rounded-full flex justify-center p-1">
+                <div class="w-1 h-2 bg-white rounded-full animate-bounce"></div>
+            </div>
+            <span class="font-label text-[10px] uppercase tracking-widest text-white/50">Scroll</span>
+        </div>
       </div>
     </section>
 
     <!-- LUGARES QUE INSPIRAN -->
-    <section id="lugares" class="w-full max-w-[1920px] mx-auto px-6 md:px-12 py-12 md:py-16">
-        <div class="text-center mb-12">
+    <section id="lugares" class="w-full max-w-[1920px] mx-auto px-6 md:px-12 py-16 md:py-24">
+        <div class="mb-12 md:mb-16">
             <span class="font-label text-[10px] font-bold text-[#775A19] uppercase tracking-widest block mb-4">Escenarios</span>
             <h2 class="font-heading text-4xl md:text-5xl text-[#1C1713] leading-tight">Donde la esencia se vuelve <span class="italic text-[#D4AD65]">lugar</span></h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                {lugares.map((lugar) => (
-                    <div class="group relative block w-full aspect-[2/3] overflow-hidden bg-[#1C1713]">
-                        <img 
-                          src={lugar.image} 
-                          alt={lugar.name}
-                          class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.08] opacity-80 group-hover:opacity-100"
-                        />
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713] via-[#1C1713]/20 to-transparent opacity-90"></div>
-                        
-                        <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col">
-                          <h3 class="font-heading text-2xl text-white mb-3 tracking-wide">{lugar.name}</h3>
-                          <p class="font-sans text-xs text-white/70 leading-relaxed mb-6">
-                            {lugar.desc}
-                          </p>
-                          <div class="flex items-center gap-4 group-hover:gap-6 transition-all duration-300 text-white/50 group-hover:text-[#D4AD65]">
-                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                          </div>
-                        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {lugares.map((lugar) => (
+                <div class="group relative block w-full aspect-[3/4] overflow-hidden bg-[#1C1713]">
+                    <img 
+                      src={lugar.image} 
+                      alt={lugar.name}
+                      class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.08] opacity-80 group-hover:opacity-100"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713]/90 via-[#1C1713]/20 to-transparent"></div>
+                    
+                    <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col">
+                      <h3 class="font-heading text-2xl text-white mb-3 tracking-wide">{lugar.name}</h3>
+                      <p class="font-sans text-xs text-white/80 leading-relaxed mb-6">
+                        {lugar.desc}
+                      </p>
+                      <div class="flex items-center gap-4 group-hover:gap-6 transition-all duration-300 text-white/50 group-hover:text-[#D4AD65]">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                      </div>
                     </div>
-                ))}
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- FULL WIDTH SPLIT SECTION -->
+    <section class="w-full h-[200px] md:h-[300px] relative overflow-hidden flex items-center justify-center">
+        <img 
+            src="https://images.unsplash.com/photo-1471344445888-0118833075c3?w=1920&q=80" 
+            alt="Paisaje de Europa"
+            class="absolute inset-0 w-full h-full object-cover object-[50%_70%]"
+        />
+        <div class="absolute inset-0 bg-black/40"></div>
+        
+        <div class="relative z-10 w-full max-w-[1920px] mx-auto px-6 text-center">
+            <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl text-white leading-tight">
+                Cada lugar es<br>solo el <span class="italic text-[#D4AD65]">inicio</span>.
+            </h2>
         </div>
     </section>
 
     <!-- EXPERIENCIAS QUE TRANSFORMAN -->
-    <section class="w-full max-w-[1920px] mx-auto px-6 md:px-12 py-12 md:py-16">
-        <div class="text-center mb-12">
-            <span class="font-label text-[10px] font-bold text-[#775A19] uppercase tracking-widest block mb-4">Momentos del viaje</span>
-            <h2 class="font-heading text-4xl md:text-5xl text-[#1C1713] leading-tight">Donde el viaje cobra <span class="italic text-[#D4AD65]">sentido</span></h2>
+    <section class="w-full max-w-[1920px] mx-auto px-6 md:px-12 py-16 md:py-24">
+        <div class="mb-12 md:mb-16">
+            <span class="font-label text-[10px] font-bold text-[#775A19] uppercase tracking-widest block mb-4">Momentos diseñados</span>
+            <h2 class="font-heading text-4xl md:text-5xl text-[#1C1713] leading-tight">Experiencias<br>que <span class="italic text-[#D4AD65]">transforman</span></h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {experiencias.map(exp => (
-                <div class="group relative block w-full aspect-[4/3] overflow-hidden bg-[#1C1713]">
+                <div class="group relative block w-full aspect-[3/4] overflow-hidden bg-[#1C1713]">
                     <img 
                         src={exp.image} 
-                        alt={exp.title}
+                        alt={exp.name}
                         class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.08] opacity-80 group-hover:opacity-100"
                     />
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713] via-[#1C1713]/40 to-transparent opacity-90"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713]/90 via-[#1C1713]/20 to-transparent"></div>
                     
                     <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col">
-                        <h3 class="font-heading text-xl text-white mb-2 uppercase tracking-wide">{exp.title}</h3>
-                        <p class="font-sans text-xs text-white/70 leading-relaxed mb-6">
+                        <h3 class="font-heading text-xl text-white mb-2 uppercase tracking-wide">{exp.name}</h3>
+                        <p class="font-sans text-xs text-white/80 leading-relaxed mb-6">
                             {exp.desc}
                         </p>
                         <div class="flex items-center gap-4 group-hover:gap-6 transition-all duration-300 text-white/50 group-hover:text-[#D4AD65]">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                         </div>
                     </div>
                 </div>
@@ -145,6 +169,25 @@ const experiencias = [
         </div>
     </section>
 
+    <!-- BOTTOM CTA -->
+    <section class="w-full bg-[#FAF9F6] py-12 md:py-16 text-center">
+        <div class="max-w-2xl mx-auto px-6">
+            <span class="font-label text-[10px] font-bold text-[#D4AD65] uppercase tracking-[0.2em] block mb-6">Tu viaje, diseñado a tu medida</span>
+            <h2 class="font-heading text-4xl md:text-5xl text-[#1C1713] mb-6">Diseña tu experiencia en Europa</h2>
+            <p class="font-sans text-[#1C1713]/70 mb-10 text-sm">
+                Permítenos crear un viaje que supere todas tus expectativas.
+            </p>
+            <a 
+                href="/contacto" 
+                class="inline-flex items-center gap-4 font-label text-xs uppercase tracking-widest font-bold text-white bg-[#1C1713] hover:bg-[#D4AD65] transition-colors duration-300 px-10 py-5"
+            >
+                Diseña tu experiencia
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+        </div>
+    </section>
+
   </main>
+
   <Footer />
 </Layout>
