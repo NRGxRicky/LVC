@@ -11,22 +11,22 @@ const lugares = [
   {
     name: "EMIRATOS ÁRABES UNIDOS",
     desc: "Visión, exclusividad y lujo llevado al límite.",
-    image: "/images/oriente_dubai.png"
+    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1000&auto=format&fit=crop"
   },
   {
     name: "ARABIA SAUDITA",
     desc: "Tradición, grandeza y una nueva forma de entender el lujo.",
-    image: "/images/medio_oriente_card_1776310739207.png"
+    image: "https://images.unsplash.com/photo-1586724237569-f3d021dd4c37?q=80&w=1000&auto=format&fit=crop"
   },
   {
     name: "OMÁN",
     desc: "Autenticidad, serenidad y lujo profundamente contemplativo.",
-    image: "https://images.unsplash.com/photo-1541846419163-547dfbba2310?w=800&q=80"
+    image: "https://images.unsplash.com/photo-1628042456382-7d8d21c37d04?q=80&w=1000&auto=format&fit=crop"
   },
   {
     name: "CATAR",
     desc: "Sofisticación, diseño y elegancia perfectamente equilibrada.",
-    image: "/images/oriente_dubai.png"
+    image: "https://images.unsplash.com/photo-1513151239018-d45776a1a312?q=80&w=1000&auto=format&fit=crop"
   }
 ];
 
@@ -96,16 +96,33 @@ const experiencias = [
       </div>
     </section>
 
-    <!-- LUGARES QUE INSPIRAN -->
-    <section id="lugares" class="w-full max-w-[1920px] mx-auto px-6 md:px-12 py-16 md:py-24">
-        <div class="mb-12 md:mb-16">
-            <span class="font-label text-[10px] font-bold text-[#775A19] uppercase tracking-widest block mb-4">Escenarios</span>
-            <h2 class="font-heading text-4xl md:text-5xl text-[#1C1713] leading-tight">Donde la esencia se vuelve <span class="italic text-[#D4AD65]">lugar</span></h2>
+    <!-- LUGARES QUE INSPIRAN (CAROUSEL) -->
+    <section id="lugares" class="w-full max-w-[1920px] mx-auto px-6 md:px-12 py-16 md:py-24 overflow-hidden">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6">
+            <div>
+                <span class="font-label text-[10px] font-bold text-[#775A19] uppercase tracking-widest block mb-4">Escenarios</span>
+                <h2 class="font-heading text-4xl md:text-5xl text-[#1C1713] leading-tight">Donde la esencia se vuelve <span class="italic text-[#D4AD65]">lugar</span></h2>
+            </div>
+            
+            <!-- Custom Navigation Arrows -->
+            <div class="flex gap-4">
+                <button id="prevBtn" class="w-12 h-12 border border-[#1C1713]/10 flex items-center justify-center hover:bg-[#D4AD65] hover:border-[#D4AD65] hover:text-white transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                </button>
+                <button id="nextBtn" class="w-12 h-12 border border-[#1C1713]/10 flex items-center justify-center hover:bg-[#D4AD65] hover:border-[#D4AD65] hover:text-white transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </button>
+            </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <!-- Carousel Container -->
+        <div 
+            id="carouselContainer"
+            class="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 transition-all duration-500 ease-in-out"
+            style="scrollbar-width: none; -ms-overflow-style: none;"
+        >
             {lugares.map((lugar) => (
-                <div class="group relative block w-full aspect-[3/4] overflow-hidden bg-[#1C1713]">
+                <div class="min-w-[85%] md:min-w-[calc(33.333%-1.5rem)] snap-start group relative block aspect-[3/4] overflow-hidden bg-[#1C1713]">
                     <img 
                       src={lugar.image} 
                       alt={lugar.name}
@@ -126,6 +143,24 @@ const experiencias = [
             ))}
         </div>
     </section>
+
+    <script>
+        const container = document.getElementById('carouselContainer');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        if (container && prevBtn && nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                const scrollAmount = container.clientWidth;
+                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
+
+            prevBtn.addEventListener('click', () => {
+                const scrollAmount = container.clientWidth;
+                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+        }
+    </script>
 
     <!-- FULL WIDTH SPLIT SECTION -->
     <section class="w-full h-[200px] md:h-[300px] relative overflow-hidden flex items-center justify-center">
