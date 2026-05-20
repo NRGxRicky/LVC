@@ -74,7 +74,7 @@ const sectionJustify: Record<string, string> = {
 
 <section
   id={id}
-  class={`min-h-screen max-w-screen-2xl mx-auto px-fluid-px relative ${sectionJustify[alignment]} ${bgClass}`}
+  class={`min-h-[80vh] w-full relative ${sectionJustify[alignment]} ${bgClass}`}
   aria-label={title}
 >
   <!-- Background image -->
@@ -98,7 +98,7 @@ const sectionJustify: Record<string, string> = {
   }
 
   <!-- Content grid -->
-  <div class="w-full max-w-[1920px] mx-auto px-12 relative z-10 grid grid-cols-12">
+  <div class="w-full max-w-[1800px] mx-auto px-fluid-px relative z-10 grid grid-cols-12">
     {
       centerLayout ? (
         /* ── Medio Oriente: layout centrado con quote ── */

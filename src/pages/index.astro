@@ -66,7 +66,7 @@ const experiencias = [
   <main class="w-full bg-[#FAF9F6]">
     
     <!-- SECCIÓN 1: HERO -->
-    <section class="relative max-w-screen-2xl mx-auto px-fluid-px min-h-screen flex items-center justify-center overflow-hidden">
+    <section class="relative w-full min-h-[80vh] flex items-center justify-center overflow-hidden">
       <style>
         @keyframes kenBurns {
           0% { transform: scale(1); }
@@ -144,15 +144,15 @@ const experiencias = [
     </section>
 
     <!-- SECCIÓN 3: UNIVERSOS (Cuadrícula asimétrica y Montserrat) -->
-    <section class="max-w-screen-2xl mx-auto px-fluid-px bg-[#1C1713] py-fluid-section">
-      <div class="max-w-[1920px] mx-auto">
+    <section class="w-full bg-[#1C1713] py-fluid-section">
+      <div class="max-w-[1800px] mx-auto px-fluid-px">
         <div class="text-center mb-8 md:mb-12 reveal-up">
           <span class="font-label text-[10px] md:text-xs font-bold text-[#D4AD65] uppercase tracking-widest block mb-4">Universos</span>
           <h2 class="font-heading text-fluid-h2 text-white">El alma de cada <span class="italic text-[#D4AD65]">continente</span></h2>
         </div>
 
         <!-- Bento Grid Asimétrico -->
-        <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 h-auto md:h-[800px]">
+        <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 h-auto" style="height: clamp(600px, 55vw, 900px);">
           
           <!-- Asia (Destacado) -->
           <a href="/universos/asia" class="group relative block w-full h-[400px] md:h-full md:col-span-2 md:row-span-2 overflow-hidden cursor-pointer reveal-up">
@@ -208,13 +208,13 @@ const experiencias = [
     </section>
 
     <!-- SECCIÓN 4: EXPERIENCIAS (Generales) -->
-    <section class="max-w-screen-2xl mx-auto px-fluid-px bg-[#FAF9F6] py-fluid-section">
+    <section class="w-full bg-[#FAF9F6] py-fluid-section">
       <div class="text-center mb-8 md:mb-12 reveal-up">
         <span class="font-label text-[10px] md:text-xs font-bold text-[#775A19] uppercase tracking-widest block mb-4">ESTANCIAS SELECCIONADAS</span>
         <h2 class="font-heading text-fluid-h2 text-[#1C1713]">Espacios elegidos por lo que <span class="italic text-[#D4AD65]">hacen sentir</span></h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-[1600px] mx-auto px-fluid-px">
         {experiencias.map((exp, i) => (
           <div class={`group cursor-pointer reveal-up ${i > 0 ? "reveal-delay-" + (i * 100) : ""}`}>
             <div class="w-full aspect-[4/3] overflow-hidden mb-6 relative">
