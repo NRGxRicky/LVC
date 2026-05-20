@@ -85,12 +85,62 @@ import Footer from "../components/Footer.astro";
         <div class="flex flex-col gap-3">
           <label for="fecha" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Fechas aproximadas</label>
           <p class="font-sans text-sm text-[#1C1713]/60 -mt-1">¿Cuándo te gustaría viajar?</p>
-          <div class="relative">
-            <input type="text" id="fecha" placeholder="Selecciona o escribe tus fechas" class="w-full bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30 cursor-text" />
-            <div class="absolute right-0 bottom-4 pointer-events-none opacity-30 text-[#1C1713]">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+          <div class="relative" id="date-picker-wrapper">
+            <input
+              type="text"
+              id="fecha"
+              placeholder="Selecciona tus fechas"
+              readonly
+              class="w-full bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30 cursor-pointer pr-8"
+            />
+            <!-- Calendar Icon (clickable) -->
+            <button
+              type="button"
+              id="calendar-toggle"
+              class="absolute right-0 bottom-3 opacity-40 hover:opacity-100 text-[#1C1713] hover:text-[#D4AD65] transition-all duration-300"
+              aria-label="Abrir calendario"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            </button>
+
+            <!-- Calendar Dropdown -->
+            <div
+              id="calendar-dropdown"
+              class="hidden absolute z-50 top-full left-0 mt-3 bg-[#FAF9F6] border border-[#1C1713]/10 shadow-2xl select-none"
+              style="min-width: 320px;"
+            >
+              <!-- Header -->
+              <div class="flex items-center justify-between px-5 pt-5 pb-3 border-b border-[#1C1713]/8">
+                <button type="button" id="cal-prev" class="w-8 h-8 flex items-center justify-center text-[#1C1713]/40 hover:text-[#D4AD65] hover:bg-[#D4AD65]/10 transition-all duration-200">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <span id="cal-month-label" class="font-heading text-sm text-[#1C1713] tracking-wide uppercase"></span>
+                <button type="button" id="cal-next" class="w-8 h-8 flex items-center justify-center text-[#1C1713]/40 hover:text-[#D4AD65] hover:bg-[#D4AD65]/10 transition-all duration-200">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+              </div>
+
+              <!-- Day Labels -->
+              <div class="grid grid-cols-7 px-4 pt-3 pb-1">
+                <span class="text-center font-label text-[9px] uppercase tracking-widest text-[#1C1713]/30">Lu</span>
+                <span class="text-center font-label text-[9px] uppercase tracking-widest text-[#1C1713]/30">Ma</span>
+                <span class="text-center font-label text-[9px] uppercase tracking-widest text-[#1C1713]/30">Mi</span>
+                <span class="text-center font-label text-[9px] uppercase tracking-widest text-[#1C1713]/30">Ju</span>
+                <span class="text-center font-label text-[9px] uppercase tracking-widest text-[#1C1713]/30">Vi</span>
+                <span class="text-center font-label text-[9px] uppercase tracking-widest text-[#1C1713]/30">Sá</span>
+                <span class="text-center font-label text-[9px] uppercase tracking-widest text-[#1C1713]/30">Do</span>
+              </div>
+
+              <!-- Days Grid -->
+              <div id="cal-days" class="grid grid-cols-7 px-4 pb-4 gap-y-1"></div>
+
+              <!-- Footer hint -->
+              <div class="px-5 pb-4 pt-1 border-t border-[#1C1713]/8">
+                <p id="cal-hint" class="font-sans text-[10px] text-[#1C1713]/40 text-center">Selecciona fecha de inicio</p>
+              </div>
             </div>
           </div>
+
           <label class="flex items-center gap-3 mt-1 cursor-pointer group">
             <input type="checkbox" name="fechas_flexible" value="true" class="peer sr-only" />
             <div class="w-4 h-4 border border-[#1C1713]/20 flex items-center justify-center transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]">
@@ -209,9 +259,155 @@ import Footer from "../components/Footer.astro";
   <Footer />
 </Layout>
 
+<script>
+  (() => {
+    const toggle   = document.getElementById('calendar-toggle');
+    const input    = document.getElementById('fecha');
+    const dropdown = document.getElementById('calendar-dropdown');
+    const prevBtn  = document.getElementById('cal-prev');
+    const nextBtn  = document.getElementById('cal-next');
+    const label    = document.getElementById('cal-month-label');
+    const daysGrid = document.getElementById('cal-days');
+    const hint     = document.getElementById('cal-hint');
+
+    const MONTHS = ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+                    'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+
+    let today    = new Date();
+    let current  = new Date(today.getFullYear(), today.getMonth(), 1);
+    let startDate = null;
+    let endDate   = null;
+
+    function isSameDay(a, b) {
+      return a && b &&
+        a.getFullYear() === b.getFullYear() &&
+        a.getMonth()    === b.getMonth() &&
+        a.getDate()     === b.getDate();
+    }
+
+    function formatDate(d) {
+      return d.toLocaleDateString('es-MX', { day:'2-digit', month:'short', year:'numeric' });
+    }
+
+    function render() {
+      label.textContent = MONTHS[current.getMonth()] + ' ' + current.getFullYear();
+      daysGrid.innerHTML = '';
+
+      const year  = current.getFullYear();
+      const month = current.getMonth();
+      const firstDay = new Date(year, month, 1);
+      // Monday-first offset
+      let startOffset = firstDay.getDay() - 1;
+      if (startOffset < 0) startOffset = 6;
+
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      // Empty cells
+      for (let i = 0; i < startOffset; i++) {
+        const empty = document.createElement('div');
+        daysGrid.appendChild(empty);
+      }
+
+      for (let d = 1; d <= daysInMonth; d++) {
+        const date = new Date(year, month, d);
+        const btn  = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = d;
+
+        const isPast   = date < new Date(today.getFullYear(), today.getMonth(), today.getDate());
+        const isStart  = isSameDay(date, startDate);
+        const isEnd    = isSameDay(date, endDate);
+        const isInRange = startDate && endDate && date > startDate && date < endDate;
+
+        btn.className = [
+          'w-full aspect-square flex items-center justify-center text-xs font-sans transition-all duration-150',
+          isPast   ? 'opacity-20 cursor-not-allowed' : 'hover:bg-[#D4AD65]/15 hover:text-[#775A19] cursor-pointer',
+          isStart  ? 'bg-[#1C1713] text-[#D4AD65] font-bold' : '',
+          isEnd    ? 'bg-[#1C1713] text-[#D4AD65] font-bold' : '',
+          isInRange ? 'bg-[#D4AD65]/15 text-[#775A19]' : '',
+          (!isStart && !isEnd && !isInRange && !isPast) ? 'text-[#1C1713]' : ''
+        ].join(' ');
+
+        if (!isPast) {
+          btn.addEventListener('click', () => selectDate(date));
+        }
+
+        daysGrid.appendChild(btn);
+      }
+    }
+
+    function selectDate(date) {
+      if (!startDate || (startDate && endDate)) {
+        // Start fresh
+        startDate = date;
+        endDate   = null;
+        hint.textContent = 'Selecciona fecha de regreso';
+      } else {
+        if (date < startDate) {
+          endDate   = startDate;
+          startDate = date;
+        } else if (isSameDay(date, startDate)) {
+          // Same day = single date
+          endDate = date;
+        } else {
+          endDate = date;
+        }
+        hint.textContent = 'Fechas seleccionadas ✓';
+
+        // Update input
+        if (isSameDay(startDate, endDate)) {
+          input.value = formatDate(startDate);
+        } else {
+          input.value = formatDate(startDate) + '  →  ' + formatDate(endDate);
+        }
+
+        // Close after short delay
+        setTimeout(() => dropdown.classList.add('hidden'), 500);
+      }
+      render();
+    }
+
+    // Toggle open/close
+    function openCalendar() {
+      dropdown.classList.remove('hidden');
+      render();
+    }
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle('hidden');
+      if (!dropdown.classList.contains('hidden')) render();
+    });
+
+    input.addEventListener('click', () => openCalendar());
+
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      current = new Date(current.getFullYear(), current.getMonth() - 1, 1);
+      render();
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      current = new Date(current.getFullYear(), current.getMonth() + 1, 1);
+      render();
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!document.getElementById('date-picker-wrapper').contains(e.target)) {
+        dropdown.classList.add('hidden');
+      }
+    });
+  })();
+</script>
+
 <style>
   /* Make peer-checked checkmark visible */
   input:checked ~ div svg {
     opacity: 1;
+  }
+  #calendar-dropdown {
+    box-shadow: 0 20px 60px rgba(28,23,19,0.12), 0 4px 16px rgba(28,23,19,0.08);
   }
 </style>
