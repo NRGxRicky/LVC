@@ -107,19 +107,20 @@ const experiencias = [
     </section>
 
     <!-- LUGARES QUE INSPIRAN (CAROUSEL) -->
-    <section class="w-full max-w-[1920px] mx-auto px-6 md:px-12 py-20 md:py-28 overflow-hidden">
+    <section id="lugares" class="w-full bg-[#1C1713] px-6 md:px-12 py-16 md:py-24 overflow-hidden">
+        <div class="max-w-[1920px] mx-auto">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6">
             <div>
-                <span class="font-label text-[10px] font-bold text-[#775A19] uppercase tracking-widest block mb-4">MOMENTOS DEL VIAJE</span>
-                <h2 class="font-heading text-4xl md:text-5xl text-[#1C1713] leading-tight">Donde el viaje cobra <span class="italic text-[#D4AD65]">sentido</span></h2>
+                <span class="font-label text-[10px] font-bold text-[#D4AD65] uppercase tracking-widest block mb-4">MOMENTOS DEL VIAJE</span>
+                <h2 class="font-heading text-4xl md:text-5xl text-white leading-tight">Donde el viaje cobra <span class="italic text-[#D4AD65]">sentido</span></h2>
             </div>
             
             <!-- Custom Navigation Arrows -->
             <div class="flex gap-4">
-                <button id="prevBtn" class="w-12 h-12 border border-[#1C1713]/10 flex items-center justify-center hover:bg-[#D4AD65] hover:border-[#D4AD65] hover:text-white transition-all duration-300">
+                <button id="prevBtn" class="w-12 h-12 border border-white/20 text-white flex items-center justify-center hover:bg-[#D4AD65] hover:border-[#D4AD65] hover:text-[#1C1713] transition-all duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                 </button>
-                <button id="nextBtn" class="w-12 h-12 border border-[#1C1713]/10 flex items-center justify-center hover:bg-[#D4AD65] hover:border-[#D4AD65] hover:text-white transition-all duration-300">
+                <button id="nextBtn" class="w-12 h-12 border border-white/20 text-white flex items-center justify-center hover:bg-[#D4AD65] hover:border-[#D4AD65] hover:text-[#1C1713] transition-all duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </button>
             </div>
@@ -151,6 +152,7 @@ const experiencias = [
                     </div>
                 </div>
             ))}
+        </div>
         </div>
     </section>
 
