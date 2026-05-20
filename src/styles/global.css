@@ -184,3 +184,26 @@
     background-color: #1C1713;
   }
 }
+
+/* Prevenir efectos hover "pegajosos" (sticky) en pantallas táctiles */
+@media (hover: none) {
+  /* Evitar zoom en imágenes al hacer tap */
+  .group:hover img,
+  a:hover img {
+    transform: none !important;
+  }
+
+  /* Evitar overlays que se quedan pegados en estado activo */
+  .group:hover [class*="group-hover:opacity-100"] {
+    opacity: 0 !important;
+  }
+}
+
+/* Ocultar barra de desplazamiento */
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE y Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none; /* Chrome, Safari y Opera */
+}

@@ -112,15 +112,15 @@ const destinations: DestCard[] = [
     </div>
 
     <!-- Track de cards -->
-    <div class="relative overflow-hidden">
+    <div class="relative overflow-x-auto md:overflow-hidden snap-x snap-mandatory scrollbar-none scroll-smooth">
       <div
         id="carousel-track"
-        class="flex gap-5 md:gap-7 transition-transform duration-500 ease-out"
+        class="flex gap-5 md:gap-7 md:transition-transform md:duration-500 md:ease-out"
       >
         {
           destinations.map((dest) => (
             <article
-              class="carousel-card flex-none w-64 md:w-72 lg:w-80 group"
+              class="carousel-card flex-none w-64 md:w-72 lg:w-80 group snap-start"
               aria-label={`${dest.title}, ${dest.region}`}
             >
               <a href={dest.href ?? "#"} class="block">
@@ -182,42 +182,32 @@ const destinations: DestCard[] = [
       return Math.max(0, (totalCards - visibleCards) * cardW);
     }
 
+    // Solo habilitar controles y traslaciones manuales en pantallas grandes
+    function isDesktop() {
+      return window.matchMedia("(min-width: 768px)").matches;
+    }
+
+    // Resetear el transform si la pantalla cambia a tamaño móvil
+    window.addEventListener("resize", () => {
+      if (!isDesktop() && track.style.transform) {
+        track.style.transform = "";
+        currentOffset = 0;
+      }
+    });
+
     prevBtn.addEventListener("click", () => {
+      if (!isDesktop()) return;
       currentOffset = Math.max(0, currentOffset - getCardWidth() * 2);
       track.style.transform = `translateX(-${currentOffset}px)`;
     });
 
     nextBtn.addEventListener("click", () => {
+      if (!isDesktop()) return;
       currentOffset = Math.min(
         getMaxOffset(),
         currentOffset + getCardWidth() * 2
       );
       track.style.transform = `translateX(-${currentOffset}px)`;
     });
-
-    // Touch/swipe support
-    let touchStartX = 0;
-    track.addEventListener(
-      "touchstart",
-      (e) => {
-        touchStartX = e.touches[0].clientX;
-      },
-      { passive: true }
-    );
-    track.addEventListener(
-      "touchend",
-      (e) => {
-        const delta = touchStartX - e.changedTouches[0].clientX;
-        if (Math.abs(delta) > 50) {
-          if (delta > 0) {
-            currentOffset = Math.min(getMaxOffset(), currentOffset + getCardWidth());
-          } else {
-            currentOffset = Math.max(0, currentOffset - getCardWidth());
-          }
-          track.style.transform = `translateX(-${currentOffset}px)`;
-        }
-      },
-      { passive: true }
-    );
   }
 </script>
