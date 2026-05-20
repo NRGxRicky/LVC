@@ -108,72 +108,113 @@ const experiencias = [
 
         <!-- Carousel Wrapper for relative positioning of overlay buttons -->
         <div class="relative group/carousel px-4">
-            <!-- Carousel Container -->
-            <div 
-                id="carouselContainer"
-                class="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 transition-all duration-500 ease-in-out"
-                style="scrollbar-width: none; -ms-overflow-style: none;"
-            >
-                {lugares.map((lugar) => (
-                    <a 
-                      href="/contacto" 
-                      class="min-w-[85%] md:min-w-[calc(33.333%-1.5rem)] snap-start group relative block aspect-[3/4] overflow-hidden bg-[#1C1713] cursor-pointer"
-                    >
-                        <img 
-                          src={lugar.image} 
-                          alt={lugar.name}
-                          class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.08] opacity-80 group-hover:opacity-100"
-                        />
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713]/90 via-[#1C1713]/20 to-transparent"></div>
-                        
-                        <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col">
-                          <h3 class="font-heading text-2xl text-white mb-3 tracking-wide">{lugar.name}</h3>
-                          <p class="font-sans text-xs text-white/80 leading-relaxed mb-6">
-                            {lugar.desc}
-                          </p>
-                          <div class="flex items-center gap-4 group-hover:gap-6 transition-all duration-300 text-white/50 group-hover:text-[#D4AD65]">
-                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:translate-x-1 transition-transform duration-300"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                          </div>
+            <!-- Swiper Container -->
+            <div class="swiper placesSwiper overflow-hidden pb-12">
+                <div class="swiper-wrapper">
+                    {lugares.map((lugar) => (
+                        <div class="swiper-slide">
+                            <a 
+                              href="/contacto" 
+                              class="group relative block aspect-[3/4] overflow-hidden bg-[#1C1713] cursor-pointer"
+                            >
+                                <img 
+                                  src={lugar.image} 
+                                  alt={lugar.name}
+                                  loading="lazy"
+                                  class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.08] opacity-80 group-hover:opacity-100"
+                                />
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713]/90 via-[#1C1713]/25 to-transparent"></div>
+                                
+                                <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col">
+                                  <h3 class="font-heading text-2xl text-white mb-3 tracking-wide">{lugar.name}</h3>
+                                  <p class="font-sans text-xs text-white/80 leading-relaxed mb-6">
+                                    {lugar.desc}
+                                  </p>
+                                  <div class="flex items-center gap-4 group-hover:gap-6 transition-all duration-300 text-white/50 group-hover:text-[#D4AD65]">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:translate-x-1 transition-transform duration-300"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                  </div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                ))}
+                    ))}
+                </div>
+                
+                <!-- Barra de progreso fina (Paginación Swiper) -->
+                <div class="places-swiper-pagination swiper-pagination !bottom-0"></div>
             </div>
 
-            <!-- Absolute Navigation Arrows centered vertically on sides -->
+            <!-- Absolute Navigation Arrows (Zonas de clic sutiles laterales) -->
             <button 
-                id="prevBtn" 
-                class="absolute -left-2 md:-left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-[#1C1713]/90 border border-white/20 text-white flex items-center justify-center hover:bg-[#D4AD65] hover:border-[#D4AD65] hover:text-[#1C1713] transition-all duration-300 z-10 shadow-xl"
+                id="swiperPrev" 
+                class="absolute left-0 top-0 bottom-12 w-[12%] z-20 flex items-center justify-start pl-4 opacity-0 hover:opacity-100 transition-opacity duration-500 cursor-pointer"
                 aria-label="Anterior"
             >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                <div class="w-10 h-10 rounded-full bg-[#1C1713]/85 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:border-[#D4AD65] hover:text-[#D4AD65] transition-all duration-300 shadow-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                </div>
             </button>
             <button 
-                id="nextBtn" 
-                class="absolute -right-2 md:-right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-[#1C1713]/90 border border-white/20 text-white flex items-center justify-center hover:bg-[#D4AD65] hover:border-[#D4AD65] hover:text-[#1C1713] transition-all duration-300 z-10 shadow-xl"
+                id="swiperNext" 
+                class="absolute right-0 top-0 bottom-12 w-[12%] z-20 flex items-center justify-end pr-4 opacity-0 hover:opacity-100 transition-opacity duration-500 cursor-pointer"
                 aria-label="Siguiente"
             >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                <div class="w-10 h-10 rounded-full bg-[#1C1713]/85 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:border-[#D4AD65] hover:text-[#D4AD65] transition-all duration-300 shadow-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
             </button>
         </div>
         </div>
     </section>
 
+    <style is:global>
+      .placesSwiper .swiper-pagination-progressbar {
+        background: rgba(255, 255, 255, 0.1) !important;
+        height: 2px !important;
+        border-radius: 0 !important;
+      }
+      .placesSwiper .swiper-pagination-progressbar-fill {
+        background: #D4AD65 !important;
+        border-radius: 0 !important;
+      }
+    </style>
+
     <script>
-        const container = document.getElementById('carouselContainer');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
+        import Swiper from 'swiper';
+        import { Navigation, Pagination } from 'swiper/modules';
+        import 'swiper/css';
+        import 'swiper/css/pagination';
 
-        if (container && prevBtn && nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                const scrollAmount = container.clientWidth;
-                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-            });
-
-            prevBtn.addEventListener('click', () => {
-                const scrollAmount = container.clientWidth;
-                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        function initPlacesSwiper() {
+            const swiper = new Swiper('.placesSwiper', {
+                modules: [Navigation, Pagination],
+                slidesPerView: 1.15,
+                spaceBetween: 16,
+                grabCursor: true,
+                watchSlidesProgress: true,
+                pagination: {
+                    el: '.places-swiper-pagination',
+                    type: 'progressbar',
+                },
+                navigation: {
+                    nextEl: '#swiperNext',
+                    prevEl: '#swiperPrev',
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2.3,
+                        spaceBetween: 24,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 32,
+                    }
+                }
             });
         }
+
+        // Initialize on DOM load and transition load
+        document.addEventListener("DOMContentLoaded", initPlacesSwiper);
+        document.addEventListener('astro:page-load', initPlacesSwiper);
     </script>
 
     <!-- FULL WIDTH SPLIT SECTION -->
