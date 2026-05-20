@@ -6,6 +6,8 @@
  * Includes navigation arrows (prev/next) and hover overlay effect.
  */
 
+import { Image } from "astro:assets";
+
 interface DestCard {
   title: string;
   region: string;
@@ -126,13 +128,12 @@ const destinations: DestCard[] = [
               <a href={dest.href ?? "#"} class="block">
                 <!-- Imagen con overlay hover -->
                 <div class="aspect-[3/4] overflow-hidden rounded-lg mb-4 relative">
-                  <img
+                  <Image
                     src={dest.imageSrc}
                     alt={dest.imageAlt}
                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    width="320"
-                    height="427"
-                    loading="lazy"
+                    width={320}
+                    height={427}
                   />
                   <!-- Hover overlay con CTA -->
                   <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713]/85 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">

@@ -67,6 +67,8 @@ const {
       const lenis = new Lenis({
         lerp: 0.05, // Entre más bajo, más "pesado" y suave el scroll.
         wheelMultiplier: 0.8, // Relaja la sensibilidad del mouse para mayor elegancia.
+        syncTouch: false,
+        touchMultiplier: 1.5,
       });
 
       function raf(time) {
@@ -92,8 +94,11 @@ const {
         revealElements.forEach(el => observer.observe(el));
       }
 
-      document.addEventListener("DOMContentLoaded", initRevealObserver);
-      document.addEventListener('astro:page-load', initRevealObserver);
+      if (document.readyState === 'loading') {
+        document.addEventListener("DOMContentLoaded", initRevealObserver);
+      } else {
+        initRevealObserver();
+      }
     </script>
   </body>
 </html>

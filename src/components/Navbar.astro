@@ -35,7 +35,7 @@ const mainLinks = [
     <!-- Logo -->
     <a href="/" aria-label="Luxury Voyage Collection - Inicio" class="block shrink-0">
       <img
-        src="/images/logo-diamond.png"
+        src="https://garage-web.luxuryvoyageco.com/images/logo-diamond.png"
         alt="Luxury Voyage Collection"
         class="h-12 md:h-16 w-auto object-contain transition-all duration-500"
         id="nav-logo"
@@ -130,7 +130,7 @@ const mainLinks = [
   >
     <!-- Top Bar inside Mobile Menu -->
     <div class="absolute top-0 left-0 w-full flex justify-between items-start p-6 md:p-8">
-      <img src="/images/logo-diamond.png" alt="Luxury Voyage Collection" class="h-12 md:h-16 w-auto object-contain" />
+      <img src="https://garage-web.luxuryvoyageco.com/images/logo-diamond.png" alt="Luxury Voyage Collection" class="h-12 md:h-16 w-auto object-contain" />
       <button id="mobile-close" aria-label="Cerrar menú" class="p-2 text-white/50 hover:text-[#D4AD65] transition-colors duration-300">
         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </button>
@@ -189,7 +189,7 @@ const mainLinks = [
   const mobileClose = document.getElementById("mobile-close");
 
   function updateNav() {
-    if (!navPill) return;
+    if (!navPill || !navRoot) return;
     
     if (window.scrollY > 80) {
       // Estado con SCROLL: Se convierte en la cápsula
@@ -216,7 +216,7 @@ const mainLinks = [
       navPill.classList.add("border-transparent", "bg-transparent", "py-6", "max-w-[1920px]");
       
       // Revertir a texto original
-      if (navRoot?.dataset.theme === "dark") {
+      if (navRoot.dataset.theme === "dark") {
         navRoot.classList.remove("text-[#1C1713]");
         navRoot.classList.add("text-white");
       }
@@ -234,7 +234,9 @@ const mainLinks = [
     mobileMenu?.classList.remove("hidden");
     mobileMenu?.classList.add("flex");
     // Force reflow for transitions
-    mobileMenu?.offsetHeight;
+    if (mobileMenu) {
+      const _ = mobileMenu.offsetHeight;
+    }
     mobileMenu?.classList.remove("opacity-0");
     mobileMenu?.classList.add("opacity-100");
     navPill?.classList.add("opacity-0", "pointer-events-none");
@@ -242,7 +244,7 @@ const mainLinks = [
   });
 
   mobileClose?.addEventListener("click", () => {
-    hamburger.setAttribute("aria-expanded", "false");
+    hamburger?.setAttribute("aria-expanded", "false");
     mobileMenu?.classList.remove("opacity-100");
     mobileMenu?.classList.add("opacity-0");
     navPill?.classList.remove("opacity-0", "pointer-events-none");

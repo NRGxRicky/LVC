@@ -3,25 +3,23 @@
  * asia.astro — Universo Asia
  */
 
-import Layout from "../../layouts/Layout.astro";
-import Navbar from "../../components/Navbar.astro";
-import Footer from "../../components/Footer.astro";
+import UniversoLayout from "../../layouts/UniversoLayout.astro";
 
 const lugares = [
   {
     name: "JAPÓN",
     desc: "Armonía, precisión y belleza en cada instante.",
-    image: "/images/asia_japon_card_1776311225534.png"
+    image: "https://garage-web.luxuryvoyageco.com/images/asia_japon_card_1776311225534.png"
   },
   {
     name: "TAILANDIA",
     desc: "Espiritualidad, calidez y una energía difícil de explicar.",
-    image: "/images/asia_tailandia_card_1776311239743.png"
+    image: "https://garage-web.luxuryvoyageco.com/images/asia_tailandia_card_1776311239743.png"
   },
   {
     name: "INDONESIA",
     desc: "Calma, conexión y una forma distinta de habitar el tiempo.",
-    image: "/images/asia_bali_card_1776311254253.png"
+    image: "https://garage-web.luxuryvoyageco.com/images/asia_bali_card_1776311254253.png"
   },
   {
     name: "SINGAPUR",
@@ -44,246 +42,29 @@ const experiencias = [
   {
     name: "EXPERIENCIAS CULINARIAS",
     desc: "La forma en que se vive la alta cocina.",
-    image: "/images/asia_cena_1776311284263.png"
+    image: "https://garage-web.luxuryvoyageco.com/images/asia_cena_1776311284263.png"
   },
   {
     name: "ESTANCIAS SELECCIONADAS",
     desc: "Lugares que elevan cada momento.",
-    image: "/images/asia_villas_1776311298395.png"
+    image: "https://garage-web.luxuryvoyageco.com/images/asia_villas_1776311298395.png"
   },
   {
     name: "INMERSIONES",
     desc: "Escenarios que transforman la forma de vivir cada destino.",
-    image: "/images/asia_spa_1776311310552.png"
+    image: "https://garage-web.luxuryvoyageco.com/images/asia_spa_1776311310552.png"
   }
 ];
 ---
 
-<Layout
+<UniversoLayout
   title="Universo Asia — Luxury Voyage Collection"
   description="Donde la tradición ancestral se encuentra con la belleza en cada detalle."
->
-  <Navbar />
-
-  <main class="w-full bg-[#FAF9F6]">
-    
-    <!-- HERO ASIA -->
-    <section class="relative w-full h-screen min-h-[70vh] flex items-center justify-start overflow-hidden">
-      <div class="absolute inset-0 z-0">
-        <img 
-          src="/images/asia_japon_card_1776311225534.png" 
-          alt="Paisaje de Asia, montañas y templo" 
-          class="w-full h-full object-cover object-center"
-        />
-        <div class="absolute inset-0 bg-gradient-to-r from-[#1C1713]/80 via-[#1C1713]/40 to-transparent"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent via-50% to-[#FAF9F6]"></div>
-      </div>
-      
-      <div class="relative z-10 w-full max-w-[1920px] mx-auto px-6 md:px-12 md:pl-24 pt-32 pb-24 flex flex-col items-start h-full justify-center">
-        <div class="flex items-center gap-4 mb-6">
-          <span class="font-label text-[10px] md:text-xs font-bold text-[#D4AD65] uppercase tracking-[0.3em]">Universo</span>
-          <div class="w-12 h-[1px] bg-[#D4AD65]"></div>
-        </div>
-        <h1 class="font-heading text-6xl md:text-8xl lg:text-9xl text-white mb-8 tracking-wide">ASIA</h1>
-        <p class="font-sans text-lg text-white/90 max-w-sm mb-12 leading-relaxed">
-          La belleza de la armonía entre contrastes.
-        </p>
-        <a 
-          href="#lugares" 
-          class="flex items-center gap-3 font-label text-xs uppercase tracking-widest text-white/80 hover:text-[#D4AD65] transition-colors duration-300 group"
-        >
-          Explora Asia
-          <div class="w-12 h-[1px] bg-white/30 group-hover:bg-[#D4AD65] group-hover:w-16 transition-all duration-300"></div>
-        </a>
-
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-            <div class="w-5 h-8 border border-white/30 rounded-full flex justify-center p-1">
-                <div class="w-1 h-2 bg-white rounded-full animate-bounce"></div>
-            </div>
-            <span class="font-label text-[10px] uppercase tracking-widest text-white/50">Scroll</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- LUGARES QUE INSPIRAN (CAROUSEL) -->
-    <section id="lugares" class="w-full bg-[#1C1713] px-6 md:px-12 py-10 md:py-16 overflow-hidden">
-        <div class="max-w-[1920px] mx-auto">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-10 gap-6">
-            <div>
-                <span class="font-label text-[10px] font-bold text-[#D4AD65] uppercase tracking-widest block mb-4">MOMENTOS DEL VIAJE</span>
-                <h2 class="font-heading text-4xl md:text-5xl text-white leading-tight">Donde el viaje cobra <span class="italic text-[#D4AD65]">sentido</span></h2>
-            </div>
-        </div>
-
-        <!-- Carousel Wrapper for relative positioning of overlay buttons -->
-        <div class="relative group/carousel px-4">
-            <!-- Swiper Container -->
-            <div class="swiper placesSwiper overflow-hidden pb-12">
-                <div class="swiper-wrapper">
-                    {lugares.map((lugar) => (
-                        <div class="swiper-slide">
-                            <a 
-                              href="/contacto" 
-                              class="group relative block aspect-[3/4] overflow-hidden bg-[#1C1713] cursor-pointer"
-                            >
-                                <img 
-                                  src={lugar.image} 
-                                  alt={lugar.name}
-                                  loading="lazy"
-                                  class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.08] opacity-80 group-hover:opacity-100"
-                                />
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713]/90 via-[#1C1713]/25 to-transparent"></div>
-                                
-                                <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col">
-                                  <h3 class="font-heading text-2xl text-white mb-3 tracking-wide">{lugar.name}</h3>
-                                  <p class="font-sans text-xs text-white/80 leading-relaxed mb-6">
-                                    {lugar.desc}
-                                  </p>
-                                  <div class="flex items-center gap-4 group-hover:gap-6 transition-all duration-300 text-white/50 group-hover:text-[#D4AD65]">
-                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:translate-x-1 transition-transform duration-300"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                                  </div>
-                                </div>
-                            </a>
-                        </div>
-                    ))}
-                </div>
-                
-                <!-- Barra de progreso fina (Paginación Swiper) -->
-                <div class="places-swiper-pagination swiper-pagination !bottom-0"></div>
-            </div>
-
-            <!-- Absolute Navigation Arrows (Zonas de clic sutiles laterales) -->
-            <button 
-                id="swiperPrev" 
-                class="absolute left-0 top-0 bottom-12 w-[12%] z-20 flex items-center justify-start pl-4 opacity-0 hover:opacity-100 transition-opacity duration-500 cursor-pointer"
-                aria-label="Anterior"
-            >
-                <div class="w-10 h-10 rounded-full bg-[#1C1713]/85 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:border-[#D4AD65] hover:text-[#D4AD65] transition-all duration-300 shadow-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-                </div>
-            </button>
-            <button 
-                id="swiperNext" 
-                class="absolute right-0 top-0 bottom-12 w-[12%] z-20 flex items-center justify-end pr-4 opacity-0 hover:opacity-100 transition-opacity duration-500 cursor-pointer"
-                aria-label="Siguiente"
-            >
-                <div class="w-10 h-10 rounded-full bg-[#1C1713]/85 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:border-[#D4AD65] hover:text-[#D4AD65] transition-all duration-300 shadow-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                </div>
-            </button>
-        </div>
-        </div>
-    </section>
-
-    <style is:global>
-      .placesSwiper .swiper-pagination-progressbar {
-        background: rgba(255, 255, 255, 0.1) !important;
-        height: 2px !important;
-        border-radius: 0 !important;
-      }
-      .placesSwiper .swiper-pagination-progressbar-fill {
-        background: #D4AD65 !important;
-        border-radius: 0 !important;
-      }
-    </style>
-
-    <script>
-        import Swiper from 'swiper';
-        import { Navigation, Pagination } from 'swiper/modules';
-        import 'swiper/css';
-        import 'swiper/css/pagination';
-
-        function initPlacesSwiper() {
-            const swiper = new Swiper('.placesSwiper', {
-                modules: [Navigation, Pagination],
-                slidesPerView: 1.15,
-                spaceBetween: 16,
-                grabCursor: true,
-                watchSlidesProgress: true,
-                pagination: {
-                    el: '.places-swiper-pagination',
-                    type: 'progressbar',
-                },
-                navigation: {
-                    nextEl: '#swiperNext',
-                    prevEl: '#swiperPrev',
-                },
-                breakpoints: {
-                    768: {
-                        slidesPerView: 2.3,
-                        spaceBetween: 24,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                        spaceBetween: 32,
-                    }
-                }
-            });
-        }
-
-        // Initialize on DOM load and transition load
-        document.addEventListener("DOMContentLoaded", initPlacesSwiper);
-        document.addEventListener('astro:page-load', initPlacesSwiper);
-    </script>
-
-    <!-- FULL WIDTH SPLIT SECTION -->
-    <section class="w-full h-[200px] md:h-[300px] relative overflow-hidden flex items-center justify-center">
-        <img 
-            src="/images/asia_mid_landscape_1776311267084.png" 
-            alt="Paisaje de agua y montañas en Asia"
-            class="absolute inset-0 w-full h-full object-cover"
-        />
-        <div class="absolute inset-0 bg-black/40"></div>
-        
-        <div class="relative z-10 w-full max-w-[1920px] mx-auto px-6 text-center">
-            <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl text-white leading-tight">
-                Cada lugar es<br>solo el <span class="italic text-[#D4AD65]">inicio</span>.
-            </h2>
-        </div>
-    </section>
-
-    <!-- EXPERIENCIAS QUE TRANSFORMAN -->
-    <section class="w-full max-w-[1920px] mx-auto px-6 md:px-12 py-12 md:py-16">
-        <div class="mb-8 md:mb-10">
-            <span class="font-label text-[10px] font-bold text-[#775A19] uppercase tracking-widest block mb-4">MOMENTOS DISEÑADOS</span>
-            <h2 class="font-heading text-4xl md:text-5xl text-[#1C1713] leading-tight">Experiencias que <span class="italic text-[#D4AD65]">transforman</span></h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
-            {experiencias.map(exp => (
-                <a href="/contacto" class="group block cursor-pointer">
-                    <div class="w-full aspect-[4/3] overflow-hidden mb-6 relative">
-                        <img 
-                            src={exp.image} 
-                            alt={exp.name}
-                            class="w-full h-full object-cover transition-transform duration-[4000ms] ease-out group-hover:scale-[1.08]"
-                        />
-                        <div class="absolute inset-0 bg-[#1C1713]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </div>
-                    <h3 class="font-heading text-lg md:text-xl text-[#1C1713] mb-2 group-hover:text-[#D4AD65] transition-colors duration-300">{exp.name}</h3>
-                    <p class="font-sans text-xs md:text-sm text-[#1C1713]/70 mb-4 h-auto md:h-10">{exp.desc}</p>
-                </a>
-            ))}
-        </div>
-
-        <!-- CTA Integrado -->
-        <div class="mt-8 md:mt-10 text-center">
-            <h2 class="font-heading text-3xl md:text-4xl text-[#1C1713] mb-8">Tu experiencia a Asia comienza con una decisión.</h2>
-            <a 
-                href="/contacto" 
-                class="group/cta relative overflow-hidden inline-flex items-center gap-4 font-label text-[10px] md:text-xs uppercase tracking-widest font-medium text-[#FAF9F6] bg-[#1C1713] px-8 py-4 transition-all duration-500 shadow-md"
-            >
-                <span class="absolute inset-0 bg-[#D4AD65] transform translate-y-[100%] group-hover/cta:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]"></span>
-                <span class="relative z-10 flex items-center gap-4 transition-colors duration-500">
-                    Diseña tu experiencia
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover/cta:translate-x-1 transition-transform duration-500"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                </span>
-            </a>
-        </div>
-    </section>
-
-  </main>
-
-  <Footer />
-</Layout>
+  slug="asia"
+  heroTitle="ASIA"
+  heroImage="https://garage-web.luxuryvoyageco.com/images/asia_japon_card_1776311225534.png"
+  heroDesc="La belleza de la armonía entre contrastes."
+  splitImage="https://garage-web.luxuryvoyageco.com/images/asia_japon_card_1776311225534.png"
+  lugares={lugares}
+  experiencias={experiencias}
+/>
