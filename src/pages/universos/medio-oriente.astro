@@ -104,44 +104,56 @@ const experiencias = [
                 <span class="font-label text-[10px] font-bold text-[#D4AD65] uppercase tracking-widest block mb-4">MOMENTOS DEL VIAJE</span>
                 <h2 class="font-heading text-4xl md:text-5xl text-white leading-tight">Donde el viaje cobra <span class="italic text-[#D4AD65]">sentido</span></h2>
             </div>
-            
-            <!-- Custom Navigation Arrows -->
-            <div class="flex gap-4">
-                <button id="prevBtn" class="w-12 h-12 border border-white/20 text-white flex items-center justify-center hover:bg-[#D4AD65] hover:border-[#D4AD65] hover:text-[#1C1713] transition-all duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-                </button>
-                <button id="nextBtn" class="w-12 h-12 border border-white/20 text-white flex items-center justify-center hover:bg-[#D4AD65] hover:border-[#D4AD65] hover:text-[#1C1713] transition-all duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                </button>
-            </div>
         </div>
 
-        <!-- Carousel Container -->
-        <div 
-            id="carouselContainer"
-            class="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 transition-all duration-500 ease-in-out"
-            style="scrollbar-width: none; -ms-overflow-style: none;"
-        >
-            {lugares.map((lugar) => (
-                <div class="min-w-[85%] md:min-w-[calc(33.333%-1.5rem)] snap-start group relative block aspect-[3/4] overflow-hidden bg-[#1C1713]">
-                    <img 
-                      src={lugar.image} 
-                      alt={lugar.name}
-                      class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.08] opacity-80 group-hover:opacity-100"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713]/90 via-[#1C1713]/20 to-transparent"></div>
-                    
-                    <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col">
-                      <h3 class="font-heading text-2xl text-white mb-3 tracking-wide">{lugar.name}</h3>
-                      <p class="font-sans text-xs text-white/80 leading-relaxed mb-6">
-                        {lugar.desc}
-                      </p>
-                      <div class="flex items-center gap-4 group-hover:gap-6 transition-all duration-300 text-white/50 group-hover:text-[#D4AD65]">
-                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                      </div>
-                    </div>
-                </div>
-            ))}
+        <!-- Carousel Wrapper for relative positioning of overlay buttons -->
+        <div class="relative group/carousel px-4">
+            <!-- Carousel Container -->
+            <div 
+                id="carouselContainer"
+                class="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 transition-all duration-500 ease-in-out"
+                style="scrollbar-width: none; -ms-overflow-style: none;"
+            >
+                {lugares.map((lugar) => (
+                    <a 
+                      href="/contacto" 
+                      class="min-w-[85%] md:min-w-[calc(33.333%-1.5rem)] snap-start group relative block aspect-[3/4] overflow-hidden bg-[#1C1713] cursor-pointer"
+                    >
+                        <img 
+                          src={lugar.image} 
+                          alt={lugar.name}
+                          class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.08] opacity-80 group-hover:opacity-100"
+                        />
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713]/90 via-[#1C1713]/20 to-transparent"></div>
+                        
+                        <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col">
+                          <h3 class="font-heading text-2xl text-white mb-3 tracking-wide">{lugar.name}</h3>
+                          <p class="font-sans text-xs text-white/80 leading-relaxed mb-6">
+                            {lugar.desc}
+                          </p>
+                          <div class="flex items-center gap-4 group-hover:gap-6 transition-all duration-300 text-white/50 group-hover:text-[#D4AD65]">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:translate-x-1 transition-transform duration-300"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                          </div>
+                        </div>
+                    </a>
+                ))}
+            </div>
+
+            <!-- Absolute Navigation Arrows centered vertically on sides -->
+            <button 
+                id="prevBtn" 
+                class="absolute -left-2 md:-left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-[#1C1713]/90 border border-white/20 text-white flex items-center justify-center hover:bg-[#D4AD65] hover:border-[#D4AD65] hover:text-[#1C1713] transition-all duration-300 z-10 shadow-xl"
+                aria-label="Anterior"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            </button>
+            <button 
+                id="nextBtn" 
+                class="absolute -right-2 md:-right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-[#1C1713]/90 border border-white/20 text-white flex items-center justify-center hover:bg-[#D4AD65] hover:border-[#D4AD65] hover:text-[#1C1713] transition-all duration-300 z-10 shadow-xl"
+                aria-label="Siguiente"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
         </div>
         </div>
     </section>
