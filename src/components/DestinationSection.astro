@@ -74,7 +74,7 @@ const sectionJustify: Record<string, string> = {
 
 <section
   id={id}
-  class={`min-h-[80vh] w-full relative ${sectionJustify[alignment]} ${bgClass}`}
+  class={`min-h-screen w-full relative ${sectionJustify[alignment]} ${bgClass}`}
   aria-label={title}
 >
   <!-- Background image -->
@@ -98,7 +98,7 @@ const sectionJustify: Record<string, string> = {
   }
 
   <!-- Content grid -->
-  <div class="w-full max-w-[1800px] mx-auto px-fluid-px relative z-10 grid grid-cols-12">
+  <div class="w-full max-w-[1920px] mx-auto px-12 relative z-10 grid grid-cols-12">
     {
       centerLayout ? (
         /* ── Medio Oriente: layout centrado con quote ── */
@@ -109,7 +109,8 @@ const sectionJustify: Record<string, string> = {
             <span class="font-label uppercase tracking-[0.4em] text-primary text-[10px] mb-6 block">
               {subtitle}
             </span>
-            <h2 class="font-headline text-on-background leading-tight mb-8 text-fluid-h2">
+            <h2 class="font-headline text-on-background leading-tight mb-8"
+                style="font-size: clamp(2.5rem, 6vw, 5rem);">
               {title}
             </h2>
             {quote && (
@@ -118,7 +119,7 @@ const sectionJustify: Record<string, string> = {
               </p>
             )}
             {!quote && (
-              <p class="font-body text-fluid-p leading-relaxed text-on-surface-variant mb-12 max-w-md mx-auto">
+              <p class="font-body text-lg leading-relaxed text-on-surface-variant mb-12 max-w-md mx-auto">
                 {description}
               </p>
             )}
@@ -136,11 +137,12 @@ const sectionJustify: Record<string, string> = {
                 {subtitle}
               </span>
               <h2
-                class="font-headline text-on-background leading-tight mb-8 text-fluid-h2"
+                class="font-headline text-on-background leading-tight mb-8"
+                style="font-size: clamp(2.25rem, 5vw, 4.5rem);"
               >
                 {title}
               </h2>
-              <p class="font-body text-fluid-p leading-relaxed text-on-surface-variant mb-10 max-w-md">
+              <p class="font-body text-lg leading-relaxed text-on-surface-variant mb-10 max-w-md">
                 {description}
               </p>
               <Button
