@@ -26,6 +26,8 @@ export interface Props {
   splitImage: string;
   lugares: Lugar[];
   experiencias: Experiencia[];
+  placesTitlePre?: string;
+  placesTitleItalic?: string;
 }
 
 const {
@@ -37,7 +39,9 @@ const {
   heroDesc,
   splitImage,
   lugares,
-  experiencias
+  experiencias,
+  placesTitlePre = "Donde el viaje cobra",
+  placesTitleItalic = "sentido"
 } = Astro.props;
 ---
 
@@ -92,8 +96,8 @@ const {
         <div class="max-w-[1920px] mx-auto">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-10 gap-6">
             <div>
-                <span class="font-label text-[10px] font-bold text-[#D4AD65] uppercase tracking-widest block mb-4">MOMENTOS DEL VIAJE</span>
-                <h2 class="font-heading text-4xl md:text-5xl text-white leading-tight">Donde el viaje cobra <span class="italic text-[#D4AD65]">sentido</span></h2>
+                <span class="font-label text-[10px] font-bold text-[#D4AD65] uppercase tracking-widest block mb-4">ESCENARIOS</span>
+                <h2 class="font-heading text-4xl md:text-5xl text-white leading-tight">{placesTitlePre} <span class="italic text-[#D4AD65]">{placesTitleItalic}</span></h2>
             </div>
         </div>
 
@@ -202,9 +206,8 @@ const {
             ))}
         </div>
 
-        <!-- CTA Integrado -->
         <div class="mt-8 md:mt-10 text-center">
-            <h2 class="font-heading text-3xl md:text-4xl text-[#1C1713] mb-8">Tu experiencia a {heroTitle} comienza con una decisión.</h2>
+            <h2 class="font-heading text-3xl md:text-4xl text-[#1C1713] mb-8">Tu experiencia a <span class="text-[#D4AD65] italic">{heroTitle}</span> comienza con una <span class="text-[#D4AD65] italic">decisión</span>.</h2>
             <a 
                 href="/contacto" 
                 class="group/cta relative overflow-hidden inline-flex items-center gap-4 font-label text-[10px] md:text-xs uppercase tracking-widest font-medium text-[#FAF9F6] bg-[#1C1713] px-8 py-4 transition-all duration-500 shadow-md"

@@ -27,10 +27,11 @@ import Footer from "../components/Footer.astro";
         <div class="absolute inset-0 bg-gradient-to-b from-[#1C1713]/60 via-[#1C1713]/40 to-[#FAF9F6]"></div>
         
         <div class="relative z-10 max-w-[800px] mx-auto mt-16">
-            <span class="font-label text-[10px] md:text-xs font-bold text-[#D4AD65] uppercase tracking-[0.2em] block mb-6 reveal-up">MOMENTOS DEL VIAJE</span>
+            <span class="font-label text-[10px] md:text-xs font-bold text-[#D4AD65] uppercase tracking-[0.2em] block mb-6 reveal-up">DISEÑA TU EXPERIENCIA</span>
             <h1 class="font-heading text-4xl md:text-6xl lg:text-7xl text-white mb-6 reveal-up reveal-delay-100">
-              Donde inicia algo <span class="italic text-[#D4AD65]">inolvidable</span>
+              Empieza a dar forma <span class="text-[#D4AD65] italic">a tu viaje</span>
             </h1>
+            <p class="font-sans text-white/80 text-sm md:text-base max-w-md mx-auto reveal-up reveal-delay-200 mt-4">Comparte lo esencial. Nosotros nos encargamos del resto.</p>
         </div>
     </div>
 
@@ -42,8 +43,42 @@ import Footer from "../components/Footer.astro";
       <!-- FORMULARIO PRINCIPAL -->
       <form id="experience-form" class="flex flex-col gap-10 reveal-up reveal-delay-300">
         
+        <!-- DATOS DE CONTACTO PERSONALES -->
+        <div class="flex flex-col gap-6 mb-4">
+          <h3 class="font-heading text-lg text-[#1C1713]">Detalles de contacto</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="flex flex-col gap-2">
+              <label for="nombre" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Nombre Completo *</label>
+              <input type="text" id="nombre" name="nombre" required class="w-full bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 pt-1 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30" placeholder="Ej. Alejandro Valenzuela" />
+            </div>
+            <div class="flex flex-col gap-2">
+              <label for="email" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Correo Electrónico *</label>
+              <input type="email" id="email" name="email" required class="w-full bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 pt-1 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30" placeholder="correo@ejemplo.com" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="flex flex-col gap-2">
+              <label for="telefono" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Teléfono / WhatsApp *</label>
+              <input type="tel" id="telefono" name="telefono" required class="w-full bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 pt-1 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30" placeholder="+52 55 1234 5678" />
+            </div>
+            <div class="flex flex-col gap-2 relative">
+              <label for="contacto_pref" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Método de contacto preferido *</label>
+              <select id="contacto_pref" name="contacto_pref" required class="w-full appearance-none bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 pt-1 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none cursor-pointer">
+                <option value="email">Correo Electrónico</option>
+                <option value="whatsapp">WhatsApp</option>
+                <option value="llamada">Llamada telefónica</option>
+                <option value="zoom">Zoom</option>
+              </select>
+              <div class="absolute right-0 bottom-4 pointer-events-none opacity-40 text-[#1C1713]">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- DESTINO DE INTERÉS -->
-        <div class="flex flex-col gap-3">
+        <div class="flex flex-col gap-3 border-t border-[#1C1713]/10 pt-8">
           <label class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Destino de interés</label>
           <p class="font-sans text-sm text-[#1C1713]/60 -mt-1">¿A dónde te gustaría ir?</p>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-2">
@@ -235,37 +270,6 @@ import Footer from "../components/Footer.astro";
             <textarea id="idea" name="idea" rows="4" placeholder="Cuéntanos lo que tienes en mente, aunque aún no esté completamente definido." class="w-full bg-transparent border border-[#1C1713]/10 p-6 font-sans text-sm text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30 resize-none hover:border-[#1C1713]/20"></textarea>
         </div>
 
-        <!-- DATOS DE CONTACTO PERSONALES -->
-        <div class="flex flex-col gap-6 border-t border-[#1C1713]/10 pt-8 mt-4">
-          <h3 class="font-heading text-lg text-[#1C1713]">Detalles de contacto</h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="flex flex-col gap-2">
-              <label for="nombre" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Nombre Completo *</label>
-              <input type="text" id="nombre" name="nombre" required class="w-full bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 pt-1 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30" placeholder="Ej. Alejandro Valenzuela" />
-            </div>
-            <div class="flex flex-col gap-2">
-              <label for="email" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Correo Electrónico *</label>
-              <input type="email" id="email" name="email" required class="w-full bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 pt-1 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30" placeholder="correo@ejemplo.com" />
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="flex flex-col gap-2">
-              <label for="telefono" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Teléfono / WhatsApp *</label>
-              <input type="tel" id="telefono" name="telefono" required class="w-full bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 pt-1 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30" placeholder="+52 55 1234 5678" />
-            </div>
-            <div class="flex flex-col gap-2 relative">
-              <label for="contacto_pref" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Método de contacto preferido *</label>
-              <select id="contacto_pref" name="contacto_pref" required class="w-full appearance-none bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 pt-1 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none cursor-pointer">
-                <option value="email">Correo Electrónico</option>
-                <option value="whatsapp">WhatsApp</option>
-                <option value="llamada">Llamada telefónica</option>
-              </select>
-              <div class="absolute right-0 bottom-4 pointer-events-none opacity-40 text-[#1C1713]">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-              </div>
-            </div>
-          </div>
         </div>
 
         <!-- SEGURIDAD & SUBMIT -->
@@ -498,6 +502,7 @@ import Footer from "../components/Footer.astro";
         let canalText = "correo electrónico";
         if (pref === "whatsapp") canalText = "WhatsApp";
         else if (pref === "llamada") canalText = "llamada telefónica";
+        else if (pref === "zoom") canalText = "Zoom";
 
         if (modalMessage) {
           modalMessage.innerHTML = `Estimado(a) <strong>${nombre}</strong>, su solicitud ha sido recibida con éxito. Un Diseñador de Viajes de Luxury Voyage Collection analizará sus preferencias y se pondrá en contacto con usted mediante <strong>${canalText}</strong> en un plazo máximo de 24 horas.`;
