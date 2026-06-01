@@ -16,11 +16,11 @@ const destinations = [
 ];
 
 const company = [
-  { label: "Sobre Nosotros", href: "#por-que-nosotros" },
-  { label: "Journal de Viaje", href: "#" },
+  { label: "Sobre Nosotros", href: "/journey" },
+  { label: "Journal de Viaje", href: "/journal" },
   { label: "Financia tu Viaje", href: "#" },
   { label: "¿Eres una agencia?", href: "#" },
-  { label: "Aviso Legal", href: "#" },
+  { label: "Aviso Legal", href: "/aviso-de-privacidad" },
 ];
 
 const offices = [
@@ -175,17 +175,18 @@ const currentYear = new Date().getFullYear();
     </p>
     <div class="flex gap-6">
       <a
-        href="#"
+        href="/aviso-de-privacidad"
         class="font-label text-xs text-[#1C1713]/30 hover:text-[#D4AD65] transition-colors duration-300"
         >Privacidad</a
       >
       <a
-        href="#"
+        href="/terminos-y-condiciones"
         class="font-label text-xs text-[#1C1713]/30 hover:text-[#D4AD65] transition-colors duration-300"
         >Términos</a
       >
       <a
-        href="#"
+        href="#cookies"
+        id="open-cookies"
         class="font-label text-xs text-[#1C1713]/30 hover:text-[#D4AD65] transition-colors duration-300"
         >Cookies</a
       >

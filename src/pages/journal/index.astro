@@ -1,0 +1,125 @@
+---
+/**
+ * index.astro — Luxury Voyage Collection
+ * Journal / Listado de Artículos
+ */
+
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+
+// Obtener y ordenar los posts del journal de forma descendente por fecha de publicación
+const posts = await getCollection("journal");
+const sortedPosts = posts.sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+
+const featuredPost = sortedPosts[0];
+const remainingPosts = sortedPosts.slice(1);
+
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString("es-MX", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
+};
+---
+
+<Layout
+  title="Luxury Voyage Collection — Journal"
+  description="Artículos editoriales y relatos sobre el arte de viajar, el diseño y la exclusividad."
+>
+  <Navbar theme="light" />
+
+  <main class="w-full bg-[#FAF9F6] pt-32 md:pt-40 pb-20 md:pb-28">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+      
+      <!-- CABECERA EDITORIAL -->
+      <header class="text-center max-w-[800px] mx-auto mb-16 md:mb-24 reveal-up">
+        <span class="font-label text-[10px] md:text-xs font-bold text-[#D4AD65] uppercase tracking-[0.25em] block mb-5">JOURNAL EDITORIAL</span>
+        <h1 class="font-heading text-4xl md:text-6xl text-[#1C1713] mb-6 leading-tight">
+          Historias de <span class="italic text-[#775A19]">viaje y diseño</span>
+        </h1>
+        <div class="w-16 h-[1px] bg-[#D4AD65] mx-auto mb-6"></div>
+        <p class="font-sans text-sm md:text-base text-[#1C1713]/65 leading-relaxed">
+          Una crónica pausada de refugios silenciosos, rincones inexplorados y la filosofía que guía el diseño de nuestras experiencias.
+        </p>
+      </header>
+
+      <!-- ARTÍCULO DESTACADO (Featured Post) -->
+      {featuredPost && (
+        <section class="mb-20 md:mb-28 reveal-up">
+          <a href={`/journal/${featuredPost.id}`} class="group grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+            <div class="lg:col-span-7 overflow-hidden bg-[#1C1713]/5 aspect-[16/10] relative">
+              <img 
+                src={featuredPost.data.image} 
+                alt={featuredPost.data.title}
+                class="w-full h-full object-cover transition-transform duration-[4000ms] ease-out group-hover:scale-[1.03]"
+                loading="eager"
+              />
+              <div class="absolute inset-0 bg-[#1C1713]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </div>
+            <div class="lg:col-span-5 flex flex-col justify-center">
+              <div class="flex items-center gap-4 mb-4 text-[#1C1713]/40 font-label text-[10px] uppercase tracking-widest">
+                <span>{formatDate(featuredPost.data.publishDate)}</span>
+                <span>•</span>
+                <span>{featuredPost.data.readTime || "5 min"}</span>
+              </div>
+              <h2 class="font-heading text-3xl md:text-4xl text-[#1C1713] mb-5 group-hover:text-[#775A19] transition-colors duration-300 leading-tight">
+                {featuredPost.data.title}
+              </h2>
+              <p class="font-sans text-sm md:text-base text-[#1C1713]/70 leading-relaxed mb-6">
+                {featuredPost.data.excerpt}
+              </p>
+              <div class="flex items-center gap-3 text-[#775A19] group-hover:gap-5 transition-all duration-300">
+                <span class="font-label text-[10px] md:text-xs uppercase tracking-widest font-bold">Leer Artículo</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform duration-300"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </div>
+            </div>
+          </a>
+        </section>
+      )}
+
+      <!-- CUADRÍCULA DE ARTÍCULOS RESTANTES -->
+      {remainingPosts.length > 0 && (
+        <section class="reveal-up">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+            {remainingPosts.map((post, i) => (
+              <a href={`/journal/${post.id}`} class={`group flex flex-col reveal-up reveal-delay-${(i % 2) * 100}`}>
+                <div class="overflow-hidden bg-[#1C1713]/5 aspect-[16/10] mb-6 relative">
+                  <img 
+                    src={post.data.image} 
+                    alt={post.data.title}
+                    class="w-full h-full object-cover transition-transform duration-[4000ms] ease-out group-hover:scale-[1.03]"
+                    loading="lazy"
+                  />
+                  <div class="absolute inset-0 bg-[#1C1713]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+                <div class="flex items-center gap-4 mb-3 text-[#1C1713]/40 font-label text-[10px] uppercase tracking-widest">
+                  <span>{formatDate(post.data.publishDate)}</span>
+                  <span>•</span>
+                  <span>{post.data.readTime || "5 min"}</span>
+                </div>
+                <h3 class="font-heading text-xl md:text-2xl text-[#1C1713] mb-3 group-hover:text-[#775A19] transition-colors duration-300 leading-snug">
+                  {post.data.title}
+                </h3>
+                <p class="font-sans text-xs md:text-sm text-[#1C1713]/65 leading-relaxed mb-4">
+                  {post.data.excerpt}
+                </p>
+                <div class="flex items-center gap-3 text-[#775A19] mt-auto group-hover:gap-5 transition-all duration-300">
+                  <span class="font-label text-[10px] uppercase tracking-widest font-bold">Leer más</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform duration-300"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

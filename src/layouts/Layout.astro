@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import CookieBanner from "../components/CookieBanner.astro";
 
 interface Props {
   title?: string;
@@ -10,6 +11,9 @@ const {
   title = "Luxury Voyage Collection — The Architectural Silence",
   description = "Curaduría global de experiencias de viaje de ultra-lujo. Definimos el estándar del silencio arquitectónico.",
 } = Astro.props;
+
+const gaId = import.meta.env.PUBLIC_GA_ID;
+const pixelId = import.meta.env.PUBLIC_META_PIXEL_ID;
 ---
 
 <!doctype html>
@@ -19,11 +23,60 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://garage-web.luxuryvoyageco.com/images/contacto_bottom_1776311078622.png" />
+    <meta property="og:site_name" content="Luxury Voyage Collection" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url.href} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://garage-web.luxuryvoyageco.com/images/contacto_bottom_1776311078622.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={Astro.url.href} />
 
     <title>{title}</title>
+
+    <!-- Google Analytics (GA4) -->
+    {gaId && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+        <script is:inline define:vars={{ gaId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', gaId);
+        </script>
+      </>
+    )}
+
+    <!-- Meta Pixel (Facebook Pixel) -->
+    {pixelId && (
+      <>
+        <script is:inline define:vars={{ pixelId }}>
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', pixelId);
+          fbq('track', 'PageView');
+        </script>
+        <noscript>
+          <img height="1" width="1" style="display:none" src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`} />
+        </noscript>
+      </>
+    )}
 
     <!-- Google Fonts: Noto Serif (headline) + Manrope (body) + Inter (label) — LVC Grand Atelier -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -40,6 +93,7 @@ const {
   </head>
   <body>
     <slot />
+    <CookieBanner />
     
     <style is:global>
       .reveal-up {

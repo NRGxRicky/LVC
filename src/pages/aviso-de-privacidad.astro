@@ -1,0 +1,86 @@
+---
+/**
+ * aviso-de-privacidad.astro — Luxury Voyage Collection
+ * Página de Aviso de Privacidad legal.
+ */
+
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Luxury Voyage Collection — Aviso de Privacidad"
+  description="Aviso de Privacidad de Luxury Voyage Collection, conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)."
+>
+  <Navbar theme="light" />
+
+  <main class="w-full bg-[#FAF9F6] pt-32 md:pt-40 pb-20 md:pb-28">
+    <article class="max-w-[800px] mx-auto px-6 md:px-12">
+      <!-- Encabezado -->
+      <header class="mb-12 md:mb-16">
+        <span class="font-label text-[10px] md:text-xs font-bold text-[#D4AD65] uppercase tracking-[0.25em] block mb-4">ÁREA LEGAL</span>
+        <h1 class="font-heading text-4xl md:text-5xl text-[#1C1713] mb-6">Aviso de Privacidad</h1>
+        <p class="font-sans text-xs md:text-sm text-[#1C1713]/50 uppercase tracking-widest">Última actualización: 25 de mayo de 2026</p>
+        <div class="w-full h-[1px] bg-[#1C1713]/10 mt-8"></div>
+      </header>
+
+      <!-- Contenido Legal -->
+      <div class="font-sans text-sm md:text-base text-[#1C1713]/75 leading-[1.8] flex flex-col gap-8">
+        <p>
+          En <strong>Luxury Voyage Collection</strong>, representada por las entidades legales correspondientes que operan la marca (en adelante, "Nosotros" o "LVC"), con domicilio en Presidente Masaryk 61, Polanco, Ciudad de México, 11560, México, entendemos que la privacidad de tu información es de suma importancia.
+        </p>
+
+        <p>
+          Este Aviso de Privacidad detalla cómo recopilamos, utilizamos, almacenamos y protegemos tus datos personales, de conformidad con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP) en México y los estándares globales de privacidad aplicables.
+        </p>
+
+        <h2 class="font-heading text-xl md:text-2xl text-[#1C1713] mt-6 mb-2">1. Datos Personales que Recopilamos</h2>
+        <p>
+          Para llevar a cabo la planeación y diseño exclusivo de tus itinerarios de viaje, recopilamos la siguiente información personal directa mediante nuestro formulario de contacto, llamadas telefónicas u otros medios de comunicación:
+        </p>
+        <ul class="list-disc pl-5 flex flex-col gap-2">
+          <li><strong>Datos de Identificación:</strong> Nombre completo, nacionalidad, fecha de nacimiento, género y copia de pasaporte (cuando se requiera para reservas).</li>
+          <li><strong>Datos de Contacto:</strong> Correo electrónico, número de teléfono (móvil y WhatsApp) y método de contacto preferido.</li>
+          <li><strong>Preferencias de Viaje:</strong> Destinos de interés, fechas tentativas, nivel de inversión estimado, número de viajeros y especificaciones o deseos para tu itinerario.</li>
+        </ul>
+
+        <h2 class="font-heading text-xl md:text-2xl text-[#1C1713] mt-6 mb-2">2. Finalidad del Tratamiento de Datos</h2>
+        <p>
+          Los datos personales que recopilamos de ti serán utilizados para las siguientes finalidades primarias y necesarias para la prestación de nuestros servicios de ultra-lujo:
+        </p>
+        <ul class="list-disc pl-5 flex flex-col gap-2">
+          <li>Elaborar y diseñar propuestas de viaje a la medida.</li>
+          <li>Realizar reservaciones en hoteles, transportes, guías y actividades con nuestros socios comerciales.</li>
+          <li>Mantener comunicación directa antes, durante y después del viaje para asegurar un servicio inmaculado.</li>
+          <li>Facturación y cobro de los servicios contratados.</li>
+        </ul>
+
+        <h2 class="font-heading text-xl md:text-2xl text-[#1C1713] mt-6 mb-2">3. Transferencia de Datos</h2>
+        <p>
+          Te informamos que tus datos personales pueden ser compartidos de forma nacional o internacional con terceros proveedores de servicios turísticos (hoteles, aerolíneas, operadores locales, transportistas) únicamente para cumplir con la correcta reserva y desarrollo de las experiencias contratadas. Estos terceros están obligados a proteger tu información con el mismo nivel de confidencialidad que nosotros.
+        </p>
+
+        <h2 class="font-heading text-xl md:text-2xl text-[#1C1713] mt-6 mb-2">4. Derechos ARCO</h2>
+        <p>
+          Tienes derecho a Acceder a tus datos personales, Rectificarlos en caso de que sean inexactos, Cancelarlos cuando consideres que no son necesarios, u Oponerte al tratamiento de los mismos para fines específicos (Derechos ARCO).
+        </p>
+        <p>
+          Para ejercer cualquiera de tus Derechos ARCO, o para revocar el consentimiento que nos has otorgado, puedes enviar una solicitud formal por escrito a nuestro correo de soporte legal: <a href="mailto:hola@luxuryvoyages.com" class="text-[#775A19] underline hover:text-[#1C1713] transition-colors">hola@luxuryvoyages.com</a>.
+        </p>
+
+        <h2 class="font-heading text-xl md:text-2xl text-[#1C1713] mt-6 mb-2">5. Uso de Cookies y Tecnologías de Seguimiento</h2>
+        <p>
+          Este sitio web utiliza cookies para optimizar la navegación y analizar el tráfico de forma agregada (como Google Analytics 4 y Meta Pixel). Puedes administrar tus preferencias de cookies en cualquier momento borrando el almacenamiento local de tu navegador o abriendo nuestro panel flotante de cookies.
+        </p>
+
+        <h2 class="font-heading text-xl md:text-2xl text-[#1C1713] mt-6 mb-2">6. Modificaciones al Aviso de Privacidad</h2>
+        <p>
+          Nos reservamos el derecho de efectuar en cualquier momento modificaciones o actualizaciones al presente Aviso de Privacidad. Cualquier cambio será publicado en esta misma página con su fecha de revisión correspondiente.
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>

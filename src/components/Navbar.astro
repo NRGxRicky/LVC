@@ -203,6 +203,7 @@ const mainLinks = [
       // Forzar texto oscuro dentro del pill dorado
       navRoot.classList.remove("text-white");
       navRoot.classList.add("text-[#1C1713]");
+      navRoot.classList.add("is-scrolled");
 
       if(navLogo) navLogo.classList.replace("h-12", "h-10");
       if(navLogo) navLogo.classList.replace("md:h-16", "md:h-12");
@@ -220,6 +221,7 @@ const mainLinks = [
         navRoot.classList.remove("text-[#1C1713]");
         navRoot.classList.add("text-white");
       }
+      navRoot.classList.remove("is-scrolled");
 
       if(navLogo) navLogo.classList.replace("h-10", "h-12");
       if(navLogo) navLogo.classList.replace("md:h-12", "md:h-16");
@@ -255,3 +257,16 @@ const mainLinks = [
     }, 300);
   });
 </script>
+
+<style>
+  /* Hover dorado para navbar con tema claro sin scroll (evita que se vuelva invisible al ser blanco) */
+  #main-nav[data-theme="light"]:not(.is-scrolled) .group\/btn:hover,
+  #main-nav[data-theme="light"]:not(.is-scrolled) .group\/link:hover {
+    color: #D4AD65 !important;
+  }
+  
+  #main-nav[data-theme="light"]:not(.is-scrolled) .group\/btn:hover span,
+  #main-nav[data-theme="light"]:not(.is-scrolled) .group\/link:hover span {
+    background-color: #D4AD65 !important;
+  }
+</style>

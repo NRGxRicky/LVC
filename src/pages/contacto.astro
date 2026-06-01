@@ -269,8 +269,6 @@ import Footer from "../components/Footer.astro";
             <textarea id="idea" name="idea" rows="4" placeholder="Cuéntanos lo que tienes en mente, aunque aún no esté completamente definido." class="w-full bg-transparent border border-[#1C1713]/10 p-6 font-sans text-sm text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30 resize-none hover:border-[#1C1713]/20"></textarea>
         </div>
 
-        </div>
-
         <!-- SEGURIDAD & SUBMIT -->
         <div class="flex flex-col items-center gap-6">
             <div class="flex items-center gap-2 text-[#1C1713]/40 text-[10px] md:text-xs font-sans text-center">
@@ -321,6 +319,7 @@ import Footer from "../components/Footer.astro";
 
 <script>
   (() => {
+    console.log("✦ LVC: Script de contacto cargado!");
     // Select elements safely
     const toggle   = document.getElementById('calendar-toggle');
     const input    = document.getElementById('fecha') as HTMLInputElement | null;
@@ -333,6 +332,15 @@ import Footer from "../components/Footer.astro";
 
     const form = document.getElementById('experience-form') as HTMLFormElement | null;
     const successModal = document.getElementById('success-modal');
+    
+    // Debug click en botón
+    const submitBtnDebug = form?.querySelector('button[type="submit"]');
+    if (submitBtnDebug) {
+      console.log("✦ LVC: Botón submit encontrado en el DOM!");
+      submitBtnDebug.addEventListener('click', (e) => {
+        console.log("✦ LVC: Click directo detectado en el botón!");
+      });
+    }
     const modalCard = document.getElementById('modal-card');
     const closeModal = document.getElementById('close-modal');
     const modalMessage = document.getElementById('modal-message');
@@ -483,8 +491,10 @@ import Footer from "../components/Footer.astro";
 
     // Form submission & validation
     if (form) {
+      console.log("✦ LVC: Listener de submit registrado en el formulario!");
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
+        console.log("✦ LVC: Submit del formulario disparado!");
 
         const nombreInput = document.getElementById('nombre') as HTMLInputElement | null;
         const emailInput = document.getElementById('email') as HTMLInputElement | null;
@@ -497,6 +507,81 @@ import Footer from "../components/Footer.astro";
         const sanitize = (val: string) => val.replace(/</g, "&lt;").replace(/>/g, "&gt;");
         const nombre = sanitize(nombreInput.value.trim());
         const pref = prefInput.value;
+
+        // Obtener preferencias del viaje para compilarlas en el mensaje
+        const destinos = Array.from(document.querySelectorAll('input[name="destino"]:checked')).map(el => (el as HTMLInputElement).value).join(', ') || 'Ninguno seleccionado';
+        const fecha = (document.getElementById('fecha') as HTMLInputElement | null)?.value || 'No especificada';
+        const flexible = (document.querySelector('input[name="fechas_flexible"]') as HTMLInputElement)?.checked ? 'Sí' : 'No';
+        const inversionSelect = document.getElementById('inversion') as HTMLSelectElement | null;
+        const inversion = inversionSelect ? inversionSelect.options[inversionSelect.selectedIndex]?.text : 'No seleccionada';
+        const experiencias = Array.from(document.querySelectorAll('input[name="experiencia"]:checked')).map(el => (el as HTMLInputElement).value).join(', ') || 'Ninguna seleccionada';
+        const viajeros = (document.querySelector('input[name="viajeros"]:checked') as HTMLInputElement)?.value || 'No especificado';
+        const idea = (document.getElementById('idea') as HTMLTextAreaElement | null)?.value?.trim() || 'Sin mensaje adicional';
+
+        const compiledMessage = `--- DETALLES DEL VIAJE ---
+• Método de contacto preferido: ${pref}
+• Destinos de interés: ${destinos}
+• Fechas de viaje: ${fecha} (Flexible: ${flexible})
+• Nivel de inversión: ${inversion}
+• Viajeros: ${viajeros}
+• Experiencias deseadas: ${experiencias}
+
+--- MENSAJE ADICIONAL ---
+${idea}`;
+
+        // Separar nombre y apellidos para mapear a los campos de HubSpot
+        const nameParts = nombre.split(" ");
+        const firstname = nameParts[0] || "";
+        const lastname = nameParts.slice(1).join(" ") || "";
+
+        // Enviar a HubSpot Form API v3 (Submission API)
+        const portalId = import.meta.env.PUBLIC_HUBSPOT_PORTAL_ID || "51495057";
+        const formId = import.meta.env.PUBLIC_HUBSPOT_FORM_ID || "b25257b0-7b1a-43b8-a591-fa2853b7a244";
+        const endpoint = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
+
+        const payload = {
+          fields: [
+            { name: "firstname", value: firstname },
+            { name: "lastname", value: lastname },
+            { name: "email", value: emailInput.value.trim() },
+            { name: "phone", value: telefonoInput.value.trim() },
+            { name: "message", value: compiledMessage }
+          ],
+          context: {
+            pageUri: window.location.href,
+            pageName: document.title
+          }
+        };
+
+        // Mostrar un estado visual de carga en el botón (opcional, pero mejora UX)
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnContent = submitBtn ? submitBtn.innerHTML : '';
+        if (submitBtn) {
+          submitBtn.setAttribute('disabled', 'true');
+          submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+        }
+
+        try {
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          });
+
+          if (!response.ok) {
+            console.error("HubSpot submission failed:", await response.text());
+          }
+        } catch (error) {
+          console.error("Error submitting to HubSpot:", error);
+        } finally {
+          // Restaurar botón
+          if (submitBtn) {
+            submitBtn.removeAttribute('disabled');
+            submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+          }
+        }
 
         let canalText = "correo electrónico";
         if (pref === "whatsapp") canalText = "WhatsApp";

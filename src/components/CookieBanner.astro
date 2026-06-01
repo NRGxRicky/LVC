@@ -1,0 +1,82 @@
+---
+/**
+ * CookieBanner.astro — Luxury Voyage Collection
+ * Banner de Cookies interactivo minimalista.
+ */
+---
+
+<div
+  id="cookie-banner"
+  class="fixed bottom-6 left-6 right-6 md:left-auto md:right-8 md:max-w-md z-[100] transform translate-y-10 opacity-0 pointer-events-none transition-all duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)]"
+>
+  <div class="bg-[#1C1713] text-[#FAF9F6] border border-[#D4AD65]/35 p-6 shadow-2xl backdrop-blur-xl relative">
+    <div class="flex flex-col gap-4">
+      <div class="flex items-center gap-2">
+        <span class="text-[#D4AD65] text-sm">✦</span>
+        <h4 class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-white">Privacidad & Cookies</h4>
+      </div>
+      <p class="font-sans text-xs text-[#FAF9F6]/75 leading-relaxed">
+        Utilizamos cookies propias y de terceros para analizar la navegación y ofrecerte una experiencia curada y adaptada a tus preferencias. Al hacer clic en "Aceptar", consientes su uso. Puedes leer más detalles en nuestro 
+        <a href="/aviso-de-privacidad" class="text-[#D4AD65] underline hover:text-white transition-colors">Aviso de Privacidad</a>.
+      </p>
+      <div class="flex items-center justify-end gap-6 mt-2 pt-2 border-t border-[#FAF9F6]/10">
+        <a 
+          href="/aviso-de-privacidad" 
+          class="font-label text-[9px] uppercase tracking-widest text-[#FAF9F6]/50 hover:text-white transition-colors"
+        >
+          Configurar
+        </a>
+        <button
+          type="button"
+          id="accept-cookies"
+          class="font-label text-[9px] uppercase tracking-widest font-bold text-[#1C1713] bg-[#E6C875] hover:bg-[#D4AD65] transition-all duration-300 px-6 py-2.5 rounded-none"
+        >
+          Aceptar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const banner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('accept-cookies');
+    const openBtn = document.getElementById('open-cookies');
+
+    if (!banner || !acceptBtn) return;
+
+    const COOKIE_KEY = 'lvc-cookies-accepted';
+
+    function showBanner() {
+      banner.classList.remove('translate-y-10', 'opacity-0', 'pointer-events-none');
+      banner.classList.add('translate-y-0', 'opacity-100');
+    }
+
+    function hideBanner() {
+      banner.classList.remove('translate-y-0', 'opacity-100');
+      banner.classList.add('translate-y-10', 'opacity-0', 'pointer-events-none');
+    }
+
+    // Comprobar consentimiento al cargar la página
+    setTimeout(() => {
+      if (!localStorage.getItem(COOKIE_KEY)) {
+        showBanner();
+      }
+    }, 1500); // Pequeño delay de 1.5s para no saturar al usuario nada más entrar
+
+    // Aceptar cookies
+    acceptBtn.addEventListener('click', () => {
+      localStorage.setItem(COOKIE_KEY, 'true');
+      hideBanner();
+    });
+
+    // Permitir reabrir el banner desde el pie de página (enlace "Cookies")
+    if (openBtn) {
+      openBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        showBanner();
+      });
+    }
+  })();
+</script>

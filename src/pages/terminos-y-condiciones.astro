@@ -1,0 +1,79 @@
+---
+/**
+ * terminos-y-condiciones.astro — Luxury Voyage Collection
+ * Página de Términos y Condiciones legales.
+ */
+
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Luxury Voyage Collection — Términos y Condiciones"
+  description="Términos y Condiciones para la planeación y contratación de experiencias de viaje de ultra-lujo a la medida."
+>
+  <Navbar theme="light" />
+
+  <main class="w-full bg-[#FAF9F6] pt-32 md:pt-40 pb-20 md:pb-28">
+    <article class="max-w-[800px] mx-auto px-6 md:px-12">
+      <!-- Encabezado -->
+      <header class="mb-12 md:mb-16">
+        <span class="font-label text-[10px] md:text-xs font-bold text-[#D4AD65] uppercase tracking-[0.25em] block mb-4">ÁREA LEGAL</span>
+        <h1 class="font-heading text-4xl md:text-5xl text-[#1C1713] mb-6">Términos y Condiciones</h1>
+        <p class="font-sans text-xs md:text-sm text-[#1C1713]/50 uppercase tracking-widest">Última actualización: 25 de mayo de 2026</p>
+        <div class="w-full h-[1px] bg-[#1C1713]/10 mt-8"></div>
+      </header>
+
+      <!-- Contenido Legal -->
+      <div class="font-sans text-sm md:text-base text-[#1C1713]/75 leading-[1.8] flex flex-col gap-8">
+        <p>
+          Bienvenido a <strong>Luxury Voyage Collection</strong> ("LVC"). Al utilizar nuestro sitio web y contratar nuestros servicios de consultoría, diseño y coordinación de viajes a la medida, aceptas someterte a los presentes Términos y Condiciones de Servicio. Te recomendamos leerlos detalladamente.
+        </p>
+
+        <h2 class="font-heading text-xl md:text-2xl text-[#1C1713] mt-6 mb-2">1. Objeto de los Servicios</h2>
+        <p>
+          LVC actúa como una agencia boutique de diseño de viajes y un intermediario entre el cliente y los prestadores finales de servicios turísticos (hoteles, aerolíneas, operadores receptivos locales, cruceros, transportistas privados, etc.).
+        </p>
+        <p>
+          Nuestro servicio incluye la consultoría personalizada, curaduría de itinerarios, reservas y coordinación logística. No somos propietarios ni operamos directamente las propiedades de hospedaje, vehículos ni servicios de terceros, por lo que la ejecución final está sujeta a los términos y condiciones de cada proveedor.
+        </p>
+
+        <h2 class="font-heading text-xl md:text-2xl text-[#1C1713] mt-6 mb-2">2. Proceso de Diseño y Cotización</h2>
+        <p>
+          El diseño de un itinerario a la medida inicia tras el llenado del formulario en nuestra web y la entrevista inicial con un Diseñador de Viajes.
+        </p>
+        <ul class="list-disc pl-5 flex flex-col gap-2">
+          <li><strong>Propuesta Inicial:</strong> Presentamos un bosquejo conceptual y un estimado del presupuesto de inversión requerido.</li>
+          <li><strong>Aceptación:</strong> Para proceder con la reserva en firme de los servicios cotizados, el cliente deberá realizar el pago del depósito inicial indicado.</li>
+          <li><strong>Precios:</strong> Debido a la fluctuación cambiaria y la disponibilidad de propiedades de ultra-lujo, las cotizaciones tienen una validez limitada y están sujetas a cambios hasta que se realice el pago correspondiente y se confirme la reserva.</li>
+        </ul>
+
+        <h2 class="font-heading text-xl md:text-2xl text-[#1C1713] mt-6 mb-2">3. Políticas de Pago y Cancelación</h2>
+        <p>
+          Las políticas de pago, anticipos y penalizaciones por cancelación varían significativamente según el destino, la temporada del año y los proveedores seleccionados (por ejemplo, villas privadas o yates chárter cuentan con políticas estrictas de no-reembolso).
+        </p>
+        <p>
+          Las condiciones específicas de pago y cancelación se detallarán formalmente por escrito en el contrato final de prestación de servicios y en el itinerario oficial previo a la realización de cualquier pago.
+        </p>
+
+        <h2 class="font-heading text-xl md:text-2xl text-[#1C1713] mt-6 mb-2">4. Documentación de Viaje y Visados</h2>
+        <p>
+          Es responsabilidad absoluta y exclusiva del cliente contar con los pasaportes vigentes (con al menos 6 meses de validez posterior al retorno de su viaje), visados correspondientes, permisos de entrada al país de destino y cumplir con los requisitos médicos o vacunas exigidos. LVC brindará asesoría de forma referencial, pero no se hace responsable por problemas migratorios o la denegación de entrada a cualquier territorio.
+        </p>
+
+        <h2 class="font-heading text-xl md:text-2xl text-[#1C1713] mt-6 mb-2">5. Seguro de Viaje</h2>
+        <p>
+          Debido a la naturaleza exclusiva e inversión significativa que representan los itinerarios de LVC, <strong>es un requisito obligatorio o altamente recomendado contratar un seguro de viaje premium de cobertura amplia</strong> que contenga póliza de cancelación "por cualquier motivo" (*cancel for any reason*), cobertura de gastos médicos mayores, accidentes, repatriación y extravío de equipaje.
+        </p>
+
+        <h2 class="font-heading text-xl md:text-2xl text-[#1C1713] mt-6 mb-2">6. Limitación de Responsabilidad</h2>
+        <p>
+          LVC no se hace responsable por demoras, cancelaciones de vuelos, huelgas, condiciones climáticas adversas, desastres naturales, pandemias ni ningún caso fortuito o de fuerza mayor que pueda afectar el itinerario del viaje. Haremos nuestro mejor esfuerzo para reestructurar la logística y apoyar al cliente durante el trayecto, pero cualquier cargo extra derivado de estas situaciones será asumido por el cliente o su póliza de seguro.
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>

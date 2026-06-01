@@ -145,7 +145,8 @@
   }
 
   /* Font families */
-  .font-headline {
+  .font-headline,
+  .font-heading {
     font-family: var(--font-family-headline);
   }
 
