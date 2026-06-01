@@ -40,16 +40,19 @@ const continentes = [
 // Data for Experiences
 const experiencias = [
   {
-    title: "Experiencias\nculinarias",
-    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80"
+    title: "Experiencias culinarias",
+    desc: "La forma en que se vive la alta cocina, concebida para deleitar todos los sentidos en entornos exclusivos.",
+    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=80"
   },
   {
-    title: "Estancias\nseleccionadas",
-    image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=80"
+    title: "Estancias seleccionadas",
+    desc: "Espacios elegidos por lo que hacen sentir, desde íntimos refugios naturales hasta elegantes residencias.",
+    image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=1000&q=80"
   },
   {
-    title: "Inmersiones\nauténticas",
-    image: "https://images.unsplash.com/photo-1548013146-72479768bada?w=800&q=80"
+    title: "Inmersiones auténticas",
+    desc: "Escenarios extraordinarios que transforman la forma de vivir y conectar con cada destino de manera profunda.",
+    image: "https://images.unsplash.com/photo-1548013146-72479768bada?w=1000&q=80"
   }
 ];
 ---
@@ -219,58 +222,83 @@ const experiencias = [
     </section>
 
     <!-- SECCIÓN 4: EXPERIENCIAS (Generales) -->
-    <section class="w-full bg-[#EDE7D7] py-16 md:py-24">
-      <div class="max-w-[1920px] mx-auto px-6 md:px-12">
-        <div class="text-center mb-10 md:mb-12 reveal-up">
+    <section class="w-full bg-[#EDE7D7] py-16 md:py-24 overflow-hidden">
+      <div class="max-w-[1920px] mx-auto">
+        <div class="text-center mb-10 md:mb-14 px-6 reveal-up">
           <span class="font-label text-[10px] md:text-xs font-bold text-[#775A19] uppercase tracking-widest block mb-4">MOMENTOS DEL VIAJE</span>
           <h2 class="font-heading text-4xl md:text-5xl text-[#1C1713] mb-4">Donde el viaje cobra sentido.</h2>
           <div class="w-10 h-[1px] bg-[#D4AD65] mx-auto mb-8"></div>
         </div>
 
-        <!-- Slider/Carousel Container -->
-        <div class="relative w-full max-w-6xl mx-auto overflow-hidden px-4 reveal-up">
-          <!-- Carousel viewport -->
-          <div 
-            id="experiences-carousel"
-            class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar pb-8 justify-start md:justify-center"
-          >
-            {experiencias.map((exp, i) => (
-              <div 
-                class="relative flex-none w-[80vw] sm:w-[50vw] md:w-[calc(33.333%-16px)] aspect-[3/4] md:aspect-[3/4] overflow-hidden rounded-xl shadow-[0_15px_35px_rgba(0,0,0,0.1)] group cursor-pointer snap-center"
-              >
-                <!-- Image -->
-                <img 
-                  src={exp.image} 
-                  alt={exp.title.replace('\n', ' ')}
-                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-[3000ms] ease-out group-hover:scale-[1.06]"
-                  loading="lazy"
-                />
-                <!-- Gradient Overlay -->
-                <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/10 to-black/30 transition-opacity duration-500 group-hover:opacity-90"></div>
-                
-                <!-- Text Content (Top-Left) -->
-                <div class="absolute top-8 left-8 right-8 z-10 text-left">
-                  <h3 class="font-heading text-2xl md:text-3xl text-white leading-tight font-light whitespace-pre-line">
-                    {exp.title}
-                  </h3>
-                </div>
-              </div>
-            ))}
-          </div>
+        <!-- Slider/Carousel Container (Ritz-Carlton Centered Layout) -->
+        <div class="relative w-full overflow-hidden reveal-up">
+          <!-- Fade-out Masks (Ritz-Carlton style) -->
+          <div class="absolute left-0 top-0 bottom-0 w-12 sm:w-24 md:w-64 bg-gradient-to-r from-[#EDE7D7] to-transparent pointer-events-none z-20"></div>
+          <div class="absolute right-0 top-0 bottom-0 w-12 sm:w-24 md:w-64 bg-gradient-to-l from-[#EDE7D7] to-transparent pointer-events-none z-20"></div>
 
-          <!-- Pagination Dots -->
-          <div class="flex justify-center items-center gap-3 mt-4" id="carousel-dots">
-            {experiencias.map((_, i) => (
-              <button 
-                class={`w-2 h-2 rounded-full transition-all duration-300 ${i === 0 ? "bg-[#775A19] scale-125" : "bg-[#775A19]/30"}`}
-                aria-label={`Go to slide ${i + 1}`}
-                data-index={i}
-              ></button>
-            ))}
+          <!-- Carousel viewport -->
+          <div class="w-full overflow-hidden py-4 px-4 md:px-0">
+            <div 
+              id="experiences-carousel-track"
+              class="flex gap-6 md:gap-8 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
+              style="transform: translateX(0px);"
+            >
+              {experiencias.map((exp, i) => (
+                <div 
+                  class="experience-slide relative flex-none w-[280px] sm:w-[350px] md:w-[600px] aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] origin-center cursor-pointer scale-90 opacity-40"
+                >
+                  <!-- Image -->
+                  <img 
+                    src={exp.image} 
+                    alt={exp.title}
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-[3000ms] ease-out"
+                    loading="lazy"
+                  />
+                  <!-- Dark Gradient Overlay for readability -->
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10 z-10"></div>
+                  
+                  <!-- Text Content Inside Card (Bottom-Left) -->
+                  <div class="absolute bottom-8 left-8 right-8 z-20 text-left">
+                    <h3 class="font-heading text-xl md:text-3xl text-[#FAF9F6] tracking-wider uppercase mb-2 leading-tight">
+                      {exp.title}
+                    </h3>
+                    <p class="font-sans text-xs md:text-sm text-white/80 mb-4 max-w-sm md:max-w-md leading-relaxed hidden sm:block">
+                      {exp.desc}
+                    </p>
+                    <span class="inline-block font-label text-[10px] md:text-xs uppercase tracking-widest text-[#D4AD65] border-b border-[#D4AD65]/50 pb-0.5 transition-colors duration-300">
+                      Saber más
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom Navigation & Progress Bar -->
+        <div class="flex flex-col items-center gap-4 mt-8 px-6 reveal-up">
+          <div class="flex items-center gap-6 sm:gap-8 font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]">
+            <button id="prev-experience" class="hover:text-[#775A19] transition-colors cursor-pointer flex items-center gap-1 font-bold">
+              &lt; Anterior
+            </button>
+            
+            <!-- Progress Line -->
+            <div class="w-32 sm:w-48 h-[2px] bg-[#1C1713]/10 relative overflow-hidden rounded-full">
+              <div id="experience-progress-bar" class="absolute top-0 left-0 h-full bg-[#775A19] transition-all duration-700 rounded-full" style="width: 33.333%;"></div>
+            </div>
+            
+            <button id="next-experience" class="hover:text-[#775A19] transition-colors cursor-pointer flex items-center gap-1 font-bold">
+              Siguiente &gt;
+            </button>
+          </div>
+          
+          <!-- Counter -->
+          <div id="experience-counter" class="font-label text-[10px] md:text-xs text-[#1C1713]/60 tracking-wider">
+            1 / 3
           </div>
         </div>
         
-        <div class="mt-12 md:mt-16 text-center reveal-up">
+        <div class="mt-14 md:mt-20 text-center px-6 reveal-up">
           <h2 class="font-heading text-3xl md:text-4xl text-[#1C1713] mb-8">Cada viaje comienza con una <span class="text-[#D4AD65] italic">decisión</span>.</h2>
           <a 
             href="/contacto" 
@@ -326,41 +354,72 @@ const experiencias = [
 </script>
 
 <script>
-  // Script para sincronizar e interactuar con el carrusel de experiencias
+  // Script para el carrusel centrado estilo Ritz-Carlton
   document.addEventListener('DOMContentLoaded', () => {
-    const carousel = document.getElementById('experiences-carousel');
-    const dots = document.querySelectorAll('#carousel-dots button');
+    let currentIndex = 0;
+    const track = document.getElementById('experiences-carousel-track');
+    const slides = document.querySelectorAll('.experience-slide');
+    const progressBar = document.getElementById('experience-progress-bar');
+    const counter = document.getElementById('experience-counter');
+    const prevBtn = document.getElementById('prev-experience');
+    const nextBtn = document.getElementById('next-experience');
     
-    if (!carousel || !dots.length) return;
+    if (!track || !slides.length) return;
     
-    // Al hacer clic en los puntos, hacer scroll hasta la tarjeta correspondiente
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        const slideWidth = carousel.firstElementChild?.clientWidth || 0;
-        const gap = 24; // Espacio entre tarjetas
-        carousel.scrollTo({
-          left: index * (slideWidth + gap),
-          behavior: 'smooth'
-        });
-      });
-    });
-
-    // Actualizar el punto activo al hacer scroll (deslizar)
-    carousel.addEventListener('scroll', () => {
-      const slideWidth = carousel.firstElementChild?.clientWidth || 0;
-      const gap = 24;
-      const scrollPosition = carousel.scrollLeft;
-      const activeIndex = Math.round(scrollPosition / (slideWidth + gap));
+    function updateCarousel() {
+      const activeSlide = slides[currentIndex];
+      const containerWidth = track.parentElement.clientWidth;
+      const slideWidth = activeSlide.clientWidth;
+      const slideOffsetLeft = activeSlide.offsetLeft;
       
-      dots.forEach((dot, i) => {
-        if (i === activeIndex) {
-          dot.classList.add('bg-[#775A19]', 'scale-125');
-          dot.classList.remove('bg-[#775A19]/30');
+      // Calcular el desfase para centrar la diapositiva activa
+      const translateVal = (containerWidth / 2) - (slideOffsetLeft + slideWidth / 2);
+      track.style.transform = `translateX(${translateVal}px)`;
+      
+      // Actualizar escalas y opacidades
+      slides.forEach((slide, idx) => {
+        const img = slide.querySelector('img');
+        if (idx === currentIndex) {
+          slide.classList.add('scale-100', 'opacity-100', 'z-10');
+          slide.classList.remove('scale-90', 'opacity-40', 'z-0');
+          if (img) img.classList.add('scale-105');
         } else {
-          dot.classList.remove('bg-[#775A19]', 'scale-125');
-          dot.classList.add('bg-[#775A19]/30');
+          slide.classList.remove('scale-100', 'opacity-100', 'z-10');
+          slide.classList.add('scale-90', 'opacity-40', 'z-0');
+          if (img) img.classList.remove('scale-105');
         }
       });
+      
+      // Actualizar barra de progreso y contador
+      if (progressBar) {
+        progressBar.style.width = `${((currentIndex + 1) / slides.length) * 100}%`;
+      }
+      if (counter) {
+        counter.textContent = `${currentIndex + 1} / ${slides.length}`;
+      }
+    }
+    
+    // Controles de botones
+    prevBtn?.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateCarousel();
     });
+    
+    nextBtn?.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel();
+    });
+    
+    // Permitir clic directo en la tarjeta
+    slides.forEach((slide, index) => {
+      slide.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+      });
+    });
+    
+    // Inicializar y recalcular en caso de resize
+    updateCarousel();
+    window.addEventListener('resize', updateCarousel);
   });
 </script>
