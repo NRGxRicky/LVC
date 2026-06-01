@@ -48,15 +48,15 @@ const mainLinks = [
     <div class="hidden lg:flex items-center gap-8 xl:gap-12 absolute left-1/2 -translate-x-1/2" role="list">
       
       <!-- Dropdown Universos -->
-      <div class="relative group" role="listitem">
-        <button class="relative group/btn flex items-center gap-1 font-label text-xs uppercase tracking-widest hover:text-white transition-colors duration-300 font-medium py-4">
+      <div class="relative group dropdown-container" role="listitem">
+        <button class="dropdown-trigger relative group/btn flex items-center gap-1 font-label text-xs uppercase tracking-widest hover:text-white transition-colors duration-300 font-medium py-4">
           Universos
           <span class="absolute bottom-2 left-0 w-full h-[1px] bg-white scale-x-0 group-hover/btn:scale-x-100 origin-right group-hover/btn:origin-left transition-transform duration-500 ease-out"></span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-70 group-hover:rotate-180 transition-transform duration-300"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-70 group-hover:rotate-180 transition-transform duration-300 arrow-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </button>
         
         <!-- Dropdown Menu Horizontal (Avora Effect) -->
-        <div class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-max opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 transform-gpu z-[60]">
+        <div class="dropdown-menu absolute left-1/2 -translate-x-1/2 top-full mt-2 w-max opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 transform-gpu z-[60]">
           <div class="bg-[#1C1713]/90 backdrop-blur-xl border border-[#D4AD65]/30 shadow-2xl rounded-full px-4 py-1.5 flex flex-row items-center gap-2">
             {
               universos.map((link) => (
@@ -256,6 +256,24 @@ const mainLinks = [
       mobileMenu?.classList.remove("flex");
     }, 300);
   });
+
+  // Toggle dropdown on click/touch for tablet support
+  const dropdownTrigger = document.querySelector('.dropdown-trigger');
+  const dropdownContainer = document.querySelector('.dropdown-container');
+  const arrowIcon = dropdownTrigger?.querySelector('.arrow-icon');
+
+  dropdownTrigger?.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    dropdownContainer?.classList.toggle('is-open');
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (dropdownContainer && !dropdownContainer.contains(e.target as Node)) {
+      dropdownContainer.classList.remove('is-open');
+    }
+  });
 </script>
 
 <style>
@@ -268,5 +286,16 @@ const mainLinks = [
   #main-nav[data-theme="light"]:not(.is-scrolled) .group\/btn:hover span,
   #main-nav[data-theme="light"]:not(.is-scrolled) .group\/link:hover span {
     background-color: #D4AD65 !important;
+  }
+
+  /* Mostrar menu cuando tiene la clase is-open (para tablets/clicks) */
+  .dropdown-container.is-open .dropdown-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+  }
+  
+  .dropdown-container.is-open .arrow-icon {
+    transform: rotate(180deg) !important;
   }
 </style>
