@@ -112,34 +112,13 @@ const experiencias = [
       </div>
     </section>
 
-    <!-- SECCIÓN 2: LOGO + FILOSOFÍA EN 2 COLUMNAS -->
-    <section class="w-full bg-[#EDE7D7] pt-2 pb-6 md:pt-4 md:pb-8 flex flex-col items-center justify-center px-6 md:px-12 max-w-[1920px] mx-auto">
-      <div class="reveal-up mb-6 md:mb-8 w-full flex justify-center">
-        <img src="https://garage-web.luxuryvoyageco.com/images/logo-full.png" alt="Luxury Voyage Collection" class="w-80 md:w-[450px] lg:w-[550px] h-auto opacity-90 mx-auto" />
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 lg:gap-36 w-full max-w-[1500px] items-center mx-auto px-4 lg:px-12">
-        <!-- Columna Izquierda: Carrusel 3D del folleto -->
-        <div class="reveal-up w-full flex justify-center overflow-visible py-4 md:py-6">
-            <div class="relative w-full max-w-[380px] h-[260px] md:h-[340px] lg:h-[380px] flex items-center justify-center" style="perspective: 1500px;" id="brochure-carousel">
-                <img src="https://garage-web.luxuryvoyageco.com/images/brochure_mockup.png" alt="Luxury Voyage Brochure 1" class="absolute w-48 md:w-[260px] lg:w-[320px] h-auto shadow-[0_20px_50px_rgba(0,0,0,0.15)] object-contain transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer carousel-item select-none" data-index="0" />
-                <img src="https://garage-web.luxuryvoyageco.com/images/brochure_mockup_2.png" alt="Luxury Voyage Brochure 2" class="absolute w-48 md:w-[260px] lg:w-[320px] h-auto shadow-[0_20px_50px_rgba(0,0,0,0.15)] object-contain transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer carousel-item select-none" data-index="1" />
-                <img src="https://garage-web.luxuryvoyageco.com/images/brochure_mockup_3.png" alt="Luxury Voyage Brochure 3" class="absolute w-48 md:w-[260px] lg:w-[320px] h-auto shadow-[0_20px_50px_rgba(0,0,0,0.15)] object-contain transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer carousel-item select-none" data-index="2" />
-            </div>
-        </div>
-
-        <!-- Columna Derecha: Textos -->
-        <div class="reveal-up reveal-delay-200 text-center flex flex-col items-center justify-center">
-          <h2 class="font-heading text-3xl md:text-4xl lg:text-[3rem] text-[#1C1713] leading-[1.15] mb-6">
-            <span class="inline-block md:whitespace-nowrap">Viajar también es una forma</span><br><span class="text-[#D4AD65] italic">De sentir el mundo</span>
-          </h2>
-          <p class="font-sans text-[13px] md:text-sm lg:text-base text-[#1C1713]/70 leading-relaxed max-w-[450px] mb-6">
-            Cada experiencia es concebida desde emociones, atmósferas y detalles diseñados para descubrir cada destino de manera distinta.
-          </p>
-          <a href="/journey" class="font-label text-[10px] md:text-xs uppercase tracking-[0.25em] text-[#D4AD65] font-bold border-b border-[#D4AD65]/50 pb-1.5 hover:text-[#1C1713] hover:border-[#1C1713] transition-colors">
-            DESCUBRIR NUESTRA FILOSOFÍA
-          </a>
-        </div>
+    <!-- SECCIÓN 2: TEXTO FILOSOFÍA -->
+    <section class="w-full bg-[#EDE7D7] py-20 md:py-28 flex flex-col items-center justify-center px-6 md:px-12 max-w-[1920px] mx-auto">
+      <div class="reveal-up text-center">
+        <h2 class="font-heading text-4xl md:text-5xl lg:text-[4rem] text-[#1C1713] leading-[1.25]">
+          Viajar también es una forma<br>
+          <span class="text-[#D4AD65] italic font-serif">De sentir el mundo</span>
+        </h2>
       </div>
     </section>
 
@@ -254,71 +233,7 @@ const experiencias = [
   <Footer />
 </Layout>
 
-<script>
-  // Script para el carrusel 3D de folletos
-  document.addEventListener('DOMContentLoaded', () => {
-    const items = document.querySelectorAll('.carousel-item');
-    if (!items.length) return;
-    
-    let currentIndex = 0;
-    const totalItems = items.length;
-    let autoRotateInterval;
-    
-    function updateCarousel() {
-      items.forEach((item, i) => {
-        // Calcular la distancia desde el índice actual
-        let diff = i - currentIndex;
-        // Ajustar para que el array sea circular
-        if (diff < -1) diff += totalItems;
-        if (diff > 1) diff -= totalItems;
-        
-        if (diff === 0) {
-          // Elemento central (Activo)
-          item.style.transform = 'translateX(0) scale(1) translateZ(80px) rotateY(0deg)';
-          item.style.zIndex = '30';
-          item.style.opacity = '1';
-          item.style.filter = 'brightness(1)';
-        } else if (diff === 1) {
-          // Elemento a la derecha
-          item.style.transform = 'translateX(38%) scale(0.85) translateZ(-80px) rotateY(-15deg)';
-          item.style.zIndex = '20';
-          item.style.opacity = '0.7';
-          item.style.filter = 'brightness(0.8)';
-        } else if (diff === -1) {
-          // Elemento a la izquierda
-          item.style.transform = 'translateX(-38%) scale(0.85) translateZ(-80px) rotateY(15deg)';
-          item.style.zIndex = '20';
-          item.style.opacity = '0.7';
-          item.style.filter = 'brightness(0.8)';
-        }
-      });
-    }
-    
-    function startAutoRotate() {
-        autoRotateInterval = setInterval(() => {
-            currentIndex = (currentIndex + 1) % totalItems;
-            updateCarousel();
-        }, 4000);
-    }
-    
-    function resetAutoRotate() {
-        clearInterval(autoRotateInterval);
-        startAutoRotate();
-    }
-    
-    updateCarousel();
-    startAutoRotate();
-    
-    // Permitir clic para rotar
-    items.forEach((item, i) => {
-      item.addEventListener('click', () => {
-        currentIndex = i;
-        updateCarousel();
-        resetAutoRotate(); // Reiniciar el temporizador al hacer clic
-      });
-    });
-  });
-</script>
+
 
 <script>
   (function() {
