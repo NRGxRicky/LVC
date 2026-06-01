@@ -3,14 +3,14 @@
 /* =============================================
    LVC GRAND ATELIER — Design System Tokens
    Paleta: Primary #775A19 · Secondary #645D5A
-           Tertiary #D4AD65 · Neutral #FAF9F6
+           Tertiary #D4AD65 · Neutral #EDE7D7
    Tipografía: Noto Serif · Manrope · Inter
    ============================================= */
 
 @theme {
   /* ── Color Palette — Light Cream + Olive Gold ── */
-  --color-surface: #FAF9F6;
-  --color-background: #FAF9F6;
+  --color-surface: #EDE7D7;
+  --color-background: #EDE7D7;
   --color-surface-bright: #FFFFFF;
   --color-surface-container-lowest: #F0EEE9;
   --color-surface-container-low: #EAE7E1;
@@ -114,7 +114,7 @@
 @layer utilities {
   /* Light glassmorphism — crema translúcida */
   .glass-panel {
-    background: rgba(250, 249, 246, 0.88);
+    background: rgba(237, 231, 215, 0.88);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border: 1px solid rgba(119, 90, 25, 0.18);
@@ -122,7 +122,7 @@
 
   /* Navbar glassmorphism en claro */
   .glass-nav {
-    background: rgba(250, 249, 246, 0.95);
+    background: rgba(237, 231, 215, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(119, 90, 25, 0.15);
@@ -173,7 +173,7 @@
 
   /* ── Section Backgrounds ── */
   .section-navy {
-    background-color: #FAF9F6;
+    background-color: #EDE7D7;
   }
 
   .section-navy-alt {
