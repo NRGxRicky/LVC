@@ -42,17 +42,35 @@ const experiencias = [
   {
     title: "Experiencias culinarias",
     desc: "La forma en que se vive la alta cocina, concebida para deleitar todos los sentidos en entornos exclusivos.",
-    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=80"
+    images: [
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=80",
+      "https://images.unsplash.com/photo-1544025162-d76694265947?w=1000&q=80",
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1000&q=80",
+      "https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?w=1000&q=80",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=1000&q=80"
+    ]
   },
   {
     title: "Estancias seleccionadas",
     desc: "Espacios elegidos por lo que hacen sentir, desde íntimos refugios naturales hasta elegantes residencias.",
-    image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=1000&q=80"
+    images: [
+      "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=1000&q=80",
+      "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1000&q=80",
+      "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1000&q=80",
+      "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=1000&q=80",
+      "/luxury_video_placeholder.png"
+    ]
   },
   {
     title: "Inmersiones auténticas",
     desc: "Escenarios extraordinarios que transforman la forma de vivir y conectar con cada destino de manera profunda.",
-    image: "https://images.unsplash.com/photo-1548013146-72479768bada?w=1000&q=80"
+    images: [
+      "https://images.unsplash.com/photo-1548013146-72479768bada?w=1000&q=80",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1000&q=80",
+      "https://images.unsplash.com/photo-1528127269322-539801943592?w=1000&q=80",
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1000&q=80",
+      "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1000&q=80"
+    ]
   }
 ];
 ---
@@ -247,13 +265,15 @@ const experiencias = [
                 <div 
                   class="experience-slide group relative flex-none w-[280px] sm:w-[350px] md:w-[600px] aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] origin-center cursor-pointer scale-90 opacity-40"
                 >
-                  <!-- Image -->
-                  <img 
-                    src={exp.image} 
-                    alt={exp.title}
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
-                    loading="lazy"
-                  />
+                  <!-- Gallery Images -->
+                  {exp.images.map((imgUrl, imgIdx) => (
+                    <img 
+                      src={imgUrl} 
+                      alt={`${exp.title} - ${imgIdx + 1}`}
+                      class={`gallery-image absolute inset-0 w-full h-full object-cover transition-all duration-[1500ms] ease-in-out group-hover:scale-110 ${imgIdx === 0 ? "opacity-100" : "opacity-0"}`}
+                      loading="lazy"
+                    />
+                  ))}
                   <!-- Dark Gradient Overlay for readability -->
                   <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10 z-10"></div>
                   
@@ -378,15 +398,15 @@ const experiencias = [
       
       // Actualizar escalas y opacidades
       slides.forEach((slide, idx) => {
-        const img = slide.querySelector('img');
+        const imgs = slide.querySelectorAll('.gallery-image');
         if (idx === currentIndex) {
           slide.classList.add('scale-100', 'opacity-100', 'z-10');
           slide.classList.remove('scale-90', 'opacity-40', 'z-0');
-          if (img) img.classList.add('scale-105');
+          imgs.forEach(img => img.classList.add('scale-105'));
         } else {
           slide.classList.remove('scale-100', 'opacity-100', 'z-10');
           slide.classList.add('scale-90', 'opacity-40', 'z-0');
-          if (img) img.classList.remove('scale-105');
+          imgs.forEach(img => img.classList.remove('scale-105'));
         }
       });
       
@@ -416,6 +436,21 @@ const experiencias = [
         currentIndex = index;
         updateCarousel();
       });
+    });
+    
+    // Script para rotar la galería de imágenes dentro de cada tarjeta
+    slides.forEach(slide => {
+      const images = slide.querySelectorAll('.gallery-image');
+      if (images.length <= 1) return;
+      
+      let imgIndex = 0;
+      setInterval(() => {
+        images[imgIndex].classList.add('opacity-0');
+        images[imgIndex].classList.remove('opacity-100');
+        imgIndex = (imgIndex + 1) % images.length;
+        images[imgIndex].classList.remove('opacity-0');
+        images[imgIndex].classList.add('opacity-100');
+      }, 4000 + Math.random() * 1500); // Tiempos desfasados naturalmente
     });
     
     // Inicializar y recalcular en caso de resize
