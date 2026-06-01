@@ -419,7 +419,7 @@ import Footer from "../components/Footer.astro";
         startDate = date;
         endDate   = null;
         hint.textContent = 'Selecciona fecha de regreso';
-        input.value = formatDate(startDate);
+        input.value = formatDate(startDate) + '  →  ...';
       } else {
         if (date < startDate) {
           endDate   = startDate;
@@ -440,24 +440,36 @@ import Footer from "../components/Footer.astro";
         }
 
         // Close after short delay
-        setTimeout(() => dropdown.classList.add('hidden'), 500);
+        setTimeout(() => closeCalendar(), 500);
       }
       render();
     }
 
-    // Toggle open/close
+    // Open / Close / Toggle / Cleanup
     function openCalendar() {
       if (!dropdown) return;
       dropdown.classList.remove('hidden');
       render();
     }
 
+    function closeCalendar() {
+      if (!dropdown) return;
+      dropdown.classList.add('hidden');
+      if (startDate && !endDate && input) {
+        input.value = formatDate(startDate);
+      }
+    }
+
     if (toggle) {
       toggle.addEventListener('click', (e) => {
         e.stopPropagation();
         if (dropdown) {
-          dropdown.classList.toggle('hidden');
-          if (!dropdown.classList.contains('hidden')) render();
+          const isCurrentlyHidden = dropdown.classList.contains('hidden');
+          if (isCurrentlyHidden) {
+            openCalendar();
+          } else {
+            closeCalendar();
+          }
         }
       });
     }
@@ -486,7 +498,7 @@ import Footer from "../components/Footer.astro";
     document.addEventListener('click', (e) => {
       const pickerWrapper = document.getElementById('date-picker-wrapper');
       if (pickerWrapper && !pickerWrapper.contains(e.target as Node) && dropdown) {
-        dropdown.classList.add('hidden');
+        closeCalendar();
       }
     });
 
