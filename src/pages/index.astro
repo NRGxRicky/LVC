@@ -245,13 +245,13 @@ const experiencias = [
             >
               {experiencias.map((exp, i) => (
                 <div 
-                  class="experience-slide relative flex-none w-[280px] sm:w-[350px] md:w-[600px] aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] origin-center cursor-pointer scale-90 opacity-40"
+                  class="experience-slide group relative flex-none w-[280px] sm:w-[350px] md:w-[600px] aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] origin-center cursor-pointer scale-90 opacity-40"
                 >
                   <!-- Image -->
                   <img 
                     src={exp.image} 
                     alt={exp.title}
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-[3000ms] ease-out"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
                     loading="lazy"
                   />
                   <!-- Dark Gradient Overlay for readability -->
