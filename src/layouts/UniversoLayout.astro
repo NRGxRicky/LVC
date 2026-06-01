@@ -72,6 +72,101 @@ function formatPlaceName(name: string) {
     })
     .join(" ");
 }
+
+const experienceImages: Record<string, string[][]> = {
+  asia: [
+    [
+      "https://garage-web.luxuryvoyageco.com/images/asia_cena_1776311284263.png",
+      "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1000&q=80",
+      "https://images.unsplash.com/photo-1552611052-33e04de081de?w=1000&q=80",
+      "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=1000&q=80",
+      "https://images.unsplash.com/photo-1544025162-d76694265947?w=1000&q=80"
+    ],
+    [
+      "https://garage-web.luxuryvoyageco.com/images/asia_villas_1776311298395.png",
+      "https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?w=1000&q=80",
+      "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1000&q=80",
+      "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1000&q=80",
+      "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=1000&q=80"
+    ],
+    [
+      "https://garage-web.luxuryvoyageco.com/images/asia_spa_1776311310552.png",
+      "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1000&q=80",
+      "https://images.unsplash.com/photo-1528127269322-539801943592?w=1000&q=80",
+      "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1000&q=80",
+      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1000&q=80"
+    ]
+  ],
+  europa: [
+    [
+      "https://garage-web.luxuryvoyageco.com/images/europa_gastro.png",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=1000&q=80",
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=80",
+      "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1000&q=80",
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1000&q=80"
+    ],
+    [
+      "https://garage-web.luxuryvoyageco.com/images/europa_arte.png",
+      "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=1000&q=80",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1000&q=80",
+      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1000&q=80",
+      "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1000&q=80"
+    ],
+    [
+      "https://garage-web.luxuryvoyageco.com/images/europa_chateau.png",
+      "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1000&q=80",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1000&q=80",
+      "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?w=1000&q=80",
+      "https://images.unsplash.com/photo-1486806848873-f519550fc41b?w=1000&q=80"
+    ]
+  ],
+  africa: [
+    [
+      "https://garage-web.luxuryvoyageco.com/images/africa_safari.png",
+      "https://images.unsplash.com/photo-1544025162-d76694265947?w=1000&q=80",
+      "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1000&q=80",
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=80",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=1000&q=80"
+    ],
+    [
+      "https://garage-web.luxuryvoyageco.com/images/africa_lodge.png",
+      "https://images.unsplash.com/photo-1549366021-9f761d450615?w=1000&q=80",
+      "https://images.unsplash.com/photo-1577971132997-c10be9372519?w=1000&q=80",
+      "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1000&q=80",
+      "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1000&q=80"
+    ],
+    [
+      "https://garage-web.luxuryvoyageco.com/images/africa_cena.png",
+      "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1000&q=80",
+      "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1000&q=80",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1000&q=80",
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1000&q=80"
+    ]
+  ],
+  "medio-oriente": [
+    [
+      "https://garage-web.luxuryvoyageco.com/images/oriente_mid.png",
+      "https://images.unsplash.com/photo-1544025162-d76694265947?w=1000&q=80",
+      "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=1000&q=80",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=1000&q=80",
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=80"
+    ],
+    [
+      "https://garage-web.luxuryvoyageco.com/images/oriente_dubai.png",
+      "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1000&q=80",
+      "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1000&q=80",
+      "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1000&q=80",
+      "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=1000&q=80"
+    ],
+    [
+      "https://garage-web.luxuryvoyageco.com/images/asia_cena_1776311284263.png",
+      "https://images.unsplash.com/photo-1547234935-80c7145ec969?w=1000&q=80",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1000&q=80",
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1000&q=80",
+      "https://images.unsplash.com/photo-1528127269322-539801943592?w=1000&q=80"
+    ]
+  ]
+};
 ---
 
 <Layout title={title} description={description}>
@@ -219,46 +314,101 @@ function formatPlaceName(name: string) {
     <slot />
 
     <!-- EXPERIENCIAS QUE TRANSFORMAN -->
-    <section class="w-full bg-[#EDE7D7] py-12 md:py-16">
-        <div class="max-w-[1920px] mx-auto px-6 md:px-12">
-            <div class="mb-8 md:mb-10 text-center">
-                <span class="font-label text-[10px] font-bold text-[#775A19] uppercase tracking-widest block mb-4">MOMENTOS DEL VIAJE</span>
-                <h2 class="font-heading text-4xl md:text-5xl text-[#1C1713] leading-tight">Donde el viaje cobra <span class="italic text-[#D4AD65]">sentido</span></h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
-                {experiencias.map(exp => (
-                    <a href="/contacto" class="group block cursor-pointer">
-                        <div class="w-full aspect-[4/3] overflow-hidden mb-6 relative">
-                            <Image 
-                                src={exp.image} 
-                                alt={exp.name}
-                                width={600}
-                                height={450}
-                                class="w-full h-full object-cover transition-transform duration-[4000ms] ease-out group-hover:scale-[1.08]"
-                            />
-                            <div class="absolute inset-0 bg-[#1C1713]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        </div>
-                        <h3 class="font-heading text-lg md:text-xl text-[#1C1713] mb-2 group-hover:text-[#D4AD65] transition-colors duration-300">{exp.name}</h3>
-                        <p class="font-sans text-xs md:text-sm text-[#1C1713]/70 mb-4 h-auto md:h-10">{exp.desc}</p>
-                    </a>
-                ))}
-            </div>
-
-            <div class="mt-8 md:mt-10 text-center">
-                <h2 class="font-heading text-3xl md:text-4xl text-[#1C1713] mb-8">Tu experiencia a <span class="text-[#D4AD65] italic">{heroTitle}</span> comienza con una <span class="text-[#D4AD65] italic">decisión</span>.</h2>
-                <a 
-                    href="/contacto" 
-                    class="group/cta relative overflow-hidden inline-flex items-center gap-4 font-label text-[10px] md:text-xs uppercase tracking-widest font-medium text-[#FAF9F6] bg-[#1C1713] px-8 py-4 transition-all duration-500 shadow-md"
-                >
-                    <span class="absolute inset-0 bg-[#D4AD65] transform translate-y-[100%] group-hover/cta:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]"></span>
-                    <span class="relative z-10 flex items-center gap-4 transition-colors duration-500">
-                        Diseña tu experiencia
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover/cta:translate-x-1 transition-transform duration-500"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </span>
-                </a>
-            </div>
+    <section class="w-full bg-[#EDE7D7] py-16 md:py-24 overflow-hidden">
+      <div class="max-w-[1920px] mx-auto">
+        <div class="text-center mb-10 md:mb-14 px-6">
+          <span class="font-label text-[10px] md:text-xs font-bold text-[#775A19] uppercase tracking-widest block mb-4">MOMENTOS DEL VIAJE</span>
+          <h2 class="font-heading text-4xl md:text-5xl text-[#1C1713] mb-4">Donde el viaje cobra <span class="italic text-[#D4AD65]">sentido</span></h2>
+          <div class="w-10 h-[1px] bg-[#D4AD65] mx-auto mb-8"></div>
         </div>
+
+        <!-- Slider/Carousel Container (Ritz-Carlton Centered Layout) -->
+        <div class="relative w-full overflow-hidden">
+          <!-- Fade-out Masks (Ritz-Carlton style) -->
+          <div class="absolute left-0 top-0 bottom-0 w-12 sm:w-24 md:w-64 bg-gradient-to-r from-[#EDE7D7] to-transparent pointer-events-none z-20"></div>
+          <div class="absolute right-0 top-0 bottom-0 w-12 sm:w-24 md:w-64 bg-gradient-to-l from-[#EDE7D7] to-transparent pointer-events-none z-20"></div>
+
+          <!-- Carousel viewport -->
+          <div class="w-full overflow-hidden py-4 px-4 md:px-0">
+            <div 
+              id="experiences-carousel-track"
+              class="flex gap-6 md:gap-8 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
+              style="transform: translateX(0px);"
+            >
+              {experiencias.map((exp, i) => {
+                const gallery = (experienceImages[slug] && experienceImages[slug][i]) || [exp.image];
+                return (
+                  <div 
+                    class="experience-slide group relative flex-none w-[280px] sm:w-[350px] md:w-[600px] aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] origin-center cursor-pointer scale-90 opacity-40"
+                  >
+                    <!-- Gallery Images -->
+                    {gallery.map((imgUrl, imgIdx) => (
+                      <img 
+                        src={imgUrl} 
+                        alt={`${exp.name} - ${imgIdx + 1}`}
+                        class={`gallery-image absolute inset-0 w-full h-full object-cover transition-all duration-[1500ms] ease-in-out group-hover:scale-110 ${imgIdx === 0 ? "opacity-100" : "opacity-0"}`}
+                        loading="lazy"
+                      />
+                    ))}
+                    <!-- Dark Gradient Overlay for readability -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10 z-10"></div>
+                    
+                    <!-- Text Content Inside Card (Bottom-Left) -->
+                    <div class="absolute bottom-8 left-8 right-8 z-20 text-left">
+                      <h3 class="font-heading text-xl md:text-3xl text-[#FAF9F6] tracking-wider uppercase mb-2 leading-tight">
+                        {formatPlaceName(exp.name)}
+                      </h3>
+                      <p class="font-sans text-xs md:text-sm text-white/80 mb-4 max-w-sm md:max-w-md leading-relaxed hidden sm:block">
+                        {exp.desc}
+                      </p>
+                      <span class="inline-block font-label text-[10px] md:text-xs uppercase tracking-widest text-[#D4AD65] border-b border-[#D4AD65]/50 pb-0.5 transition-colors duration-300">
+                        Saber más
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom Navigation & Progress Bar -->
+        <div class="flex flex-col items-center gap-4 mt-8 px-6">
+          <div class="flex items-center gap-6 sm:gap-8 font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]">
+            <button id="prev-experience" class="hover:text-[#775A19] transition-colors cursor-pointer flex items-center gap-1 font-bold">
+              &lt; Anterior
+            </button>
+            
+            <!-- Progress Line -->
+            <div class="w-32 sm:w-48 h-[2px] bg-[#1C1713]/10 relative overflow-hidden rounded-full">
+              <div id="experience-progress-bar" class="absolute top-0 left-0 h-full bg-[#775A19] transition-all duration-700 rounded-full" style="width: 33.333%;"></div>
+            </div>
+            
+            <button id="next-experience" class="hover:text-[#775A19] transition-colors cursor-pointer flex items-center gap-1 font-bold">
+              Siguiente &gt;
+            </button>
+          </div>
+          
+          <!-- Counter -->
+          <div id="experience-counter" class="font-label text-[10px] md:text-xs text-[#1C1713]/60 tracking-wider">
+            1 / 3
+          </div>
+        </div>
+        
+        <div class="mt-14 md:mt-20 text-center px-6">
+          <h2 class="font-heading text-3xl md:text-4xl text-[#1C1713] mb-8">Tu experiencia a <span class="text-[#D4AD65] italic">{heroTitle}</span> comienza con una <span class="text-[#D4AD65] italic">decisión</span>.</h2>
+          <a 
+            href="/contacto" 
+            class="group/cta relative overflow-hidden inline-flex items-center gap-4 font-label text-[10px] md:text-xs uppercase tracking-widest font-medium text-[#FAF9F6] bg-[#1C1713] px-8 py-4 transition-all duration-500 shadow-md"
+          >
+            <span class="absolute inset-0 bg-[#D4AD65] transform translate-y-[100%] group-hover/cta:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]"></span>
+            <span class="relative z-10 flex items-center gap-4 transition-colors duration-500">
+              Diseña tu experiencia
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover/cta:translate-x-1 transition-transform duration-500"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </span>
+          </a>
+        </div>
+      </div>
     </section>
 
   </main>
@@ -316,10 +466,101 @@ function formatPlaceName(name: string) {
         });
     }
 
+    function initExperiencesSlider() {
+        let currentIndex = 1;
+        const track = document.getElementById('experiences-carousel-track');
+        const slides = document.querySelectorAll('.experience-slide');
+        const progressBar = document.getElementById('experience-progress-bar');
+        const counter = document.getElementById('experience-counter');
+        const prevBtn = document.getElementById('prev-experience');
+        const nextBtn = document.getElementById('next-experience');
+        
+        if (!track || !slides.length) return;
+        
+        function updateCarousel() {
+          const activeSlide = slides[currentIndex] as HTMLElement;
+          if (!activeSlide) return;
+          const parentEl = track.parentElement;
+          if (!parentEl) return;
+          const containerWidth = parentEl.clientWidth;
+          const slideWidth = activeSlide.clientWidth;
+          const slideOffsetLeft = activeSlide.offsetLeft;
+          
+          // Calcular el desfase para centrar la diapositiva activa
+          const translateVal = (containerWidth / 2) - (slideOffsetLeft + slideWidth / 2);
+          track.style.transform = `translateX(${translateVal}px)`;
+          
+          // Actualizar escalas y opacidades
+          slides.forEach((slide, idx) => {
+            const imgs = slide.querySelectorAll('.gallery-image');
+            if (idx === currentIndex) {
+              slide.classList.add('scale-100', 'opacity-100', 'z-10');
+              slide.classList.remove('scale-90', 'opacity-40', 'z-0');
+              imgs.forEach(img => img.classList.add('scale-105'));
+            } else {
+              slide.classList.remove('scale-100', 'opacity-100', 'z-10');
+              slide.classList.add('scale-90', 'opacity-40', 'z-0');
+              imgs.forEach(img => img.classList.remove('scale-105'));
+            }
+          });
+          
+          // Actualizar barra de progreso y contador
+          if (progressBar) {
+            progressBar.style.width = `${((currentIndex + 1) / slides.length) * 100}%`;
+          }
+          if (counter) {
+            counter.textContent = `${currentIndex + 1} / ${slides.length}`;
+          }
+        }
+        
+        // Controles de botones
+        prevBtn?.addEventListener('click', () => {
+          currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+          updateCarousel();
+        });
+        
+        nextBtn?.addEventListener('click', () => {
+          currentIndex = (currentIndex + 1) % slides.length;
+          updateCarousel();
+        });
+        
+        // Permitir clic directo en la tarjeta
+        slides.forEach((slide, index) => {
+          slide.addEventListener('click', () => {
+            currentIndex = index;
+            updateCarousel();
+          });
+        });
+        
+        // Script para rotar la galería de imágenes dentro de cada tarjeta
+        slides.forEach(slide => {
+          const images = slide.querySelectorAll('.gallery-image');
+          if (images.length <= 1) return;
+          
+          let imgIndex = 0;
+          setInterval(() => {
+            images[imgIndex].classList.add('opacity-0');
+            images[imgIndex].classList.remove('opacity-100');
+            imgIndex = (imgIndex + 1) % images.length;
+            images[imgIndex].classList.remove('opacity-0');
+            images[imgIndex].classList.add('opacity-100');
+          }, 4000 + Math.random() * 1500); // Tiempos desfasados naturalmente
+        });
+        
+        // Inicializar y recalcular en caso de resize
+        updateCarousel();
+        window.addEventListener('resize', updateCarousel);
+    }
+
+    function initAll() {
+        initPlacesSwiper();
+        initExperiencesSlider();
+    }
+
     // Inicializar de forma limpia
     if (document.readyState === 'loading') {
-        document.addEventListener("DOMContentLoaded", initPlacesSwiper);
+        document.addEventListener("DOMContentLoaded", initAll);
     } else {
-        initPlacesSwiper();
+        initAll();
     }
 </script>
