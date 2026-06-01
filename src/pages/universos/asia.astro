@@ -67,4 +67,114 @@ const experiencias = [
   splitImage="https://garage-web.luxuryvoyageco.com/images/asia_japon_card_1776311225534.png"
   lugares={lugares}
   experiencias={experiencias}
-/>
+>
+  <!-- Philosophy Section -->
+  <section class="w-full bg-[#EDE7D7] border-t border-[#1C1713]/10 overflow-hidden">
+    <div class="max-w-[1920px] mx-auto flex flex-col lg:flex-row items-stretch min-h-[500px]">
+      
+      <!-- Left Image Column -->
+      <div class="w-full lg:w-[35%] xl:w-[38%] min-h-[350px] lg:min-h-0 relative overflow-hidden">
+        <img 
+          src="/asia_philosophy.png" 
+          alt="Meditación al amanecer en Asia" 
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <!-- Text Content and Pillars Columns -->
+      <div class="w-full lg:w-[65%] xl:w-[62%] grid grid-cols-1 md:grid-cols-2">
+        
+        <!-- Middle Column: Description -->
+        <div class="p-8 md:p-12 lg:p-16 flex flex-col justify-between min-h-[420px] md:min-h-0">
+          <div>
+            <span class="block font-label text-[10px] font-bold text-[#775A19] uppercase tracking-widest mb-3">NUESTRA FILOSOFÍA</span>
+            <div class="w-10 h-[1px] bg-[#D4AD65] mb-6"></div>
+            
+            <h2 class="font-heading text-3xl md:text-4xl text-[#1C1713] leading-[1.25] mb-6">
+              La <span class="italic text-[#775A19] font-serif">esencia</span> detrás<br />
+              de cada lugar.
+            </h2>
+            
+            <p class="font-sans text-sm text-[#1C1713]/70 leading-relaxed">
+              En Asia, cada gesto, cada espacio y cada momento reflejan una filosofía de respeto, presencia y equilibrio que transforma lo cotidiano en una experiencia profunda.
+            </p>
+          </div>
+          
+          <div class="mt-8">
+            <a 
+              href="/journey" 
+              class="inline-flex items-center gap-3 font-label text-xs uppercase tracking-widest text-[#775A19] hover:text-[#1C1713] font-bold border-b border-[#D4AD65] pb-2 transition-colors duration-300 group"
+            >
+              Conoce nuestra filosofía &nbsp;&rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Pillars -->
+        <div class="p-8 md:p-12 lg:p-16 flex flex-col gap-8 justify-center border-t md:border-t-0 md:border-l border-[#1C1713]/10">
+          
+          <!-- Pillar 1 -->
+          <div class="flex items-start gap-4">
+            <svg class="w-8 h-8 text-[#775A19] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25">
+              <circle cx="12" cy="12" r="2.5" />
+              <path d="M12 9.5c0-1.5-1-3-2-3s-2 1.5-2 3 1 3 2 3h2v-3z" />
+              <path d="M12 9.5c0-1.5 1-3 2-3s2 1.5 2 3-1 3-2 3h-2v-3z" />
+              <path d="M12 14.5c0 1.5-1 3-2 3s-2-1.5-2-3 1-3 2-3h2v3z" />
+              <path d="M12 14.5c0 1.5 1 3 2 3s2-1.5 2-3-1-3-2-3h-2v3z" />
+              <path d="M9.5 12c-1.5 0-3-1-3-2s1.5-2 3-2 3 1 3 2v2H9.5z" />
+              <path d="M14.5 12c1.5 0 3-1 3-2s-1.5-2-3-2-3 1-3 2v2h3z" />
+              <path d="M9.5 12c-1.5 0-3 1-3 2s1.5 2 3 2 3-1 3-2v-2H9.5z" />
+              <path d="M14.5 12c1.5 0 3 1 3 2s-1.5 2-3 2-3-1-3-2v-2h3z" />
+            </svg>
+            <div class="flex flex-col">
+              <h3 class="font-label text-xs font-bold text-[#1C1713] uppercase tracking-wider mb-1">ARMONÍA</h3>
+              <p class="font-sans text-xs text-[#1C1713]/70 leading-relaxed">Equilibrio en cada gesto, espacio y experiencia.</p>
+            </div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="flex items-start gap-4">
+            <svg class="w-8 h-8 text-[#775A19] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round">
+              <path d="M4 8c2.5-1.5 4.5-1.5 7 0s4.5 1.5 7 0" />
+              <path d="M4 12c2.5-1.5 4.5-1.5 7 0s4.5 1.5 7 0" />
+              <path d="M4 16c2.5-1.5 4.5-1.5 7 0s4.5 1.5 7 0" />
+            </svg>
+            <div class="flex flex-col">
+              <h3 class="font-label text-xs font-bold text-[#1C1713] uppercase tracking-wider mb-1">HOSPITALIDAD SILENCIOSA</h3>
+              <p class="font-sans text-xs text-[#1C1713]/70 leading-relaxed">Atención genuina que se siente, no que se muestra.</p>
+            </div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="flex items-start gap-4">
+            <svg class="w-8 h-8 text-[#775A19] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 19c-4-4.5-7.5-6.5-9.5-7 0 0 2-3 6.5-4s8.5.5 10 2c-2.5.5-4.5 2.5-7 9z" />
+              <line x1="12" y1="19" x2="6.5" y2="10" />
+              <line x1="12" y1="19" x2="10" y2="8.5" />
+              <line x1="12" y1="19" x2="14" y2="9.5" />
+              <line x1="12" y1="19" x2="17.5" y2="12" />
+            </svg>
+            <div class="flex flex-col">
+              <h3 class="font-label text-xs font-bold text-[#1C1713] uppercase tracking-wider mb-1">TRADICIÓN VIVA</h3>
+              <p class="font-sans text-xs text-[#1C1713]/70 leading-relaxed">Rituales y costumbres que conectan pasado y presente.</p>
+            </div>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="flex items-start gap-4">
+            <svg class="w-8 h-8 text-[#775A19] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 20l7-12 5 8" />
+              <path d="M8 20l6-9 7 9" />
+            </svg>
+            <div class="flex flex-col">
+              <h3 class="font-label text-xs font-bold text-[#1C1713] uppercase tracking-wider mb-1">CONEXIÓN CON EL ENTORNO</h3>
+              <p class="font-sans text-xs text-[#1C1713]/70 leading-relaxed">Naturaleza, arquitectura y diseño en perfecta sintonía.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</UniversoLayout>
