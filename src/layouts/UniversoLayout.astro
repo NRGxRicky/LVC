@@ -40,7 +40,27 @@ const {
   experiencias
 } = Astro.props;
 
-const isAsia = slug === "asia";
+const labels: Record<string, string> = {
+  asia: "Universo Asia",
+  africa: "Universo África",
+  europa: "Universo Europa",
+  "medio-oriente": "Universo Medio Oriente"
+};
+
+const titles: Record<string, string> = {
+  asia: `La belleza de la<br />
+    <span class="text-[#D4AD65] italic font-serif">armonía</span> entre<br />
+    contrastes.`,
+  africa: `El arte de vivir<br />
+    aquello que <span class="text-[#D4AD65] italic font-serif">transforma</span>.`,
+  europa: `Donde cada detalle<br />
+    refleja lo <span class="text-[#D4AD65] italic font-serif">atemporal</span>.`,
+  "medio-oriente": `Una visión marcada<br />
+    por lo <span class="text-[#D4AD65] italic font-serif">extraordinario</span>.`
+};
+
+const activeLabel = labels[slug] || `Universo ${heroTitle}`;
+const activeTitleHtml = titles[slug] || heroDesc;
 ---
 
 <Layout title={title} description={description}>
@@ -58,61 +78,32 @@ const isAsia = slug === "asia";
           height={1080}
           class="w-full h-full object-cover object-[50%_70%]"
         />
-        {isAsia ? (
-          <div class="absolute inset-0 bg-gradient-to-r from-[#EDE7D7]/70 via-[#EDE7D7]/30 to-transparent"></div>
-        ) : (
-          <div class="absolute inset-0 bg-gradient-to-r from-[#1C1713]/80 via-[#1C1713]/40 to-transparent"></div>
-        )}
+        <div class="absolute inset-0 bg-gradient-to-r from-[#EDE7D7]/70 via-[#EDE7D7]/30 to-transparent"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent via-50% to-[#EDE7D7]"></div>
       </div>
       
       <div class="relative z-10 w-full max-w-[1920px] mx-auto px-6 md:px-12 md:pl-24 pt-32 pb-24 flex flex-col items-start h-full justify-center">
-        {isAsia ? (
-          <>
-            <span class="block font-label text-[10px] md:text-xs font-bold text-[#775A19] uppercase tracking-[0.3em] mb-4">
-              Universo Asia
-            </span>
-            <div class="w-10 h-[1px] bg-[#D4AD65] mb-6"></div>
-            
-            <h1 class="font-heading text-4xl md:text-5xl lg:text-[4rem] text-[#1C1713] leading-[1.25] mb-8 text-left">
-              La belleza de la<br />
-              <span class="text-[#D4AD65] italic font-serif">armonía</span> entre<br />
-              contrastes.
-            </h1>
-            
-            <a 
-              href="#lugares" 
-              class="flex items-center gap-3 font-label text-xs uppercase tracking-widest text-[#775A19] hover:text-[#1C1713] font-bold border-b border-[#D4AD65] pb-2 transition-colors duration-300 group"
-            >
-              Ver todos los destinos &nbsp;&rarr;
-            </a>
-          </>
-        ) : (
-          <>
-            <div class="flex items-center gap-4 mb-6">
-              <span class="font-label text-[10px] md:text-xs font-bold text-[#D4AD65] uppercase tracking-[0.3em]">Universo</span>
-              <div class="w-12 h-[1px] bg-[#D4AD65]"></div>
-            </div>
-            <h1 class="font-heading text-6xl md:text-8xl lg:text-9xl text-white mb-8 tracking-wide">{heroTitle}</h1>
-            <p class="font-sans text-lg text-white/90 max-w-sm mb-12 leading-relaxed">
-              {heroDesc}
-            </p>
-            <a 
-              href="#lugares" 
-              class="flex items-center gap-3 font-label text-xs uppercase tracking-widest text-white/80 hover:text-[#D4AD65] transition-colors duration-300 group"
-            >
-              Explora {heroTitle.toLowerCase()}
-              <div class="w-12 h-[1px] bg-white/30 group-hover:bg-[#D4AD65] group-hover:w-16 transition-all duration-300"></div>
-            </a>
-          </>
-        )}
+        <span class="block font-label text-[10px] md:text-xs font-bold text-[#775A19] uppercase tracking-[0.3em] mb-4">
+          {activeLabel}
+        </span>
+        <div class="w-10 h-[1px] bg-[#D4AD65] mb-6"></div>
+        
+        <h1 class="font-heading text-4xl md:text-5xl lg:text-[4rem] text-[#1C1713] leading-[1.25] mb-8 text-left" set:html={activeTitleHtml}>
+        </h1>
+        
+        <a 
+          href="#lugares" 
+          class="flex items-center gap-3 font-label text-xs uppercase tracking-widest text-[#775A19] hover:text-[#1C1713] font-bold border-b border-[#D4AD65] pb-2 transition-colors duration-300 group"
+        >
+          Ver todos los destinos &nbsp;&rarr;
+        </a>
 
         <!-- Scroll Indicator -->
         <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-            <div class={`w-5 h-8 border rounded-full flex justify-center p-1 ${isAsia ? 'border-[#1C1713]/30' : 'border-white/30'}`}>
-                <div class={`w-1 h-2 rounded-full animate-bounce ${isAsia ? 'bg-[#1C1713]' : 'bg-white'}`}></div>
+            <div class="w-5 h-8 border border-[#1C1713]/30 rounded-full flex justify-center p-1">
+                <div class="w-1 h-2 bg-[#1C1713] rounded-full animate-bounce"></div>
             </div>
-            <span class={`font-label text-[10px] uppercase tracking-widest ${isAsia ? 'text-[#1C1713]/50' : 'text-white/50'}`}>Scroll</span>
+            <span class="font-label text-[10px] uppercase tracking-widest text-[#1C1713]/50">Scroll</span>
         </div>
       </div>
     </section>
