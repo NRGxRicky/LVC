@@ -419,6 +419,7 @@ import Footer from "../components/Footer.astro";
         startDate = date;
         endDate   = null;
         hint.textContent = 'Selecciona fecha de regreso';
+        input.value = formatDate(startDate);
       } else {
         if (date < startDate) {
           endDate   = startDate;
