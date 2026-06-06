@@ -320,6 +320,32 @@ import Footer from "../components/Footer.astro";
 <script>
   (() => {
     console.log("✦ LVC: Script de contacto cargado!");
+    
+    // Parse URL parameters for pre-selecting destination and style of interest
+    const urlParams = new URLSearchParams(window.location.search);
+    const destinoParam = urlParams.get('destino');
+    const lugarParam = urlParams.get('lugar');
+    const estiloParam = urlParams.get('estilo');
+
+    if (destinoParam) {
+      const checkbox = document.querySelector(`input[name="destino"][value="${destinoParam}"]`) as HTMLInputElement | null;
+      if (checkbox) {
+        checkbox.checked = true;
+      }
+    }
+
+    if (estiloParam) {
+      const ideaTextarea = document.getElementById('idea') as HTMLTextAreaElement | null;
+      if (ideaTextarea) {
+        let commentText = `Me interesa la experiencia: ${estiloParam}`;
+        if (lugarParam) {
+          commentText += ` en ${lugarParam}`;
+        }
+        commentText += `.\n\n`;
+        ideaTextarea.value = commentText;
+      }
+    }
+
     // Select elements safely
     const toggle   = document.getElementById('calendar-toggle');
     const input    = document.getElementById('fecha') as HTMLInputElement | null;

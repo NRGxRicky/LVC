@@ -249,6 +249,10 @@ const experienceImages: Record<string, string[][]> = {
                       <div class="swiper-slide">
                         <a 
                           href="/contacto" 
+                          data-modal-trigger
+                          data-place-name={lugar.name}
+                          data-continent={heroTitle}
+                          data-continent-slug={slug}
                           class="group relative block aspect-[3/4] overflow-hidden bg-[#1C1713] cursor-pointer"
                         >
                           <Image 
@@ -411,6 +415,86 @@ const experienceImages: Record<string, string[][]> = {
       </div>
     </section>
 
+    <!-- MODAL DESTINOS INTERACTIVO (Formas de vivir) -->
+    <div id="destination-modal" class="fixed inset-0 z-50 hidden bg-[#EDE7D7] overflow-y-auto transition-all duration-500 opacity-0 translate-y-4">
+      <div class="max-w-[1920px] mx-auto min-h-screen flex flex-col justify-between p-6 md:p-12 lg:p-16 relative">
+        
+        <!-- Botón de Cerrar (Esquina superior derecha) -->
+        <button id="close-modal-btn" class="absolute top-6 right-6 md:top-10 md:right-10 w-12 h-12 rounded-full border border-[#1C1713]/15 flex items-center justify-center text-[#1C1713]/60 hover:text-[#1C1713] hover:border-[#1C1713] hover:bg-[#1C1713]/5 transition-all duration-300 cursor-pointer z-30">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <!-- Cabecera del Modal -->
+        <div class="text-center max-w-2xl mx-auto mb-8 mt-4 md:mt-8">
+          <span id="modal-subtitle" class="font-label text-[10px] md:text-xs font-bold text-[#775A19] uppercase tracking-[0.2em] block mb-3">DESTINO</span>
+          <h2 id="modal-title" class="font-heading text-3xl md:text-5xl text-[#1C1713] mb-4">Formas de vivir</h2>
+          <p id="modal-desc" class="font-sans text-xs md:text-sm text-[#1C1713]/70 leading-relaxed max-w-xl mx-auto">
+            Cada viaje es único. Descubre distintas formas de vivir el destino y elige la experiencia que más conecta contigo.
+          </p>
+          <div class="w-10 h-[1px] bg-[#D4AD65] mx-auto mt-6"></div>
+        </div>
+
+        <!-- Track / Carrusel de Tarjetas -->
+        <div class="relative w-full overflow-hidden my-4 max-w-6xl mx-auto">
+          <!-- Flecha de Navegación Izquierda -->
+          <button id="modal-prev-btn" class="absolute left-2 md:-left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white shadow-md border border-[#1C1713]/10 flex items-center justify-center text-[#1C1713] hover:bg-[#EDE7D7] transition-all duration-300 cursor-pointer z-20 hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
+
+          <!-- Viewport del Carrusel -->
+          <div id="modal-cards-viewport" class="w-full overflow-x-auto scrollbar-none py-4 px-2 md:px-0 scroll-smooth">
+            <div id="modal-cards-track" class="flex gap-4 md:gap-6 justify-start md:justify-center w-max md:w-full">
+              <!-- Las tarjetas se inyectarán dinámicamente aquí -->
+            </div>
+          </div>
+
+          <!-- Flecha de Navegación Derecha -->
+          <button id="modal-next-btn" class="absolute right-2 md:-right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white shadow-md border border-[#1C1713]/10 flex items-center justify-center text-[#1C1713] hover:bg-[#EDE7D7] transition-all duration-300 cursor-pointer z-20 hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Indicadores / Dots del Slider -->
+        <div id="modal-dots" class="flex justify-center gap-2 mb-6">
+          <!-- Los puntos se inyectarán dinámicamente aquí -->
+        </div>
+
+        <!-- Pie de Modal (CTA + Nota) -->
+        <div class="text-center mt-2 mb-4 md:mb-8">
+          <button 
+            id="modal-cta-btn" 
+            class="group/modal-cta relative overflow-hidden inline-flex items-center gap-4 font-label text-[10px] md:text-xs uppercase tracking-widest font-medium text-[#FAF9F6] bg-[#775A19] hover:bg-[#1C1713] px-10 py-5 transition-all duration-500 shadow-md cursor-pointer"
+          >
+            <span class="relative z-10 flex items-center gap-4">
+              DISEÑA TU EXPERIENCIA
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover/modal-cta:translate-x-1 transition-transform duration-500">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </button>
+          
+          <div class="mt-4 flex items-center justify-center gap-2 text-[10px] md:text-xs text-[#1C1713]/50 tracking-wider uppercase">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="opacity-80">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="12 8 8 12 12 16 16 12 12 8"></polygon>
+            </svg>
+            <span>Tu selección nos ayuda a diseñar un viaje hecho para ti.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </main>
 
   <Footer />
@@ -427,6 +511,31 @@ const experienceImages: Record<string, string[][]> = {
     background: #D4AD65 !important;
     border-radius: 0 !important;
   }
+
+  /* Estilos del Modal de Destinos */
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .modal-card-item {
+    border: 1.5px solid rgba(28, 23, 19, 0.1);
+    border-radius: 4px;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  .modal-card-item.is-selected {
+    border-color: #D4AD65 !important;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(119, 90, 25, 0.2);
+  }
+  .modal-card-item.is-selected .selected-indicator {
+    opacity: 1 !important;
+    background-color: #775A19 !important;
+    border-color: #D4AD65 !important;
+  }
 </style>
 
 <script>
@@ -434,6 +543,135 @@ const experienceImages: Record<string, string[][]> = {
     import { Navigation, Pagination } from 'swiper/modules';
     import 'swiper/css';
     import 'swiper/css/pagination';
+
+    // Diccionario de filosofías de viaje por destino (escalable)
+    const destinationPhilosophyData: Record<string, { description: string; cards: Array<{ title: string; desc: string; image: string }> }> = {
+      japon: {
+        description: "Descubre Japón a través de sus contrastes: desde templos centenarios rodeados de naturaleza silenciosa hasta la energía magnética de sus metrópolis futuristas.",
+        cards: [
+          {
+            title: "Japón Tradicional",
+            desc: "La calma de los templos de Kioto, jardines zen, rituales de té ancestrales y la estancia en un ryokan de lujo.",
+            image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600&auto=format&fit=crop"
+          },
+          {
+            title: "Japón Contemporáneo",
+            desc: "El pulso futurista de Tokio, el arte digital, la moda de vanguardia y la sofisticación urbana más exclusiva.",
+            image: "https://images.unsplash.com/photo-1540959733332-eab4deceeaf7?q=80&w=600&auto=format&fit=crop"
+          },
+          {
+            title: "Japón Natural",
+            desc: "El misticismo del Monte Fuji, los senderos espirituales de Kumano Kodo y las termas naturales (onsen) rodeadas de bosque.",
+            image: "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?q=80&w=600&auto=format&fit=crop"
+          },
+          {
+            title: "Entre Contrastes",
+            desc: "Una ruta diseñada para entrelazar el dinamismo de las metrópolis con el silencio absoluto de las aldeas de montaña.",
+            image: "https://images.unsplash.com/photo-1528164344705-47542687000d?q=80&w=600&auto=format&fit=crop"
+          }
+        ]
+      },
+      italia: {
+        description: "Recorre Italia desde una perspectiva sofisticada: donde el arte atemporal, los paisajes de costa y la alta gastronomía definen el buen vivir.",
+        cards: [
+          {
+            title: "Italia Histórica",
+            desc: "El legado del Imperio Romano en Roma, el Renacimiento en Florencia y los románticos canales de la Venecia clásica.",
+            image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=600&auto=format&fit=crop"
+          },
+          {
+            title: "Italia Costera",
+            desc: "El azul infinito de la Costa Amalfitana, los pueblos pesqueros de Cinque Terre y la elegancia marina de la isla de Capri.",
+            image: "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=600&auto=format&fit=crop"
+          },
+          {
+            title: "Italia Culinaria",
+            desc: "Un viaje de sabor a través de los viñedos de la Toscana, la trufa blanca del Piamonte y los secretos de su gastronomía.",
+            image: "https://images.unsplash.com/photo-1516211621162-d76694265947?q=80&w=600&auto=format&fit=crop"
+          },
+          {
+            title: "Italia de Diseño",
+            desc: "Las residencias aristocráticas frente al Lago de Como, la alta costura de Milán y las villas de arquitectura contemporánea.",
+            image: "https://images.unsplash.com/photo-1531572753322-ad063cecc140?q=80&w=600&auto=format&fit=crop"
+          }
+        ]
+      },
+      kenia: {
+        description: "Experimenta la sabana africana en su máxima expresión: desde safaris legendarios bajo cielos infinitos hasta estancias en santuarios privados de vida silvestre.",
+        cards: [
+          {
+            title: "Safari de Leyenda",
+            desc: "La mítica gran migración en el Masái Mara, campamentos móviles de lujo y encuentros cercanos con los Big Five.",
+            image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=600&auto=format&fit=crop"
+          },
+          {
+            title: "Kenia Exclusiva",
+            desc: "Vuelos en avioneta privada sobre el Valle del Rift, reservas de conservación privada y lodges boutique de lujo absoluto.",
+            image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=600&auto=format&fit=crop"
+          },
+          {
+            title: "Kenia y Playa",
+            desc: "La combinación perfecta entre la emoción del safari de sabana y el descanso en las exclusivas playas vírgenes del archipiélago de Lamu.",
+            image: "https://images.unsplash.com/photo-1589979482837-e74f2e145060?q=80&w=600&auto=format&fit=crop"
+          },
+          {
+            title: "Kenia Contemplativa",
+            desc: "Caminatas guiadas por guerreros masáis, safaris a caballo y amaneceres frente a la quietud de los flamencos en el lago Nakuru.",
+            image: "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=600&auto=format&fit=crop"
+          }
+        ]
+      },
+      "emiratos arabes": {
+        description: "Adéntrate en una tierra de visiones extraordinarias: donde la arquitectura del futuro convive con el misticismo del desierto y el lujo sin límites.",
+        cards: [
+          {
+            title: "Lujo Futurista",
+            desc: "La vibrante arquitectura de Dubái, rascacielos infinitos, compras de alta costura y experiencias gastronómicas con estrellas Michelin.",
+            image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=600&auto=format&fit=crop"
+          },
+          {
+            title: "El Desierto Sublime",
+            desc: "Noches estrelladas en dunas de arena dorada, cetrería tradicional y resorts de ultra-lujo integrados en el desierto.",
+            image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?q=80&w=600&auto=format&fit=crop"
+          },
+          {
+            title: "Cultura y Arte",
+            desc: "La imponente Mezquita Sheikh Zayed y el museo Louvre en Abu Dabi, galerías de vanguardia y distritos históricos recuperados.",
+            image: "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=600&auto=format&fit=crop"
+          },
+          {
+            title: "Islas y Mar",
+            desc: "Cruceros privados en yates por Palm Jumeirah, villas sobre el agua, playas exclusivas y el ritmo pausado del Golfo Pérsico.",
+            image: "https://images.unsplash.com/photo-1572002551139-85261023f951?q=80&w=600&auto=format&fit=crop"
+          }
+        ]
+      },
+      default: {
+        description: "Cada rincón del mundo guarda una forma particular de ser descubierto. Permítenos diseñar una experiencia totalmente a tu medida.",
+        cards: [
+          {
+            title: "Experiencia Esencial",
+            desc: "Los atractivos icónicos y las visitas imprescindibles para comprender la esencia de este gran destino.",
+            image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=600&auto=format&fit=crop"
+          },
+          {
+            title: "Inmersión Cultural",
+            desc: "Conexión directa con comunidades locales, tradiciones vivas, templos sagrados e historia profunda.",
+            image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600&auto=format&fit=crop"
+          },
+          {
+            title: "Estancia Exclusiva",
+            desc: "Alojamientos seleccionados meticulosamente por su arquitectura, privacidad, servicio excepcional y vistas únicas.",
+            image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=600&auto=format&fit=crop"
+          },
+          {
+            title: "Naturaleza y Paisaje",
+            desc: "Exploración al aire libre con el máximo confort en parajes remotos, parques naturales o costas de eseño.",
+            image: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=600&auto=format&fit=crop"
+          }
+        ]
+      }
+    };
 
     function initPlacesSwiper() {
         const target = document.querySelector('.placesSwiper');
@@ -486,11 +724,9 @@ const experienceImages: Record<string, string[][]> = {
           const slideWidth = activeSlide.clientWidth;
           const slideOffsetLeft = activeSlide.offsetLeft;
           
-          // Calcular el desfase para centrar la diapositiva activa
           const translateVal = (containerWidth / 2) - (slideOffsetLeft + slideWidth / 2);
           track.style.transform = `translateX(${translateVal}px)`;
           
-          // Actualizar escalas y opacidades
           slides.forEach((slide, idx) => {
             const imgs = slide.querySelectorAll('.gallery-image');
             if (idx === currentIndex) {
@@ -504,7 +740,6 @@ const experienceImages: Record<string, string[][]> = {
             }
           });
           
-          // Actualizar barra de progreso y contador
           if (progressBar) {
             progressBar.style.width = `${((currentIndex + 1) / slides.length) * 100}%`;
           }
@@ -513,7 +748,6 @@ const experienceImages: Record<string, string[][]> = {
           }
         }
         
-        // Controles de botones
         prevBtn?.addEventListener('click', () => {
           currentIndex = (currentIndex - 1 + slides.length) % slides.length;
           updateCarousel();
@@ -524,7 +758,6 @@ const experienceImages: Record<string, string[][]> = {
           updateCarousel();
         });
         
-        // Permitir clic directo en la tarjeta
         slides.forEach((slide, index) => {
           slide.addEventListener('click', () => {
             currentIndex = index;
@@ -532,7 +765,6 @@ const experienceImages: Record<string, string[][]> = {
           });
         });
         
-        // Script para rotar la galería de imágenes dentro de cada tarjeta
         slides.forEach(slide => {
           const images = slide.querySelectorAll('.gallery-image');
           if (images.length <= 1) return;
@@ -544,17 +776,248 @@ const experienceImages: Record<string, string[][]> = {
             imgIndex = (imgIndex + 1) % images.length;
             images[imgIndex].classList.remove('opacity-0');
             images[imgIndex].classList.add('opacity-100');
-          }, 4000 + Math.random() * 1500); // Tiempos desfasados naturalmente
+          }, 4000 + Math.random() * 1500);
         });
         
-        // Inicializar y recalcular en caso de resize
         updateCarousel();
         window.addEventListener('resize', updateCarousel);
+    }
+
+    // Modal Interactive Logic
+    function initDestinationModal() {
+      const modal = document.getElementById('destination-modal');
+      const closeBtn = document.getElementById('close-modal-btn');
+      const viewport = document.getElementById('modal-cards-viewport') as HTMLDivElement | null;
+      const track = document.getElementById('modal-cards-track');
+      const prevBtn = document.getElementById('modal-prev-btn');
+      const nextBtn = document.getElementById('modal-next-btn');
+      const ctaBtn = document.getElementById('modal-cta-btn');
+      const dotsContainer = document.getElementById('modal-dots');
+      const modalSubtitle = document.getElementById('modal-subtitle');
+      const modalTitle = document.getElementById('modal-title');
+      const modalDesc = document.getElementById('modal-desc');
+
+      if (!modal || !closeBtn || !viewport || !track) return;
+
+      let currentPlaceName = '';
+      let currentContinentSlug = '';
+      let selectedStyle = '';
+
+      function getCleanKey(name: string): string {
+        return name
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .replace(/[^a-z0-9]/g, " ")
+          .trim();
+      }
+
+      function updateNavButtonsVisibility() {
+        if (!viewport || !prevBtn || !nextBtn) return;
+        const hasOverflow = viewport.scrollWidth > viewport.clientWidth;
+        if (hasOverflow) {
+          prevBtn.classList.remove('hidden');
+          nextBtn.classList.remove('hidden');
+        } else {
+          prevBtn.classList.add('hidden');
+          nextBtn.classList.add('hidden');
+        }
+      }
+
+      function renderDots(numCards: number) {
+        if (!dotsContainer) return;
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < numCards; i++) {
+          const dot = document.createElement('button');
+          dot.className = `w-2 h-2 rounded-full transition-all duration-300 ${i === 0 ? 'bg-[#775A19] w-4' : 'bg-[#1C1713]/20'}`;
+          dot.setAttribute('aria-label', `Ir al estilo ${i + 1}`);
+          dot.addEventListener('click', () => {
+            const cards = viewport.querySelectorAll('.modal-card-item');
+            if (cards && cards[i]) {
+              const card = cards[i] as HTMLElement;
+              viewport.scrollTo({
+                left: card.offsetLeft - (viewport.clientWidth - card.clientWidth) / 2,
+                behavior: 'smooth'
+              });
+            }
+          });
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      viewport.addEventListener('scroll', () => {
+        const cards = viewport.querySelectorAll('.modal-card-item');
+        const dots = dotsContainer?.querySelectorAll('button');
+        if (!cards.length || !dots) return;
+
+        let activeIndex = 0;
+        let minDistance = Infinity;
+        const viewportCenter = viewport.scrollLeft + viewport.clientWidth / 2;
+
+        cards.forEach((card, idx) => {
+          const cardCenter = (card as HTMLElement).offsetLeft + card.clientWidth / 2;
+          const distance = Math.abs(viewportCenter - cardCenter);
+          if (distance < minDistance) {
+            minDistance = distance;
+            activeIndex = idx;
+          }
+        });
+
+        dots.forEach((dot, idx) => {
+          if (idx === activeIndex) {
+            dot.classList.add('bg-[#775A19]', 'w-4');
+            dot.classList.remove('bg-[#1C1713]/20');
+          } else {
+            dot.classList.remove('bg-[#775A19]', 'w-4');
+            dot.classList.add('bg-[#1C1713]/20');
+          }
+        });
+      });
+
+      function updateCTA() {
+        if (!ctaBtn) return;
+        const placeUpper = currentPlaceName.toUpperCase();
+        ctaBtn.innerHTML = `
+          <span class="relative z-10 flex items-center gap-4">
+            DISEÑA TU EXPERIENCIA EN ${placeUpper}
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover/modal-cta:translate-x-1 transition-transform duration-500">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        `;
+      }
+
+      function openModal(placeName: string, continentName: string, continentSlug: string) {
+        currentPlaceName = placeName;
+        currentContinentSlug = continentSlug;
+
+        if (modalSubtitle) modalSubtitle.textContent = `${continentName} — ${placeName}`;
+        if (modalTitle) modalTitle.textContent = `Formas de vivir ${placeName}`;
+
+        track.innerHTML = '';
+        const cleanKey = getCleanKey(placeName);
+
+        // Find the destination data key
+        let destData = destinationPhilosophyData.default;
+        for (const key of Object.keys(destinationPhilosophyData)) {
+          if (key !== 'default' && (cleanKey.includes(key) || key.includes(cleanKey))) {
+            destData = destinationPhilosophyData[key];
+            break;
+          }
+        }
+
+        if (modalDesc) {
+          modalDesc.textContent = destData.description;
+        }
+
+        // Render cards
+        destData.cards.forEach((card, index) => {
+          const cardEl = document.createElement('div');
+          cardEl.className = `modal-card-item group relative flex-none w-[260px] sm:w-[280px] aspect-[3/4.5] overflow-hidden bg-[#1C1713] cursor-pointer transition-all duration-500 border border-transparent ${index === 0 ? 'is-selected' : ''}`;
+          cardEl.setAttribute('data-style-name', card.title);
+
+          cardEl.innerHTML = `
+            <img src="${card.image}" alt="${card.title}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.08] opacity-75 group-hover:opacity-90" loading="lazy" />
+            
+            <!-- Check overlay -->
+            <div class="absolute top-4 right-4 w-6 h-6 rounded-full border border-white/50 bg-black/40 backdrop-blur-sm flex items-center justify-center text-white opacity-0 transition-opacity duration-300 selected-indicator">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713]/90 via-[#1C1713]/25 to-transparent"></div>
+            
+            <div class="absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end z-10 text-left">
+              <span class="block font-label text-[9px] uppercase tracking-widest text-[#D4AD65] mb-1">Filosofía</span>
+              <h3 class="font-heading text-xl text-white mb-2 tracking-wide">${card.title}</h3>
+              <p class="font-sans text-[11px] sm:text-xs text-white/70 leading-relaxed">
+                ${card.desc}
+              </p>
+            </div>
+          `;
+
+          cardEl.addEventListener('click', () => {
+            track.querySelectorAll('.modal-card-item').forEach(c => c.classList.remove('is-selected'));
+            cardEl.classList.add('is-selected');
+            selectedStyle = card.title;
+          });
+
+          track.appendChild(cardEl);
+        });
+
+        selectedStyle = destData.cards[0].title;
+        renderDots(destData.cards.length);
+        updateCTA();
+
+        // Reveal modal with transition
+        modal.classList.remove('hidden');
+        // Trigger reflow
+        modal.offsetHeight;
+        modal.classList.remove('opacity-0', 'translate-y-4');
+        modal.classList.add('opacity-100', 'translate-y-0');
+        document.body.style.overflow = 'hidden';
+
+        viewport.scrollLeft = 0;
+        setTimeout(updateNavButtonsVisibility, 100);
+      }
+
+      function closeModalFunc() {
+        modal.classList.remove('opacity-100', 'translate-y-0');
+        modal.classList.add('opacity-0', 'translate-y-4');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+          modal.classList.add('hidden');
+        }, 500);
+      }
+
+      closeBtn.addEventListener('click', closeModalFunc);
+      
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+          closeModalFunc();
+        }
+      });
+
+      // Navigation arrows
+      prevBtn?.addEventListener('click', () => {
+        viewport.scrollBy({ left: -290, behavior: 'smooth' });
+      });
+
+      nextBtn?.addEventListener('click', () => {
+        viewport.scrollBy({ left: 290, behavior: 'smooth' });
+      });
+
+      // Global event delegation for triggers
+      document.addEventListener('click', (e) => {
+        const trigger = (e.target as HTMLElement)?.closest('[data-modal-trigger]');
+        if (trigger) {
+          e.preventDefault();
+          const placeName = trigger.getAttribute('data-place-name') || '';
+          const continentName = trigger.getAttribute('data-continent') || '';
+          const continentSlug = trigger.getAttribute('data-continent-slug') || '';
+          openModal(placeName, continentName, continentSlug);
+        }
+      });
+
+      // CTA redirect
+      ctaBtn?.addEventListener('click', () => {
+        const selected = track.querySelector('.modal-card-item.is-selected');
+        if (selected) {
+          selectedStyle = selected.getAttribute('data-style-name') || '';
+        }
+        const url = `/contacto?destino=${encodeURIComponent(currentContinentSlug)}&lugar=${encodeURIComponent(currentPlaceName)}&estilo=${encodeURIComponent(selectedStyle)}`;
+        window.location.href = url;
+      });
+
+      window.addEventListener('resize', updateNavButtonsVisibility);
     }
 
     function initAll() {
         initPlacesSwiper();
         initExperiencesSlider();
+        initDestinationModal();
     }
 
     // Inicializar de forma limpia
