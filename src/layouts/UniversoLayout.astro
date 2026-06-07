@@ -437,35 +437,45 @@ const experienceImages: Record<string, string[][]> = {
           <div class="w-10 h-[1px] bg-[#D4AD65] mx-auto mt-6"></div>
         </div>
 
-        <!-- Track / Carrusel de Tarjetas -->
+        <!-- Track / Carrusel de Tarjetas (Modal Centrado) -->
         <div class="relative w-full overflow-hidden my-4 max-w-6xl mx-auto">
-          <!-- Flecha de Navegación Izquierda -->
-          <button id="modal-prev-btn" class="absolute left-2 md:-left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white shadow-md border border-[#1C1713]/10 flex items-center justify-center text-[#1C1713] hover:bg-[#EDE7D7] transition-all duration-300 cursor-pointer z-20 hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="19" y1="12" x2="5" y2="12"></line>
-              <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
-          </button>
+          <!-- Fade-out Masks (Ritz-Carlton style) -->
+          <div class="absolute left-0 top-0 bottom-0 w-8 sm:w-24 md:w-48 bg-gradient-to-r from-[#EDE7D7] to-transparent pointer-events-none z-20"></div>
+          <div class="absolute right-0 top-0 bottom-0 w-8 sm:w-24 md:w-48 bg-gradient-to-l from-[#EDE7D7] to-transparent pointer-events-none z-20"></div>
 
-          <!-- Viewport del Carrusel -->
-          <div id="modal-cards-viewport" class="w-full overflow-x-auto scrollbar-none py-4 px-2 md:px-0 scroll-smooth">
-            <div id="modal-cards-track" class="flex gap-4 md:gap-6 justify-start md:justify-center w-max md:w-full">
+          <!-- Viewport of the modal -->
+          <div class="w-full overflow-hidden py-4 px-4 md:px-0">
+            <div 
+              id="modal-cards-track"
+              class="flex gap-6 md:gap-8 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
+              style="transform: translateX(0px);"
+            >
               <!-- Las tarjetas se inyectarán dinámicamente aquí -->
             </div>
           </div>
-
-          <!-- Flecha de Navegación Derecha -->
-          <button id="modal-next-btn" class="absolute right-2 md:-right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white shadow-md border border-[#1C1713]/10 flex items-center justify-center text-[#1C1713] hover:bg-[#EDE7D7] transition-all duration-300 cursor-pointer z-20 hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </button>
         </div>
 
-        <!-- Indicadores / Dots del Slider -->
-        <div id="modal-dots" class="flex justify-center gap-2 mb-6">
-          <!-- Los puntos se inyectarán dinámicamente aquí -->
+        <!-- Controles de Navegación del Modal al Pie -->
+        <div class="flex flex-col items-center gap-4 mt-2 mb-6 px-6">
+          <div class="flex items-center gap-6 sm:gap-8 font-label text-[10px] md:text-xs uppercase tracking-widest text-[#775A19]">
+            <button id="modal-prev-btn" class="hover:text-[#1C1713] transition-colors cursor-pointer flex items-center gap-1 font-bold">
+              &lt; Anterior
+            </button>
+            
+            <!-- Progress Line -->
+            <div class="w-32 sm:w-48 h-[2px] bg-[#775A19]/10 relative overflow-hidden rounded-full">
+              <div id="modal-experience-progress-bar" class="absolute top-0 left-0 h-full bg-[#775A19] transition-all duration-700 rounded-full" style="width: 25%;"></div>
+            </div>
+            
+            <button id="modal-next-btn" class="hover:text-[#1C1713] transition-colors cursor-pointer flex items-center gap-1 font-bold">
+              Siguiente &gt;
+            </button>
+          </div>
+          
+          <!-- Counter -->
+          <div id="modal-experience-counter" class="font-label text-[10px] md:text-xs text-[#775A19]/80 tracking-wider">
+            1 / 4
+          </div>
         </div>
 
         <!-- Pie de Modal (CTA + Nota) -->
@@ -787,21 +797,23 @@ const experienceImages: Record<string, string[][]> = {
     function initDestinationModal() {
       const modal = document.getElementById('destination-modal');
       const closeBtn = document.getElementById('close-modal-btn');
-      const viewport = document.getElementById('modal-cards-viewport') as HTMLDivElement | null;
       const track = document.getElementById('modal-cards-track');
       const prevBtn = document.getElementById('modal-prev-btn');
       const nextBtn = document.getElementById('modal-next-btn');
       const ctaBtn = document.getElementById('modal-cta-btn');
-      const dotsContainer = document.getElementById('modal-dots');
+      const progressBar = document.getElementById('modal-experience-progress-bar');
+      const counter = document.getElementById('modal-experience-counter');
       const modalSubtitle = document.getElementById('modal-subtitle');
       const modalTitle = document.getElementById('modal-title');
       const modalDesc = document.getElementById('modal-desc');
 
-      if (!modal || !closeBtn || !viewport || !track) return;
+      if (!modal || !closeBtn || !track) return;
 
       let currentPlaceName = '';
       let currentContinentSlug = '';
       let selectedStyle = '';
+      let currentIndex = 0;
+      let modalSlides: HTMLElement[] = [];
 
       function getCleanKey(name: string): string {
         return name
@@ -812,67 +824,38 @@ const experienceImages: Record<string, string[][]> = {
           .trim();
       }
 
-      function updateNavButtonsVisibility() {
-        if (!viewport || !prevBtn || !nextBtn) return;
-        const hasOverflow = viewport.scrollWidth > viewport.clientWidth;
-        if (hasOverflow) {
-          prevBtn.classList.remove('hidden');
-          nextBtn.classList.remove('hidden');
-        } else {
-          prevBtn.classList.add('hidden');
-          nextBtn.classList.add('hidden');
-        }
-      }
-
-      function renderDots(numCards: number) {
-        if (!dotsContainer) return;
-        dotsContainer.innerHTML = '';
-        for (let i = 0; i < numCards; i++) {
-          const dot = document.createElement('button');
-          dot.className = `w-2 h-2 rounded-full transition-all duration-300 ${i === 0 ? 'bg-[#775A19] w-4' : 'bg-[#1C1713]/20'}`;
-          dot.setAttribute('aria-label', `Ir al estilo ${i + 1}`);
-          dot.addEventListener('click', () => {
-            const cards = viewport.querySelectorAll('.modal-card-item');
-            if (cards && cards[i]) {
-              const card = cards[i] as HTMLElement;
-              viewport.scrollTo({
-                left: card.offsetLeft - (viewport.clientWidth - card.clientWidth) / 2,
-                behavior: 'smooth'
-              });
-            }
-          });
-          dotsContainer.appendChild(dot);
-        }
-      }
-
-      viewport.addEventListener('scroll', () => {
-        const cards = viewport.querySelectorAll('.modal-card-item');
-        const dots = dotsContainer?.querySelectorAll('button');
-        if (!cards.length || !dots) return;
-
-        let activeIndex = 0;
-        let minDistance = Infinity;
-        const viewportCenter = viewport.scrollLeft + viewport.clientWidth / 2;
-
-        cards.forEach((card, idx) => {
-          const cardCenter = (card as HTMLElement).offsetLeft + card.clientWidth / 2;
-          const distance = Math.abs(viewportCenter - cardCenter);
-          if (distance < minDistance) {
-            minDistance = distance;
-            activeIndex = idx;
-          }
-        });
-
-        dots.forEach((dot, idx) => {
-          if (idx === activeIndex) {
-            dot.classList.add('bg-[#775A19]', 'w-4');
-            dot.classList.remove('bg-[#1C1713]/20');
+      function updateCarousel() {
+        if (!modalSlides.length || currentIndex < 0 || currentIndex >= modalSlides.length) return;
+        const activeSlide = modalSlides[currentIndex];
+        if (!activeSlide) return;
+        const parentEl = track.parentElement;
+        if (!parentEl) return;
+        const containerWidth = parentEl.clientWidth;
+        const slideWidth = activeSlide.clientWidth;
+        const slideOffsetLeft = activeSlide.offsetLeft;
+        
+        const translateVal = (containerWidth / 2) - (slideOffsetLeft + slideWidth / 2);
+        track.style.transform = `translateX(${translateVal}px)`;
+        
+        modalSlides.forEach((slide, idx) => {
+          if (idx === currentIndex) {
+            slide.classList.add('scale-100', 'opacity-100', 'z-10');
+            slide.classList.remove('scale-90', 'opacity-40', 'z-0');
           } else {
-            dot.classList.remove('bg-[#775A19]', 'w-4');
-            dot.classList.add('bg-[#1C1713]/20');
+            slide.classList.remove('scale-100', 'opacity-100', 'z-10');
+            slide.classList.add('scale-90', 'opacity-40', 'z-0');
           }
         });
-      });
+        
+        // Update progress bar
+        if (progressBar) {
+          progressBar.style.width = `${((currentIndex + 1) / modalSlides.length) * 100}%`;
+        }
+        // Update counter
+        if (counter) {
+          counter.textContent = `${currentIndex + 1} / ${modalSlides.length}`;
+        }
+      }
 
       function updateCTA() {
         if (!ctaBtn) return;
@@ -891,6 +874,7 @@ const experienceImages: Record<string, string[][]> = {
       function openModal(placeName: string, continentName: string, continentSlug: string) {
         currentPlaceName = placeName;
         currentContinentSlug = continentSlug;
+        currentIndex = 0;
 
         if (modalSubtitle) modalSubtitle.textContent = `${continentName} — ${placeName}`;
         if (modalTitle) modalTitle.textContent = `Formas de vivir ${placeName}`;
@@ -914,14 +898,14 @@ const experienceImages: Record<string, string[][]> = {
         // Render cards
         destData.cards.forEach((card, index) => {
           const cardEl = document.createElement('div');
-          cardEl.className = `modal-card-item group relative flex-none w-[260px] sm:w-[280px] aspect-[3/4.5] overflow-hidden bg-[#1C1713] cursor-pointer transition-all duration-500 border border-transparent ${index === 0 ? 'is-selected' : ''}`;
+          cardEl.className = `modal-card-item group relative flex-none w-[260px] sm:w-[280px] md:w-[320px] aspect-[3/4.2] overflow-hidden bg-[#1C1713] cursor-pointer transition-all duration-500 rounded-[2rem] border border-transparent scale-90 opacity-40 z-0`;
           cardEl.setAttribute('data-style-name', card.title);
 
           cardEl.innerHTML = `
             <img src="${card.image}" alt="${card.title}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.08] opacity-75 group-hover:opacity-90" loading="lazy" />
             
             <!-- Check overlay -->
-            <div class="absolute top-4 right-4 w-6 h-6 rounded-full border border-white/50 bg-black/40 backdrop-blur-sm flex items-center justify-center text-white opacity-0 transition-opacity duration-300 selected-indicator">
+            <div class="absolute top-6 right-6 w-6 h-6 rounded-full border border-white/50 bg-black/40 backdrop-blur-sm flex items-center justify-center text-white opacity-0 transition-opacity duration-300 selected-indicator">
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
@@ -929,9 +913,9 @@ const experienceImages: Record<string, string[][]> = {
 
             <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713]/90 via-[#1C1713]/25 to-transparent"></div>
             
-            <div class="absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end z-10 text-left">
+            <div class="absolute bottom-8 left-8 right-8 z-10 text-left">
               <span class="block font-label text-[9px] uppercase tracking-widest text-[#D4AD65] mb-1">Filosofía</span>
-              <h3 class="font-heading text-xl text-white mb-2 tracking-wide">${card.title}</h3>
+              <h3 class="font-heading text-xl md:text-2xl text-white mb-2 tracking-wide leading-tight">${card.title}</h3>
               <p class="font-sans text-[11px] sm:text-xs text-white/70 leading-relaxed">
                 ${card.desc}
               </p>
@@ -939,6 +923,8 @@ const experienceImages: Record<string, string[][]> = {
           `;
 
           cardEl.addEventListener('click', () => {
+            currentIndex = index;
+            updateCarousel();
             track.querySelectorAll('.modal-card-item').forEach(c => c.classList.remove('is-selected'));
             cardEl.classList.add('is-selected');
             selectedStyle = card.title;
@@ -947,8 +933,15 @@ const experienceImages: Record<string, string[][]> = {
           track.appendChild(cardEl);
         });
 
-        selectedStyle = destData.cards[0].title;
-        renderDots(destData.cards.length);
+        // Initialize slides array
+        modalSlides = Array.from(track.querySelectorAll('.modal-card-item')) as HTMLElement[];
+        
+        // Select first card by default
+        if (modalSlides[0]) {
+          modalSlides[0].classList.add('is-selected');
+          selectedStyle = destData.cards[0].title;
+        }
+
         updateCTA();
 
         // Reveal modal with transition
@@ -959,8 +952,8 @@ const experienceImages: Record<string, string[][]> = {
         modal.classList.add('opacity-100', 'translate-y-0');
         document.body.style.overflow = 'hidden';
 
-        viewport.scrollLeft = 0;
-        setTimeout(updateNavButtonsVisibility, 100);
+        // Wait a tiny bit for layout calculations, then center
+        setTimeout(updateCarousel, 50);
       }
 
       function closeModalFunc() {
@@ -982,11 +975,31 @@ const experienceImages: Record<string, string[][]> = {
 
       // Navigation arrows
       prevBtn?.addEventListener('click', () => {
-        viewport.scrollBy({ left: -290, behavior: 'smooth' });
+        if (modalSlides.length) {
+          currentIndex = (currentIndex - 1 + modalSlides.length) % modalSlides.length;
+          updateCarousel();
+          
+          const activeCard = modalSlides[currentIndex];
+          if (activeCard) {
+            track.querySelectorAll('.modal-card-item').forEach(c => c.classList.remove('is-selected'));
+            activeCard.classList.add('is-selected');
+            selectedStyle = activeCard.getAttribute('data-style-name') || '';
+          }
+        }
       });
 
       nextBtn?.addEventListener('click', () => {
-        viewport.scrollBy({ left: 290, behavior: 'smooth' });
+        if (modalSlides.length) {
+          currentIndex = (currentIndex + 1) % modalSlides.length;
+          updateCarousel();
+          
+          const activeCard = modalSlides[currentIndex];
+          if (activeCard) {
+            track.querySelectorAll('.modal-card-item').forEach(c => c.classList.remove('is-selected'));
+            activeCard.classList.add('is-selected');
+            selectedStyle = activeCard.getAttribute('data-style-name') || '';
+          }
+        }
       });
 
       // Global event delegation for triggers
@@ -1011,7 +1024,7 @@ const experienceImages: Record<string, string[][]> = {
         window.location.href = url;
       });
 
-      window.addEventListener('resize', updateNavButtonsVisibility);
+      window.addEventListener('resize', updateCarousel);
     }
 
     function initAll() {
