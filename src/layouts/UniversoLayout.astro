@@ -874,13 +874,18 @@ const experienceImages: Record<string, string[][]> = {
       function openModal(placeName: string, continentName: string, continentSlug: string) {
         currentPlaceName = placeName;
         currentContinentSlug = continentSlug;
-        currentIndex = 0;
+
+        const cleanKey = getCleanKey(placeName);
+        if (cleanKey === "japon") {
+          currentIndex = 1;
+        } else {
+          currentIndex = 0;
+        }
 
         if (modalSubtitle) modalSubtitle.textContent = `${continentName} — ${placeName}`;
         if (modalTitle) modalTitle.textContent = `Formas de vivir ${placeName}`;
 
         track.innerHTML = '';
-        const cleanKey = getCleanKey(placeName);
 
         // Find the destination data key
         let destData = destinationPhilosophyData.default;
@@ -936,10 +941,11 @@ const experienceImages: Record<string, string[][]> = {
         // Initialize slides array
         modalSlides = Array.from(track.querySelectorAll('.modal-card-item')) as HTMLElement[];
         
-        // Select first card by default
-        if (modalSlides[0]) {
-          modalSlides[0].classList.add('is-selected');
-          selectedStyle = destData.cards[0].title;
+        // Select active card by default
+        const defaultActiveCard = modalSlides[currentIndex];
+        if (defaultActiveCard) {
+          defaultActiveCard.classList.add('is-selected');
+          selectedStyle = destData.cards[currentIndex].title;
         }
 
         updateCTA();
