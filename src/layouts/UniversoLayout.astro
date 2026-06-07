@@ -343,7 +343,7 @@ const experienceImages: Record<string, string[][]> = {
                 const gallery = (experienceImages[slug] && experienceImages[slug][i]) || [exp.image];
                 return (
                   <div 
-                    class="experience-slide group relative flex-none w-[280px] sm:w-[350px] md:w-[600px] aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] origin-center cursor-pointer scale-90 opacity-40"
+                    class="experience-slide group relative flex-none w-[280px] sm:w-[320px] md:w-[450px] aspect-[3/4] md:aspect-[3/4] overflow-hidden rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] origin-center cursor-pointer scale-90 opacity-40"
                   >
                     <!-- Gallery Images -->
                     {gallery.map((imgUrl, imgIdx) => (
@@ -360,13 +360,13 @@ const experienceImages: Record<string, string[][]> = {
                     <!-- Text Content Inside Card (Bottom-Left) -->
                     <div class="absolute bottom-8 left-8 right-8 z-20 text-left">
                       <h3 class="font-heading text-xl md:text-3xl text-[#FAF9F6] tracking-wider uppercase mb-2 leading-tight">
-                        {formatPlaceName(exp.name)}
+                        {exp.name}
                       </h3>
                       <p class="font-sans text-xs md:text-sm text-white/80 mb-4 max-w-sm md:max-w-md leading-relaxed hidden sm:block">
                         {exp.desc}
                       </p>
                       <span class="inline-block font-label text-[10px] md:text-xs uppercase tracking-widest text-[#D4AD65] border-b border-[#D4AD65]/50 pb-0.5 transition-colors duration-300">
-                        Saber más
+                        SABER MÁS
                       </span>
                     </div>
                   </div>
@@ -375,26 +375,26 @@ const experienceImages: Record<string, string[][]> = {
             </div>
           </div>
         </div>
-
+ 
         <!-- Custom Navigation & Progress Bar -->
         <div class="flex flex-col items-center gap-4 mt-8 px-6">
-          <div class="flex items-center gap-6 sm:gap-8 font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]">
-            <button id="prev-experience" class="hover:text-[#775A19] transition-colors cursor-pointer flex items-center gap-1 font-bold">
+          <div class="flex items-center gap-6 sm:gap-8 font-label text-[10px] md:text-xs uppercase tracking-widest text-[#775A19]">
+            <button id="prev-experience" class="hover:text-[#1C1713] transition-colors cursor-pointer flex items-center gap-1 font-bold">
               &lt; Anterior
             </button>
             
             <!-- Progress Line -->
-            <div class="w-32 sm:w-48 h-[2px] bg-[#1C1713]/10 relative overflow-hidden rounded-full">
+            <div class="w-32 sm:w-48 h-[2px] bg-[#775A19]/10 relative overflow-hidden rounded-full">
               <div id="experience-progress-bar" class="absolute top-0 left-0 h-full bg-[#775A19] transition-all duration-700 rounded-full" style="width: 33.333%;"></div>
             </div>
             
-            <button id="next-experience" class="hover:text-[#775A19] transition-colors cursor-pointer flex items-center gap-1 font-bold">
+            <button id="next-experience" class="hover:text-[#1C1713] transition-colors cursor-pointer flex items-center gap-1 font-bold">
               Siguiente &gt;
             </button>
           </div>
           
           <!-- Counter -->
-          <div id="experience-counter" class="font-label text-[10px] md:text-xs text-[#1C1713]/60 tracking-wider">
+          <div id="experience-counter" class="font-label text-[10px] md:text-xs text-[#775A19]/80 tracking-wider">
             1 / 3
           </div>
         </div>
