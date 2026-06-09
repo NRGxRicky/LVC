@@ -23,23 +23,6 @@ const company = [
   { label: "Aviso Legal", href: "/aviso-de-privacidad" },
 ];
 
-const offices = [
-  {
-    city: "CIUDAD DE MÉXICO",
-    address: "Presidente Masaryk 61, Polanco\nCDMX 11560, México",
-    phone: "+52 55 1234 5678",
-  },
-  {
-    city: "MADRID",
-    address: "C. José Abascal 45, Piso 3\n28003 Madrid, España",
-    phone: "+34 91 000 1234",
-  },
-  {
-    city: "MIAMI",
-    address: "1221 Brickell Ave, Suite 900\nMiami, FL 33131, EE.UU.",
-    phone: "+1 305 000 1234",
-  },
-];
 
 const currentYear = new Date().getFullYear();
 ---
@@ -139,28 +122,19 @@ const currentYear = new Date().getFullYear();
         >
           Contacto
         </h4>
-        <a
-          href="mailto:hola@luxuryvoyages.com"
-          class="font-body text-sm text-[#1C1713]/50 hover:text-[#D4AD65] transition-colors duration-300 block mb-6"
-        >
-          hola@luxuryvoyages.com
-        </a>
-        <div class="flex flex-col gap-5">
-          {
-            offices.map((office) => (
-              <div class="border-t border-[#1C1713]/10 pt-5">
-                <p class="font-label uppercase text-[11px] tracking-[0.2em] text-[#D4AD65] mb-1.5">
-                  {office.city}
-                </p>
-                <p class="font-body text-xs text-[#1C1713]/45 leading-relaxed whitespace-pre-line">
-                  {office.address}
-                </p>
-                <p class="font-body text-xs text-[#1C1713]/45 mt-1">
-                  {office.phone}
-                </p>
-              </div>
-            ))
-          }
+        <div class="flex flex-col gap-3">
+          <a
+            href="mailto:contacto@luxuryvoyageco.com"
+            class="font-body text-sm text-[#1C1713]/50 hover:text-[#D4AD65] transition-colors duration-300 block"
+          >
+            contacto@luxuryvoyageco.com
+          </a>
+          <a
+            href="tel:+5215586145716"
+            class="font-body text-sm text-[#1C1713]/50 hover:text-[#D4AD65] transition-colors duration-300 block"
+          >
+            +52 1 55 8614 5716
+          </a>
         </div>
       </div>
     </div>
