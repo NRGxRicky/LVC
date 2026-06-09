@@ -243,7 +243,7 @@ const experienceImages: Record<string, string[][]> = {
             <div class="w-full lg:w-[72%]">
               <div class="relative group/carousel">
                 <!-- Swiper Container -->
-                <div class="swiper placesSwiper overflow-hidden pb-12">
+                <div class="swiper placesSwiper overflow-hidden pb-4">
                   <div class="swiper-wrapper">
                     {lugares.map((lugar) => (
                       <div class="swiper-slide">
@@ -284,30 +284,26 @@ const experienceImages: Record<string, string[][]> = {
                       </div>
                     ))}
                   </div>
-                  
-                  <!-- progress bar -->
-                  <div class="places-swiper-pagination swiper-pagination !bottom-0"></div>
                 </div>
 
-                <!-- Absolute Navigation Arrows -->
-                <button 
-                  id="swiperPrev" 
-                  class="absolute left-0 top-0 bottom-12 w-[12%] z-20 flex items-center justify-start pl-4 opacity-0 hover:opacity-100 transition-opacity duration-500 cursor-pointer"
-                  aria-label="Anterior"
-                >
-                  <div class="w-10 h-10 rounded-full bg-[#1C1713]/85 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:border-[#D4AD65] hover:text-[#D4AD65] transition-all duration-300 shadow-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-                  </div>
-                </button>
-                <button 
-                  id="swiperNext" 
-                  class="absolute right-0 top-0 bottom-12 w-[12%] z-20 flex items-center justify-end pr-4 opacity-0 hover:opacity-100 transition-opacity duration-500 cursor-pointer"
-                  aria-label="Siguiente"
-                >
-                  <div class="w-10 h-10 rounded-full bg-[#1C1713]/85 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:border-[#D4AD65] hover:text-[#D4AD65] transition-all duration-300 shadow-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                  </div>
-                </button>
+                <!-- Controles y Barra de Progreso para Escenarios -->
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6 mt-6 pt-6 border-t border-[#1C1713]/10">
+                    <!-- Botones de Navegación -->
+                    <div class="flex items-center gap-6 font-label text-[11px] tracking-[0.2em] text-[#775A19] shrink-0">
+                        <button id="placesPrevBtn" class="hover:text-[#1C1713] transition-colors cursor-pointer flex items-center gap-1 font-bold">
+                            &lt; ANTERIOR
+                        </button>
+                        <span id="placesCounter" class="text-[#1C1713]/40 font-mono">1 / {lugares.length}</span>
+                        <button id="placesNextBtn" class="hover:text-[#1C1713] transition-colors cursor-pointer flex items-center gap-1 font-bold">
+                            SIGUIENTE &gt;
+                        </button>
+                    </div>
+                    
+                    <!-- Barra de Progreso (Manejada por Swiper) -->
+                    <div class="w-full max-w-[500px]">
+                        <div class="places-swiper-pagination swiper-pagination"></div>
+                    </div>
+                </div>
               </div>
             </div>
 
@@ -512,13 +508,15 @@ const experienceImages: Record<string, string[][]> = {
 
 <style is:global>
   /* Encapsular estilos de Swiper bajo el ID de lugares para evitar contaminación global */
-  #lugares .placesSwiper .swiper-pagination-progressbar {
-    background: rgba(255, 255, 255, 0.1) !important;
+  #lugares .places-swiper-pagination {
+    position: relative !important;
+    width: 100% !important;
     height: 2px !important;
+    background: rgba(28, 23, 19, 0.1) !important;
     border-radius: 0 !important;
   }
-  #lugares .placesSwiper .swiper-pagination-progressbar-fill {
-    background: #D4AD65 !important;
+  #lugares .places-swiper-pagination .swiper-pagination-progressbar-fill {
+    background: #775A19 !important;
     border-radius: 0 !important;
   }
 
@@ -687,7 +685,7 @@ const experienceImages: Record<string, string[][]> = {
         const target = document.querySelector('.placesSwiper');
         if (!target) return;
         
-        new Swiper('.placesSwiper', {
+        const swiper = new Swiper('.placesSwiper', {
             modules: [Navigation, Pagination],
             slidesPerView: 1.15,
             spaceBetween: 16,
@@ -698,8 +696,8 @@ const experienceImages: Record<string, string[][]> = {
                 type: 'progressbar',
             },
             navigation: {
-                nextEl: '#swiperNext',
-                prevEl: '#swiperPrev',
+                nextEl: '#placesNextBtn',
+                prevEl: '#placesPrevBtn',
             },
             breakpoints: {
                 768: {
@@ -712,6 +710,18 @@ const experienceImages: Record<string, string[][]> = {
                 }
             }
         });
+
+        const counterEl = document.getElementById('placesCounter');
+        if (counterEl) {
+            const total = swiper.slides.length;
+            const updateCounter = () => {
+                const current = swiper.activeIndex + 1;
+                counterEl.textContent = `${current} / ${total}`;
+            };
+            swiper.on('slideChange', updateCounter);
+            swiper.on('update', updateCounter);
+            updateCounter();
+        }
     }
 
     function initExperiencesSlider() {
