@@ -1035,6 +1035,7 @@ const experienceImages: Record<string, string[][]> = {
         currentPlaceName = placeName;
         currentContinentSlug = continentSlug;
 
+        const cleanKey = getCleanKey(placeName);
         currentIndex = 1; // Se deja fijo en la 2da imagen (índice 1) para todos los destinos
 
         if (modalSubtitle) modalSubtitle.textContent = `${continentName} — ${placeName}`;
