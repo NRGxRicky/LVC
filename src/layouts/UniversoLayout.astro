@@ -253,28 +253,28 @@ const experienceImages: Record<string, string[][]> = {
                           data-place-name={lugar.name}
                           data-continent={heroTitle}
                           data-continent-slug={slug}
-                          class="group relative block aspect-[3/4] overflow-hidden bg-[#1C1713] cursor-pointer"
+                          class="group relative block aspect-[2/3] overflow-hidden bg-[#1C1713] cursor-pointer rounded-[2rem]"
                         >
                           <Image 
                             src={lugar.image} 
                             alt={lugar.name}
                             width={450}
-                            height={600}
+                            height={675}
                             class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.08] opacity-80 group-hover:opacity-100"
                           />
                           <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713]/90 via-[#1C1713]/25 to-transparent"></div>
                           
-                          <div class="absolute bottom-0 left-0 w-full p-8 flex items-end justify-between gap-4 z-10">
-                            <div class="flex flex-col">
-                              <h3 class="font-heading text-2xl text-white mb-2 tracking-wide">{formatPlaceName(lugar.name)}</h3>
-                              <p class="font-sans text-xs text-white/80 leading-relaxed max-w-[210px]">
+                          <div class="absolute bottom-0 left-0 w-full p-6 md:p-8 flex items-end justify-between gap-4 z-10 text-left">
+                            <div class="flex-1 min-w-0">
+                              <h3 class="font-heading text-xl md:text-2xl lg:text-3xl text-white mb-1.5 md:mb-2 tracking-wide leading-tight">{formatPlaceName(lugar.name)}</h3>
+                              <p class="font-sans text-[11px] md:text-xs text-white/80 leading-relaxed max-w-[85%]">
                                 {lugar.desc}
                               </p>
                             </div>
                             
                             <!-- Circle Arrow Button -->
-                            <div class="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-white/85 group-hover:border-white group-hover:text-white group-hover:bg-white/10 transition-all duration-300 shrink-0">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <div class="w-9 h-9 md:w-10 md:h-10 rounded-full border border-white/30 flex items-center justify-center text-white/85 group-hover:border-white group-hover:text-white group-hover:bg-white/10 transition-all duration-300 shrink-0">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                                 <polyline points="12 5 19 12 12 19"></polyline>
                               </svg>
@@ -339,7 +339,7 @@ const experienceImages: Record<string, string[][]> = {
                 const gallery = (experienceImages[slug] && experienceImages[slug][i]) || [exp.image];
                 return (
                   <div 
-                    class="experience-slide group relative flex-none w-[280px] sm:w-[320px] md:w-[450px] aspect-[3/4] md:aspect-[3/4] overflow-hidden rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] origin-center cursor-pointer scale-90 opacity-40"
+                    class="experience-slide group relative flex-none w-[280px] sm:w-[320px] md:w-[450px] aspect-[2/3] md:aspect-[2/3] overflow-hidden rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] origin-center cursor-pointer scale-90 opacity-40"
                   >
                     <!-- Gallery Images -->
                     {gallery.map((imgUrl, imgIdx) => (
@@ -351,14 +351,14 @@ const experienceImages: Record<string, string[][]> = {
                       />
                     ))}
                     <!-- Dark Gradient Overlay for readability -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10 z-10"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/10 z-10"></div>
                     
                     <!-- Text Content Inside Card (Bottom-Left) -->
-                    <div class="absolute bottom-8 left-8 right-8 z-20 text-left">
-                      <h3 class="font-heading text-xl md:text-3xl text-[#FAF9F6] tracking-wider uppercase mb-2 leading-tight">
+                    <div class="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 z-20 text-left">
+                      <h3 class="font-heading text-xl md:text-2xl lg:text-3xl text-[#FAF9F6] tracking-wider uppercase mb-2 leading-tight">
                         {exp.name}
                       </h3>
-                      <p class="font-sans text-xs md:text-sm text-white/80 mb-4 max-w-sm md:max-w-md leading-relaxed hidden sm:block">
+                      <p class="font-sans text-[11px] md:text-xs lg:text-sm text-white/80 mb-4 max-w-[90%] leading-relaxed hidden sm:block">
                         {exp.desc}
                       </p>
                       <span class="inline-block font-label text-[10px] md:text-xs uppercase tracking-widest text-[#D4AD65] border-b border-[#D4AD65]/50 pb-0.5 transition-colors duration-300">
@@ -460,7 +460,7 @@ const experienceImages: Record<string, string[][]> = {
           <div class="w-full overflow-hidden py-2 px-2 md:px-0">
             <div 
               id="modal-cards-track"
-              class="flex gap-4 md:gap-6 lg:gap-8 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
+              class="flex items-center gap-4 md:gap-6 lg:gap-8 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
               style="transform: translateX(0px);"
             >
               <!-- Las tarjetas se inyectarán dinámicamente aquí -->
@@ -538,8 +538,18 @@ const experienceImages: Record<string, string[][]> = {
 
   .modal-card-item {
     border: 1.5px solid rgba(28, 23, 19, 0.1);
-    border-radius: 4px;
+    border-radius: 2rem;
     transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    height: 38vh;
+    max-height: 380px;
+    min-height: 240px;
+    aspect-ratio: 2 / 3;
+    width: auto;
+  }
+  @media (min-height: 700px) {
+    .modal-card-item {
+      height: 42vh;
+    }
   }
   .modal-card-item.is-selected {
     border-color: #D4AD65 !important;
@@ -1316,7 +1326,7 @@ const experienceImages: Record<string, string[][]> = {
         // Render cards
         destData.cards.forEach((card, index) => {
           const cardEl = document.createElement('div');
-          cardEl.className = `modal-card-item group relative flex-none w-[200px] sm:w-[220px] md:w-[245px] lg:w-[275px] aspect-[3/4.5] overflow-hidden bg-[#1C1713] cursor-pointer transition-all duration-500 rounded-[2rem] border border-transparent scale-90 opacity-40 z-0`;
+          cardEl.className = `modal-card-item group relative flex-none overflow-hidden bg-[#1C1713] cursor-pointer transition-all duration-500 border border-transparent scale-90 opacity-40 z-0`;
           cardEl.setAttribute('data-style-name', card.title);
 
           cardEl.innerHTML = `
@@ -1331,10 +1341,10 @@ const experienceImages: Record<string, string[][]> = {
 
             <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713]/90 via-[#1C1713]/25 to-transparent"></div>
             
-            <div class="absolute bottom-5 left-5 right-5 md:bottom-7 md:left-7 md:right-7 z-10 text-left">
-              <span class="block font-label text-[9px] uppercase tracking-widest text-[#D4AD65] mb-1">Filosofía</span>
-              <h3 class="font-heading text-lg md:text-xl text-white mb-2 tracking-wide leading-tight">${card.title}</h3>
-              <p class="font-sans text-[10px] md:text-[11px] text-white/70 leading-relaxed">
+            <div class="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 z-10 text-left">
+              <span class="block font-label text-[8px] md:text-[9px] uppercase tracking-widest text-[#D4AD65] mb-1">Filosofía</span>
+              <h3 class="font-heading text-base md:text-lg lg:text-xl text-white mb-1 md:mb-2 tracking-wide leading-tight">${card.title}</h3>
+              <p class="font-sans text-[9px] md:text-[10px] lg:text-[11px] text-white/70 leading-relaxed">
                 ${card.desc}
               </p>
             </div>
