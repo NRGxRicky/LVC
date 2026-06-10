@@ -412,11 +412,11 @@ const experienceImages: Record<string, string[][]> = {
     </section>
 
     <!-- MODAL DESTINOS INTERACTIVO (Formas de vivir) -->
-    <div id="destination-modal" class="fixed inset-0 z-50 hidden bg-[#EDE7D7] overflow-y-auto transition-all duration-500 opacity-0 translate-y-4">
-      <div class="max-w-[1920px] mx-auto min-h-screen flex flex-col justify-between p-6 md:p-12 lg:p-16 relative">
+    <div id="destination-modal" class="fixed inset-0 z-50 hidden bg-[#EDE7D7] transition-all duration-500 opacity-0 translate-y-4 h-screen overflow-hidden">
+      <div class="max-w-[1920px] mx-auto h-full flex flex-col justify-between p-4 md:py-6 md:px-12 lg:py-8 lg:px-16 relative">
         
         <!-- Botón de Cerrar (Esquina superior derecha) -->
-        <button id="close-modal-btn" class="absolute top-6 right-6 md:top-10 md:right-10 w-12 h-12 rounded-full border border-[#1C1713]/15 flex items-center justify-center text-[#1C1713]/60 hover:text-[#1C1713] hover:border-[#1C1713] hover:bg-[#1C1713]/5 transition-all duration-300 cursor-pointer z-30">
+        <button id="close-modal-btn" class="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 md:w-12 md:h-12 rounded-full border border-[#1C1713]/15 flex items-center justify-center text-[#1C1713]/60 hover:text-[#1C1713] hover:border-[#1C1713] hover:bg-[#1C1713]/5 transition-all duration-300 cursor-pointer z-30">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -424,26 +424,43 @@ const experienceImages: Record<string, string[][]> = {
         </button>
 
         <!-- Cabecera del Modal -->
-        <div class="text-center max-w-2xl mx-auto mb-8 mt-4 md:mt-8">
-          <span id="modal-subtitle" class="font-label text-[10px] md:text-xs font-bold text-[#775A19] uppercase tracking-[0.2em] block mb-3">DESTINO</span>
-          <h2 id="modal-title" class="font-heading text-3xl md:text-5xl text-[#1C1713] mb-4">Formas de vivir</h2>
-          <p id="modal-desc" class="font-sans text-xs md:text-sm text-[#1C1713]/70 leading-relaxed max-w-xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-2 mt-2 md:mt-4">
+          <span id="modal-subtitle" class="font-label text-[10px] md:text-xs font-bold text-[#775A19] uppercase tracking-[0.2em] block mb-1">DESTINO</span>
+          <h2 id="modal-title" class="font-heading text-2xl md:text-4xl lg:text-5xl text-[#1C1713] mb-2">Formas de vivir</h2>
+          <p id="modal-desc" class="font-sans text-[11px] md:text-xs lg:text-sm text-[#1C1713]/70 leading-relaxed max-w-xl mx-auto">
             Cada viaje es único. Descubre distintas formas de vivir el destino y elige la experiencia que más conecta contigo.
           </p>
-          <div class="w-10 h-[1px] bg-[#D4AD65] mx-auto mt-6"></div>
+          <div class="w-10 h-[1px] bg-[#D4AD65] mx-auto mt-4"></div>
         </div>
 
         <!-- Track / Carrusel de Tarjetas (Modal Centrado) -->
-        <div class="relative w-full overflow-hidden my-4 max-w-6xl mx-auto">
+        <div class="relative w-full overflow-hidden my-2 max-w-6xl mx-auto flex items-center">
+          
+          <!-- Botón Anterior (Flotando a la izquierda) -->
+          <button id="modal-prev-btn" class="absolute left-2 md:left-4 w-10 h-10 md:w-12 md:h-12 rounded-full border border-[#1C1713]/15 bg-[#EDE7D7]/85 backdrop-blur-sm flex items-center justify-center text-[#1C1713]/60 hover:text-[#1C1713] hover:border-[#1C1713] hover:bg-[#1C1713]/5 transition-all duration-300 cursor-pointer z-30">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
+
+          <!-- Botón Siguiente (Flotando a la derecha) -->
+          <button id="modal-next-btn" class="absolute right-2 md:right-4 w-10 h-10 md:w-12 md:h-12 rounded-full border border-[#1C1713]/15 bg-[#EDE7D7]/85 backdrop-blur-sm flex items-center justify-center text-[#1C1713]/60 hover:text-[#1C1713] hover:border-[#1C1713] hover:bg-[#1C1713]/5 transition-all duration-300 cursor-pointer z-30">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+
           <!-- Fade-out Masks (Ritz-Carlton style) -->
           <div class="absolute left-0 top-0 bottom-0 w-8 sm:w-24 md:w-48 bg-gradient-to-r from-[#EDE7D7] to-transparent pointer-events-none z-20"></div>
           <div class="absolute right-0 top-0 bottom-0 w-8 sm:w-24 md:w-48 bg-gradient-to-l from-[#EDE7D7] to-transparent pointer-events-none z-20"></div>
 
           <!-- Viewport of the modal -->
-          <div class="w-full overflow-hidden py-4 px-4 md:px-0">
+          <div class="w-full overflow-hidden py-2 px-2 md:px-0">
             <div 
               id="modal-cards-track"
-              class="flex gap-6 md:gap-8 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
+              class="flex gap-4 md:gap-6 lg:gap-8 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
               style="transform: translateX(0px);"
             >
               <!-- Las tarjetas se inyectarán dinámicamente aquí -->
@@ -452,20 +469,10 @@ const experienceImages: Record<string, string[][]> = {
         </div>
 
         <!-- Controles de Navegación del Modal al Pie -->
-        <div class="flex flex-col items-center gap-4 mt-2 mb-6 px-6">
-          <div class="flex items-center gap-6 sm:gap-8 font-label text-[10px] md:text-xs uppercase tracking-widest text-[#775A19]">
-            <button id="modal-prev-btn" class="hover:text-[#1C1713] transition-colors cursor-pointer flex items-center gap-1 font-bold">
-              &lt; Anterior
-            </button>
-            
-            <!-- Progress Line -->
-            <div class="w-32 sm:w-48 h-[2px] bg-[#775A19]/10 relative overflow-hidden rounded-full">
-              <div id="modal-experience-progress-bar" class="absolute top-0 left-0 h-full bg-[#775A19] transition-all duration-700 rounded-full" style="width: 25%;"></div>
-            </div>
-            
-            <button id="modal-next-btn" class="hover:text-[#1C1713] transition-colors cursor-pointer flex items-center gap-1 font-bold">
-              Siguiente &gt;
-            </button>
+        <div class="flex flex-col items-center gap-2 mt-1 mb-2 px-6">
+          <!-- Progress Line -->
+          <div class="w-32 sm:w-48 h-[2px] bg-[#775A19]/10 relative overflow-hidden rounded-full">
+            <div id="modal-experience-progress-bar" class="absolute top-0 left-0 h-full bg-[#775A19] transition-all duration-700 rounded-full" style="width: 25%;"></div>
           </div>
           
           <!-- Counter -->
@@ -475,10 +482,10 @@ const experienceImages: Record<string, string[][]> = {
         </div>
 
         <!-- Pie de Modal (CTA + Nota) -->
-        <div class="text-center mt-2 mb-4 md:mb-8">
+        <div class="text-center mt-1 mb-2 md:mb-4">
           <button 
             id="modal-cta-btn" 
-            class="group/modal-cta relative overflow-hidden inline-flex items-center gap-4 font-label text-[10px] md:text-xs uppercase tracking-widest font-medium text-[#FAF9F6] bg-[#775A19] hover:bg-[#1C1713] px-10 py-5 transition-all duration-500 shadow-md cursor-pointer"
+            class="group/modal-cta relative overflow-hidden inline-flex items-center gap-4 font-label text-[10px] md:text-xs uppercase tracking-widest font-medium text-[#FAF9F6] bg-[#775A19] hover:bg-[#1C1713] px-10 py-4 transition-all duration-500 shadow-md cursor-pointer"
           >
             <span class="relative z-10 flex items-center gap-4">
               DISEÑA TU EXPERIENCIA
@@ -489,7 +496,7 @@ const experienceImages: Record<string, string[][]> = {
             </span>
           </button>
           
-          <div class="mt-4 flex items-center justify-center gap-2 text-[10px] md:text-xs text-[#1C1713]/50 tracking-wider uppercase">
+          <div class="mt-3 flex items-center justify-center gap-2 text-[10px] text-[#1C1713]/50 tracking-wider uppercase">
             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="opacity-80">
               <circle cx="12" cy="12" r="10"></circle>
               <polygon points="12 8 8 12 12 16 16 12 12 8"></polygon>
@@ -1309,7 +1316,7 @@ const experienceImages: Record<string, string[][]> = {
         // Render cards
         destData.cards.forEach((card, index) => {
           const cardEl = document.createElement('div');
-          cardEl.className = `modal-card-item group relative flex-none w-[260px] sm:w-[280px] md:w-[320px] aspect-[3/4.2] overflow-hidden bg-[#1C1713] cursor-pointer transition-all duration-500 rounded-[2rem] border border-transparent scale-90 opacity-40 z-0`;
+          cardEl.className = `modal-card-item group relative flex-none w-[240px] sm:w-[260px] md:w-[280px] lg:w-[310px] aspect-[3/4] overflow-hidden bg-[#1C1713] cursor-pointer transition-all duration-500 rounded-[2rem] border border-transparent scale-90 opacity-40 z-0`;
           cardEl.setAttribute('data-style-name', card.title);
 
           cardEl.innerHTML = `
