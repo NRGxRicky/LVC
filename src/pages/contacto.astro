@@ -7,6 +7,8 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+
+const meetingsLink = import.meta.env.PUBLIC_HUBSPOT_MEETINGS_LINK || "";
 ---
 
 <Layout
@@ -36,158 +38,238 @@ import Footer from "../components/Footer.astro";
     </div>
 
     <!-- PREÁMBULO + FORMULARIO -->
-    <section class="max-w-[800px] mx-auto px-6 md:px-12 pt-4 md:pt-8 pb-16 md:pb-24">
+    <section class="max-w-[800px] mx-auto px-6 md:px-12 pt-12 pb-16 md:pb-24">
       
-
+      <!-- CONFIGURACIÓN DE MEETINGS (HIDDEN DATA) -->
+      <div id="meetings-config" data-link={meetingsLink} class="hidden"></div>
 
       <!-- FORMULARIO PRINCIPAL -->
       <form id="experience-form" class="flex flex-col gap-10 reveal-up reveal-delay-300">
         
-        <!-- DATOS DE CONTACTO PERSONALES -->
-        <div class="flex flex-col gap-6 mb-4">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="flex flex-col gap-2">
-              <label for="nombre" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Nombre Completo *</label>
-              <input type="text" id="nombre" name="nombre" required class="w-full bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 pt-1 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30" placeholder="Ej. Alejandro Valenzuela" />
+        <!-- PROGRESS INDICATOR BAR -->
+        <div class="flex items-center justify-between max-w-xl mx-auto w-full mb-10 relative px-2 select-none">
+          <div class="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[1px] bg-[#1C1713]/10 z-0"></div>
+          <div id="form-progress-bar" class="absolute left-0 top-1/2 -translate-y-1/2 h-[1px] bg-[#D4AD65] transition-all duration-500 z-0" style="width: 0%;"></div>
+          
+          <!-- Step 1 -->
+          <button type="button" class="step-indicator active relative z-10 flex flex-col items-center gap-2 cursor-pointer focus:outline-none" data-step="1">
+            <div class="w-8 h-8 rounded-full border border-[#D4AD65] bg-[#EDE7D7] text-[#775A19] flex items-center justify-center font-label text-xs font-bold transition-all duration-300">1</div>
+            <span class="font-label text-[9px] uppercase tracking-widest text-[#775A19] font-bold">Destino</span>
+          </button>
+          <!-- Step 2 -->
+          <button type="button" class="step-indicator relative z-10 flex flex-col items-center gap-2 opacity-50 cursor-pointer focus:outline-none" data-step="2">
+            <div class="w-8 h-8 rounded-full border border-[#1C1713]/10 bg-[#EDE7D7] text-[#1C1713]/60 flex items-center justify-center font-label text-xs font-bold transition-all duration-300">2</div>
+            <span class="font-label text-[9px] uppercase tracking-widest text-[#1C1713]/40">Estilo</span>
+          </button>
+          <!-- Step 3 -->
+          <button type="button" class="step-indicator relative z-10 flex flex-col items-center gap-2 opacity-50 cursor-pointer focus:outline-none" data-step="3">
+            <div class="w-8 h-8 rounded-full border border-[#1C1713]/10 bg-[#EDE7D7] text-[#1C1713]/60 flex items-center justify-center font-label text-xs font-bold transition-all duration-300">3</div>
+            <span class="font-label text-[9px] uppercase tracking-widest text-[#1C1713]/40">Sueño</span>
+          </button>
+          <!-- Step 4 -->
+          <button type="button" class="step-indicator relative z-10 flex flex-col items-center gap-2 opacity-50 cursor-pointer focus:outline-none" data-step="4">
+            <div class="w-8 h-8 rounded-full border border-[#1C1713]/10 bg-[#EDE7D7] text-[#1C1713]/60 flex items-center justify-center font-label text-xs font-bold transition-all duration-300">4</div>
+            <span class="font-label text-[9px] uppercase tracking-widest text-[#1C1713]/40">Contacto</span>
+          </button>
+        </div>
+
+        <!-- PASO 1: DESTINOS Y FECHAS -->
+        <div class="form-step-pane transition-all duration-500 flex flex-col gap-10" data-step="1">
+          <div class="text-left">
+            <span class="font-label text-[9px] font-bold text-[#775A19] uppercase tracking-widest block mb-1">Paso 1 de 4</span>
+            <h3 class="font-heading text-xl md:text-2xl text-[#1C1713]">¿A dónde deseas escapar y cuándo?</h3>
+            <div class="w-8 h-[1px] bg-[#D4AD65] mt-3"></div>
+          </div>
+
+          <!-- DESTINO DE INTERÉS -->
+          <div class="flex flex-col gap-3">
+            <label class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Destinos de interés *</label>
+            <p class="font-sans text-sm text-[#1C1713]/60 -mt-1">Selecciona uno o más destinos para tu viaje</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-2">
+              <label class="group cursor-pointer">
+                <input type="checkbox" name="destino" value="asia" class="peer sr-only" />
+                <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                  Asia
+                </div>
+              </label>
+              <label class="group cursor-pointer">
+                <input type="checkbox" name="destino" value="africa" class="peer sr-only" />
+                <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                  África
+                </div>
+              </label>
+              <label class="group cursor-pointer">
+                <input type="checkbox" name="destino" value="europa" class="peer sr-only" />
+                <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                  Europa
+                </div>
+              </label>
+              <label class="group cursor-pointer">
+                <input type="checkbox" name="destino" value="medio-oriente" class="peer sr-only" />
+                <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                  Medio Oriente
+                </div>
+              </label>
             </div>
-            <div class="flex flex-col gap-2">
-              <label for="email" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Correo Electrónico *</label>
-              <input type="email" id="email" name="email" required class="w-full bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 pt-1 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30" placeholder="correo@ejemplo.com" />
+            <label class="flex items-center gap-3 mt-2 cursor-pointer group">
+              <input type="checkbox" id="destino-indefinido" name="destino" value="indefinido" class="peer sr-only" />
+              <div class="w-4 h-4 border border-[#1C1713]/20 flex items-center justify-center transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 peer-checked:opacity-100 transition-opacity"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <span class="font-sans text-xs text-[#1C1713]/50">Aún no lo tengo definido</span>
+            </label>
+          </div>
+
+          <!-- FECHAS APROXIMADAS -->
+          <div class="flex flex-col gap-3">
+            <label for="fecha" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Fechas aproximadas</label>
+            <p class="font-sans text-sm text-[#1C1713]/60 -mt-1">¿Cuándo te gustaría viajar?</p>
+            <div class="relative" id="date-picker-wrapper">
+              <input
+                type="text"
+                id="fecha"
+                placeholder="Selecciona tus fechas"
+                readonly
+                class="w-full bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30 cursor-pointer pr-8"
+              />
+              <button
+                type="button"
+                id="calendar-toggle"
+                class="absolute right-0 bottom-3 opacity-40 hover:opacity-100 text-[#1C1713] hover:text-[#D4AD65] transition-all duration-300 cursor-pointer"
+                aria-label="Abrir calendario"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+              </button>
+
+              <!-- Calendar Dropdown -->
+              <div
+                id="calendar-dropdown"
+                class="hidden absolute z-50 top-full left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 mt-3 w-full max-w-[320px] bg-[#EDE7D7] border border-[#1C1713]/10 shadow-2xl select-none"
+              >
+                <div class="flex items-center justify-between px-5 pt-5 pb-3 border-b border-[#1C1713]/8">
+                  <button type="button" id="cal-prev" class="w-8 h-8 flex items-center justify-center text-[#1C1713]/40 hover:text-[#D4AD65] hover:bg-[#D4AD65]/10 transition-all duration-200 cursor-pointer">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                  </button>
+                  <span id="cal-month-label" class="font-heading text-sm text-[#1C1713] tracking-wide uppercase"></span>
+                  <button type="button" id="cal-next" class="w-8 h-8 flex items-center justify-center text-[#1C1713]/40 hover:text-[#D4AD65] hover:bg-[#D4AD65]/10 transition-all duration-200 cursor-pointer">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                  </button>
+                </div>
+
+                <div class="grid grid-cols-7 px-4 pt-3 pb-1">
+                  <span class="text-center font-label text-[9px] uppercase tracking-widest text-[#1C1713]/30">Lu</span>
+                  <span class="text-center font-label text-[9px] uppercase tracking-widest text-[#1C1713]/30">Ma</span>
+                  <span class="text-center font-label text-[9px] uppercase tracking-widest text-[#1C1713]/30">Mi</span>
+                  <span class="text-center font-label text-[9px] uppercase tracking-widest text-[#1C1713]/30">Ju</span>
+                  <span class="text-center font-label text-[9px] uppercase tracking-widest text-[#1C1713]/30">Vi</span>
+                  <span class="text-center font-label text-[9px] uppercase tracking-widest text-[#1C1713]/30">Sá</span>
+                  <span class="text-center font-label text-[9px] uppercase tracking-widest text-[#1C1713]/30">Do</span>
+                </div>
+
+                <div id="cal-days" class="grid grid-cols-7 px-4 pb-4 gap-y-1"></div>
+
+                <div class="px-5 pb-4 pt-1 border-t border-[#1C1713]/8">
+                  <p id="cal-hint" class="font-sans text-[10px] text-[#1C1713]/40 text-center">Selecciona fecha de inicio</p>
+                </div>
+              </div>
+            </div>
+
+            <label class="flex items-center gap-3 mt-1 cursor-pointer group">
+              <input type="checkbox" name="fechas_flexible" value="true" class="peer sr-only" />
+              <div class="w-4 h-4 border border-[#1C1713]/20 flex items-center justify-center transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 peer-checked:opacity-100 transition-opacity"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <span class="font-sans text-xs text-[#1C1713]/50">Soy flexible con las fechas</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- PASO 2: ESTILO Y VIAJEROS -->
+        <div class="form-step-pane transition-all duration-500 hidden opacity-0 flex flex-col gap-10" data-step="2">
+          <div class="text-left">
+            <span class="font-label text-[9px] font-bold text-[#775A19] uppercase tracking-widest block mb-1">Paso 2 de 4</span>
+            <h3 class="font-heading text-xl md:text-2xl text-[#1C1713]">¿Qué sensaciones buscas y con quién viajas?</h3>
+            <div class="w-8 h-[1px] bg-[#D4AD65] mt-3"></div>
+          </div>
+
+          <!-- TIPO DE EXPERIENCIA -->
+          <div class="flex flex-col gap-3">
+            <label class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Tipo de experiencia</label>
+            <p class="font-sans text-sm text-[#1C1713]/60 -mt-1">¿Qué actividades o momentos te llaman la atención?</p>
+            <div class="grid grid-cols-2 gap-3 mt-2">
+              <label class="cursor-pointer">
+                <input type="checkbox" name="experiencia" value="culinarias" class="peer sr-only" />
+                <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                  Experiencias culinarias
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="checkbox" name="experiencia" value="estancias" class="peer sr-only" />
+                <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                  Estancias seleccionadas
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="checkbox" name="experiencia" value="inmersiones" class="peer sr-only" />
+                <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                  Inmersiones
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="checkbox" name="experiencia" value="todo" class="peer sr-only" />
+                <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                  Me interesa todo
+                </div>
+              </label>
             </div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="flex flex-col gap-2">
-              <label for="telefono" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Teléfono / WhatsApp *</label>
-              <input type="tel" id="telefono" name="telefono" required class="w-full bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 pt-1 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30" placeholder="+52 55 1234 5678" />
-            </div>
-            <div class="flex flex-col gap-2 relative">
-              <label for="contacto_pref" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Método de contacto preferido *</label>
-              <select id="contacto_pref" name="contacto_pref" required class="w-full appearance-none bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 pt-1 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none cursor-pointer">
-                <option value="email">Correo Electrónico</option>
-                <option value="whatsapp">WhatsApp</option>
-                <option value="llamada">Llamada telefónica</option>
-                <option value="zoom">Zoom</option>
-              </select>
-              <div class="absolute right-0 bottom-4 pointer-events-none opacity-40 text-[#1C1713]">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-              </div>
+          <!-- NÚMERO DE VIAJEROS -->
+          <div class="flex flex-col gap-3">
+            <label class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Número de viajeros *</label>
+            <p class="font-sans text-sm text-[#1C1713]/60 -mt-1">¿Quiénes te acompañarán en esta aventura?</p>
+            <div class="grid grid-cols-4 gap-3 mt-2">
+              <label class="cursor-pointer">
+                <input type="radio" name="viajeros" value="solo" class="peer sr-only" />
+                <div class="border border-[#1C1713]/15 px-3 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                  Solo
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" name="viajeros" value="pareja" class="peer sr-only" />
+                <div class="border border-[#1C1713]/15 px-3 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                  Pareja
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" name="viajeros" value="familia" class="peer sr-only" />
+                <div class="border border-[#1C1713]/15 px-3 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                  Familia
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" name="viajeros" value="grupo" class="peer sr-only" />
+                <div class="border border-[#1C1713]/15 px-3 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
+                  Grupo
+                </div>
+              </label>
             </div>
           </div>
         </div>
 
-        <!-- DESTINO DE INTERÉS -->
-        <div class="flex flex-col gap-3">
-          <label class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Destino de interés</label>
-          <p class="font-sans text-sm text-[#1C1713]/60 -mt-1">¿A dónde te gustaría ir?</p>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-2">
-            <label class="group cursor-pointer">
-              <input type="checkbox" name="destino" value="asia" class="peer sr-only" />
-              <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
-                Asia
-              </div>
-            </label>
-            <label class="group cursor-pointer">
-              <input type="checkbox" name="destino" value="africa" class="peer sr-only" />
-              <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
-                África
-              </div>
-            </label>
-            <label class="group cursor-pointer">
-              <input type="checkbox" name="destino" value="europa" class="peer sr-only" />
-              <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
-                Europa
-              </div>
-            </label>
-            <label class="group cursor-pointer">
-              <input type="checkbox" name="destino" value="medio-oriente" class="peer sr-only" />
-              <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
-                Medio Oriente
-              </div>
-            </label>
-          </div>
-          <label class="flex items-center gap-3 mt-2 cursor-pointer group">
-            <input type="checkbox" name="destino" value="indefinido" class="peer sr-only" />
-            <div class="w-4 h-4 border border-[#1C1713]/20 flex items-center justify-center transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]">
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 peer-checked:opacity-100 transition-opacity"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-            <span class="font-sans text-xs text-[#1C1713]/50">Aún no lo tengo definido</span>
-          </label>
-        </div>
-
-        <!-- FECHAS APROXIMADAS -->
-        <div class="flex flex-col gap-3">
-          <label for="fecha" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Fechas aproximadas</label>
-          <p class="font-sans text-sm text-[#1C1713]/60 -mt-1">¿Cuándo te gustaría viajar?</p>
-          <div class="relative" id="date-picker-wrapper">
-            <input
-              type="text"
-              id="fecha"
-              placeholder="Selecciona tus fechas"
-              readonly
-              class="w-full bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30 cursor-pointer pr-8"
-            />
-            <!-- Calendar Icon (clickable) -->
-            <button
-              type="button"
-              id="calendar-toggle"
-              class="absolute right-0 bottom-3 opacity-40 hover:opacity-100 text-[#1C1713] hover:text-[#D4AD65] transition-all duration-300"
-              aria-label="Abrir calendario"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-            </button>
-
-            <!-- Calendar Dropdown -->
-            <div
-              id="calendar-dropdown"
-              class="hidden absolute z-50 top-full left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 mt-3 w-full max-w-[320px] bg-[#EDE7D7] border border-[#1C1713]/10 shadow-2xl select-none"
-            >
-              <!-- Header -->
-              <div class="flex items-center justify-between px-5 pt-5 pb-3 border-b border-[#1C1713]/8">
-                <button type="button" id="cal-prev" class="w-8 h-8 flex items-center justify-center text-[#1C1713]/40 hover:text-[#D4AD65] hover:bg-[#D4AD65]/10 transition-all duration-200">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-                </button>
-                <span id="cal-month-label" class="font-heading text-sm text-[#1C1713] tracking-wide uppercase"></span>
-                <button type="button" id="cal-next" class="w-8 h-8 flex items-center justify-center text-[#1C1713]/40 hover:text-[#D4AD65] hover:bg-[#D4AD65]/10 transition-all duration-200">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                </button>
-              </div>
-
-              <!-- Day Labels -->
-              <div class="grid grid-cols-7 px-4 pt-3 pb-1">
-                <span class="text-center font-label text-[9px] uppercase tracking-widest text-[#1C1713]/30">Lu</span>
-                <span class="text-center font-label text-[9px] uppercase tracking-widest text-[#1C1713]/30">Ma</span>
-                <span class="text-center font-label text-[9px] uppercase tracking-widest text-[#1C1713]/30">Mi</span>
-                <span class="text-center font-label text-[9px] uppercase tracking-widest text-[#1C1713]/30">Ju</span>
-                <span class="text-center font-label text-[9px] uppercase tracking-widest text-[#1C1713]/30">Vi</span>
-                <span class="text-center font-label text-[9px] uppercase tracking-widest text-[#1C1713]/30">Sá</span>
-                <span class="text-center font-label text-[9px] uppercase tracking-widest text-[#1C1713]/30">Do</span>
-              </div>
-
-              <!-- Days Grid -->
-              <div id="cal-days" class="grid grid-cols-7 px-4 pb-4 gap-y-1"></div>
-
-              <!-- Footer hint -->
-              <div class="px-5 pb-4 pt-1 border-t border-[#1C1713]/8">
-                <p id="cal-hint" class="font-sans text-[10px] text-[#1C1713]/40 text-center">Selecciona fecha de inicio</p>
-              </div>
-            </div>
+        <!-- PASO 3: PRESUPUESTO Y SUEÑO -->
+        <div class="form-step-pane transition-all duration-500 hidden opacity-0 flex flex-col gap-10" data-step="3">
+          <div class="text-left">
+            <span class="font-label text-[9px] font-bold text-[#775A19] uppercase tracking-widest block mb-1">Paso 3 de 4</span>
+            <h3 class="font-heading text-xl md:text-2xl text-[#1C1713]">¿Qué nivel de inversión y detalles tienes en mente?</h3>
+            <div class="w-8 h-[1px] bg-[#D4AD65] mt-3"></div>
           </div>
 
-          <label class="flex items-center gap-3 mt-1 cursor-pointer group">
-            <input type="checkbox" name="fechas_flexible" value="true" class="peer sr-only" />
-            <div class="w-4 h-4 border border-[#1C1713]/20 flex items-center justify-center transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]">
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 peer-checked:opacity-100 transition-opacity"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-            <span class="font-sans text-xs text-[#1C1713]/50">Soy flexible con las fechas</span>
-          </label>
-        </div>
-
-        <!-- NIVEL DE INVERSIÓN -->
-        <div class="flex flex-col gap-2 relative group">
-            <label for="inversion" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Nivel de inversión aproximado</label>
-            <p class="font-sans text-sm text-[#1C1713]/60">Selecciona el rango que mejor se ajuste</p>
-            <select id="inversion" class="w-full appearance-none bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 pt-1 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none cursor-pointer">
+          <!-- NIVEL DE INVERSIÓN -->
+          <div class="flex flex-col gap-2 relative group">
+            <label for="inversion" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Nivel de inversión aproximado *</label>
+            <p class="font-sans text-sm text-[#1C1713]/60">Selecciona el rango de presupuesto del viaje</p>
+            <select id="inversion" name="inversion" class="w-full appearance-none bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 pt-1 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none cursor-pointer">
               <option value="" disabled selected>Selecciona un rango</option>
               <option value="tier1">$10,000 - $25,000 USD</option>
               <option value="tier2">$25,000 - $50,000 USD</option>
@@ -197,96 +279,82 @@ import Footer from "../components/Footer.astro";
             <div class="absolute right-0 bottom-4 pointer-events-none opacity-40 text-[#1C1713]">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </div>
-        </div>
-
-        <!-- TIPO DE EXPERIENCIA -->
-        <div class="flex flex-col gap-3">
-          <label class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Tipo de experiencia</label>
-          <p class="font-sans text-sm text-[#1C1713]/60 -mt-1">¿Qué tipo de experiencias te interesan?</p>
-          <div class="grid grid-cols-2 gap-3 mt-2">
-            <label class="cursor-pointer">
-              <input type="checkbox" name="experiencia" value="culinarias" class="peer sr-only" />
-              <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
-                Experiencias culinarias
-              </div>
-            </label>
-            <label class="cursor-pointer">
-              <input type="checkbox" name="experiencia" value="estancias" class="peer sr-only" />
-              <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
-                Estancias seleccionadas
-              </div>
-            </label>
-            <label class="cursor-pointer">
-              <input type="checkbox" name="experiencia" value="inmersiones" class="peer sr-only" />
-              <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
-                Inmersiones
-              </div>
-            </label>
-            <label class="cursor-pointer">
-              <input type="checkbox" name="experiencia" value="todo" class="peer sr-only" />
-              <div class="border border-[#1C1713]/15 px-4 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
-                Me interesa todo
-              </div>
-            </label>
           </div>
-        </div>
 
-        <!-- NÚMERO DE VIAJEROS -->
-        <div class="flex flex-col gap-3">
-          <label class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Número de viajeros</label>
-          <p class="font-sans text-sm text-[#1C1713]/60 -mt-1">¿Con quién viajas?</p>
-          <div class="grid grid-cols-4 gap-3 mt-2">
-            <label class="cursor-pointer">
-              <input type="radio" name="viajeros" value="solo" class="peer sr-only" />
-              <div class="border border-[#1C1713]/15 px-3 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
-                Solo
-              </div>
-            </label>
-            <label class="cursor-pointer">
-              <input type="radio" name="viajeros" value="pareja" class="peer sr-only" />
-              <div class="border border-[#1C1713]/15 px-3 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
-                Pareja
-              </div>
-            </label>
-            <label class="cursor-pointer">
-              <input type="radio" name="viajeros" value="familia" class="peer sr-only" />
-              <div class="border border-[#1C1713]/15 px-3 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
-                Familia
-              </div>
-            </label>
-            <label class="cursor-pointer">
-              <input type="radio" name="viajeros" value="grupo" class="peer sr-only" />
-              <div class="border border-[#1C1713]/15 px-3 py-3 text-center font-label text-[10px] md:text-xs uppercase tracking-widest text-[#1C1713]/60 transition-all duration-300 peer-checked:border-[#D4AD65] peer-checked:bg-[#D4AD65]/10 peer-checked:text-[#775A19] hover:border-[#D4AD65]/50">
-                Grupo
-              </div>
-            </label>
-          </div>
-        </div>
-
-        <!-- TEXTAREA -->
-        <div class="flex flex-col gap-3">
+          <!-- TEXTAREA -->
+          <div class="flex flex-col gap-3">
             <label for="idea" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">¿Cómo te gustaría vivir este viaje?</label>
-            <textarea id="idea" name="idea" rows="4" placeholder="Cuéntanos lo que tienes en mente, aunque aún no esté completamente definido." class="w-full bg-transparent border border-[#1C1713]/10 p-6 font-sans text-sm text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30 resize-none hover:border-[#1C1713]/20"></textarea>
+            <textarea id="idea" name="idea" rows="4" placeholder="Cuéntanos tus expectativas o ideas en mente para poder diseñar el viaje ideal para ti." class="w-full bg-transparent border border-[#1C1713]/10 p-6 font-sans text-sm text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30 resize-none hover:border-[#1C1713]/20"></textarea>
+          </div>
         </div>
 
-        <!-- SEGURIDAD & SUBMIT -->
-        <div class="flex flex-col items-center gap-6">
-            <div class="flex items-center gap-2 text-[#1C1713]/40 text-[10px] md:text-xs font-sans text-center">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              <span>Tu información será tratada con absoluta confidencialidad.</span>
+        <!-- PASO 4: DATOS DE CONTACTO -->
+        <div class="form-step-pane transition-all duration-500 hidden opacity-0 flex flex-col gap-10" data-step="4">
+          <div class="text-left">
+            <span class="font-label text-[9px] font-bold text-[#775A19] uppercase tracking-widest block mb-1">Paso 4 de 4</span>
+            <h3 class="font-heading text-xl md:text-2xl text-[#1C1713]">¿Cómo nos comunicamos contigo?</h3>
+            <div class="w-8 h-[1px] bg-[#D4AD65] mt-3"></div>
+          </div>
+
+          <!-- DATOS DE CONTACTO PERSONALES -->
+          <div class="flex flex-col gap-6 mb-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="flex flex-col gap-2">
+                <label for="nombre" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Nombre Completo *</label>
+                <input type="text" id="nombre" name="nombre" required class="w-full bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 pt-1 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30" placeholder="Ej. Alejandro Valenzuela" />
+              </div>
+              <div class="flex flex-col gap-2">
+                <label for="email" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Correo Electrónico *</label>
+                <input type="email" id="email" name="email" required class="w-full bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 pt-1 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30" placeholder="correo@ejemplo.com" />
+              </div>
             </div>
 
-            <button type="submit" class="group/submit relative overflow-hidden bg-[#1C1713] text-[#D4AD65] font-label text-xs uppercase tracking-[0.2em] font-bold px-14 py-5 transition-all duration-500 rounded-none w-full md:w-auto shadow-xl">
-              <span class="absolute inset-0 bg-[#D4AD65] transform translate-y-[100%] group-hover/submit:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]"></span>
-              <span class="relative z-10 flex items-center justify-center gap-3 group-hover/submit:text-[#1C1713] transition-colors duration-500">
-                Diseñar mi experiencia
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover/submit:translate-x-1 transition-transform duration-500"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-              </span>
-            </button>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="flex flex-col gap-2">
+                <label for="telefono" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Teléfono / WhatsApp *</label>
+                <input type="tel" id="telefono" name="telefono" required class="w-full bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 pt-1 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30" placeholder="+52 55 1234 5678" />
+              </div>
+              <div class="flex flex-col gap-2 relative">
+                <label for="contacto_pref" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Método de contacto preferido *</label>
+                <select id="contacto_pref" name="contacto_pref" required class="w-full appearance-none bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 pt-1 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none cursor-pointer">
+                  <option value="email">Correo Electrónico</option>
+                  <option value="whatsapp">WhatsApp</option>
+                  <option value="llamada">Llamada telefónica</option>
+                  <option value="zoom">Zoom</option>
+                </select>
+                <div class="absolute right-0 bottom-4 pointer-events-none opacity-40 text-[#1C1713]">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTONES DE NAVEGACIÓN Y ENVÍO -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6 border-t border-[#1C1713]/10 pt-8 mt-6">
+          <button type="button" id="prev-step-btn" class="hidden font-label text-xs uppercase tracking-widest font-bold text-[#775A19] hover:text-[#1C1713] transition-colors py-3 cursor-pointer select-none">
+            &larr; Anterior
+          </button>
+          <div class="hidden md:block flex-1"></div>
+          
+          <button type="button" id="next-step-btn" class="group/next relative overflow-hidden bg-[#1C1713] text-[#D4AD65] font-label text-xs uppercase tracking-[0.2em] font-bold px-12 py-4.5 transition-all duration-500 rounded-none w-full md:w-auto shadow-md cursor-pointer select-none">
+            <span class="absolute inset-0 bg-[#D4AD65] transform translate-y-[100%] group-hover/next:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]"></span>
+            <span class="relative z-10 flex items-center justify-center gap-3 group-hover/next:text-[#1C1713] transition-colors duration-500">
+              Siguiente &rarr;
+            </span>
+          </button>
+
+          <button type="submit" id="submit-step-btn" class="hidden group/submit relative overflow-hidden bg-[#1C1713] text-[#D4AD65] font-label text-xs uppercase tracking-[0.2em] font-bold px-14 py-5 transition-all duration-500 rounded-none w-full md:w-auto shadow-xl cursor-pointer select-none">
+            <span class="absolute inset-0 bg-[#D4AD65] transform translate-y-[100%] group-hover/submit:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]"></span>
+            <span class="relative z-10 flex items-center justify-center gap-3 group-hover/submit:text-[#1C1713] transition-colors duration-500">
+              Diseñar mi experiencia
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover/submit:translate-x-1 transition-transform duration-500"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </span>
+          </button>
         </div>
       </form>
 
-      <!-- SUCCESS MODAL -->
+      <!-- SUCCESS MODAL (WITH OPTIONAL HUBSPOT MEETINGS IFRAME) -->
       <div
         id="success-modal"
         class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1C1713]/80 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-500"
@@ -294,20 +362,22 @@ import Footer from "../components/Footer.astro";
         aria-modal="true"
         aria-labelledby="modal-title"
       >
-        <div class="bg-[#EDE7D7] border border-[#D4AD65]/30 p-8 md:p-12 max-w-lg w-full text-center relative shadow-2xl rounded-[2px] transform scale-95 transition-transform duration-500" id="modal-card">
-          <div class="text-[#D4AD65] text-2xl mb-6">✦</div>
-          <h2 id="modal-title" class="font-heading text-2xl md:text-3xl text-[#1C1713] uppercase tracking-wider mb-4">Diseño en Proceso</h2>
-          <div class="w-12 h-[1px] bg-[#D4AD65] mx-auto mb-6"></div>
-          <p id="modal-message" class="font-sans text-sm md:text-base text-[#1C1713]/80 leading-relaxed mb-8">
-            Tu solicitud ha sido recibida con éxito. Un Diseñador de Viajes de Luxury Voyage Collection analizará tus preferencias y se pondrá en contacto contigo en un plazo máximo de 24 horas para dar inicio al diseño de tu experiencia a la medida.
-          </p>
-          <button
-            type="button"
-            id="close-modal"
-            class="inline-flex font-label text-[10px] uppercase tracking-widest font-bold text-[#1C1713] bg-[#E6C875] hover:bg-[#D4AD65] transition-all duration-300 px-8 py-3.5"
-          >
-            Entendido
-          </button>
+        <div class="bg-[#EDE7D7] border border-[#D4AD65]/30 p-8 md:p-12 max-w-xl w-full text-center relative shadow-2xl rounded-[2px] transform scale-95 transition-transform duration-500" id="modal-card">
+          <div id="modal-inner-content">
+            <div class="text-[#D4AD65] text-2xl mb-6">✦</div>
+            <h2 id="modal-title" class="font-heading text-2xl md:text-3xl text-[#1C1713] uppercase tracking-wider mb-4">Diseño en Proceso</h2>
+            <div class="w-12 h-[1px] bg-[#D4AD65] mx-auto mb-6"></div>
+            <p id="modal-message" class="font-sans text-sm md:text-base text-[#1C1713]/80 leading-relaxed mb-8">
+              Tu solicitud ha sido recibida con éxito. Un Diseñador de Viajes de Luxury Voyage Collection analizará tus preferencias y se pondrá en contacto contigo en un plazo máximo de 24 horas para dar inicio al diseño de tu experiencia a la medida.
+            </p>
+            <button
+              type="button"
+              id="close-modal"
+              class="inline-flex font-label text-[10px] uppercase tracking-widest font-bold text-[#1C1713] bg-[#E6C875] hover:bg-[#D4AD65] transition-all duration-300 px-8 py-3.5 cursor-pointer"
+            >
+              Entendido
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -358,19 +428,11 @@ import Footer from "../components/Footer.astro";
 
     const form = document.getElementById('experience-form') as HTMLFormElement | null;
     const successModal = document.getElementById('success-modal');
-    
-    // Debug click en botón
-    const submitBtnDebug = form?.querySelector('button[type="submit"]');
-    if (submitBtnDebug) {
-      console.log("✦ LVC: Botón submit encontrado en el DOM!");
-      submitBtnDebug.addEventListener('click', (e) => {
-        console.log("✦ LVC: Click directo detectado en el botón!");
-      });
-    }
     const modalCard = document.getElementById('modal-card');
     const closeModal = document.getElementById('close-modal');
     const modalMessage = document.getElementById('modal-message');
 
+    // Calendar Settings
     const MONTHS = ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
                     'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 
@@ -398,13 +460,12 @@ import Footer from "../components/Footer.astro";
       const year  = current.getFullYear();
       const month = current.getMonth();
       const firstDay = new Date(year, month, 1);
-      // Monday-first offset
+      
       let startOffset = firstDay.getDay() - 1;
       if (startOffset < 0) startOffset = 6;
 
       const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-      // Empty cells
       for (let i = 0; i < startOffset; i++) {
         const empty = document.createElement('div');
         daysGrid.appendChild(empty);
@@ -441,7 +502,6 @@ import Footer from "../components/Footer.astro";
     function selectDate(date: Date) {
       if (!hint || !input || !dropdown) return;
       if (!startDate || (startDate && endDate)) {
-        // Start fresh
         startDate = date;
         endDate   = null;
         hint.textContent = 'Selecciona fecha de regreso';
@@ -451,27 +511,23 @@ import Footer from "../components/Footer.astro";
           endDate   = startDate;
           startDate = date;
         } else if (isSameDay(date, startDate)) {
-          // Same day = single date
           endDate = date;
         } else {
           endDate = date;
         }
         hint.textContent = 'Fechas seleccionadas ✓';
 
-        // Update input
         if (isSameDay(startDate, endDate)) {
           input.value = formatDate(startDate);
         } else {
           input.value = formatDate(startDate) + '  →  ' + formatDate(endDate);
         }
 
-        // Close after short delay
         setTimeout(() => closeCalendar(), 500);
       }
       render();
     }
 
-    // Open / Close / Toggle / Cleanup
     function openCalendar() {
       if (!dropdown) return;
       dropdown.classList.remove('hidden');
@@ -520,13 +576,167 @@ import Footer from "../components/Footer.astro";
       });
     }
 
-    // Close on outside click
     document.addEventListener('click', (e) => {
       const pickerWrapper = document.getElementById('date-picker-wrapper');
       if (pickerWrapper && !pickerWrapper.contains(e.target as Node) && dropdown) {
         closeCalendar();
       }
     });
+
+    // Multi-Step Form Logic
+    let currentStep = 1;
+    const totalSteps = 4;
+    const stepPanes = document.querySelectorAll('.form-step-pane');
+    const stepIndicators = document.querySelectorAll('.step-indicator');
+    const formProgressBar = document.getElementById('form-progress-bar');
+    const prevBtnStep = document.getElementById('prev-step-btn');
+    const nextBtnStep = document.getElementById('next-step-btn');
+    const submitBtnStep = document.getElementById('submit-step-btn');
+
+    function showStep(step: number) {
+      if (step < 1 || step > totalSteps) return;
+      currentStep = step;
+
+      stepPanes.forEach((pane) => {
+        const paneStep = parseInt(pane.getAttribute('data-step') || '1');
+        if (paneStep === currentStep) {
+          pane.classList.remove('hidden');
+          pane.offsetHeight; // trigger reflow
+          pane.classList.remove('opacity-0', '-translate-y-2');
+          pane.classList.add('opacity-100', 'translate-y-0');
+        } else {
+          pane.classList.add('hidden', 'opacity-0', '-translate-y-2');
+          pane.classList.remove('opacity-100', 'translate-y-0');
+        }
+      });
+
+      if (formProgressBar) {
+        const percent = ((currentStep - 1) / (totalSteps - 1)) * 100;
+        formProgressBar.style.width = `${percent}%`;
+      }
+
+      stepIndicators.forEach((indicator) => {
+        const indStep = parseInt(indicator.getAttribute('data-step') || '1');
+        const numCircle = indicator.querySelector('div');
+        const labelText = indicator.querySelector('span');
+
+        if (indStep < currentStep) {
+          indicator.classList.remove('opacity-50');
+          indicator.classList.add('opacity-100');
+          if (numCircle) {
+            numCircle.className = "w-8 h-8 rounded-full border border-[#D4AD65] bg-[#D4AD65] text-[#1C1713] flex items-center justify-center font-label text-xs font-bold transition-all duration-300";
+            numCircle.innerHTML = `
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            `;
+          }
+          if (labelText) {
+            labelText.className = "font-label text-[9px] uppercase tracking-widest text-[#775A19] font-bold";
+          }
+        } else if (indStep === currentStep) {
+          indicator.classList.remove('opacity-50');
+          indicator.classList.add('opacity-100');
+          if (numCircle) {
+            numCircle.className = "w-8 h-8 rounded-full border border-[#D4AD65] bg-[#EDE7D7] text-[#775A19] flex items-center justify-center font-label text-xs font-bold transition-all duration-300";
+            numCircle.innerHTML = String(indStep);
+          }
+          if (labelText) {
+            labelText.className = "font-label text-[9px] uppercase tracking-widest text-[#775A19] font-bold";
+          }
+        } else {
+          indicator.classList.add('opacity-50');
+          indicator.classList.remove('opacity-100');
+          if (numCircle) {
+            numCircle.className = "w-8 h-8 rounded-full border border-[#1C1713]/10 bg-[#EDE7D7] text-[#1C1713]/60 flex items-center justify-center font-label text-xs font-bold transition-all duration-300";
+            numCircle.innerHTML = String(indStep);
+          }
+          if (labelText) {
+            labelText.className = "font-label text-[9px] uppercase tracking-widest text-[#1C1713]/40";
+          }
+        }
+      });
+
+      if (prevBtnStep) {
+        if (currentStep === 1) {
+          prevBtnStep.classList.add('hidden');
+        } else {
+          prevBtnStep.classList.remove('hidden');
+        }
+      }
+
+      if (nextBtnStep && submitBtnStep) {
+        if (currentStep === totalSteps) {
+          nextBtnStep.classList.add('hidden');
+          submitBtnStep.classList.remove('hidden');
+        } else {
+          nextBtnStep.classList.remove('hidden');
+          submitBtnStep.classList.add('hidden');
+        }
+      }
+    }
+
+    function validateStep(step: number) {
+      if (step === 1) {
+        const checkedDestinos = document.querySelectorAll('input[name="destino"]:checked');
+        if (checkedDestinos.length === 0) {
+          alert("Por favor selecciona al menos un destino de interés o indícanos si aún no lo tienes definido.");
+          return false;
+        }
+      }
+      if (step === 2) {
+        const checkedViajeros = document.querySelector('input[name="viajeros"]:checked');
+        if (!checkedViajeros) {
+          alert("Por favor indícanos con quién viajas (número de viajeros).");
+          return false;
+        }
+      }
+      if (step === 3) {
+        const inversionSelect = document.getElementById('inversion') as HTMLSelectElement | null;
+        if (inversionSelect && inversionSelect.value === "") {
+          alert("Por favor selecciona tu rango de inversión aproximado.");
+          return false;
+        }
+      }
+      return true;
+    }
+
+    if (nextBtnStep) {
+      nextBtnStep.addEventListener('click', () => {
+        if (validateStep(currentStep)) {
+          showStep(currentStep + 1);
+        }
+      });
+    }
+
+    if (prevBtnStep) {
+      prevBtnStep.addEventListener('click', () => {
+        showStep(currentStep - 1);
+      });
+    }
+
+    stepIndicators.forEach((indicator) => {
+      indicator.addEventListener('click', () => {
+        const targetStep = parseInt(indicator.getAttribute('data-step') || '1');
+        if (targetStep < currentStep) {
+          showStep(targetStep);
+        } else if (targetStep > currentStep) {
+          let canGo = true;
+          for (let s = currentStep; s < targetStep; s++) {
+            if (!validateStep(s)) {
+              canGo = false;
+              break;
+            }
+          }
+          if (canGo) {
+            showStep(targetStep);
+          }
+        }
+      });
+    });
+
+    // Initialize Step 1
+    showStep(1);
 
     // Form submission & validation
     if (form) {
@@ -542,12 +752,10 @@ import Footer from "../components/Footer.astro";
 
         if (!nombreInput || !emailInput || !telefonoInput || !prefInput) return;
 
-        // Basic XSS escaping for safety
         const sanitize = (val: string) => val.replace(/</g, "&lt;").replace(/>/g, "&gt;");
         const nombre = sanitize(nombreInput.value.trim());
         const pref = prefInput.value;
 
-        // Obtener preferencias del viaje para compilarlas en el mensaje
         const destinos = Array.from(document.querySelectorAll('input[name="destino"]:checked')).map(el => (el as HTMLInputElement).value).join(', ') || 'Ninguno seleccionado';
         const fecha = (document.getElementById('fecha') as HTMLInputElement | null)?.value || 'No especificada';
         const flexible = (document.querySelector('input[name="fechas_flexible"]') as HTMLInputElement)?.checked ? 'Sí' : 'No';
@@ -568,12 +776,10 @@ import Footer from "../components/Footer.astro";
 --- MENSAJE ADICIONAL ---
 ${idea}`;
 
-        // Separar nombre y apellidos para mapear a los campos de HubSpot
         const nameParts = nombre.split(" ");
         const firstname = nameParts[0] || "";
         const lastname = nameParts.slice(1).join(" ") || "";
 
-        // Enviar a HubSpot Form API v3 (Submission API)
         const portalId = import.meta.env.PUBLIC_HUBSPOT_PORTAL_ID || "51495057";
         const formId = import.meta.env.PUBLIC_HUBSPOT_FORM_ID || "b25257b0-7b1a-43b8-a591-fa2853b7a244";
         const endpoint = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
@@ -592,9 +798,7 @@ ${idea}`;
           }
         };
 
-        // Mostrar un estado visual de carga en el botón (opcional, pero mejora UX)
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalBtnContent = submitBtn ? submitBtn.innerHTML : '';
+        const submitBtn = document.getElementById('submit-step-btn');
         if (submitBtn) {
           submitBtn.setAttribute('disabled', 'true');
           submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
@@ -615,7 +819,6 @@ ${idea}`;
         } catch (error) {
           console.error("Error submitting to HubSpot:", error);
         } finally {
-          // Restaurar botón
           if (submitBtn) {
             submitBtn.removeAttribute('disabled');
             submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
@@ -627,8 +830,66 @@ ${idea}`;
         else if (pref === "llamada") canalText = "llamada telefónica";
         else if (pref === "zoom") canalText = "Zoom";
 
-        if (modalMessage) {
-          modalMessage.innerHTML = `Estimado(a) <strong>${nombre}</strong>, su solicitud ha sido recibida con éxito. Un Diseñador de Viajes de Luxury Voyage Collection analizará sus preferencias y se pondrá en contacto con usted mediante <strong>${canalText}</strong> en un plazo máximo de 24 horas.`;
+        // Handle success display (dynamic HubSpot Meetings calendar or fallback)
+        const meetingsConfig = document.getElementById('meetings-config');
+        const meetingsLinkVal = meetingsConfig ? meetingsConfig.getAttribute('data-link') : '';
+        const modalInner = document.getElementById('modal-inner-content');
+
+        if (meetingsLinkVal && modalInner && successModal && modalCard) {
+          modalInner.innerHTML = `
+            <div class="text-[#D4AD65] text-2xl mb-4">✦</div>
+            <h2 class="font-heading text-xl md:text-2xl text-[#1C1713] uppercase tracking-wider mb-2">Diseño en Proceso</h2>
+            <div class="w-12 h-[1px] bg-[#D4AD65] mx-auto mb-4"></div>
+            <p class="font-sans text-xs md:text-sm text-[#1C1713]/80 leading-relaxed mb-6">
+              Estimado(a) <strong>${nombre}</strong>, tu solicitud ha sido recibida con éxito. Para agilizar el inicio del diseño a la medida, **agenda una llamada de asesoría de 15 minutos** directamente en el calendario de uno de nuestros Diseñadores de Viajes en el siguiente programador:
+            </p>
+            <div class="w-full h-[360px] md:h-[450px] overflow-hidden border border-[#D4AD65]/20 rounded-md bg-white">
+              <iframe src="https://meetings.hubspot.com/${meetingsLinkVal}?embed=true" width="100%" height="100%" frameborder="0"></iframe>
+            </div>
+            <button
+              type="button"
+              id="close-modal-meetings"
+              class="mt-6 inline-flex font-label text-[10px] uppercase tracking-widest font-bold text-[#FAF9F6] bg-[#1C1713] hover:bg-[#D4AD65] hover:text-[#1C1713] transition-all duration-300 px-8 py-3.5 cursor-pointer"
+            >
+              Cerrar y Regresar
+            </button>
+          `;
+
+          const closeMeetingsBtn = document.getElementById('close-modal-meetings');
+          if (closeMeetingsBtn) {
+            closeMeetingsBtn.addEventListener('click', () => {
+              successModal.classList.remove('opacity-100');
+              successModal.classList.add('opacity-0', 'pointer-events-none');
+              modalCard.classList.remove('scale-100');
+              modalCard.classList.add('scale-95');
+              document.body.style.overflow = "";
+              form.reset();
+              startDate = null;
+              endDate = null;
+              if (input) input.value = "";
+              showStep(1);
+            });
+          }
+        } else {
+          if (modalMessage) {
+            modalMessage.innerHTML = `Estimado(a) <strong>${nombre}</strong>, su solicitud ha sido recibida con éxito. Un Diseñador de Viajes de Luxury Voyage Collection analizará sus preferencias y se pondrá en contacto con usted mediante <strong>${canalText}</strong> en un plazo máximo de 24 horas.`;
+          }
+          
+          // Fallback reset on normal close modal click
+          if (closeModal) {
+            closeModal.addEventListener('click', () => {
+              successModal.classList.remove('opacity-100');
+              successModal.classList.add('opacity-0', 'pointer-events-none');
+              modalCard.classList.remove('scale-100');
+              modalCard.classList.add('scale-95');
+              document.body.style.overflow = "";
+              form.reset();
+              startDate = null;
+              endDate = null;
+              if (input) input.value = "";
+              showStep(1);
+            });
+          }
         }
 
         // Show Success Modal
@@ -639,23 +900,6 @@ ${idea}`;
           modalCard.classList.add('scale-100');
           document.body.style.overflow = "hidden";
         }
-      });
-    }
-
-    if (closeModal && successModal && modalCard && form) {
-      closeModal.addEventListener('click', () => {
-        // Close Success Modal
-        successModal.classList.remove('opacity-100');
-        successModal.classList.add('opacity-0', 'pointer-events-none');
-        modalCard.classList.remove('scale-100');
-        modalCard.classList.add('scale-95');
-        document.body.style.overflow = "";
-
-        // Reset Form
-        form.reset();
-        startDate = null;
-        endDate = null;
-        if (input) input.value = "";
       });
     }
   })();
