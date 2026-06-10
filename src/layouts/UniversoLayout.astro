@@ -1316,7 +1316,7 @@ const experienceImages: Record<string, string[][]> = {
         // Render cards
         destData.cards.forEach((card, index) => {
           const cardEl = document.createElement('div');
-          cardEl.className = `modal-card-item group relative flex-none w-[240px] sm:w-[260px] md:w-[280px] lg:w-[310px] aspect-[3/4] overflow-hidden bg-[#1C1713] cursor-pointer transition-all duration-500 rounded-[2rem] border border-transparent scale-90 opacity-40 z-0`;
+          cardEl.className = `modal-card-item group relative flex-none w-[200px] sm:w-[220px] md:w-[245px] lg:w-[275px] aspect-[3/4.5] overflow-hidden bg-[#1C1713] cursor-pointer transition-all duration-500 rounded-[2rem] border border-transparent scale-90 opacity-40 z-0`;
           cardEl.setAttribute('data-style-name', card.title);
 
           cardEl.innerHTML = `
@@ -1331,10 +1331,10 @@ const experienceImages: Record<string, string[][]> = {
 
             <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713]/90 via-[#1C1713]/25 to-transparent"></div>
             
-            <div class="absolute bottom-8 left-8 right-8 z-10 text-left">
+            <div class="absolute bottom-5 left-5 right-5 md:bottom-7 md:left-7 md:right-7 z-10 text-left">
               <span class="block font-label text-[9px] uppercase tracking-widest text-[#D4AD65] mb-1">Filosofía</span>
-              <h3 class="font-heading text-xl md:text-2xl text-white mb-2 tracking-wide leading-tight">${card.title}</h3>
-              <p class="font-sans text-[11px] sm:text-xs text-white/70 leading-relaxed">
+              <h3 class="font-heading text-lg md:text-xl text-white mb-2 tracking-wide leading-tight">${card.title}</h3>
+              <p class="font-sans text-[10px] md:text-[11px] text-white/70 leading-relaxed">
                 ${card.desc}
               </p>
             </div>
