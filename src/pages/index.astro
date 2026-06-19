@@ -245,7 +245,7 @@ const experiencias = [
     </section>
 
     <!-- SECCIÓN 4: EXPERIENCIAS (Generales) -->
-    <section class="w-full bg-[#EDE7D7] py-16 md:py-24 overflow-hidden">
+    <section id="home-experiences" class="w-full bg-[#EDE7D7] py-16 md:py-24 overflow-hidden">
       <div class="max-w-[1920px] mx-auto">
         <div class="text-center mb-10 md:mb-14 px-6 reveal-up">
           <span class="font-label text-[10px] md:text-xs font-bold text-[#775A19] uppercase tracking-widest block mb-4">MOMENTOS DEL VIAJE</span>
@@ -429,3 +429,23 @@ const experiencias = [
     window.addEventListener('resize', updateCarousel);
   });
 </script>
+
+<style is:global>
+  /* Evitar colapso de aspect-ratio en Safari para las tarjetas de la página de inicio */
+  #home-experiences .experience-slide {
+    width: 280px !important;
+    height: 210px !important; /* aspect 4/3 */
+  }
+  @media (min-width: 640px) {
+    #home-experiences .experience-slide {
+      width: 350px !important;
+      height: 262px !important; /* aspect 4/3 */
+    }
+  }
+  @media (min-width: 768px) {
+    #home-experiences .experience-slide {
+      width: 600px !important;
+      height: 375px !important; /* aspect 16/10 */
+    }
+  }
+</style>

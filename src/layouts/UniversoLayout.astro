@@ -571,11 +571,24 @@ const experienceImages: Record<string, string[][]> = {
     border-color: #D4AD65 !important;
   }
 
-  /* Ajustes responsivos de altura y espaciado para la sección de experiencias */
+  /* Ajustes responsivos de altura y espaciado para la sección de experiencias (Evita colapso en Safari) */
+  .experiences-section .experience-slide {
+    width: 280px !important;
+    height: 420px !important; /* aspect 2/3 */
+  }
+
+  @media (min-width: 640px) {
+    .experiences-section .experience-slide {
+      width: 320px !important;
+      height: 480px !important; /* aspect 2/3 */
+    }
+  }
+
   @media (min-width: 768px) {
     /* Por defecto en pantallas medianas y grandes, el ancho de los slides de experiencias es 450px */
-    .experience-slide {
+    .experiences-section .experience-slide {
       width: 450px !important;
+      height: 675px !important; /* aspect 2/3 */
     }
 
     /* Reducir el tamaño si la pantalla es baja (laptops de 13", iPads, etc.) */
@@ -587,8 +600,9 @@ const experienceImages: Record<string, string[][]> = {
       .experiences-title-container {
         margin-bottom: 2rem !important;
       }
-      .experience-slide {
+      .experiences-section .experience-slide {
         width: 360px !important;
+        height: 540px !important; /* aspect 2/3 */
       }
     }
 
@@ -600,8 +614,9 @@ const experienceImages: Record<string, string[][]> = {
       .experiences-title-container {
         margin-bottom: 1.5rem !important;
       }
-      .experience-slide {
+      .experiences-section .experience-slide {
         width: 300px !important;
+        height: 450px !important; /* aspect 2/3 */
       }
     }
   }
