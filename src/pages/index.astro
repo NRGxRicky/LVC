@@ -97,6 +97,7 @@ const experiencias = [
       
       <div class="absolute inset-0 z-0 bg-[#1C1713]">
         <video 
+          id="hero-video"
           autoplay 
           muted 
           loop 
@@ -106,6 +107,23 @@ const experiencias = [
         >
           <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
+
+        <script is:inline>
+          const playVideoElement = () => {
+            const video = document.getElementById('hero-video');
+            if (video) {
+              video.muted = true;
+              video.play().catch(err => {
+                console.log("Autoplay programático bloqueado:", err);
+              });
+            }
+          };
+          if (document.readyState === 'complete') {
+            playVideoElement();
+          } else {
+            window.addEventListener('load', playVideoElement);
+          }
+        </script>
         
         <div class="absolute inset-0 bg-black/40 pointer-events-none z-10"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713] via-transparent to-transparent pointer-events-none z-10"></div>
