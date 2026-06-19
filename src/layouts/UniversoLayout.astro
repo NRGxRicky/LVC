@@ -22,6 +22,7 @@ export interface Props {
   slug: string;
   heroTitle: string;
   heroImage: string;
+  heroImageMobile?: string;
   heroDesc: string;
   splitImage: string;
   lugares: Lugar[];
@@ -34,6 +35,7 @@ const {
   slug,
   heroTitle,
   heroImage,
+  heroImageMobile,
   heroDesc,
   splitImage,
   lugares,
@@ -177,13 +179,19 @@ const experienceImages: Record<string, string[][]> = {
     <!-- HERO -->
     <section class="relative w-full h-screen min-h-[70vh] flex items-center justify-start overflow-hidden">
       <div class="absolute inset-0 z-0">
-        <Image 
-          src={heroImage} 
-          alt={`Paisaje de ${heroTitle}`} 
-          width={1920}
-          height={1080}
-          class="w-full h-full object-cover object-[50%_70%]"
-        />
+        <picture class="absolute inset-0 w-full h-full">
+          {heroImageMobile && (
+            <source 
+              media="(max-width: 768px)" 
+              srcset={heroImageMobile}
+            />
+          )}
+          <img 
+            src={heroImage} 
+            alt={`Paisaje de ${heroTitle}`} 
+            class="w-full h-full object-cover object-[50%_70%]"
+          />
+        </picture>
         <div class="absolute inset-0 bg-gradient-to-r from-[#1C1713]/80 via-[#1C1713]/40 to-transparent"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent via-80% to-[#EDE7D7]"></div>
       </div>
