@@ -302,7 +302,7 @@ const experiencias = [
                   <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10 z-10"></div>
                   
                   <!-- Text Content Inside Card (Bottom-Left) -->
-                  <div class="absolute bottom-8 left-8 right-8 z-20 text-left">
+                  <div class="slide-text-container absolute bottom-8 left-8 right-8 z-20 text-left">
                     <h3 class="font-heading text-xl md:text-3xl text-[#FAF9F6] tracking-wider uppercase mb-2 leading-tight">
                       {exp.title}
                     </h3>
@@ -466,5 +466,17 @@ const experiencias = [
       width: 600px !important;
       height: 375px !important; /* aspect 16/10 */
     }
+  }
+
+  /* Ocultar el texto en las tarjetas de experiencias no seleccionadas */
+  #home-experiences .experience-slide .slide-text-container {
+    opacity: 0 !important;
+    transform: translateY(10px);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  #home-experiences .experience-slide.opacity-100 .slide-text-container {
+    opacity: 1 !important;
+    transform: translateY(0);
   }
 </style>
