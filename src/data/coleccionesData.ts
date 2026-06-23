@@ -34,7 +34,7 @@ export const coleccionesData: Coleccion[] = [
     title: "Japón Esencial",
     subtitle: "JAPÓN",
     continent: "asia",
-    heroImage: "/images/colecciones/card_japan.png",
+    heroImage: "https://cdn.luxuryvoyageco.com/lvc-images/images/colecciones/card_japan.png",
     heroDesc: "Tradición y modernidad en perfecta armonía, donde cada detalle revela la esencia de Japón.",
     badges: ["Grupo Reducido", "Fechas Seleccionadas", "Experiencias Culturales"],
     essenceHeading: "Cada rincón ha sido elegido para conectar con la belleza de lo sutil y la hospitalidad más pura.",
@@ -57,7 +57,7 @@ export const coleccionesData: Coleccion[] = [
         number: "03",
         title: "Kyoto",
         description: "Exploración a pie por el histórico barrio de Gion y una cena privada con una inmersión en las artes tradicionales de la geisha.",
-        image: "/images/colecciones/featured_japan.png"
+        image: "https://cdn.luxuryvoyageco.com/lvc-images/images/colecciones/featured_japan.png"
       }
     ],
     momentsCallout: "NO SON SOLO LUGARES, SON MOMENTOS QUE PERMANECEN CONTIGO PARA SIEMPRE.",
@@ -74,7 +74,7 @@ export const coleccionesData: Coleccion[] = [
     title: "Tailandia Vital",
     subtitle: "TAILANDIA",
     continent: "asia",
-    heroImage: "/images/colecciones/card_thailand.png",
+    heroImage: "https://cdn.luxuryvoyageco.com/lvc-images/images/colecciones/card_thailand.png",
     heroDesc: "Naturaleza, cultura y bienestar en un viaje diseñado para reconectar contigo mismo.",
     badges: ["Retiros de Bienestar", "Gastronomía Local", "Naturaleza Exclusiva"],
     essenceHeading: "Un recorrido pensado para sanar el alma y despertar los sentidos en el Reino de Siam.",
@@ -114,7 +114,7 @@ export const coleccionesData: Coleccion[] = [
     title: "Bali & Bienestar",
     subtitle: "INDONESIA",
     continent: "asia",
-    heroImage: "/images/colecciones/card_bali.png",
+    heroImage: "https://cdn.luxuryvoyageco.com/lvc-images/images/colecciones/card_bali.png",
     heroDesc: "Retiros cuidadosamente seleccionados para renovar cuerpo, mente y espíritu en escenarios únicos.",
     badges: ["Sanación Holística", "Templos Sagrados", "Villas Privadas"],
     essenceHeading: "Habita el tiempo de una forma distinta en la mística Isla de los Dioses.",
@@ -154,7 +154,7 @@ export const coleccionesData: Coleccion[] = [
     title: "Corea del Sur Dinámica",
     subtitle: "COREA DEL SUR",
     continent: "asia",
-    heroImage: "/images/colecciones/card_korea.png",
+    heroImage: "https://cdn.luxuryvoyageco.com/lvc-images/images/colecciones/card_korea.png",
     heroDesc: "La fascinante fusión entre palacios tradicionales de madera y la vanguardia urbana de Seúl.",
     badges: ["Cultura K-Luxury", "Patrimonio UNESCO", "Innovación y Diseño"],
     essenceHeading: "Un recorrido por el país que marca el ritmo estético y contemporáneo del mundo.",
@@ -558,7 +558,7 @@ export const coleccionesData: Coleccion[] = [
     title: "Sudáfrica Exclusiva",
     subtitle: "SUDÁFRICA",
     continent: "africa",
-    heroImage: "/images/colecciones/card_south_africa.png",
+    heroImage: "https://cdn.luxuryvoyageco.com/lvc-images/images/colecciones/card_south_africa.png",
     heroDesc: "La ruta de los viñedos en Stellenbosch, el Cabo de Buena Esperanza y avistamiento de ballenas.",
     badges: ["Viñedos Premium", "Avistamiento de Ballenas", "Ciudad del Cabo VIP"],
     essenceHeading: "La vibrante fusión de una metrópolis costera rodeada por océanos y viñedos.",
@@ -569,7 +569,7 @@ export const coleccionesData: Coleccion[] = [
         number: "01",
         title: "Ciudad del Cabo",
         description: "Vuelo privado en helicóptero sobre la península del Cabo, rodeando la icónica silueta de Table Mountain.",
-        image: "/images/colecciones/card_south_africa.png"
+        image: "https://cdn.luxuryvoyageco.com/lvc-images/images/colecciones/card_south_africa.png"
       },
       {
         number: "02",
@@ -598,7 +598,7 @@ export const coleccionesData: Coleccion[] = [
     title: "Marruecos Imperial",
     subtitle: "MARRUECOS",
     continent: "africa",
-    heroImage: "/images/colecciones/card_morocco.png",
+    heroImage: "https://cdn.luxuryvoyageco.com/lvc-images/images/colecciones/card_morocco.png",
     heroDesc: "Ríads de ensueño en Marrakech y noches estrelladas en campamentos bereberes del Sahara.",
     badges: ["Ríads Privados", "Campamentos en el Sahara", "Zocos de Marrakech"],
     essenceHeading: "El aroma a especias, los colores de los mosaicos y el silencio del gran desierto.",
@@ -609,7 +609,7 @@ export const coleccionesData: Coleccion[] = [
         number: "01",
         title: "Marrakech",
         description: "Visita privada exclusiva fuera de horario al Jardín Majorelle y al Museo Yves Saint Laurent antes del amanecer.",
-        image: "/images/colecciones/card_morocco.png"
+        image: "https://cdn.luxuryvoyageco.com/lvc-images/images/colecciones/card_morocco.png"
       },
       {
         number: "02",
@@ -800,7 +800,7 @@ export const coleccionesData: Coleccion[] = [
     title: "Oasis del Golfo",
     subtitle: "EMIRATOS ÁRABES",
     continent: "medio-oriente",
-    heroImage: "/images/colecciones/card_dubai.png",
+    heroImage: "https://cdn.luxuryvoyageco.com/lvc-images/images/colecciones/card_dubai.png",
     heroDesc: "Arquitectura vanguardista en Dubái, cultura en Abu Dabi y retiros de dunas de ultra-lujo.",
     badges: ["Rascacielos Futuristas", "Desierto de Liwa", "Lujo Contemporáneo"],
     essenceHeading: "La visión futurista de una metrópolis que emerge con esplendor entre dunas doradas.",
@@ -817,7 +817,7 @@ export const coleccionesData: Coleccion[] = [
         number: "02",
         title: "Desierto de Liwa",
         description: "Estancia en un oasis de ultra-lujo en medio de las dunas, con paseos privados en camello al atardecer.",
-        image: "/images/colecciones/card_dubai.png"
+        image: "https://cdn.luxuryvoyageco.com/lvc-images/images/colecciones/card_dubai.png"
       },
       {
         number: "03",
