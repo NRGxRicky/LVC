@@ -1,0 +1,400 @@
+---
+/**
+ * [slug].astro — Detalle de Colección Dinámico
+ * Luxury Voyage Collection
+ */
+
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import { coleccionesData } from "../../data/coleccionesData";
+
+// Generar rutas estáticas para los 24 destinos en tiempo de compilación
+export async function getStaticPaths() {
+  return coleccionesData.map((item) => ({
+    params: { slug: item.slug },
+    props: { item }
+  }));
+}
+
+const { item } = Astro.props;
+
+// Función helper para obtener iconos dinámicos para los badges del Hero
+function getBadgeIcon(badgeName: string): string {
+  const name = badgeName.toLowerCase();
+  if (name.includes("grupo") || name.includes("personas")) return "groups";
+  if (name.includes("fecha") || name.includes("calendario") || name.includes("salida")) return "calendar_month";
+  if (name.includes("cultura") || name.includes("historia") || name.includes("arte") || name.includes("patrimonio") || name.includes("unesco")) return "explore";
+  if (name.includes("bienestar") || name.includes("wellness") || name.includes("salud") || name.includes("sanación") || name.includes("spa")) return "spa";
+  if (name.includes("gastronom") || name.includes("comida") || name.includes("cena") || name.includes("sabor")) return "restaurant";
+  if (name.includes("naturaleza") || name.includes("selva") || name.includes("playa") || name.includes("safari") || name.includes("fauna")) return "forest";
+  if (name.includes("villa") || name.includes("hotel") || name.includes("estancia") || name.includes("resort") || name.includes("alojamiento")) return "hotel";
+  if (name.includes("privado") || name.includes("exclusivo") || name.includes("yate") || name.includes("catamarán") || name.includes("vuelo")) return "star";
+  return "explore";
+}
+---
+
+<Layout
+  title={`${item.title} — Luxury Voyage Collection`}
+  description={item.heroDesc}
+>
+  <Navbar theme="dark" />
+
+  <main class="w-full overflow-hidden">
+    
+    <!-- SECCIÓN 1: CABECERA (HERO SECTION) -->
+    <section class="relative w-full h-screen min-h-[650px] flex flex-col justify-end overflow-hidden bg-[#1C1713]">
+      <!-- Background Image with Zoom & Dark Overlay -->
+      <div class="absolute inset-0 z-0">
+        <img 
+          src={item.heroImage} 
+          alt={item.title} 
+          class="w-full h-full object-cover opacity-45 scale-105 animate-subtle-zoom select-none"
+          draggable="false"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713] via-[#1C1713]/40 to-transparent z-10"></div>
+      </div>
+
+      <!-- Main Header Content (Alineado a la izquierda bottom-left para coincidir con la imagen ilustrativa) -->
+      <div class="relative z-20 w-full max-w-[1920px] mx-auto px-6 md:px-12 lg:px-20 pb-24 md:pb-28 flex flex-col items-start text-left">
+        <span class="block font-label text-[10px] md:text-xs font-bold text-[#D4AD65] uppercase tracking-[0.25em] mb-4 reveal-up">
+          COLECCIÓN / {item.subtitle}
+        </span>
+        <h1 class="font-heading text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] text-white leading-[1.1] mb-6 select-none reveal-up reveal-delay-100 max-w-4xl">
+          {item.title}
+        </h1>
+        <p class="font-sans text-sm md:text-base lg:text-lg text-white/85 max-w-2xl leading-relaxed mb-10 reveal-up reveal-delay-200">
+          {item.heroDesc}
+        </p>
+
+        <!-- Badges Fila con Iconos -->
+        <div class="flex flex-wrap items-center gap-6 md:gap-10 text-white/95 text-[10px] md:text-xs font-label uppercase tracking-[0.2em] reveal-up reveal-delay-300">
+          {item.badges.map((badge) => (
+            <span class="flex items-center gap-2.5 whitespace-nowrap">
+              <span class="material-symbols-outlined text-[#D4AD65] text-lg">{getBadgeIcon(badge)}</span>
+              {badge}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Indicador Scroll Abajo -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 reveal-up reveal-delay-400">
+        <a 
+          href="#esencia" 
+          class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#1C1713] hover:border-white transition-all duration-300 group"
+          aria-label="Desplazarse hacia abajo"
+        >
+          <span class="material-symbols-outlined text-sm group-hover:translate-y-0.5 transition-transform duration-300">arrow_downward</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: LA ESENCIA DEL VIAJE -->
+    <section id="esencia" class="w-full bg-[#EDE7D7] py-24 md:py-32 px-6 md:px-12 lg:px-20 border-t border-[#1C1713]/10">
+      <div class="max-w-[1920px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+        <!-- Columna Izquierda: Copia Editorial -->
+        <div class="lg:col-span-5 flex flex-col justify-center reveal-up">
+          <span class="block font-label text-[10px] font-bold text-[#775A19] uppercase tracking-[0.25em] mb-4">LA ESENCIA DEL VIAJE</span>
+          <h2 class="font-heading text-3xl md:text-4xl lg:text-[2.75rem] text-[#1C1713] leading-[1.2] mb-8">
+            {item.essenceHeading}
+          </h2>
+          <div class="w-12 h-[1px] bg-[#775A19] mb-8"></div>
+          <div class="font-sans text-sm md:text-base text-[#645D5A] leading-relaxed space-y-4">
+            <p>{item.essenceDesc}</p>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Imagen Imponente Vertical -->
+        <div class="lg:col-span-7 relative flex items-center justify-center reveal-up reveal-delay-200">
+          <div class="relative w-full aspect-[4/5] sm:aspect-[3/4] overflow-hidden rounded-lg shadow-2xl group">
+            <img 
+              src={item.essenceImage} 
+              alt="Esencia del viaje" 
+              class="w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-105"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: MOMENTOS DEL VIAJE (REJILLA ASIMÉTRICA) -->
+    <section class="w-full bg-[#F0EEE9] py-24 md:py-32 px-6 md:px-12 lg:px-20 border-t border-[#1C1713]/10 overflow-hidden">
+      <div class="max-w-[1920px] mx-auto">
+        <!-- Rejilla Asimétrica Premium -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
+          
+          <!-- Columna Izquierda (Header + Tarjeta 1 - Hakone / Principal) -->
+          <div class="lg:col-span-5 flex flex-col h-full justify-between reveal-up">
+            
+            <!-- Encabezado de Sección (Mapeado dentro de la columna izquierda para balancear altura) -->
+            <div class="max-w-2xl mb-10 lg:mb-0">
+              <span class="block font-label text-[10px] font-bold text-[#775A19] uppercase tracking-[0.25em] mb-4">MOMENTOS DEL VIAJE</span>
+              <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl text-[#1C1713] mb-6 leading-tight">
+                Experiencias que<br />dejan <span class="italic font-serif text-[#775A19]">huella</span>.
+              </h2>
+              <div class="w-12 h-[1px] bg-[#775A19] mb-6"></div>
+              <p class="font-sans text-sm text-[#645D5A] leading-relaxed">
+                Cada momento ha sido cuidadosamente seleccionado para conectar con la esencia de {item.subtitle.charAt(0) + item.subtitle.slice(1).toLowerCase()} de una manera profunda y auténtica.
+              </p>
+            </div>
+
+            <!-- Tarjeta 1 (Hakone / Principal) -->
+            <div class="group relative overflow-hidden rounded-lg shadow-md aspect-[16/10] sm:aspect-[16/9] lg:aspect-auto lg:h-0 lg:flex-grow cursor-pointer w-full mt-8 lg:mt-12 flex flex-col justify-end">
+              <div class="absolute inset-0 z-0">
+                <img 
+                  src={item.moments[0].image} 
+                  alt={item.moments[0].title} 
+                  class="w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent transition-colors duration-500"></div>
+              </div>
+              <div class="relative z-10 p-8 md:p-10 flex flex-col justify-end">
+                <span class="block font-label text-[10px] font-bold text-[#D4AD65] uppercase tracking-[0.2em] mb-3">
+                  {item.moments[0].number} / EXPERIENCIA CLAVE
+                </span>
+                <div class="w-6 h-[1px] bg-[#D4AD65]/50 mb-4"></div>
+                <h3 class="font-heading text-2xl text-white mb-3 group-hover:text-[#D4AD65] transition-colors duration-300">
+                  {item.moments[0].title}
+                </h3>
+                <p class="font-sans text-xs md:text-sm text-white/80 leading-relaxed max-w-sm">
+                  {item.moments[0].description}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna Derecha (Koyasan, Kyoto y Callout) -->
+          <div class="lg:col-span-7 flex flex-col gap-10 lg:gap-12">
+            
+            <!-- Tarjeta 2 (Inmersión Local) -->
+            <div class="reveal-up">
+              <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 md:gap-8 items-center group">
+                <!-- Imagen -->
+                <div class="sm:col-span-6 relative aspect-[4/3] sm:aspect-square md:aspect-[4/3] overflow-hidden rounded-lg shadow-md cursor-pointer">
+                  <img 
+                    src={item.moments[1].image} 
+                    alt={item.moments[1].title} 
+                    class="w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                </div>
+                <!-- Texto -->
+                <div class="sm:col-span-6 flex flex-col justify-center">
+                  <span class="block font-label text-[10px] font-bold text-[#775A19] uppercase tracking-[0.2em] mb-2">
+                    {item.moments[1].number} / INMERSIÓN LOCAL
+                  </span>
+                  <h3 class="font-heading text-lg md:text-xl text-[#1C1713] mb-3 group-hover:text-[#775A19] transition-colors duration-300">
+                    {item.moments[1].title}
+                  </h3>
+                  <p class="font-sans text-xs md:text-sm text-[#645D5A] leading-relaxed">
+                    {item.moments[1].description}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tarjeta 3 (Perspectiva) -->
+            <div class="reveal-up">
+              <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 md:gap-8 items-center group">
+                <!-- Texto (izquierda on desktop) -->
+                <div class="sm:col-span-6 flex flex-col justify-center order-2 sm:order-1">
+                  <span class="block font-label text-[10px] font-bold text-[#775A19] uppercase tracking-[0.2em] mb-2">
+                    {item.moments[2].number} / PERSPECTIVA
+                  </span>
+                  <h3 class="font-heading text-lg md:text-xl text-[#1C1713] mb-3 group-hover:text-[#775A19] transition-colors duration-300">
+                    {item.moments[2].title}
+                  </h3>
+                  <p class="font-sans text-xs md:text-sm text-[#645D5A] leading-relaxed">
+                    {item.moments[2].description}
+                  </p>
+                </div>
+                <!-- Imagen (derecha on desktop) -->
+                <div class="sm:col-span-6 relative aspect-[4/3] sm:aspect-square md:aspect-[4/3] overflow-hidden rounded-lg shadow-md cursor-pointer order-1 sm:order-2">
+                  <img 
+                    src={item.moments[2].image} 
+                    alt={item.moments[2].title} 
+                    class="w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fila 3: Imagen Detalle & Quote Box -->
+            <div class="reveal-up">
+              <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 md:gap-8 items-stretch group">
+                <!-- Imagen Detalle (izquierda) -->
+                <div class="hidden sm:block sm:col-span-6 relative aspect-[4/3] overflow-hidden rounded-lg shadow-md cursor-pointer">
+                  <img 
+                    src={item.organizedImage} 
+                    alt="Detalle de la colección" 
+                    class="w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                </div>
+                <!-- Quote Box (derecha) -->
+                <div class="col-span-1 sm:col-span-6">
+                  <div class="bg-[#EDE7D7] border border-[#775A19]/15 p-8 rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.02)] h-full flex flex-col justify-center items-center text-center select-none hover:border-[#775A19]/35 hover:bg-[#eae2d0] transition-all duration-500">
+                    <span class="material-symbols-outlined text-[#775A19] text-2xl mb-4 transition-transform duration-500 hover:scale-110">spa</span>
+                    <p class="font-serif italic text-xs md:text-sm text-[#775A19] leading-relaxed">
+                      "{item.momentsCallout}"
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: EXPERIENCIA ORGANIZADA -->
+    <section class="w-full bg-[#EDE7D7] py-24 md:py-32 px-6 md:px-12 lg:px-20 border-t border-[#1C1713]/10">
+      <div class="max-w-[1920px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+        <!-- Columna Izquierda: Imagen Bodegón / Detalle -->
+        <div class="lg:col-span-5 relative flex items-center justify-center reveal-up">
+          <div class="relative w-full aspect-[4/5] sm:aspect-[3/4] overflow-hidden rounded-lg shadow-2xl group">
+            <img 
+              src={item.organizedImage} 
+              alt="Hospitalidad y detalle" 
+              class="w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-105"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Título y 4 Pilares -->
+        <div class="lg:col-span-7 flex flex-col justify-center reveal-up reveal-delay-200">
+          <span class="block font-label text-[10px] font-bold text-[#775A19] uppercase tracking-[0.25em] mb-4">EXPERIENCIA ORGANIZADA</span>
+          <h2 class="font-heading text-3xl md:text-4xl text-[#1C1713] leading-tight mb-8">
+            Pensada para que<br />
+            <span class="text-[#775A19] italic font-serif">solo disfrutes</span> el viaje.
+          </h2>
+          <div class="w-12 h-[1px] bg-[#775A19] mb-10"></div>
+          
+          <!-- Lista de 4 Pilares en Rejilla -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
+            
+            <!-- Pilar 1 -->
+            <div class="flex gap-4 group">
+              <div class="text-[#775A19] transition-transform duration-500 ease-out group-hover:-translate-y-0.5">
+                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+              </div>
+              <div class="flex flex-col">
+                <h3 class="font-heading text-[#1C1713] text-sm font-semibold mb-2">{item.organizedPillars[0].title}</h3>
+                <p class="font-sans text-xs text-[#645D5A] leading-relaxed">{item.organizedPillars[0].description}</p>
+              </div>
+            </div>
+
+            <!-- Pilar 2 -->
+            <div class="flex gap-4 group">
+              <div class="text-[#775A19] transition-transform duration-500 ease-out group-hover:-translate-y-0.5">
+                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <div class="flex flex-col">
+                <h3 class="font-heading text-[#1C1713] text-sm font-semibold mb-2">{item.organizedPillars[1].title}</h3>
+                <p class="font-sans text-xs text-[#645D5A] leading-relaxed">{item.organizedPillars[1].description}</p>
+              </div>
+            </div>
+
+            <!-- Pilar 3 -->
+            <div class="flex gap-4 group">
+              <div class="text-[#775A19] transition-transform duration-500 ease-out group-hover:-translate-y-0.5">
+                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </div>
+              <div class="flex flex-col">
+                <h3 class="font-heading text-[#1C1713] text-sm font-semibold mb-2">{item.organizedPillars[2].title}</h3>
+                <p class="font-sans text-xs text-[#645D5A] leading-relaxed">{item.organizedPillars[2].description}</p>
+              </div>
+            </div>
+
+            <!-- Pilar 4 -->
+            <div class="flex gap-4 group">
+              <div class="text-[#775A19] transition-transform duration-500 ease-out group-hover:-translate-y-0.5">
+                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+              <div class="flex flex-col">
+                <h3 class="font-heading text-[#1C1713] text-sm font-semibold mb-2">{item.organizedPillars[3].title}</h3>
+                <p class="font-sans text-xs text-[#645D5A] leading-relaxed">{item.organizedPillars[3].description}</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Nota Aclaratoria Inferior -->
+          <div class="mt-12 text-[10px] text-[#645D5A]/70 font-sans leading-relaxed max-w-xl">
+            Gastos previstos, permisos especiales y coordinación logística premium a algunas actividades seleccionadas están totalmente incluidos para que experimentes nuestro acompañamiento en destino.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 5: BANNER DE ACCIÓN (VOLVER A COLECCIONES O CONTACTO) -->
+    <section class="w-full bg-[#1C1713] py-20 px-6 text-center border-t border-white/10 relative overflow-hidden">
+      <div class="relative z-10 max-w-2xl mx-auto flex flex-col items-center gap-8 reveal-up">
+        <h2 class="font-heading text-3xl md:text-5xl text-white">¿Deseas personalizar esta colección?</h2>
+        <p class="font-sans text-sm text-white/70 max-w-md leading-relaxed">
+          Nuestros asesores pueden adaptar cada momento, hotel y ritmo de este viaje a tus preferencias personales.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 w-full justify-center mt-4">
+          <a 
+            href="/contacto" 
+            class="group/cta relative overflow-hidden inline-flex items-center justify-center gap-4 font-label text-xs uppercase tracking-widest font-bold text-white bg-[#775A19] px-10 py-5 transition-all duration-500 rounded-[2px]"
+          >
+            <span class="absolute inset-0 bg-[#D4AD65] transform translate-y-[100%] group-hover/cta:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]"></span>
+            <span class="relative z-10 flex items-center gap-3 transition-colors duration-500">
+              Diseña tu viaje
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </span>
+          </a>
+
+          <a 
+            href="/colecciones" 
+            class="inline-flex items-center justify-center gap-3 font-label text-xs uppercase tracking-widest font-bold text-white/80 border border-white/20 hover:border-white hover:text-white px-10 py-5 transition-all duration-300 rounded-[2px]"
+          >
+            Volver a Colecciones
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Animación sutil de zoom en el hero image */
+  @keyframes subtleZoom {
+    0% {
+      transform: scale(1.03);
+    }
+    100% {
+      transform: scale(1.00);
+    }
+  }
+  .animate-subtle-zoom {
+    animation: subtleZoom 8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  }
+</style>

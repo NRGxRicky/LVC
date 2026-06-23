@@ -7,53 +7,625 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import Button from "../components/ui/Button.astro";
+
+// Data for Explore by Continent section
+const asiaCollections = [
+  {
+    title: "Japón Esencial",
+    subtitle: "JAPÓN",
+    description: "Tradición y modernidad en perfecta armonía, donde cada detalle revela la esencia de Japón.",
+    image: "/images/colecciones/card_japan.png",
+    link: "/colecciones/japon-esencial"
+  },
+  {
+    title: "Tailandia Vital",
+    subtitle: "TAILANDIA",
+    description: "Naturaleza, cultura y bienestar en un viaje diseñado para reconectar contigo.",
+    image: "/images/colecciones/card_thailand.png",
+    link: "/colecciones/tailandia-vital"
+  },
+  {
+    title: "Bali & Bienestar",
+    subtitle: "INDONESIA",
+    description: "Retiros cuidadosamente seleccionados para renovar cuerpo, mente y espíritu en escenarios únicos.",
+    image: "/images/colecciones/card_bali.png",
+    link: "/colecciones/bali-bienestar"
+  },
+  {
+    title: "Corea del Sur Dinámica",
+    subtitle: "COREA DEL SUR",
+    description: "La fascinante fusión entre palacios tradicionales de madera y la vanguardia urbana de Seúl.",
+    image: "/images/colecciones/card_korea.png",
+    link: "/colecciones/corea-dinamica"
+  },
+  {
+    title: "Maldivas Privada",
+    subtitle: "MALDIVAS",
+    description: "Un refugio íntimo de villas flotantes y aguas turquesas para una total reconexión mental.",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600&auto=format&fit=crop",
+    link: "/colecciones/maldivas-privada"
+  },
+  {
+    title: "Singapur Moderno",
+    subtitle: "SINGAPUR",
+    description: "Sofisticación urbana y arquitectura futurista entrelazada con espectaculares jardines verticales.",
+    image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=600&auto=format&fit=crop",
+    link: "/colecciones/singapur-moderno"
+  }
+];
+
+const europaCollections = [
+  {
+    title: "Italia Clásica",
+    subtitle: "ITALIA",
+    description: "Un recorrido exclusivo por la cuna del arte, la historia y los paisajes inolvidables de la Toscana.",
+    image: "https://garage-web.luxuryvoyageco.com/images/hero_carousel/europa.webp",
+    link: "/colecciones/italia-clasica"
+  },
+  {
+    title: "Grecia Mística",
+    subtitle: "GRECIA",
+    description: "Navegación privada por el Egeo y atardeceres dorados en las islas más exclusivas.",
+    image: "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=600&auto=format&fit=crop",
+    link: "/colecciones/grecia-mistica"
+  },
+  {
+    title: "París & Arte",
+    subtitle: "FRANCIA",
+    description: "Una inmersión en la alta costura, gastronomía estrella Michelin y el romanticismo del Sena.",
+    image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=600&auto=format&fit=crop",
+    link: "/colecciones/paris-arte"
+  },
+  {
+    title: "Suiza Alpina",
+    subtitle: "SUIZA",
+    description: "Lujo a gran altura entre picos nevados, lagos de espejo y chalets de montaña privados de cinco estrellas.",
+    image: "https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?q=80&w=600&auto=format&fit=crop",
+    link: "/colecciones/suiza-alpina"
+  },
+  {
+    title: "Fjords de Noruega",
+    subtitle: "NORUEGA",
+    description: "Cruceros privados y cabañas de diseño frente a los fiordos más espectaculares y silenciosos del planeta.",
+    image: "https://images.unsplash.com/photo-1603084612671-be628f06dc06?q=80&w=600&auto=format&fit=crop",
+    link: "/colecciones/noruega-fiordos"
+  },
+  {
+    title: "Escocia de Leyenda",
+    subtitle: "ESCOCIA",
+    description: "Castillos medievales cargados de historia y catas de whisky de malta exclusivo en las Tierras Altas.",
+    image: "https://images.unsplash.com/photo-1628946578676-e1ee0a952c35?q=80&w=600&auto=format&fit=crop",
+    link: "/colecciones/escocia-leyenda"
+  }
+];
+
+const africaCollections = [
+  {
+    title: "Safari de Lujo",
+    subtitle: "KENIA & TANZANIA",
+    description: "Encuentros íntimos con la fauna salvaje en campamentos móviles de lujo en el Serengueti.",
+    image: "https://garage-web.luxuryvoyageco.com/images/hero_carousel/africa.webp",
+    link: "/colecciones/safari-lujo"
+  },
+  {
+    title: "Sudáfrica Exclusiva",
+    subtitle: "SUDÁFRICA",
+    description: "La ruta de los viñedos en Stellenbosch, el Cabo de Buena Esperanza y avistamiento de ballenas.",
+    image: "/images/colecciones/card_south_africa.png",
+    link: "/colecciones/sudafrica-exclusiva"
+  },
+  {
+    title: "Marruecos Imperial",
+    subtitle: "MARRUECOS",
+    description: "Ríads de ensueño en Marrakech y noches estrelladas en campamentos bereberes del Sahara.",
+    image: "/images/colecciones/card_morocco.png",
+    link: "/colecciones/marruecos-imperial"
+  },
+  {
+    title: "Egipto Eterno",
+    subtitle: "EGIPTO",
+    description: "Cruceros privados de lujo por el Nilo y visitas exclusivas fuera de horario a las pirámides de Giza.",
+    image: "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?q=80&w=600&auto=format&fit=crop",
+    link: "/colecciones/egipto-eterno"
+  },
+  {
+    title: "Botsuana Salvaje",
+    subtitle: "BOTSUANA",
+    description: "Exploración en mokoro por el Delta del Okavango, el santuario de vida silvestre más exclusivo.",
+    image: "https://images.unsplash.com/photo-1577971132997-c10be9372519?q=80&w=600&auto=format&fit=crop",
+    link: "/colecciones/botsuana-salvaje"
+  },
+  {
+    title: "Gorilas en Ruanda",
+    subtitle: "RUANDA",
+    description: "Senderismo en la selva nubosa para un encuentro íntimo de una hora con los últimos gorilas de montaña.",
+    image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=600&auto=format&fit=crop",
+    link: "/colecciones/ruanda-gorilas"
+  }
+];
+
+const medioOrienteCollections = [
+  {
+    title: "Petra Secreta",
+    subtitle: "JORDANIA",
+    description: "Exploración de la mística ciudad rosa tallada en roca y noche en el desierto de Wadi Rum.",
+    image: "https://garage-web.luxuryvoyageco.com/images/hero_carousel/medio_oriente.webp",
+    link: "/colecciones/petra-secreta"
+  },
+  {
+    title: "Oasis del Golfo",
+    subtitle: "EMIRATOS ÁRABES",
+    description: "Arquitectura vanguardista en Dubái, cultura en Abu Dabi y retiros de dunas de ultra-lujo.",
+    image: "/images/colecciones/card_dubai.png",
+    link: "/colecciones/oasis-golfo"
+  },
+  {
+    title: "Omán Tradicional",
+    subtitle: "OMÁN",
+    description: "Cañones espectaculares, fuertes antiguos y la hospitalidad más pura de la Península Arábiga.",
+    image: "https://images.unsplash.com/photo-1578894381163-e72c17f2d45f?q=80&w=600&auto=format&fit=crop",
+    link: "/colecciones/oman-tradicional"
+  },
+  {
+    title: "Doha & Sofisticación",
+    subtitle: "CATAR",
+    description: "Diseño contemporáneo en museos flotantes de primer nivel, zocos tradicionales y resorts a orillas del Golfo.",
+    image: "https://images.unsplash.com/photo-1669815007479-494b3b51c2c3?q=80&w=600&auto=format&fit=crop",
+    link: "/colecciones/doha-sofisticacion"
+  },
+  {
+    title: "AlUla Arqueológica",
+    subtitle: "ARABIA SAUDITA",
+    description: "Exploración en helicóptero sobre las antiguas tumbas de Hegra y estancia en el vanguardista hotel de espejos Maraya.",
+    image: "https://images.unsplash.com/photo-1663900108404-a05e8bf82cda?q=80&w=600&auto=format&fit=crop",
+    link: "/colecciones/alula-arqueologica"
+  },
+  {
+    title: "Joyas de Abu Dabi",
+    subtitle: "EMIRATOS ÁRABES UNIDOS",
+    description: "Visita al majestuoso museo Louvre Abu Dabi y la icónica Mezquita Sheikh Zayed en un itinerario artístico privado.",
+    image: "https://images.unsplash.com/photo-1545459720-aac8509eb02c?q=80&w=600&auto=format&fit=crop",
+    link: "/colecciones/joyas-abu-dabi"
+  }
+];
 ---
 
 <Layout
   title="Colecciones — Luxury Voyage Collection"
-  description="Itinerarios cuidadosamente diseñados para vivir experiencias extraordinarias en los destinos más exclusivos del mundo."
+  description="Viajes cuidadosamente diseñados para descubrir el mundo en su máxima expresión de lujo."
 >
-  <Navbar theme="dark" />
+  <Navbar theme="light" />
 
-  <main class="w-full bg-[#EDE7D7]">
+  <main class="w-full bg-[#EDE7D7] overflow-hidden">
     
-    <!-- HERO -->
-    <section class="relative w-full h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden">
-      <div class="absolute inset-0 z-0 bg-[#1C1713]">
-        <img 
-          src="https://garage-web.luxuryvoyageco.com/images/home_hero_architecture.png" 
-          alt="Colecciones de viaje" 
-          class="w-full h-full object-cover opacity-50"
-        />
-        <div class="absolute inset-0 bg-gradient-to-b from-[#1C1713]/40 via-transparent via-50% to-[#EDE7D7]"></div>
-      </div>
-      
-      <div class="relative z-10 text-center px-6 max-w-3xl">
-        <span class="font-label text-[10px] md:text-xs font-bold text-[#D4AD65] uppercase tracking-[0.3em] block mb-6 reveal-up">Itinerarios curados</span>
-        <h1 class="font-heading text-5xl md:text-7xl text-white mb-6 reveal-up reveal-delay-100">
-          Nuestras <span class="italic text-[#D4AD65]">Colecciones</span>
-        </h1>
-        <p class="font-sans text-sm md:text-base text-white/70 max-w-xl mx-auto leading-relaxed reveal-up reveal-delay-200">
-          Viajes cuidadosamente diseñados para quienes buscan lo extraordinario sin comprometer ningún detalle.
-        </p>
+    <!-- SECCIÓN 1: INTRODUCCIÓN EDITORIAL -->
+    <section class="relative w-full pt-32 pb-16 md:pt-44 md:pb-24 px-6 md:px-12 lg:px-20 max-w-[1920px] mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <!-- Columna Izquierda: Texto -->
+        <div class="lg:col-span-5 flex flex-col justify-center reveal-up">
+          <h1 class="font-heading text-4xl md:text-5xl lg:text-[3.5rem] text-[#1C1713] leading-[1.15] mb-8 select-none">
+            Colecciones<br />
+            diseñadas para<br />
+            <span class="text-[#775A19] italic font-serif">descubrir</span> el mundo.
+          </h1>
+          <div class="w-12 h-[1px] bg-[#775A19] mb-8"></div>
+          <p class="font-sans text-sm md:text-base text-[#645D5A] leading-relaxed max-w-md">
+            Seleccionamos experiencias excepcionales en destinos extraordinarios para inspirar tu próxima historia.
+          </p>
+        </div>
+
+        <!-- Columna Derecha: Composición asimétrica de imágenes con efecto Parallax -->
+        <div class="lg:col-span-7 relative flex items-center justify-center min-h-[380px] sm:min-h-[500px] md:min-h-[580px] reveal-up reveal-delay-200">
+          <!-- Imagen Principal Arqueada (Taj Mahal Gateway) -->
+          <div 
+            id="parallax-gateway" 
+            class="absolute w-[60%] h-[90%] left-0 top-0 overflow-hidden rounded-lg shadow-2xl z-10"
+            style="will-change: transform; transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);"
+          >
+            <img 
+              src="/images/colecciones/intro_arched_gateway.png" 
+              alt="Puerta de arco histórico al Taj Mahal" 
+              class="w-full h-full object-cover select-none"
+              draggable="false"
+            />
+          </div>
+          <!-- Imagen Secundaria Desplazada (Misty Hills) -->
+          <div 
+            id="parallax-hills" 
+            class="absolute w-[52%] h-[62%] right-0 bottom-2 overflow-hidden rounded-lg shadow-xl z-20"
+            style="will-change: transform; transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);"
+          >
+            <img 
+              src="/images/colecciones/intro_misty_hills.png" 
+              alt="Colinas con niebla al amanecer" 
+              class="w-full h-full object-cover select-none"
+              draggable="false"
+            />
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- COMING SOON -->
-    <section class="w-full max-w-[1920px] mx-auto px-6 md:px-12 py-12 md:py-16 text-center">
-      <div class="max-w-xl mx-auto">
-        <div class="w-12 h-[2px] bg-[#D4AD65] mx-auto mb-8"></div>
-        <h2 class="font-heading text-3xl md:text-4xl text-[#1C1713] mb-6">Próximamente</h2>
-        <p class="font-sans text-sm text-[#1C1713]/70 leading-relaxed mb-10">
-          Estamos preparando una selección de itinerarios exclusivos para cada universo. Mientras tanto, te invitamos a contactarnos para diseñar una experiencia completamente personalizada.
-        </p>
+    <!-- SECCIÓN 2: EXPLORA POR CONTINENTE -->
+    <section class="w-full bg-[#F0EEE9] py-20 md:py-28 px-6 md:px-12 lg:px-20 border-t border-[#1C1713]/10">
+      <div class="max-w-[1920px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        <!-- Columna Izquierda: Introducción del Continente -->
+        <div class="lg:col-span-4 flex flex-col justify-center reveal-up">
+          <span class="block font-label text-[10px] font-bold text-[#775A19] uppercase tracking-[0.25em] mb-4">EL MUNDO, EN SU ESENCIA</span>
+          <h2 class="font-heading text-3xl md:text-4xl lg:text-[2.75rem] text-[#1C1713] leading-tight mb-6">
+            Explora por<br />
+            <span class="text-[#775A19] italic font-serif">continente.</span>
+          </h2>
+          <div class="w-12 h-[1px] bg-[#775A19] mb-8"></div>
+          <p class="font-sans text-sm md:text-base text-[#645D5A] leading-relaxed max-w-sm">
+            Cada continente revela un mundo de posibilidades. ¿Cuál será el próximo que vivas?
+          </p>
+        </div>
+
+        <!-- Columna Derecha: Pestañas e Itinerarios -->
+        <div class="lg:col-span-8 flex flex-col reveal-up reveal-delay-200">
+          <!-- Menú de Pestañas -->
+          <div class="flex border-b border-[#1C1713]/15 mb-10 overflow-x-auto scrollbar-none gap-8 md:gap-12 pb-4">
+            <button 
+              class="continent-tab-btn active text-xs font-label uppercase tracking-widest font-bold pb-2 border-b-2 border-[#775A19] text-[#775A19] transition-all duration-300 whitespace-nowrap cursor-pointer" 
+              data-continent="asia"
+            >
+              Asia
+            </button>
+            <button 
+              class="continent-tab-btn text-xs font-label uppercase tracking-widest font-bold pb-2 border-b-2 border-transparent text-[#645D5A] hover:text-[#1C1713] transition-all duration-300 whitespace-nowrap cursor-pointer" 
+              data-continent="europa"
+            >
+              Europa
+            </button>
+            <button 
+              class="continent-tab-btn text-xs font-label uppercase tracking-widest font-bold pb-2 border-b-2 border-transparent text-[#645D5A] hover:text-[#1C1713] transition-all duration-300 whitespace-nowrap cursor-pointer" 
+              data-continent="africa"
+            >
+              África
+            </button>
+            <button 
+              class="continent-tab-btn text-xs font-label uppercase tracking-widest font-bold pb-2 border-b-2 border-transparent text-[#645D5A] hover:text-[#1C1713] transition-all duration-300 whitespace-nowrap cursor-pointer" 
+              data-continent="medio-oriente"
+            >
+              Medio Oriente
+            </button>
+          </div>
+
+          <!-- Contador de Colecciones -->
+          <div class="mb-8">
+            <p id="continent-counter" class="font-sans text-xs uppercase tracking-wider text-[#645D5A] font-bold">Colecciones en Asia (6)</p>
+          </div>
+
+          <!-- Contenedores de Tarjetas por Continente -->
+          <div class="relative w-full">
+            
+            <!-- ASIA GRID -->
+            <div id="continent-grid-asia" class="continent-grid grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-500 transform-gpu">
+              {asiaCollections.map((card, index) => (
+                <div 
+                  class={`group flex flex-col bg-white/40 backdrop-blur-md rounded-lg overflow-hidden border border-[#1C1713]/5 hover:border-[#775A19]/25 hover:bg-white/70 transition-all duration-500 shadow-[0_4px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] relative h-full reveal-up ${index >= 3 ? 'extra-card hidden' : ''}`}
+                  style={index < 3 ? `transition-delay: ${index * 100}ms;` : ''}
+                >
+                  <div class="relative w-full aspect-[4/3] overflow-hidden">
+                    <img 
+                      src={card.image} 
+                      alt={card.title} 
+                      class="w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                  </div>
+                  <div class="p-6 flex flex-col flex-grow justify-between">
+                    <div>
+                      <span class="block font-label text-[9px] font-bold text-[#775A19] uppercase tracking-[0.2em] mb-2">{card.subtitle}</span>
+                      <h3 class="font-heading text-lg md:text-xl text-[#1C1713] mb-3 group-hover:text-[#775A19] transition-colors duration-300">{card.title}</h3>
+                      <p class="font-sans text-xs text-[#645D5A] leading-relaxed mb-6">{card.description}</p>
+                    </div>
+                    <a href={card.link} class="inline-flex items-center gap-2 font-label text-[10px] uppercase tracking-widest text-[#775A19] font-bold group-hover:gap-4 transition-all duration-300 pb-1 w-max border-b border-transparent hover:border-[#775A19]/35">
+                      Ver colección 
+                      <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <!-- EUROPA GRID -->
+            <div id="continent-grid-europa" class="continent-grid grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-500 transform-gpu opacity-0 translate-y-4" style="display: none;">
+              {europaCollections.map((card, index) => (
+                <div 
+                  class={`group flex flex-col bg-white/40 backdrop-blur-md rounded-lg overflow-hidden border border-[#1C1713]/5 hover:border-[#775A19]/25 hover:bg-white/70 transition-all duration-500 shadow-[0_4px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] relative h-full reveal-up ${index >= 3 ? 'extra-card hidden' : ''}`}
+                  style={index < 3 ? `transition-delay: ${index * 100}ms;` : ''}
+                >
+                  <div class="relative w-full aspect-[4/3] overflow-hidden">
+                    <img 
+                      src={card.image} 
+                      alt={card.title} 
+                      class="w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                  </div>
+                  <div class="p-6 flex flex-col flex-grow justify-between">
+                    <div>
+                      <span class="block font-label text-[9px] font-bold text-[#775A19] uppercase tracking-[0.2em] mb-2">{card.subtitle}</span>
+                      <h3 class="font-heading text-lg md:text-xl text-[#1C1713] mb-3 group-hover:text-[#775A19] transition-colors duration-300">{card.title}</h3>
+                      <p class="font-sans text-xs text-[#645D5A] leading-relaxed mb-6">{card.description}</p>
+                    </div>
+                    <a href={card.link} class="inline-flex items-center gap-2 font-label text-[10px] uppercase tracking-widest text-[#775A19] font-bold group-hover:gap-4 transition-all duration-300 pb-1 w-max border-b border-transparent hover:border-[#775A19]/35">
+                      Ver colección 
+                      <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <!-- ÁFRICA GRID -->
+            <div id="continent-grid-africa" class="continent-grid grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-500 transform-gpu opacity-0 translate-y-4" style="display: none;">
+              {africaCollections.map((card, index) => (
+                <div 
+                  class={`group flex flex-col bg-white/40 backdrop-blur-md rounded-lg overflow-hidden border border-[#1C1713]/5 hover:border-[#775A19]/25 hover:bg-white/70 transition-all duration-500 shadow-[0_4px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] relative h-full reveal-up ${index >= 3 ? 'extra-card hidden' : ''}`}
+                  style={index < 3 ? `transition-delay: ${index * 100}ms;` : ''}
+                >
+                  <div class="relative w-full aspect-[4/3] overflow-hidden">
+                    <img 
+                      src={card.image} 
+                      alt={card.title} 
+                      class="w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                  </div>
+                  <div class="p-6 flex flex-col flex-grow justify-between">
+                    <div>
+                      <span class="block font-label text-[9px] font-bold text-[#775A19] uppercase tracking-[0.2em] mb-2">{card.subtitle}</span>
+                      <h3 class="font-heading text-lg md:text-xl text-[#1C1713] mb-3 group-hover:text-[#775A19] transition-colors duration-300">{card.title}</h3>
+                      <p class="font-sans text-xs text-[#645D5A] leading-relaxed mb-6">{card.description}</p>
+                    </div>
+                    <a href={card.link} class="inline-flex items-center gap-2 font-label text-[10px] uppercase tracking-widest text-[#775A19] font-bold group-hover:gap-4 transition-all duration-300 pb-1 w-max border-b border-transparent hover:border-[#775A19]/35">
+                      Ver colección 
+                      <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <!-- MEDIO ORIENTE GRID -->
+            <div id="continent-grid-medio-oriente" class="continent-grid grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-500 transform-gpu opacity-0 translate-y-4" style="display: none;">
+              {medioOrienteCollections.map((card, index) => (
+                <div 
+                  class={`group flex flex-col bg-white/40 backdrop-blur-md rounded-lg overflow-hidden border border-[#1C1713]/5 hover:border-[#775A19]/25 hover:bg-white/70 transition-all duration-500 shadow-[0_4px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] relative h-full reveal-up ${index >= 3 ? 'extra-card hidden' : ''}`}
+                  style={index < 3 ? `transition-delay: ${index * 100}ms;` : ''}
+                >
+                  <div class="relative w-full aspect-[4/3] overflow-hidden">
+                    <img 
+                      src={card.image} 
+                      alt={card.title} 
+                      class="w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                  </div>
+                  <div class="p-6 flex flex-col flex-grow justify-between">
+                    <div>
+                      <span class="block font-label text-[9px] font-bold text-[#775A19] uppercase tracking-[0.2em] mb-2">{card.subtitle}</span>
+                      <h3 class="font-heading text-lg md:text-xl text-[#1C1713] mb-3 group-hover:text-[#775A19] transition-colors duration-300">{card.title}</h3>
+                      <p class="font-sans text-xs text-[#645D5A] leading-relaxed mb-6">{card.description}</p>
+                    </div>
+                    <a href={card.link} class="inline-flex items-center gap-2 font-label text-[10px] uppercase tracking-widest text-[#775A19] font-bold group-hover:gap-4 transition-all duration-300 pb-1 w-max border-b border-transparent hover:border-[#775A19]/35">
+                      Ver colección 
+                      <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </div>
+
+          <!-- Enlace inferior dinámico -->
+          <div class="mt-14 text-center">
+            <a 
+              id="view-all-continent-link" 
+              href="/universos/asia" 
+              class="inline-flex items-center gap-3 font-label text-[11px] uppercase tracking-[0.25em] text-[#1C1713] hover:text-[#775A19] font-bold border-b border-[#1C1713] hover:border-[#775A19] pb-2 transition-all duration-500 group"
+            >
+              VER TODAS LAS COLECCIONES EN ASIA
+              <span class="material-symbols-outlined text-xs group-hover:translate-x-1 transition-transform duration-300">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: LO QUE DISTINGUE A UNA COLECCIÓN LVC -->
+    <section class="w-full bg-[#EDE7D7] py-20 md:py-28 px-6 md:px-12 lg:px-20 border-t border-[#1C1713]/10">
+      <div class="max-w-[1920px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+        <!-- Columna Izquierda: Título -->
+        <div class="lg:col-span-4 flex flex-col justify-center reveal-up">
+          <h2 class="font-heading text-3xl md:text-4xl text-[#1C1713] leading-tight mb-6">
+            Lo que <span class="text-[#775A19] italic font-serif">distingue</span><br />
+            a una colección LVC.
+          </h2>
+          <div class="w-12 h-[1px] bg-[#775A19] mb-8"></div>
+        </div>
+
+        <!-- Columna Derecha: Cuadrícula de 5 columnas con características -->
+        <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 items-start">
+          
+          <!-- Característica 1 -->
+          <div class="flex flex-col reveal-up group">
+            <div class="text-[#775A19] transition-transform duration-500 ease-out group-hover:-translate-y-1">
+              <!-- Calendario SVG -->
+              <svg class="w-8 h-8 mb-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </div>
+            <h3 class="font-heading text-[#1C1713] text-sm font-semibold mb-3 leading-snug">Fechas cuidadosamente seleccionadas.</h3>
+            <p class="font-sans text-[#645D5A] text-xs leading-relaxed">Itinerarios diseñados en el mejor momento para vivir cada destino.</p>
+          </div>
+
+          <!-- Característica 2 -->
+          <div class="flex flex-col reveal-up reveal-delay-100 group">
+            <div class="text-[#775A19] transition-transform duration-500 ease-out group-hover:-translate-y-1">
+              <!-- Cama SVG -->
+              <svg class="w-8 h-8 mb-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 7v11M3 10h18M3 15h18M21 10v5M6 10v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1"></path>
+              </svg>
+            </div>
+            <h3 class="font-heading text-[#1C1713] text-sm font-semibold mb-3 leading-snug">Estancias elegidas con criterio.</h3>
+            <p class="font-sans text-[#645D5A] text-xs leading-relaxed">Hoteles seleccionados por su ubicación, servicio y experiencia.</p>
+          </div>
+
+          <!-- Característica 3 -->
+          <div class="flex flex-col reveal-up reveal-delay-200 group">
+            <div class="text-[#775A19] transition-transform duration-500 ease-out group-hover:-translate-y-1">
+              <!-- Grupos SVG -->
+              <svg class="w-8 h-8 mb-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3 class="font-heading text-[#1C1713] text-sm font-semibold mb-3 leading-snug">Grupos reducidos.</h3>
+            <p class="font-sans text-[#645D5A] text-xs leading-relaxed">Viajes más íntimos para una experiencia más auténtica.</p>
+          </div>
+
+          <!-- Característica 4 -->
+          <div class="flex flex-col reveal-up reveal-delay-300 group">
+            <div class="text-[#775A19] transition-transform duration-500 ease-out group-hover:-translate-y-1">
+              <!-- Mapa SVG -->
+              <svg class="w-8 h-8 mb-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+                <line x1="9" y1="3" x2="9" y2="18"></line>
+                <line x1="15" y1="6" x2="15" y2="21"></line>
+              </svg>
+            </div>
+            <h3 class="font-heading text-[#1C1713] text-sm font-semibold mb-3 leading-snug">Ritmos pensados para disfrutar.</h3>
+            <p class="font-sans text-[#645D5A] text-xs leading-relaxed">Equilibrio entre exploración y tiempo libre para ti.</p>
+          </div>
+
+          <!-- Característica 5 -->
+          <div class="flex flex-col reveal-up reveal-delay-400 group">
+            <div class="text-[#775A19] transition-transform duration-500 ease-out group-hover:-translate-y-1">
+              <!-- Soporte/Headset SVG -->
+              <svg class="w-8 h-8 mb-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+              </svg>
+            </div>
+            <h3 class="font-heading text-[#1C1713] text-sm font-semibold mb-3 leading-snug">Acompañamiento durante el viaje.</h3>
+            <p class="font-sans text-[#645D5A] text-xs leading-relaxed">Apoyo continuo antes, durante y después de tu experiencia.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: COLECCIÓN DESTACADA (Carrusel Interactivo) -->
+    <section class="w-full bg-[#F0EEE9] py-20 md:py-28 px-6 md:px-12 lg:px-20 border-t border-[#1C1713]/10 overflow-hidden">
+      <div class="max-w-[1920px] mx-auto">
+        <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 items-center">
+          
+          <!-- Imagen de la Colección (Lado Izquierdo) -->
+          <div class="lg:col-span-7 relative h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden rounded-lg shadow-2xl z-0">
+            <img 
+              id="featured-carousel-image" 
+              src="/images/colecciones/featured_japan.png" 
+              alt="Japón Esencial" 
+              class="w-full h-full object-cover transition-all duration-[800ms] ease-out scale-100"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent"></div>
+          </div>
+          
+          <!-- Tarjeta de Detalles Flotante (Lado Derecho) -->
+          <div class="lg:col-span-5 lg:-ml-16 z-10 relative">
+            <div class="bg-[#EDE7D7] border border-[#775A19]/15 p-8 sm:p-12 md:p-16 rounded-lg shadow-xl relative max-w-xl mx-auto lg:mx-0">
+              <span id="featured-carousel-tag" class="block font-label text-[10px] font-bold text-[#775A19] uppercase tracking-[0.3em] mb-4">COLECCIÓN DESTACADA</span>
+              
+              <div class="min-h-[140px] flex flex-col justify-start">
+                <h3 
+                  id="featured-carousel-title" 
+                  class="font-heading text-3xl md:text-4xl text-[#1C1713] mb-6 leading-tight transition-all duration-300"
+                >
+                  Japón Esencial
+                </h3>
+                <p 
+                  id="featured-carousel-description" 
+                  class="font-sans text-sm text-[#645D5A] leading-relaxed mb-8 transition-all duration-300"
+                >
+                  Tradición y modernidad en perfecta armonía, donde cada detalle revela la esencia de Japón.
+                </p>
+              </div>
+              
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-4 border-t border-[#1C1713]/10">
+                <a 
+                  id="featured-carousel-link" 
+                  href="/universos/asia" 
+                  class="inline-flex items-center gap-3 font-label text-xs uppercase tracking-widest text-[#775A19] font-bold border-b border-[#D4AD65]/50 hover:border-[#D4AD65] pb-2 transition-all duration-300 group/link"
+                >
+                  VER COLECCIÓN 
+                  <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1.5 transition-transform duration-300">arrow_forward</span>
+                </a>
+                
+                <!-- Botones de Navegación del Carrusel -->
+                <div class="flex items-center gap-4">
+                  <button 
+                    id="featured-prev-btn" 
+                    class="w-10 h-10 rounded-full border border-[#775A19]/30 flex items-center justify-center text-[#775A19] hover:bg-[#775A19] hover:text-white hover:border-[#775A19] transition-all duration-300 cursor-pointer"
+                    aria-label="Colección destacada anterior"
+                  >
+                    <span class="material-symbols-outlined text-sm">arrow_back</span>
+                  </button>
+                  <button 
+                    id="featured-next-btn" 
+                    class="w-10 h-10 rounded-full border border-[#775A19]/30 flex items-center justify-center text-[#775A19] hover:bg-[#775A19] hover:text-white hover:border-[#775A19] transition-all duration-300 cursor-pointer"
+                    aria-label="Colección destacada siguiente"
+                  >
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 5: CTA CON FOTO DE CONTROL DE HISTORIA -->
+    <section class="relative w-full h-[65vh] min-h-[420px] flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 z-0 bg-[#1C1713]">
+        <img 
+          src="/images/colecciones/cta_traveler_sunset.png" 
+          alt="Tu próxima historia te espera" 
+          class="w-full h-full object-cover opacity-60"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1C1713] via-transparent to-[#1C1713]/35"></div>
+      </div>
+      
+      <div class="relative z-10 text-center px-6 max-w-3xl reveal-up">
+        <h2 class="font-heading text-4xl md:text-6xl text-white leading-tight mb-8">
+          Tu próxima historia<br />
+          <span class="text-[#D4AD65] italic font-serif">te espera.</span>
+        </h2>
+        
         <a 
           href="/contacto" 
-          class="group/cta relative overflow-hidden inline-flex items-center gap-4 font-label text-[10px] md:text-xs uppercase tracking-widest font-bold text-[#FAF9F6] bg-[#1C1713] px-8 py-4 transition-all duration-500"
+          class="group/cta relative overflow-hidden inline-flex items-center gap-4 font-label text-[10px] md:text-xs uppercase tracking-widest font-bold text-[#FAF9F6] bg-[#775A19] px-10 py-5 transition-all duration-500 rounded-[2px]"
         >
           <span class="absolute inset-0 bg-[#D4AD65] transform translate-y-[100%] group-hover/cta:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]"></span>
           <span class="relative z-10 flex items-center gap-4 transition-colors duration-500">
-            Diseña tu experiencia
+            Hablemos de tu viaje
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover/cta:translate-x-1 transition-transform duration-500"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </span>
         </a>
@@ -64,3 +636,229 @@ import Footer from "../components/Footer.astro";
 
   <Footer />
 </Layout>
+
+<script>
+  // ── SCRIPT DE PESTAÑAS E INTERACTIVIDAD DE CONTINENTES ──
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.continent-tab-btn');
+    const grids = document.querySelectorAll('.continent-grid');
+    const counter = document.getElementById('continent-counter');
+    const viewAllLink = document.getElementById('view-all-continent-link');
+    
+    const continentNames: Record<string, string> = {
+      asia: 'Asia',
+      europa: 'Europa',
+      africa: 'África',
+      'medio-oriente': 'Medio Oriente'
+    };
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetContinent = tab.getAttribute('data-continent');
+        if (!targetContinent) return;
+
+        // 1. Actualizar estado visual de los botones de pestañas
+        tabs.forEach(t => {
+          t.classList.remove('active', 'border-[#775A19]', 'text-[#775A19]');
+          t.classList.add('border-transparent', 'text-[#645D5A]');
+        });
+        tab.classList.add('active', 'border-[#775A19]', 'text-[#775A19]');
+        tab.classList.remove('border-transparent', 'text-[#645D5A]');
+
+        // 2. Actualizar el contador de colecciones
+        if (counter) {
+          counter.textContent = `Colecciones en ${continentNames[targetContinent]} (6)`;
+        }
+
+        // 3. Actualizar enlace inferior y restablecer su visibilidad
+        if (viewAllLink) {
+          viewAllLink.setAttribute('href', `/universos/${targetContinent}`);
+          viewAllLink.innerHTML = `
+            VER TODAS LAS COLECCIONES EN ${continentNames[targetContinent].toUpperCase()}
+            <span class="material-symbols-outlined text-xs group-hover:translate-x-1 transition-transform duration-300">arrow_forward</span>
+          `;
+          viewAllLink.style.display = 'inline-flex';
+          void viewAllLink.offsetWidth;
+          viewAllLink.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        // 4. Cambiar de cuadrícula con efecto de transición (fade & slide)
+        grids.forEach(grid => {
+          const htmlGrid = grid as HTMLElement;
+          if (grid.id === `continent-grid-${targetContinent}`) {
+            htmlGrid.style.display = 'grid';
+
+            // Ocultar tarjetas extra en la cuadrícula que se activa
+            const extraCards = htmlGrid.querySelectorAll('.extra-card');
+            extraCards.forEach(card => {
+              card.classList.add('hidden');
+              card.classList.remove('is-revealed');
+              (card as HTMLElement).style.transitionDelay = '';
+            });
+
+            // Forzar reflow del navegador para aplicar animación
+            void htmlGrid.offsetWidth;
+            htmlGrid.classList.remove('opacity-0', 'translate-y-4');
+            htmlGrid.classList.add('opacity-100', 'translate-y-0');
+            
+            // Re-ejecutar animaciones reveal en las tarjetas no-extra de la pestaña activa
+            const reveals = htmlGrid.querySelectorAll('.reveal-up:not(.extra-card)');
+            reveals.forEach((el, index) => {
+              setTimeout(() => {
+                el.classList.add('is-revealed');
+              }, index * 100);
+            });
+          } else {
+            // Ocultar inmediatamente para evitar que se apilen y causen saltos de layout (layout shift)
+            htmlGrid.style.display = 'none';
+            htmlGrid.classList.add('opacity-0', 'translate-y-4');
+            htmlGrid.classList.remove('opacity-100', 'translate-y-0');
+          }
+        });
+      });
+    });
+
+    // ── EVENTO CLIC EN EL BOTÓN "VER TODAS LAS COLECCIONES..." ──
+    if (viewAllLink) {
+      viewAllLink.addEventListener('click', (e) => {
+        // En lugar de redirigir, mostramos las colecciones ocultas
+        e.preventDefault();
+
+        // Encontrar la pestaña activa para saber qué continente está visible
+        const activeTab = document.querySelector('.continent-tab-btn.active');
+        if (!activeTab) return;
+        const targetContinent = activeTab.getAttribute('data-continent');
+        if (!targetContinent) return;
+
+        const activeGrid = document.getElementById(`continent-grid-${targetContinent}`);
+        if (!activeGrid) return;
+
+        const extraCards = activeGrid.querySelectorAll('.extra-card');
+        
+        extraCards.forEach((card, index) => {
+          // Remover class hidden para que aparezcan en el layout del grid
+          card.classList.remove('hidden');
+          // Quitar is-revealed temporalmente por si acaso
+          card.classList.remove('is-revealed');
+          // Aplicar retraso de transición escalonado
+          (card as HTMLElement).style.transitionDelay = `${index * 150}ms`;
+        });
+
+        // Forzar reflow para aplicar la transición de opacidad y posición
+        void activeGrid.offsetWidth;
+
+        extraCards.forEach((card) => {
+          // Activar animación
+          card.classList.add('is-revealed');
+        });
+
+        // Ocultar suavemente el botón
+        viewAllLink.classList.add('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          viewAllLink.style.display = 'none';
+        }, 500); // Duración de la transición opacity
+      });
+    }
+
+    // ── EFECTO PARALLAX EN LA INTRODUCCIÓN EDITORIAL ──
+    const gateway = document.getElementById('parallax-gateway');
+    const hills = document.getElementById('parallax-hills');
+    
+    if (gateway && hills) {
+      window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        // Ajustamos la velocidad para cada imagen (uno sube despacio, otro baja)
+        gateway.style.transform = `translateY(${scrolled * 0.05}px)`;
+        hills.style.transform = `translateY(${scrolled * -0.06}px)`;
+      }, { passive: true });
+    }
+
+    // ── CARRUSEL INTERACTIVO DE COLECCIÓN DESTACADA ──
+    const featuredSlides = [
+      {
+        title: "Japón Esencial",
+        description: "Tradición y modernidad en perfecta armonía, donde cada detalle revela la esencia de Japón.",
+        image: "/images/colecciones/featured_japan.png",
+        link: "/universos/asia"
+      },
+      {
+        title: "Italia Clásica",
+        description: "Descubre el romanticismo de Venecia, el renacimiento florentino y el encanto mediterráneo de la costa de Amalfi en un itinerario privado de ensueño.",
+        image: "https://garage-web.luxuryvoyageco.com/images/hero_carousel/europa.webp",
+        link: "/universos/europa"
+      },
+      {
+        title: "Safari de Lujo",
+        description: "Vive la magia del Serengueti con la máxima exclusividad: guías de primer nivel, campamentos cinco estrellas en carpas tradicionales y atardeceres mágicos.",
+        image: "https://garage-web.luxuryvoyageco.com/images/hero_carousel/africa.webp",
+        link: "/universos/africa"
+      },
+      {
+        title: "Petra Secreta",
+        description: "Cruza el desfiladero del Siq en coche privado y asómate al Tesoro de Petra iluminado por velas, finalizando en un campamento de domos en Wadi Rum.",
+        image: "https://garage-web.luxuryvoyageco.com/images/hero_carousel/medio_oriente.webp",
+        link: "/universos/medio-oriente"
+      }
+    ];
+
+    let currentFeaturedIndex = 0;
+    const featImage = document.getElementById('featured-carousel-image') as HTMLImageElement;
+    const featTitle = document.getElementById('featured-carousel-title');
+    const featDesc = document.getElementById('featured-carousel-description');
+    const featLink = document.getElementById('featured-carousel-link');
+    const prevBtn = document.getElementById('featured-prev-btn');
+    const nextBtn = document.getElementById('featured-next-btn');
+
+    function updateFeaturedSlide(index: number) {
+      if (!featImage || !featTitle || !featDesc || !featLink) return;
+      const slide = featuredSlides[index];
+
+      // Animación de salida (fade out suave)
+      featTitle.classList.add('opacity-0', 'translate-y-2');
+      featDesc.classList.add('opacity-0', 'translate-y-2');
+      featImage.classList.add('opacity-80', 'scale-95');
+
+      setTimeout(() => {
+        // Actualizar datos
+        featTitle.textContent = slide.title;
+        featDesc.textContent = slide.description;
+        featImage.src = slide.image;
+        featImage.alt = slide.title;
+        featLink.setAttribute('href', slide.link);
+
+        // Animación de entrada (fade in suave)
+        featTitle.classList.remove('opacity-0', 'translate-y-2');
+        featDesc.classList.remove('opacity-0', 'translate-y-2');
+        featImage.classList.remove('opacity-80', 'scale-95');
+        featImage.classList.add('scale-100');
+      }, 300);
+    }
+
+    prevBtn?.addEventListener('click', () => {
+      currentFeaturedIndex = (currentFeaturedIndex - 1 + featuredSlides.length) % featuredSlides.length;
+      updateFeaturedSlide(currentFeaturedIndex);
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      currentFeaturedIndex = (currentFeaturedIndex + 1) % featuredSlides.length;
+      updateFeaturedSlide(currentFeaturedIndex);
+    });
+  });
+</script>
+
+<style>
+  /* Ocultar barra de scroll en navegadores */
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Clases de transición para el carrusel de colección destacada */
+  #featured-carousel-title,
+  #featured-carousel-description {
+    transition: opacity 0.35s cubic-bezier(0.25, 1, 0.5, 1), transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+</style>
