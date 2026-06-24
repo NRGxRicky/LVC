@@ -44,35 +44,6 @@ function toTitleCase(str: string): string {
   }).join(' ');
 }
 
-// Obtener una inversión estimada estable por continente
-function getCollectionPrice(title: string, continent: string): string {
-  let hash = 0;
-  for (let i = 0; i < title.length; i++) {
-    hash = title.charCodeAt(i) + ((hash << 5) - hash);
-  }
-  const factor = Math.abs(hash % 10); // 0-9
-  
-  let basePrice = 4500;
-  let increment = 150;
-  
-  const cont = continent.toLowerCase();
-  if (cont === "asia") {
-    basePrice = 4500;
-    increment = 150;
-  } else if (cont === "europa") {
-    basePrice = 5500;
-    increment = 200;
-  } else if (cont === "africa") {
-    basePrice = 7500;
-    increment = 300;
-  } else if (cont === "medio-oriente") {
-    basePrice = 6000;
-    increment = 250;
-  }
-  
-  const finalPrice = basePrice + (factor * increment);
-  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(finalPrice) + " USD";
-}
 ---
 
 <Layout
@@ -105,7 +76,7 @@ function getCollectionPrice(title: string, continent: string): string {
           <span class="h-3 w-[1px] bg-white/20 hidden sm:block"></span>
           <span class="flex items-center gap-1 font-label text-[10px] md:text-xs font-bold text-[#D4AD65] uppercase tracking-[0.25em]">
             <span class="material-symbols-outlined text-sm translate-y-[-0.5px]">attach_money</span>
-            desde {getCollectionPrice(item.title, item.continent)}
+            desde
           </span>
         </div>
         <h1 class="font-heading text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] text-white leading-[1.1] mb-6 select-none reveal-up reveal-delay-100 max-w-4xl">
