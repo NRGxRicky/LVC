@@ -119,7 +119,7 @@ export const coleccionesData: Coleccion[] = [
     badges: ["Sanación Holística", "Templos Sagrados", "Villas Privadas"],
     essenceHeading: "Habita el tiempo de una forma distinta en la mística Isla de los Dioses.",
     essenceDesc: "Descubre el Bali más místico e inexplorado. Camina entre terrazas de arroz esmeralda en Ubud, sumérgete en rituales de purificación en manantiales sagrados y descansa en espectaculares villas privadas suspendidas sobre acantilados frente al Océano Índico.",
-    essenceImage: "https://images.unsplash.com/photo-1518548419070-a8e5999713c2?q=80&w=800",
+    essenceImage: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=800",
     moments: [
       {
         number: "01",
@@ -165,7 +165,7 @@ export const coleccionesData: Coleccion[] = [
         number: "01",
         title: "Seúl Ancestral",
         description: "Visita guiada VIP exclusiva fuera de horario al Palacio Gyeongbokgung con un curador de arte histórico.",
-        image: "https://images.unsplash.com/photo-1538669715515-5e3e44840253?q=80&w=800"
+        image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=800"
       },
       {
         number: "02",
@@ -177,7 +177,7 @@ export const coleccionesData: Coleccion[] = [
         number: "03",
         title: "Busan",
         description: "Crucero privado en yate por la barra de Haeundae, contemplando el skyline iluminado de la ciudad futurista.",
-        image: "https://images.unsplash.com/photo-1617835158652-967990150d6b6?q=80&w=800"
+        image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=800"
       }
     ],
     momentsCallout: "DONDE LA SABIDURÍA ANCESTRAL CUSTODIA LA VANGUARDIA DEL FUTURO.",
@@ -217,11 +217,11 @@ export const coleccionesData: Coleccion[] = [
         number: "03",
         title: "Spa Flotante",
         description: "Sesión de masajes exclusiva en una cabina con suelo de cristal templado, observando la colorida vida marina.",
-        image: "https://images.unsplash.com/photo-1512482598219-847e71a0f56b?q=80&w=800"
+        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800"
       }
     ],
     momentsCallout: "EL LUJO DE NO PENSAR EN NADA, RODEADO POR LA INMENSIDAD DEL OCÉANO.",
-    organizedImage: "https://images.unsplash.com/photo-1484821547838-fc5274676af3?q=80&w=800",
+    organizedImage: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?q=80&w=800",
     organizedPillars: [
       { title: "VILLAS DE AGUA", description: "Resorts premium galardonados que ofrecen máxima privacidad y servicios de mayordomo privado." },
       { title: "CENAS BAJO EL AGUA", description: "Reservas de almuerzos y cenas privadas en espectaculares restaurantes submarinos de cristal." },
@@ -239,7 +239,7 @@ export const coleccionesData: Coleccion[] = [
     badges: ["Skyline Futurista", "Mixología Premium", "Jardines del Futuro"],
     essenceHeading: "La metrópolis más limpia, verde y avanzada de Asia te abre sus puertas de lujo.",
     essenceDesc: "Singapur representa la armonía perfecta entre el desarrollo urbano futurista y la naturaleza exuberante. Desde los superárboles iluminados de Gardens by the Bay hasta la histórica arquitectura colonial y la vibrante escena culinaria global de primer nivel.",
-    essenceImage: "https://images.unsplash.com/photo-1506970113724-bc41e00267b5?q=80&w=800",
+    essenceImage: "https://images.unsplash.com/photo-1565967511849-76a60a516170?q=80&w=800",
     moments: [
       {
         number: "01",
@@ -287,13 +287,13 @@ export const coleccionesData: Coleccion[] = [
         number: "01",
         title: "Florencia",
         description: "Acceso privado y exclusivo fuera de horario a la Galería Uffizi para contemplar el Nacimiento de Venus sin público.",
-        image: "https://images.unsplash.com/photo-1541154948462-b55c0b1903ba?q=80&w=800"
+        image: "https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?q=80&w=800"
       },
       {
         number: "02",
         title: "Toscana",
         description: "Cata de vinos Chianti Classico e instruccional de cocina privada en una finca señorial toscana del siglo XVII.",
-        image: "https://images.unsplash.com/photo-1528701801476-7ed982c5a299?q=80&w=800"
+        image: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=800"
       },
       {
         number: "03",
@@ -321,13 +321,13 @@ export const coleccionesData: Coleccion[] = [
     badges: ["Yate Privado", "Atardeceres Únicos", "Historia Clásica"],
     essenceHeading: "El origen de la civilización y el azul más profundo del Mar Mediterráneo.",
     essenceDesc: "Grecia Mística te invita a descubrir la grandeza de la antigua Atenas en visitas privadas guiadas por arqueólogos, y a navegar por las islas Cícladas en un yate privado de lujo, lejos de las rutas turísticas convencionales.",
-    essenceImage: "https://images.unsplash.com/photo-1469796466635-455ede028acf?q=80&w=800",
+    essenceImage: "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=800",
     moments: [
       {
         number: "01",
         title: "Acrópolis",
         description: "Visita exclusiva al amanecer a la Acrópolis de Atenas con un arqueólogo experto, antes de la apertura general.",
-        image: "https://images.unsplash.com/photo-1555992336-03a23c7b20eb?q=80&w=800"
+        image: "https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=800"
       },
       {
         number: "02",
@@ -339,7 +339,7 @@ export const coleccionesData: Coleccion[] = [
         number: "03",
         title: "Santorini",
         description: "Cena íntima con vistas a la caldera volcánica en una terraza privada en Oia, con maridaje de vinos locales.",
-        image: "https://images.unsplash.com/photo-1469796466635-455ede028acf?q=80&w=800"
+        image: "https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?q=80&w=800"
       }
     ],
     momentsCallout: "EL AZUL DEL EGEO NO TIENE COMPARACIÓN, ES UN ESTADO DE ÁNIMO Y DE PAZ.",
@@ -367,7 +367,7 @@ export const coleccionesData: Coleccion[] = [
         number: "01",
         title: "Versalles",
         description: "Paseo VIP privado por los aposentos secretos de María Antonieta y el Salón de los Espejos a puerta cerrada.",
-        image: "https://images.unsplash.com/photo-1508930415358-a883a8b4482b?q=80&w=800"
+        image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=800"
       },
       {
         number: "02",
@@ -575,7 +575,7 @@ export const coleccionesData: Coleccion[] = [
         number: "02",
         title: "Stellenbosch",
         description: "Cata exclusiva y almuerzo de maridaje de 5 tiempos en una bodega histórica privada fundada en el siglo XVIII.",
-        image: "https://images.unsplash.com/photo-1528259074747-49f33b34b206?q=80&w=800"
+        image: "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=800"
       },
       {
         number: "03",
@@ -625,7 +625,7 @@ export const coleccionesData: Coleccion[] = [
       }
     ],
     momentsCallout: "EL DESIERTO NO HABLA, PERO RESPONDE A LAS PREGUNTAS DE QUIEN SE ATREVE A ESCUCHAR.",
-    organizedImage: "https://images.unsplash.com/photo-1560624052-449f5ddf0c41?q=80&w=800",
+    organizedImage: "https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=800",
     organizedPillars: [
       { title: "RÍADS DE ENSUEÑO", description: "Estancia en antiguos palacios convertidos en hoteles boutique con patios internos y fuentes de agua." },
       { title: "GLAMPING EN EL SAHARA", description: "Tiendas de campaña con todas las comodidades de un hotel cinco estrellas en medio de las dunas." },
@@ -655,7 +655,7 @@ export const coleccionesData: Coleccion[] = [
         number: "02",
         title: "Valle de los Reyes",
         description: "Visita guiada VIP a la tumba de Tutankamón y Seti I, acompañados por un egiptólogo de renombre internacional.",
-        image: "https://images.unsplash.com/photo-1608958416743-ba6fd46bc8a9?q=80&w=800"
+        image: "https://images.unsplash.com/photo-1600577916048-804c9191e36c?q=80&w=800"
       },
       {
         number: "03",
@@ -665,7 +665,7 @@ export const coleccionesData: Coleccion[] = [
       }
     ],
     momentsCallout: "EL TIEMPO TEME A LAS PIRÁMIDES, PERO LAS PIRÁMIDES RESPETAN EL FLUIR DEL VIEJO NILO.",
-    organizedImage: "https://images.unsplash.com/photo-1572244409594-df7d514eff1d?q=80&w=800",
+    organizedImage: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=800",
     organizedPillars: [
       { title: "HOTELES HISTÓRICOS", description: "Noches de estancia en hoteles que hospedaron a arqueólogos y novelistas legendarios." },
       { title: "CRUCERO EXCLUSIVO", description: "Navegación lenta a vela sin el ruido de motores, con un servicio personalizado a bordo." },
@@ -885,7 +885,7 @@ export const coleccionesData: Coleccion[] = [
     badges: ["Arquitectura de Museos", "Zocos de Doha", "Mar Interior"],
     essenceHeading: "La sofisticada fusión entre el diseño arquitectónico de autor y la hospitalidad del golfo.",
     essenceDesc: "Doha & Sofisticación te invita a una experiencia de diseño y cultura contemporáneos. Desde los impresionantes museos de Jean Nouvel hasta el vibrante zoco tradicional Waqif, culminando con la espectacular vista de dunas que tocan el mar en el Inland Sea.",
-    essenceImage: "https://images.unsplash.com/photo-1572244409594-df7d514eff1d?q=80&w=800",
+    essenceImage: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800",
     moments: [
       {
         number: "01",
@@ -897,7 +897,7 @@ export const coleccionesData: Coleccion[] = [
         number: "02",
         title: "Khor Al Adaid",
         description: "Excursión en 4x4 de ultra-lujo por las dunas que limitan directamente con el mar en el impresionante Mar Interior.",
-        image: "https://images.unsplash.com/photo-1572244409594-df7d514eff1d?q=80&w=800"
+        image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=800"
       },
       {
         number: "03",
@@ -937,7 +937,7 @@ export const coleccionesData: Coleccion[] = [
         number: "02",
         title: "Maraya",
         description: "Asistencia privada y cena exclusiva en el restaurante gourmet de la terraza superior del asombroso edificio Maraya.",
-        image: "https://images.unsplash.com/photo-1572244409594-df7d514eff1d?q=80&w=800"
+        image: "https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=800"
       },
       {
         number: "03",
@@ -965,7 +965,7 @@ export const coleccionesData: Coleccion[] = [
     badges: ["Mezquita Sheikh Zayed", "Museo Louvre VIP", "Isla Saadiyat"],
     essenceHeading: "La máxima expresión del arte islámico clásico y el diseño global contemporáneo.",
     essenceDesc: "Joyas de Abu Dabi te sumerge en un mundo de arte y espiritualidad únicos. Contempla los mármoles y mosaicos de la mezquita más espectacular del mundo en una visita privada al atardecer, explora el Louvre flotante y descansa frente al golfo.",
-    essenceImage: "https://images.unsplash.com/photo-1572244409594-df7d514eff1d?q=80&w=800",
+    essenceImage: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=800",
     moments: [
       {
         number: "01",
@@ -977,7 +977,7 @@ export const coleccionesData: Coleccion[] = [
         number: "02",
         title: "Louvre flotante",
         description: "Acceso VIP prioritario y recorrido privado con guía de arte experto para apreciar la arquitectura del Louvre.",
-        image: "https://images.unsplash.com/photo-1572244409594-df7d514eff1d?q=80&w=800"
+        image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800"
       },
       {
         number: "03",

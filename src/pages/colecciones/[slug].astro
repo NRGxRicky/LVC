@@ -32,6 +32,47 @@ function getBadgeIcon(badgeName: string): string {
   if (name.includes("privado") || name.includes("exclusivo") || name.includes("yate") || name.includes("catamarán") || name.includes("vuelo")) return "star";
   return "explore";
 }
+
+// Convertir subtítulo (país) a formato Title Case correcto para "Escenario [País]"
+function toTitleCase(str: string): string {
+  const lowercaseWords = ["de", "del", "y", "en", "la", "las", "el", "los", "&"];
+  return str.toLowerCase().split(' ').map((word, index) => {
+    if (index > 0 && lowercaseWords.includes(word)) {
+      return word;
+    }
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  }).join(' ');
+}
+
+// Obtener una inversión estimada estable por continente
+function getCollectionPrice(title: string, continent: string): string {
+  let hash = 0;
+  for (let i = 0; i < title.length; i++) {
+    hash = title.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const factor = Math.abs(hash % 10); // 0-9
+  
+  let basePrice = 4500;
+  let increment = 150;
+  
+  const cont = continent.toLowerCase();
+  if (cont === "asia") {
+    basePrice = 4500;
+    increment = 150;
+  } else if (cont === "europa") {
+    basePrice = 5500;
+    increment = 200;
+  } else if (cont === "africa") {
+    basePrice = 7500;
+    increment = 300;
+  } else if (cont === "medio-oriente") {
+    basePrice = 6000;
+    increment = 250;
+  }
+  
+  const finalPrice = basePrice + (factor * increment);
+  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(finalPrice) + " USD";
+}
 ---
 
 <Layout
@@ -57,9 +98,16 @@ function getBadgeIcon(badgeName: string): string {
 
       <!-- Main Header Content (Alineado a la izquierda bottom-left para coincidir con la imagen ilustrativa) -->
       <div class="relative z-20 w-full max-w-[1920px] mx-auto px-6 md:px-12 lg:px-20 pb-24 md:pb-28 flex flex-col items-start text-left">
-        <span class="block font-label text-[10px] md:text-xs font-bold text-[#D4AD65] uppercase tracking-[0.25em] mb-4 reveal-up">
-          COLECCIÓN / {item.subtitle}
-        </span>
+        <div class="flex items-center gap-4 mb-4 reveal-up flex-wrap">
+          <span class="font-label text-[10px] md:text-xs font-bold text-[#D4AD65] uppercase tracking-[0.25em]">
+            COLECCIÓN / {item.subtitle}
+          </span>
+          <span class="h-3 w-[1px] bg-white/20 hidden sm:block"></span>
+          <span class="flex items-center gap-1 font-label text-[10px] md:text-xs font-bold text-[#D4AD65] uppercase tracking-[0.25em]">
+            <span class="material-symbols-outlined text-sm translate-y-[-0.5px]">attach_money</span>
+            desde {getCollectionPrice(item.title, item.continent)}
+          </span>
+        </div>
         <h1 class="font-heading text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] text-white leading-[1.1] mb-6 select-none reveal-up reveal-delay-100 max-w-4xl">
           {item.title}
         </h1>
@@ -124,7 +172,7 @@ function getBadgeIcon(badgeName: string): string {
     <section class="w-full bg-[#F0EEE9] py-24 md:py-32 px-6 md:px-12 lg:px-20 border-t border-[#1C1713]/10 overflow-hidden">
       <div class="max-w-[1920px] mx-auto">
         <!-- Rejilla Asimétrica Premium -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-stretch">
           
           <!-- Columna Izquierda (Header + Tarjeta 1 - Hakone / Principal) -->
           <div class="lg:col-span-5 flex flex-col h-full justify-between reveal-up">
@@ -168,11 +216,11 @@ function getBadgeIcon(badgeName: string): string {
           </div>
 
           <!-- Columna Derecha (Koyasan, Kyoto y Callout) -->
-          <div class="lg:col-span-7 flex flex-col gap-10 lg:gap-12">
+          <div class="lg:col-span-7 flex flex-col gap-14 lg:gap-20">
             
             <!-- Tarjeta 2 (Inmersión Local) -->
             <div class="reveal-up">
-              <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 md:gap-8 items-center group">
+              <div class="grid grid-cols-1 sm:grid-cols-12 gap-8 md:gap-12 items-center group">
                 <!-- Imagen -->
                 <div class="sm:col-span-6 relative aspect-[4/3] sm:aspect-square md:aspect-[4/3] overflow-hidden rounded-lg shadow-md cursor-pointer">
                   <img 
@@ -200,7 +248,7 @@ function getBadgeIcon(badgeName: string): string {
 
             <!-- Tarjeta 3 (Perspectiva) -->
             <div class="reveal-up">
-              <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 md:gap-8 items-center group">
+              <div class="grid grid-cols-1 sm:grid-cols-12 gap-8 md:gap-12 items-center group">
                 <!-- Texto (izquierda on desktop) -->
                 <div class="sm:col-span-6 flex flex-col justify-center order-2 sm:order-1">
                   <span class="block font-label text-[10px] font-bold text-[#775A19] uppercase tracking-[0.2em] mb-2">
@@ -228,7 +276,7 @@ function getBadgeIcon(badgeName: string): string {
 
             <!-- Fila 3: Imagen Detalle & Quote Box -->
             <div class="reveal-up">
-              <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 md:gap-8 items-stretch group">
+              <div class="grid grid-cols-1 sm:grid-cols-12 gap-8 md:gap-12 items-stretch group">
                 <!-- Imagen Detalle (izquierda) -->
                 <div class="hidden sm:block sm:col-span-6 relative aspect-[4/3] overflow-hidden rounded-lg shadow-md cursor-pointer">
                   <img 
@@ -376,9 +424,9 @@ function getBadgeIcon(badgeName: string): string {
               <p class="font-sans text-xs md:text-sm text-[#645D5A] leading-relaxed mb-6">
                 {item.heroDesc}
               </p>
-              <div class="flex items-center gap-2 text-xs font-label uppercase tracking-wider text-[#775A19] font-semibold">
+              <div class="flex items-center gap-2 text-xs font-label tracking-wider text-[#775A19] font-semibold">
                 <span class="material-symbols-outlined text-sm">explore</span>
-                <span>Universo {item.subtitle}</span>
+                <span class="normal-case">Escenario {toTitleCase(item.subtitle)}</span>
               </div>
             </div>
           </div>
