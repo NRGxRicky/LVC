@@ -165,7 +165,7 @@ export const coleccionesData: Coleccion[] = [
         number: "01",
         title: "Seúl Ancestral",
         description: "Visita guiada VIP exclusiva fuera de horario al Palacio Gyeongbokgung con un curador de arte histórico.",
-        image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=800"
+        image: "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?q=80&w=800"
       },
       {
         number: "02",
