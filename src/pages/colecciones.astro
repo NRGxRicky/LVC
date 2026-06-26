@@ -569,7 +569,7 @@ const medioOrienteCollections = [
               <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-4 border-t border-[#1C1713]/10">
                 <a 
                   id="featured-carousel-link" 
-                  href="/universos/asia" 
+                  href="/colecciones/japon-esencial" 
                   class="inline-flex items-center gap-3 font-label text-xs uppercase tracking-widest text-[#775A19] font-bold border-b border-[#D4AD65]/50 hover:border-[#D4AD65] pb-2 transition-all duration-300 group/link"
                 >
                   VER COLECCIÓN 
@@ -776,25 +776,25 @@ const medioOrienteCollections = [
         title: "Japón Esencial",
         description: "Tradición y modernidad en perfecta armonía, donde cada detalle revela la esencia de Japón.",
         image: "https://garage-web.luxuryvoyageco.com/images/colecciones/featured_japan.png",
-        link: "/universos/asia"
+        link: "/colecciones/japon-esencial"
       },
       {
         title: "Italia Clásica",
         description: "Descubre el romanticismo de Venecia, el renacimiento florentino y el encanto mediterráneo de la costa de Amalfi en un itinerario privado de ensueño.",
         image: "https://garage-web.luxuryvoyageco.com/images/hero_carousel/europa.webp",
-        link: "/universos/europa"
+        link: "/colecciones/italia-clasica"
       },
       {
         title: "Safari de Lujo",
         description: "Vive la magia del Serengueti con la máxima exclusividad: guías de primer nivel, campamentos cinco estrellas en carpas tradicionales y atardeceres mágicos.",
         image: "https://garage-web.luxuryvoyageco.com/images/hero_carousel/africa.webp",
-        link: "/universos/africa"
+        link: "/colecciones/safari-lujo"
       },
       {
         title: "Petra Secreta",
         description: "Cruza el desfiladero del Siq en coche privado y asómate al Tesoro de Petra iluminado por velas, finalizando en un campamento de domos en Wadi Rum.",
         image: "https://garage-web.luxuryvoyageco.com/images/hero_carousel/medio_oriente.webp",
-        link: "/universos/medio-oriente"
+        link: "/colecciones/petra-secreta"
       }
     ];
 
@@ -831,14 +831,31 @@ const medioOrienteCollections = [
       }, 300);
     }
 
+    // Temporizador de Auto-play (5 segundos)
+    let autoPlayInterval = setInterval(() => {
+      currentFeaturedIndex = (currentFeaturedIndex + 1) % featuredSlides.length;
+      updateFeaturedSlide(currentFeaturedIndex);
+    }, 5000);
+
+    // Reiniciar temporizador al hacer click manual
+    function resetAutoPlay() {
+      clearInterval(autoPlayInterval);
+      autoPlayInterval = setInterval(() => {
+        currentFeaturedIndex = (currentFeaturedIndex + 1) % featuredSlides.length;
+        updateFeaturedSlide(currentFeaturedIndex);
+      }, 5000);
+    }
+
     prevBtn?.addEventListener('click', () => {
       currentFeaturedIndex = (currentFeaturedIndex - 1 + featuredSlides.length) % featuredSlides.length;
       updateFeaturedSlide(currentFeaturedIndex);
+      resetAutoPlay();
     });
 
     nextBtn?.addEventListener('click', () => {
       currentFeaturedIndex = (currentFeaturedIndex + 1) % featuredSlides.length;
       updateFeaturedSlide(currentFeaturedIndex);
+      resetAutoPlay();
     });
   });
 </script>
