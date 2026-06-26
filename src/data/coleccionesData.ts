@@ -34,7 +34,7 @@ export const coleccionesData: Coleccion[] = [
     title: "Japón Esencial",
     subtitle: "JAPÓN",
     continent: "asia",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_japan.png",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_japan.webp",
     heroDesc: "Tradición y modernidad en perfecta armonía, donde cada detalle revela la esencia de Japón.",
     badges: ["Grupo Reducido", "Fechas Seleccionadas", "Experiencias Culturales"],
     essenceHeading: "Cada rincón ha sido elegido para conectar con la belleza de lo sutil y la hospitalidad más pura.",
@@ -57,7 +57,7 @@ export const coleccionesData: Coleccion[] = [
         number: "03",
         title: "Kyoto",
         description: "Exploración a pie por el histórico barrio de Gion y una cena privada con una inmersión en las artes tradicionales de la geisha.",
-        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/featured_japan.png"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/featured_japan.webp"
       }
     ],
     momentsCallout: "NO SON SOLO LUGARES, SON MOMENTOS QUE PERMANECEN CONTIGO PARA SIEMPRE.",
@@ -74,7 +74,7 @@ export const coleccionesData: Coleccion[] = [
     title: "Tailandia Vital",
     subtitle: "TAILANDIA",
     continent: "asia",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_thailand.png",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_thailand.webp",
     heroDesc: "Naturaleza, cultura y bienestar en un viaje diseñado para reconectar contigo mismo.",
     badges: ["Retiros de Bienestar", "Gastronomía Local", "Naturaleza Exclusiva"],
     essenceHeading: "Un recorrido pensado para sanar el alma y despertar los sentidos en el Reino de Siam.",
@@ -114,7 +114,7 @@ export const coleccionesData: Coleccion[] = [
     title: "Bali & Bienestar",
     subtitle: "INDONESIA",
     continent: "asia",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_bali.png",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_bali.webp",
     heroDesc: "Retiros cuidadosamente seleccionados para renovar cuerpo, mente y espíritu en escenarios únicos.",
     badges: ["Sanación Holística", "Templos Sagrados", "Villas Privadas"],
     essenceHeading: "Habita el tiempo de una forma distinta en la mística Isla de los Dioses.",
@@ -154,7 +154,7 @@ export const coleccionesData: Coleccion[] = [
     title: "Corea del Sur Dinámica",
     subtitle: "COREA DEL SUR",
     continent: "asia",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_korea.png",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_korea.webp",
     heroDesc: "La fascinante fusión entre palacios tradicionales de madera y la vanguardia urbana de Seúl.",
     badges: ["Cultura K-Luxury", "Patrimonio UNESCO", "Innovación y Diseño"],
     essenceHeading: "Un recorrido por el país que marca el ritmo estético y contemporáneo del mundo.",
@@ -276,12 +276,12 @@ export const coleccionesData: Coleccion[] = [
     title: "Tierras del Reino",
     subtitle: "INGLATERRA, ESCOCIA E IRLANDA",
     continent: "europa",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/escocia.png",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/escocia.webp",
     heroDesc: "Tres naciones unidas por historia, paisajes y tradiciones que siguen definiendo las islas británicas.",
     badges: ["Castillos Históricos", "Paisajes Legendarios", "Guía en Español"],
     essenceHeading: "Entre castillos, lagos y ciudades que marcaron una época",
     essenceDesc: "Conecta Inglaterra, Escocia e Irlanda a través de algunos de sus escenarios más representativos. Combina capitales históricas, regiones medievales, paisajes naturales y tradiciones profundamente arraigadas, incorporando accesos que difícilmente coinciden en una misma ruta. Una propuesta especialmente atractiva para quienes buscan comprender la identidad de las islas británicas desde distintas perspectivas.",
-    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/escocia/legendaria.jpg",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/escocia/legendaria.webp",
     moments: [
       {
         number: "01",
@@ -303,7 +303,7 @@ export const coleccionesData: Coleccion[] = [
       }
     ],
     momentsCallout: "HAY TERRITORIOS QUE SE ENTIENDEN MEJOR CUANDO SE RECORREN SIGUIENDO EL HILO DE SU HISTORIA.",
-    organizedImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/inmersiones/escocia_royal_scotsman.png",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/inmersiones/escocia_royal_scotsman.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "13 noches en hoteles previstos de categoría superior ubicados en ciudades clave del recorrido." },
       { title: "RITMO DEL RECORRIDO", description: "Una ruta continua que equilibra visitas culturales, trayectos panorámicos y tiempo libre en las principales ciudades." },
@@ -321,7 +321,7 @@ export const coleccionesData: Coleccion[] = [
     badges: ["Auroras Boreales", "Cultura Sami", "Capitales Nórdicas"],
     essenceHeading: "Escandinavia entre ciudades históricas y horizontes árticos",
     essenceDesc: "Conecta algunas de las ciudades más representativas del norte de Europa con una estancia en Tromsø, una de las puertas de entrada al Ártico. La combinación de cultura urbana, navegación entre países, paisajes polares y encuentros con la tradición sami aporta una profundidad poco habitual dentro de las rutas escandinavas convencionales.",
-    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/noruega/friodos.png",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/noruega/friodos.webp",
     moments: [
       {
         number: "01",
@@ -333,7 +333,7 @@ export const coleccionesData: Coleccion[] = [
         number: "02",
         title: "Tradición Sami",
         description: "El encuentro con la cultura indígena del norte de Escandinavia incorpora gastronomía local, relatos tradicionales y actividades vinculadas al pastoreo de renos.",
-        image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/noruega/artica.png"
+        image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/noruega/artica.webp"
       },
       {
         number: "03",
@@ -343,7 +343,7 @@ export const coleccionesData: Coleccion[] = [
       }
     ],
     momentsCallout: "ALGUNAS LUCES SOLO APARECEN CUANDO EL MUNDO PARECE DETENERSE.",
-    organizedImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/estancias/noruega_storfjord.png",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/estancias/noruega_storfjord.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias previstas en Copenhague, Oslo, Tromsø y Estocolmo, además de una noche de navegación entre Dinamarca y Noruega." },
       { title: "RITMO DEL RECORRIDO", description: "Un equilibrio entre visitas incluidas, desplazamientos eficientes y tiempo libre en las principales ciudades." },
@@ -436,7 +436,7 @@ export const coleccionesData: Coleccion[] = [
     title: "Fiordos y Capitales Nórdicas",
     subtitle: "SUECIA, NORUEGA Y DINAMARCA",
     continent: "europa",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/noruega/friodos.png",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/noruega/friodos.webp",
     heroDesc: "Entre ciudades nórdicas y paisajes esculpidos por el agua.",
     badges: ["Navegación en Fiordos", "Crucero Escandinavo", "Bergen y Estocolmo"],
     essenceHeading: "Donde los grandes fiordos encuentran la elegancia nórdica",
@@ -447,7 +447,7 @@ export const coleccionesData: Coleccion[] = [
         number: "01",
         title: "Geiranger desde el agua",
         description: "La navegación entre montañas, cascadas y paredes rocosas permite comprender por qué este fiordo ocupa un lugar central dentro de los paisajes más admirados de Noruega.",
-        image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/inmersiones/noruega_sauna.png"
+        image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/inmersiones/noruega_sauna.webp"
       },
       {
         number: "02",
@@ -463,7 +463,7 @@ export const coleccionesData: Coleccion[] = [
       }
     ],
     momentsCallout: "ALGUNOS PAISAJES NO BUSCAN IMPRESIONAR; SIMPLEMENTE PERMANECEN.",
-    organizedImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/culinarias/noruega_re_naa.png",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/culinarias/noruega_re_naa.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias previstas en ciudades clave de Suecia, Noruega y Dinamarca, incluyendo alojamiento junto a los fiordos." },
       { title: "RITMO DEL RECORRIDO", description: "Equilibrio entre desplazamientos panorámicos, visitas urbanas y tiempo suficiente para apreciar cada región." },
@@ -503,7 +503,7 @@ export const coleccionesData: Coleccion[] = [
       }
     ],
     momentsCallout: "ALGUNAS CIUDADES SE CONOCEN; OTRAS PERMANECEN MUCHO DESPUÉS DE HABER PARTIDO.",
-    organizedImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/estancias/francia_cheval_blanc.png",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/estancias/francia_cheval_blanc.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias previstas en Berlín, Ámsterdam, Brujas, Bruselas y París, en hoteles de categoría superior cuidadosamente elegidos." },
       { title: "RITMO DEL RECORRIDO", description: "Una ruta equilibrada que combina visitas guiadas, desplazamientos organizados y espacios libres para explorar cada ciudad." },
@@ -558,7 +558,7 @@ export const coleccionesData: Coleccion[] = [
     title: "Sudáfrica Exclusiva",
     subtitle: "SUDÁFRICA",
     continent: "africa",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_south_africa.png",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_south_africa.webp",
     heroDesc: "La ruta de los viñedos en Stellenbosch, el Cabo de Buena Esperanza y avistamiento de ballenas.",
     badges: ["Viñedos Premium", "Avistamiento de Ballenas", "Ciudad del Cabo VIP"],
     essenceHeading: "La vibrante fusión de una metrópolis costera rodeada por océanos y viñedos.",
@@ -569,7 +569,7 @@ export const coleccionesData: Coleccion[] = [
         number: "01",
         title: "Ciudad del Cabo",
         description: "Vuelo privado en helicóptero sobre la península del Cabo, rodeando la icónica silueta de Table Mountain.",
-        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_south_africa.png"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_south_africa.webp"
       },
       {
         number: "02",
@@ -598,7 +598,7 @@ export const coleccionesData: Coleccion[] = [
     title: "Marruecos Imperial",
     subtitle: "MARRUECOS",
     continent: "africa",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_morocco.png",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_morocco.webp",
     heroDesc: "Ríads de ensueño en Marrakech y noches estrelladas en campamentos bereberes del Sahara.",
     badges: ["Ríads Privados", "Campamentos en el Sahara", "Zocos de Marrakech"],
     essenceHeading: "El aroma a especias, los colores de los mosaicos y el silencio del gran desierto.",
@@ -609,7 +609,7 @@ export const coleccionesData: Coleccion[] = [
         number: "01",
         title: "Marrakech",
         description: "Visita privada exclusiva fuera de horario al Jardín Majorelle y al Museo Yves Saint Laurent antes del amanecer.",
-        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_morocco.png"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_morocco.webp"
       },
       {
         number: "02",
@@ -800,7 +800,7 @@ export const coleccionesData: Coleccion[] = [
     title: "Oasis del Golfo",
     subtitle: "EMIRATOS ÁRABES",
     continent: "medio-oriente",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_dubai.png",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_dubai.webp",
     heroDesc: "Arquitectura vanguardista en Dubái, cultura en Abu Dabi y retiros de dunas de ultra-lujo.",
     badges: ["Rascacielos Futuristas", "Desierto de Liwa", "Lujo Contemporáneo"],
     essenceHeading: "La visión futurista de una metrópolis que emerge con esplendor entre dunas doradas.",
@@ -817,7 +817,7 @@ export const coleccionesData: Coleccion[] = [
         number: "02",
         title: "Desierto de Liwa",
         description: "Estancia en un oasis de ultra-lujo en medio de las dunas, con paseos privados en camello al atardecer.",
-        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_dubai.png"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_dubai.webp"
       },
       {
         number: "03",
