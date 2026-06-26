@@ -272,243 +272,243 @@ export const coleccionesData: Coleccion[] = [
 
   // ── UNIVERSO EUROPA ──
   {
-    slug: "italia-clasica",
-    title: "Italia Clásica",
-    subtitle: "ITALIA",
+    slug: "tierras-del-reino",
+    title: "Tierras del Reino",
+    subtitle: "INGLATERRA, ESCOCIA E IRLANDA",
     continent: "europa",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/hero_carousel/europa.webp",
-    heroDesc: "Un recorrido exclusivo por la cuna del arte, la historia y los paisajes inolvidables de la Toscana.",
-    badges: ["Arte Renacentista", "Villas de la Toscana", "Costa de Amalfi"],
-    essenceHeading: "Revive la elegancia clásica del arte, la gastronomía y los atardeceres dorados italianos.",
-    essenceDesc: "Un viaje de inmersión total en el romance italiano. Desde los majestuosos museos florentinos con visitas privadas exclusivas hasta el descanso en una villa tradicional toscana rodeada de viñedos centenarios, culminando con la brisa salada de Positano.",
-    essenceImage: "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=800",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/escocia.png",
+    heroDesc: "Tres naciones unidas por historia, paisajes y tradiciones que siguen definiendo las islas británicas.",
+    badges: ["Castillos Históricos", "Paisajes Legendarios", "Guía en Español"],
+    essenceHeading: "Entre castillos, lagos y ciudades que marcaron una época",
+    essenceDesc: "Conecta Inglaterra, Escocia e Irlanda a través de algunos de sus escenarios más representativos. Combina capitales históricas, regiones medievales, paisajes naturales y tradiciones profundamente arraigadas, incorporando accesos que difícilmente coinciden en una misma ruta. Una propuesta especialmente atractiva para quienes buscan comprender la identidad de las islas británicas desde distintas perspectivas.",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/escocia/legendaria.jpg",
     moments: [
       {
         number: "01",
-        title: "Florencia",
-        description: "Acceso privado y exclusivo fuera de horario a la Galería Uffizi para contemplar el Nacimiento de Venus sin público.",
-        image: "https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?q=80&w=800"
+        title: "La Corona Británica",
+        description: "Desde los símbolos más reconocidos de Londres hasta una de las residencias oficiales de la familia real, esta etapa conecta historia, tradición y patrimonio.",
+        image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=800"
       },
       {
         number: "02",
-        title: "Toscana",
-        description: "Cata de vinos Chianti Classico e instruccional de cocina privada en una finca señorial toscana del siglo XVII.",
-        image: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=800"
+        title: "Tierras Altas",
+        description: "Una travesía por algunos de los paisajes más emblemáticos de Escocia, entre lagos, castillos, montañas y escenarios que han definido su identidad.",
+        image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/escocia/escencia.webp"
       },
       {
         number: "03",
-        title: "Positano",
-        description: "Navegación al atardecer a lo largo de la costa de Amalfi a bordo de un yate clásico de madera Riva.",
+        title: "Atlántico Irlandés",
+        description: "Dos de los enclaves naturales más impresionantes de Irlanda permiten apreciar la fuerza geológica y paisajística que caracteriza la isla.",
+        image: "https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?q=80&w=800"
+      }
+    ],
+    momentsCallout: "HAY TERRITORIOS QUE SE ENTIENDEN MEJOR CUANDO SE RECORREN SIGUIENDO EL HILO DE SU HISTORIA.",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/inmersiones/escocia_royal_scotsman.png",
+    organizedPillars: [
+      { title: "HOSPEDAJES SELECCIONADOS", description: "13 noches en hoteles previstos de categoría superior ubicados en ciudades clave del recorrido." },
+      { title: "RITMO DEL RECORRIDO", description: "Una ruta continua que equilibra visitas culturales, trayectos panorámicos y tiempo libre en las principales ciudades." },
+      { title: "EXPERIENCIAS INTEGRADAS", description: "Castillos, patrimonio histórico, paisajes naturales, navegación en Lago Ness y visitas vinculadas al whisky y la cerveza." },
+      { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía exclusivo de habla hispana, desayunos diarios y servicios organizados durante todo el recorrido." }
+    ]
+  },
+  {
+    slug: "aurora-del-norte",
+    title: "Aurora del Norte",
+    subtitle: "ESCANDINAVIA Y ÁRTICO",
+    continent: "europa",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/noruega.jpg",
+    heroDesc: "Entre capitales escandinavas y el silencio del Ártico.",
+    badges: ["Auroras Boreales", "Cultura Sami", "Capitales Nórdicas"],
+    essenceHeading: "Escandinavia entre ciudades históricas y horizontes árticos",
+    essenceDesc: "Conecta algunas de las ciudades más representativas del norte de Europa con una estancia en Tromsø, una de las puertas de entrada al Ártico. La combinación de cultura urbana, navegación entre países, paisajes polares y encuentros con la tradición sami aporta una profundidad poco habitual dentro de las rutas escandinavas convencionales.",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/noruega/friodos.png",
+    moments: [
+      {
+        number: "01",
+        title: "Noche Ártica",
+        description: "Una región de cielos despejados y mínima contaminación lumínica ofrece uno de los entornos más favorables para contemplar la aurora boreal.",
+        image: "https://images.unsplash.com/photo-1483168527879-c66136b56105?q=80&w=800"
+      },
+      {
+        number: "02",
+        title: "Tradición Sami",
+        description: "El encuentro con la cultura indígena del norte de Escandinavia incorpora gastronomía local, relatos tradicionales y actividades vinculadas al pastoreo de renos.",
+        image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/noruega/artica.png"
+      },
+      {
+        number: "03",
+        title: "Capitales del Norte",
+        description: "Tres ciudades con identidades distintas permiten recorrer historia, arquitectura, tradición marítima y algunos de los símbolos más reconocidos de Escandinavia.",
+        image: "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?q=80&w=800"
+      }
+    ],
+    momentsCallout: "ALGUNAS LUCES SOLO APARECEN CUANDO EL MUNDO PARECE DETENERSE.",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/estancias/noruega_storfjord.png",
+    organizedPillars: [
+      { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias previstas en Copenhague, Oslo, Tromsø y Estocolmo, además de una noche de navegación entre Dinamarca y Noruega." },
+      { title: "RITMO DEL RECORRIDO", description: "Un equilibrio entre visitas incluidas, desplazamientos eficientes y tiempo libre en las principales ciudades." },
+      { title: "EXPERIENCIAS INTEGRADAS", description: "Observación de aurora boreal, encuentro cultural sami, paseo en trineo de renos, teleférico Fjellheisen y recorridos urbanos." },
+      { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía de habla hispana, vuelos internos, tren rápido, traslados previstos y coordinación integral durante el recorrido." }
+    ]
+  },
+  {
+    slug: "la-esencia-de-los-balcanes",
+    title: "La Esencia de los Balcanes",
+    subtitle: "ESLOVENIA, CROACIA Y BOSNIA",
+    continent: "europa",
+    heroImage: "https://images.unsplash.com/photo-1555992336-03a23c7b20eb?q=80&w=1200",
+    heroDesc: "Entre ciudades históricas, costas adriáticas y culturas que conviven desde hace siglos.",
+    badges: ["Mar Adriático", "Ciudades Amuralladas", "Cruce de Culturas"],
+    essenceHeading: "Una ruta donde convergen historia, religión y Adriático",
+    essenceDesc: "Conecta algunos de los territorios más representativos de los Balcanes a través de ciudades históricas, costas adriáticas y escenarios donde distintas culturas han convivido durante siglos. Desde Eslovenia hasta Bosnia y Croacia, el recorrido combina patrimonio, arquitectura, tradición y paisajes que rara vez coinciden en una misma ruta, ofreciendo una visión amplia y profunda de la región.",
+    essenceImage: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800",
+    moments: [
+      {
+        number: "01",
+        title: "Entre cuevas y lagos",
+        description: "Las formaciones subterráneas de Postojna y la serenidad del lago Bled ofrecen uno de los contrastes naturales más representativos de Eslovenia.",
+        image: "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?q=80&w=800"
+      },
+      {
+        number: "02",
+        title: "La costa dálmata",
+        description: "Palacios romanos, ciudades amuralladas y el mar Adriático acompañan una de las rutas más emblemáticas de la costa croata.",
+        image: "https://images.unsplash.com/photo-1555992336-03a23c7b20eb?q=80&w=800"
+      },
+      {
+        number: "03",
+        title: "Cruce de culturas",
+        description: "Dos ciudades que reflejan siglos de encuentros entre tradiciones religiosas, herencias imperiales y una identidad balcánica profundamente diversa.",
+        image: "https://images.unsplash.com/photo-1560613271-9f206587c699?q=80&w=800"
+      }
+    ],
+    momentsCallout: "ALGUNOS TERRITORIOS SE COMPRENDEN MEJOR CUANDO VARIAS CULTURAS COMPARTEN LA MISMA GEOGRAFÍA.",
+    organizedImage: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=800",
+    organizedPillars: [
+      { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias previstas en Ljubljana, Split, Dubrovnik, Sarajevo y Zagreb en hoteles de categoría superior." },
+      { title: "RITMO DEL RECORRIDO", description: "Un recorrido estructurado que combina visitas guiadas, traslados organizados y espacios libres en ciudades clave." },
+      { title: "EXPERIENCIAS INTEGRADAS", description: "Visitas culturales, acceso a las cuevas de Postojna y recorridos por los principales centros históricos del viaje." },
+      { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía exclusivo de habla hispana, traslados previstos y coordinación integral durante todo el recorrido." }
+    ]
+  },
+  {
+    slug: "la-herencia-de-alemania",
+    title: "La Herencia de Alemania",
+    subtitle: "BAVIERA Y SELVA NEGRA",
+    continent: "europa",
+    heroImage: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=1200",
+    heroDesc: "Una ruta entre ciudades históricas, bosques legendarios y castillos que marcaron la identidad de Baviera.",
+    badges: ["Selva Negra", "Castillos de Baviera", "Pueblos Medievales"],
+    essenceHeading: "Entre la Alemania medieval y los paisajes de Baviera",
+    essenceDesc: "Conecta algunos de los escenarios más representativos del sur de Alemania: ciudades históricas, pueblos medievales, la Selva Negra, el lago Constanza y los castillos de Luis II de Baviera. Atractiva para quienes valoran la arquitectura, la historia, los paisajes culturales y una ruta que combina tradición, naturaleza y patrimonio en un mismo recorrido.",
+    essenceImage: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800",
+    moments: [
+      {
+        number: "01",
+        title: "Ciudad detenida",
+        description: "Murallas intactas, calles empedradas y fachadas de entramado de madera convierten a Rothenburg en una de las estampas medievales mejor conservadas de Alemania.",
+        image: "https://images.unsplash.com/photo-1599946347371-68eb71b16afc?q=80&w=800"
+      },
+      {
+        number: "02",
+        title: "Corazón de la Selva",
+        description: "Bosques, pueblos tradicionales, el reloj de cuco más grande del mundo y la llegada a Lindau construyen una de las jornadas más representativas del sur alemán.",
+        image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=800"
+      },
+      {
+        number: "03",
+        title: "Castillos de Baviera",
+        description: "Los palacios impulsados por la visión de Luis II reúnen arquitectura, simbolismo y algunos de los escenarios más reconocibles de toda Alemania.",
+        image: "https://images.unsplash.com/photo-1508849789987-4e5333c12b78?q=80&w=800"
+      }
+    ],
+    momentsCallout: "HAY LUGARES DONDE LA HISTORIA PERMANECE VISIBLE MUCHO DESPUÉS DE HABER PARTIDO.",
+    organizedImage: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=800",
+    organizedPillars: [
+      { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias previstas en Frankfurt, Heidelberg, Friburgo y Múnich con categoría superior." },
+      { title: "RITMO DEL RECORRIDO", description: "Una ruta lineal que combina patrimonio, naturaleza y ciudades históricas sin cambios constantes de destino." },
+      { title: "EXPERIENCIAS INTEGRADAS", description: "Visitas culturales, acceso a castillos y recorridos por algunos de los paisajes más representativos del sur alemán." },
+      { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía exclusivo de habla hispana, alojamientos, desayunos y traslados contemplados dentro del programa." }
+    ]
+  },
+  {
+    slug: "fiordos-y-capitales-nordicas",
+    title: "Fiordos y Capitales Nórdicas",
+    subtitle: "SUECIA, NORUEGA Y DINAMARCA",
+    continent: "europa",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/noruega/friodos.png",
+    heroDesc: "Entre ciudades nórdicas y paisajes esculpidos por el agua.",
+    badges: ["Navegación en Fiordos", "Crucero Escandinavo", "Bergen y Estocolmo"],
+    essenceHeading: "Donde los grandes fiordos encuentran la elegancia nórdica",
+    essenceDesc: "Conecta algunas de las regiones más representativas de Escandinavia a través de una ruta que combina capitales históricas, pueblos de montaña, navegación entre fiordos y paisajes de gran escala. Su valor reside en recorrer los territorios más emblemáticos de Noruega sin renunciar al contexto cultural de Estocolmo y Copenhague, creando una visión amplia y equilibrada del norte de Europa.",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/noruega/escenica.webp",
+    moments: [
+      {
+        number: "01",
+        title: "Geiranger desde el agua",
+        description: "La navegación entre montañas, cascadas y paredes rocosas permite comprender por qué este fiordo ocupa un lugar central dentro de los paisajes más admirados de Noruega.",
+        image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/inmersiones/noruega_sauna.png"
+      },
+      {
+        number: "02",
+        title: "El corazón de Bergen",
+        description: "El antiguo barrio hanseático, el mercado junto al puerto y las vistas desde el funicular revelan una de las ciudades con mayor personalidad de Escandinavia.",
+        image: "https://images.unsplash.com/photo-1531168556465-2742918a0008?q=80&w=800"
+      },
+      {
+        number: "03",
+        title: "Navegando el Norte",
+        description: "La travesía nocturna entre Oslo y Copenhague aporta una transición distinta al recorrido, conectando dos capitales nórdicas a través del mar.",
+        image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800"
+      }
+    ],
+    momentsCallout: "ALGUNOS PAISAJES NO BUSCAN IMPRESIONAR; SIMPLEMENTE PERMANECEN.",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/culinarias/noruega_re_naa.png",
+    organizedPillars: [
+      { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias previstas en ciudades clave de Suecia, Noruega y Dinamarca, incluyendo alojamiento junto a los fiordos." },
+      { title: "RITMO DEL RECORRIDO", description: "Equilibrio entre desplazamientos panorámicos, visitas urbanas y tiempo suficiente para apreciar cada región." },
+      { title: "EXPERIENCIAS INTEGRADAS", description: "Cruceros por Geiranger y Sognefjord, funicular de Bergen, travesía Nordic y visitas panorámicas incluidas." },
+      { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía exclusivo de habla hispana, desayunos diarios, cenas seleccionadas y traslados previstos durante el recorrido." }
+    ]
+  },
+  {
+    slug: "capitales-del-norte",
+    title: "Capitales del Norte",
+    subtitle: "BERLÍN, ÁMSTERDAM, BRUJAS, BRUSELAS Y PARÍS",
+    continent: "europa",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/francia.webp",
+    heroDesc: "De Berlín a París, una ruta que conecta historia, canales y grandes ciudades europeas.",
+    badges: ["Ciudades Imperiales", "Canales de Ámsterdam", "París Sofisticado"],
+    essenceHeading: "Entre capitales históricas y ciudades que marcaron Europa",
+    essenceDesc: "Conecta algunas de las ciudades más representativas del norte de Europa a través de una ruta que combina patrimonio, arquitectura, tradición y vida urbana. Berlín, Ámsterdam, Brujas, Gante, Bruselas y París aparecen unidas por recorridos cuidadosamente seleccionados que equilibran cultura, historia y tiempo para disfrutar cada ciudad con profundidad.",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/francia/atemporal.jpg",
+    moments: [
+      {
+        number: "01",
+        title: "Berlín desde el agua",
+        description: "Un recorrido por el río Spree ofrece una perspectiva distinta de la capital alemana, entre puentes históricos, arquitectura contemporánea y algunos de sus espacios más emblemáticos.",
+        image: "https://images.unsplash.com/photo-1599946347371-68eb71b16afc?q=80&w=800"
+      },
+      {
+        number: "02",
+        title: "Canales históricos",
+        description: "Dos ciudades marcadas por el agua revelan parte de su identidad a través de canales, fachadas centenarias y centros históricos que conservan el carácter de otra época.",
+        image: "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?q=80&w=800"
+      },
+      {
+        number: "03",
+        title: "Tradición belga",
+        description: "La visita a un museo especializado permite conocer una de las tradiciones más reconocidas de Bélgica mediante demostraciones artesanales y degustaciones incluidas.",
         image: "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=800"
       }
     ],
-    momentsCallout: "EL ARTE DE VIVIR SE APRENDE OBSERVANDO LA BELLEZA DE LAS PEQUEÑAS COSAS.",
-    organizedImage: "https://images.unsplash.com/photo-1486016006115-74a41448aea2?q=80&w=800",
+    momentsCallout: "ALGUNAS CIUDADES SE CONOCEN; OTRAS PERMANECEN MUCHO DESPUÉS DE HABER PARTIDO.",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/estancias/francia_cheval_blanc.png",
     organizedPillars: [
-      { title: "VILLAS Y PALACIOS", description: "Estancias exclusivas en hoteles históricos que combinan frescos renacentistas con confort moderno." },
-      { title: "CULTURA EN PRIVADO", description: "Acceso preferente a capillas y colecciones de arte normalmente cerradas al público en general." },
-      { title: "SLOW FOOD", description: "Experiencias gastronómicas privadas en viñedos y restaurantes galardonados con estrellas Michelin." },
-      { title: "TRASLADOS PRIVADOS", description: "Choferes locales y yates a tu disposición durante todo el itinerario de viaje." }
-    ]
-  },
-  {
-    slug: "grecia-mistica",
-    title: "Grecia Mística",
-    subtitle: "GRECIA",
-    continent: "europa",
-    heroImage: "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1200",
-    heroDesc: "Navegación privada por el Egeo y atardeceres dorados en las islas más exclusivas.",
-    badges: ["Yate Privado", "Atardeceres Únicos", "Historia Clásica"],
-    essenceHeading: "El origen de la civilización y el azul más profundo del Mar Mediterráneo.",
-    essenceDesc: "Grecia Mística te invita a descubrir la grandeza de la antigua Atenas en visitas privadas guiadas por arqueólogos, y a navegar por las islas Cícladas en un yate privado de lujo, lejos de las rutas turísticas convencionales.",
-    essenceImage: "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=800",
-    moments: [
-      {
-        number: "01",
-        title: "Acrópolis",
-        description: "Visita exclusiva al amanecer a la Acrópolis de Atenas con un arqueólogo experto, antes de la apertura general.",
-        image: "https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=800"
-      },
-      {
-        number: "02",
-        title: "Milos Oculto",
-        description: "Exploración de las playas lunares de Sarakiniko y cuevas piratas de Kleftiko a bordo de un catamarán privado.",
-        image: "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=800"
-      },
-      {
-        number: "03",
-        title: "Santorini",
-        description: "Cena íntima con vistas a la caldera volcánica en una terraza privada en Oia, con maridaje de vinos locales.",
-        image: "https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?q=80&w=800"
-      }
-    ],
-    momentsCallout: "EL AZUL DEL EGEO NO TIENE COMPARACIÓN, ES UN ESTADO DE ÁNIMO Y DE PAZ.",
-    organizedImage: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=800",
-    organizedPillars: [
-      { title: "HOTELES BOUTIQUE", description: "Habitaciones excavadas en acantilados con piscinas infinitas y espectaculares vistas directas al mar." },
-      { title: "NAVEGACIÓN EXCLUSIVA", description: "Embarcaciones privadas con tripulación completa y chef a bordo para tus días en el mar." },
-      { title: "ARQUEOLOGÍA PRIVADA", description: "Guías con doctorados en historia clásica que reviven los mitos griegos en cada monumento." },
-      { title: "ISLAS SECRETAS", description: "Itinerarios que incluyen paradas en islas menos conocidas para vivir el verdadero encanto griego." }
-    ]
-  },
-  {
-    slug: "paris-arte",
-    title: "París & Arte",
-    subtitle: "FRANCIA",
-    continent: "europa",
-    heroImage: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200",
-    heroDesc: "Una inmersión en la alta costura, gastronomía estrella Michelin y el romanticismo del Sena.",
-    badges: ["Alta Costura", "Visitas Privadas UHNW", "Palacio de Versalles"],
-    essenceHeading: "La ciudad de la luz vivida con la máxima sofisticación y exclusividad posibles.",
-    essenceDesc: "París & Arte redefine el romance de la capital francesa. Desde talleres privados de alta costura y visitas privadas al Louvre a puerta cerrada, hasta paseos en barcos históricos por el Sena y paseos en helicóptero por el Valle del Loira.",
-    essenceImage: "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?q=80&w=800",
-    moments: [
-      {
-        number: "01",
-        title: "Versalles",
-        description: "Paseo VIP privado por los aposentos secretos de María Antonieta y el Salón de los Espejos a puerta cerrada.",
-        image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=800"
-      },
-      {
-        number: "02",
-        title: "Río Sena",
-        description: "Crucero privado al atardecer en un yate veneciano de madera restaurado, con champán y jazz en vivo.",
-        image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=800"
-      },
-      {
-        number: "03",
-        title: "Louvre",
-        description: "Visita nocturna guiada de 3 horas por las galerías del museo completamente vacío de turistas.",
-        image: "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=800"
-      }
-    ],
-    momentsCallout: "PARÍS SE REVELA ANTE AQUELLOS QUE SABEN CONTEMPLAR SU ALMA SILENCIOSA.",
-    organizedImage: "https://images.unsplash.com/photo-1551218808-94e220e084d2?q=80&w=800",
-    organizedPillars: [
-      { title: "HOTELES PALACE", description: "Estancia en los históricos hoteles clasificados como 'Palace', la máxima distinción de lujo francesa." },
-      { title: "EXPERIENCIAS DE MODA", description: "Accesos privados a ateliers de diseño de moda y pruebas de ropa exclusivas de alta costura." },
-      { title: "CENAS DE ESTRELLA", description: "Reservas confirmadas con menús degustación especiales en restaurantes de tres estrellas Michelin." },
-      { title: "ASISTENTE PERSONAL", description: "Conserjería local que habla español disponible en todo momento para imprevistos." }
-    ]
-  },
-  {
-    slug: "suiza-alpina",
-    title: "Suiza Alpina",
-    subtitle: "SUIZA",
-    continent: "europa",
-    heroImage: "https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?q=80&w=1200",
-    heroDesc: "Lujo a gran altura entre picos nevados, lagos de espejo y chalets de montaña privados de cinco estrellas.",
-    badges: ["Chalets Privados", "Trenes Glaciares", "Relojería de Lujo"],
-    essenceHeading: "La majestuosidad de los Alpes vivida con la precisión y discreción del lujo suizo.",
-    essenceDesc: "Suiza Alpina te lleva a través de los paisajes montañosos más espectaculares de Europa. Disfruta de un viaje privado a bordo del tren Glacier Express, vuela en helicóptero sobre el Cervino y relájate en chalets privados equipados con chimeneas y spas de montaña.",
-    essenceImage: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800",
-    moments: [
-      {
-        number: "01",
-        title: "Cervino",
-        description: "Sobrevuelo privado en helicóptero sobre el Matterhorn (Cervino) con aterrizaje en glaciar para un brindis.",
-        image: "https://images.unsplash.com/photo-1502784444187-359ac186c5bb?q=80&w=800"
-      },
-      {
-        number: "02",
-        title: "St. Moritz",
-        description: "Cena exclusiva en un refugio alpino privado a 3,000 metros de altura, con fondue gourmet preparada por un chef.",
-        image: "https://images.unsplash.com/photo-1482862549707-f63cb32c5fd9?q=80&w=800"
-      },
-      {
-        number: "03",
-        title: "Ginebra",
-        description: "Taller privado de alta relojería en una prestigiosa manufactura ginebrina, ensamblando tu propia pieza.",
-        image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800"
-      }
-    ],
-    momentsCallout: "EL SILENCIO DE LAS ALTURAS ALPINAS REVELA EL VERDADERO VALOR DEL TIEMPO.",
-    organizedImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800",
-    organizedPillars: [
-      { title: "CHALETS EXCLUSIVOS", description: "Propiedades privadas con personal, chef y spa de uso totalmente exclusivo para el grupo." },
-      { title: "TICKETS FIRST CLASS", description: "Reservas y cabinas de primera clase en los trenes panorámicos más famosos de Suiza." },
-      { title: "SENDERISMO PRIVADO", description: "Guías de montaña certificados que adaptan cada ruta a tu nivel físico y de interés." },
-      { title: "SPA HOLÍSTICO", description: "Tratamientos antienvejecimiento y clínicas de bienestar premium incluidas en el itinerario." }
-    ]
-  },
-  {
-    slug: "noruega-fiordos",
-    title: "Fiordos de Noruega",
-    subtitle: "NORUEGA",
-    continent: "europa",
-    heroImage: "https://images.unsplash.com/photo-1603084612671-be628f06dc06?q=80&w=1200",
-    heroDesc: "Cruceros privados y cabañas de diseño frente a los fiordos más espectaculares y silenciosos del planeta.",
-    badges: ["Navegación en Fiordos", "Diseño Nórdico", "Auroras Boreales / Sol de Medianoche"],
-    essenceHeading: "La fuerza de la naturaleza salvaje esculpida por glaciares e inundada por el mar.",
-    essenceDesc: "Fiordos de Noruega te invita a navegar por el Geirangerfjord en un catamarán eléctrico privado, a dormir en exclusivas cabañas de cristal al borde del agua y a descubrir la fascinante cultura vikinga en un ambiente de total silencio y paz.",
-    essenceImage: "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?q=80&w=800",
-    moments: [
-      {
-        number: "01",
-        title: "Geirangerfjord",
-        description: "Crucero privado en yate de exploración por el fiordo Geirangerfjord, acercándote a las cascadas de las Siete Hermanas.",
-        image: "https://images.unsplash.com/photo-1603084612671-be628f06dc06?q=80&w=800"
-      },
-      {
-        number: "02",
-        title: "Lofoten",
-        description: "Estancia en una cabaña de pescador tradicional (Rorbu) totalmente reformada con interiores de diseño escandinavo.",
-        image: "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?q=80&w=800"
-      },
-      {
-        number: "03",
-        title: "Glaciar Jostedal",
-        description: "Caminata privada con crampones sobre el hielo azul del glaciar, guiada por un glaciólogo experto.",
-        image: "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?q=80&w=800"
-      }
-    ],
-    momentsCallout: "EL AGUA Y LA ROCA EN UN ABRAZO SILENCIOSO QUE LLEVA MILES DE AÑOS SIN CAMBIAR.",
-    organizedImage: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=800",
-    organizedPillars: [
-      { title: "DISEÑO Y CONFORT", description: "Alojamientos singulares que integran la arquitectura contemporánea de cristal en la naturaleza." },
-      { title: "ECO-LUJO", description: "Embarcaciones eléctricas y experiencias sostenibles con un mínimo impacto ecológico." },
-      { title: "CENA NÓRDICA", description: "Gastronomía local basada en pescados y mariscos frescos salvajes en restaurantes especializados." },
-      { title: "LOGÍSTICA TOTAL", description: "Vuelos internos e hidroaviones coordinados para cruzar el accidentado territorio sin esfuerzo." }
-    ]
-  },
-  {
-    slug: "escocia-leyenda",
-    title: "Escocia de Leyenda",
-    subtitle: "ESCOCIA",
-    continent: "europa",
-    heroImage: "https://images.unsplash.com/photo-1628946578676-e1ee0a952c35?q=80&w=1200",
-    heroDesc: "Castillos medievales cargados de historia y catas de whisky de malta exclusivo en las Tierras Altas.",
-    badges: ["Castillos Privados", "Whisky Single Malt", "Highlands Místicas"],
-    essenceHeading: "La melancolía de la bruma, las leyendas de clanes y los castillos de piedra centenaria.",
-    essenceDesc: "Escocia de Leyenda te sumerge en la magia de las Highlands. Hospédate en castillos medievales de uso exclusivo, viaja a bordo del lujoso tren Royal Scotsman y degusta whiskies raros directamente de barricas centenarias en destilerías privadas.",
-    essenceImage: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=800",
-    moments: [
-      {
-        number: "01",
-        title: "Isla de Skye",
-        description: "Exploración todoterreno privada por los acantilados de Skye, contemplando las extrañas formaciones de roca.",
-        image: "https://images.unsplash.com/photo-1628946578676-e1ee0a952c35?q=80&w=800"
-      },
-      {
-        number: "02",
-        title: "Highlands",
-        description: "Cata privada en una destilería secreta de las Tierras Altas, abriendo botellas de coleccionistas de más de 40 años.",
-        image: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=800"
-      },
-      {
-        number: "03",
-        title: "Edimburgo",
-        description: "Cena de gala privada con gaiteros dentro de un castillo medieval cerrado exclusivamente para el grupo.",
-        image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=800"
-      }
-    ],
-    momentsCallout: "CADA PIEDRA EN ESCOCIA TIENE UNA HISTORIA QUE CONTAR, SOLO HACE FALTA SABER ESCUCHAR.",
-    organizedImage: "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=800",
-    organizedPillars: [
-      { title: "CASTILLOS Y MANORS", description: "Hospedaje en propiedades de clanes históricos con servicio de mayordomo y chef privado." },
-      { title: "TRENES HISTÓRICOS", description: "Reservas de suites en trenes de época con vagones comedor y spa de madera de caoba." },
-      { title: "RUTAS EN 4X4", description: "Vehículos todoterreno con conductores expertos para recorrer colinas cubiertas de brezo." },
-      { title: "EXPERIENCIAS RÁPIDAS", description: "Traslados privados en helicóptero para cruzar de la costa a las islas en minutos." }
+      { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias previstas en Berlín, Ámsterdam, Brujas, Bruselas y París, en hoteles de categoría superior cuidadosamente elegidos." },
+      { title: "RITMO DEL RECORRIDO", description: "Una ruta equilibrada que combina visitas guiadas, desplazamientos organizados y espacios libres para explorar cada ciudad." },
+      { title: "EXPERIENCIAS INTEGRADAS", description: "Paseo por el Spree, navegación por los canales de Ámsterdam y visita con degustación en un museo de chocolate belga." },
+      { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía exclusivo de habla hispana, alojamientos reservados, desayunos incluidos y coordinación general durante todo el recorrido." }
     ]
   },
 
