@@ -89,9 +89,15 @@ function toTitleCase(str: string): string {
               {badge}
             </span>
           ))}
-          <span class="flex items-center gap-2 whitespace-nowrap text-[#D4AD65] font-bold">
+          {item.fechas && (
+            <span class="flex items-center gap-2.5 whitespace-nowrap">
+              <span class="material-symbols-outlined text-[#D4AD65] text-lg">calendar_month</span>
+              {item.fechas}
+            </span>
+          )}
+          <span class="flex items-center gap-2.5 whitespace-nowrap text-[#D4AD65] font-bold">
             <span class="material-symbols-outlined text-lg">attach_money</span>
-            desde
+            {item.inversion || "desde"}
           </span>
         </div>
       </div>
@@ -361,7 +367,8 @@ function toTitleCase(str: string): string {
 
           <!-- Nota Aclaratoria Inferior -->
           <div class="mt-12 text-[10px] text-[#645D5A]/70 font-sans leading-relaxed max-w-xl">
-            Gastos previstos, permisos especiales y coordinación logística premium a algunas actividades seleccionadas están totalmente incluidos para que experimentes nuestro acompañamiento en destino.
+            <strong class="text-[#775A19] uppercase tracking-wider mr-1">A considerar:</strong>
+            {item.aConsiderar || "Gastos previstos, permisos especiales y coordinación logística premium a algunas actividades seleccionadas están totalmente incluidos para que experimentes nuestro acompañamiento en destino."}
           </div>
         </div>
       </div>

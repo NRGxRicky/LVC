@@ -25,249 +25,227 @@ export interface Coleccion {
   momentsCallout: string;
   organizedImage: string;
   organizedPillars: Pillar[];
+  aConsiderar?: string;
+  inversion?: string;
+  fechas?: string;
 }
 
 export const coleccionesData: Coleccion[] = [
   // ── UNIVERSO ASIA ──
   {
-    slug: "japon-esencial",
-    title: "Japón Esencial",
+    slug: "senderos-de-japon",
+    title: "Senderos de Japón",
     subtitle: "JAPÓN",
     continent: "asia",
     heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_japan.webp",
-    heroDesc: "Tradición y modernidad en perfecta armonía, donde cada detalle revela la esencia de Japón.",
-    badges: ["Grupo Reducido", "Fechas Seleccionadas", "Experiencias Culturales"],
-    essenceHeading: "Cada rincón ha sido elegido para conectar con la belleza de lo sutil y la hospitalidad más pura.",
-    essenceDesc: "Desde templos ancestrales custodiados por bosques milenarios hasta el bullicio silencioso de Tokio, esta colección te invita a vivir un Japón íntimo. Descansa en ryokans históricos con onsens de aguas termales y comparte ceremonias de té privadas de la mano de maestros locales.",
-    essenceImage: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=800",
+    heroDesc: "Entre antiguas rutas, ciudades históricas y paisajes que aún conservan otro ritmo.",
+    badges: ["10 Días / 9 Noches", "Grupo Máx. 36", "Servicio en Español"],
+    essenceHeading: "Donde el Japón histórico encuentra su ritmo más auténtico",
+    essenceDesc: "Conecta las ciudades imprescindibles de Japón con regiones que rara vez forman parte de los recorridos convencionales. La antigua Ruta Nakasendo, Takayama, Shirakawa-go y Hakone aportan una perspectiva más pausada del país, equilibrando patrimonio, naturaleza y tradición sin renunciar a la comodidad de una operación cuidadosamente coordinada.",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/japon/japon_esencial.webp",
     moments: [
       {
         number: "01",
-        title: "Hakone",
-        description: "Estancia en un ryokan de ultra-lujo con onsen privado de aguas termales curativas y vistas despejadas al Monte Fuji.",
-        image: "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=800"
+        title: "Ruta Nakasendo",
+        description: "El recorrido atraviesa dos antiguos pueblos de posta de la histórica Ruta Nakasendo, donde la arquitectura tradicional y los antiguos caminos conservan el carácter del Japón feudal.",
+        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/japon/tradicional.jpg"
       },
       {
         number: "02",
-        title: "Koyasan",
-        description: "Noche en un templo budista tradicional en el monte sagrado, participando en la meditación matutina y degustando la cocina shojin ryori.",
-        image: "https://images.unsplash.com/photo-1528164344705-47542687000d?q=80&w=800"
+        title: "Aldeas Patrimonio",
+        description: "La visita a Shirakawa-go permite conocer una de las aldeas más representativas del país, reconocida por la UNESCO y por sus emblemáticas casas tradicionales Gassho-zukuri.",
+        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/japon/japon_termal.webp"
       },
       {
         number: "03",
-        title: "Kyoto",
-        description: "Exploración a pie por el histórico barrio de Gion y una cena privada con una inmersión en las artes tradicionales de la geisha.",
-        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/featured_japan.webp"
+        title: "Hakone Natural",
+        description: "El recorrido combina un crucero por el Lago Ashi y el teleférico de Hakone, con la posibilidad de contemplar el Monte Fuji cuando las condiciones meteorológicas lo permiten.",
+        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/japon/japon_contemporaneo.webp"
       }
     ],
-    momentsCallout: "NO SON SOLO LUGARES, SON MOMENTOS QUE PERMANECEN CONTIGO PARA SIEMPRE.",
-    organizedImage: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?q=80&w=800",
+    momentsCallout: "ALGUNOS CAMINOS PERMANECEN MUCHO DESPUÉS DE HABERLOS RECORRIDO.",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/featured_japan.webp",
     organizedPillars: [
-      { title: "ESTANCIAS SELECCIONADAS", description: "Ryokans tradicionales y hoteles de diseño elegidos por su atmósfera, ubicación y servicio." },
-      { title: "RITMOS PARA DISFRUTAR", description: "Itinerarios equilibrados diseñados para que descubras Japón con calma y contemplación." },
-      { title: "EXPERIENCIAS INTEGRADAS", description: "Encuentros privados con artesanos, monjes y guías locales expertos inaccesibles para el público." },
-      { title: "ACOMPAÑAMIENTO DISCRETO", description: "Conserjería y coordinación continua en destino para que tu única ocupación sea disfrutar del viaje." }
-    ]
+      { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias previstas en Osaka, Kyoto, Takayama, Hakone y Tokyo, con categorías Superior o Lujo." },
+      { title: "RITMO DEL RECORRIDO", description: "Una ruta que combina ciudades, regiones históricas y paisajes naturales con tiempos libres en Kyoto and Tokyo." },
+      { title: "EXPERIENCIAS INTEGRADAS", description: "Visitas guiadas, tren bala, entradas a monumentos señalados, cinco almuerzos, dos cenas y acceso a onsen." },
+      { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía de habla española durante el circuito, traslados de llegada y salida, además del manejo logístico del equipaje entre ciudades." }
+    ],
+    aConsiderar: "Experiencias opcionales, bebidas durante las comidas, gastos personales, requisitos migratorios y ciertos servicios específicos permanecen sujetos a las preferencias individuales y a las condiciones indicadas para cada salida.",
+    inversion: "desde $8,600 USD",
+    fechas: "Salidas todo el año"
   },
   {
-    slug: "tailandia-vital",
-    title: "Tailandia Vital",
+    slug: "el-legado-de-tailandia",
+    title: "El Legado de Tailandia",
     subtitle: "TAILANDIA",
     continent: "asia",
     heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_thailand.webp",
-    heroDesc: "Naturaleza, cultura y bienestar en un viaje diseñado para reconectar contigo mismo.",
-    badges: ["Retiros de Bienestar", "Gastronomía Local", "Naturaleza Exclusiva"],
-    essenceHeading: "Un recorrido pensado para sanar el alma y despertar los sentidos en el Reino de Siam.",
-    essenceDesc: "Tailandia Vital combina templos dorados de Bangkok, santuarios de elefantes rescatados en las montañas de Chiang Mai y el azul turquesa de las playas privadas en el sur. Una inmersión en la espiritualidad budista y la legendaria hospitalidad de su gente.",
-    essenceImage: "https://images.unsplash.com/photo-1508009603885-50cf7c579365?q=80&w=800",
+    heroDesc: "Del legado del antiguo Siam a las montañas del norte en un mismo recorrido.",
+    badges: ["9 Días / 8 Noches", "Siam Histórico", "Servicio en Español"],
+    essenceHeading: "Una ruta que conecta el corazón histórico y cultural de Tailandia",
+    essenceDesc: "Reúne en un solo recorrido Bangkok, las antiguas capitales del reino, los paisajes del norte y el entorno del río Mekong. La combinación de patrimonio, comunidades locales, naturaleza y tradiciones convierte el trayecto en una propuesta especialmente activa para quienes buscan comprender Tailandia más allá de sus destinos más conocidos.",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/tailandia.webp",
     moments: [
       {
         number: "01",
-        title: "Chiang Mai",
-        description: "Alojamiento en un resort de selva y un día de cuidado respetuoso con elefantes en un santuario ético de montaña.",
-        image: "https://images.unsplash.com/photo-1561731216-c3a4d99437d5?q=80&w=800"
+        title: "Antiguo Siam",
+        description: "Dos antiguas capitales permiten recorrer algunos de los conjuntos históricos más representativos del país, incluyendo templos, ruinas y espacios reconocidos como Patrimonio Mundial por UNESCO.",
+        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/tailandia/tailandia_sagrada.webp"
       },
       {
         number: "02",
-        title: "Phuket Privado",
-        description: "Navegación en catamarán privado por la bahía de Phang Nga, explorando cuevas marinas escondidas al atardecer.",
-        image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=800"
+        title: "Fronteras del Mekong",
+        description: "El recorrido incorpora navegación tradicional por el río Mekong, el Museo del Opio y encuentros con comunidades del norte, ofreciendo una perspectiva poco habitual sobre esta región fronteriza.",
+        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/inmersiones/tailandia_phang_nga.webp"
       },
       {
         number: "03",
-        title: "Bangkok Espiritual",
-        description: "Acceso temprano y privado al templo Wat Pho para presenciar el canto matutino de los monjes budistas.",
-        image: "https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=800"
+        title: "Tradiciones del Norte",
+        description: "El viaje concluye entre templos de montaña, gastronomía regional, expresiones culturales y un santuario de elefantes, reflejando una faceta distinta del norte tailandés.",
+        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/estancias/tailandia_four_seasons.webp"
       }
     ],
-    momentsCallout: "EL VERDADERO LUJO ES EL TIEMPO DEDICADO A REENCONTRAR LA CALMA INTERIOR.",
-    organizedImage: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=800",
+    momentsCallout: "ALGUNOS TERRITORIOS SE COMPRENDEN MEJOR CUANDO SE RECORREN DE PRINCIPIO A FIN.",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_thailand.webp",
     organizedPillars: [
-      { title: "BIENESTAR Y SPA", description: "Masajes tradicionales y terapias holísticas incluidas en prestigiosos santuarios de wellness." },
-      { title: "SABORES DE SIAM", description: "Cenas en restaurantes con estrella Michelin y clases privadas con reconocidos chefs locales." },
-      { title: "GUÍAS PRIVADOS", description: "Historiadores y guías exclusivos que te revelan el significado sagrado detrás de cada templo." },
-      { title: "TRASLADOS SIN FISURAS", description: "Lanchas rápidas y traslados privados coordinados al minuto para tu máxima comodidad." }
-    ]
+      { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias en Bangkok, Ayutthaya, Sukhothai, Chiang Rai y Chiang Mai, en categoría Superior." },
+      { title: "RITMO DEL RECORRIDO", description: "Una ruta progresiva que enlaza ciudades históricas, regiones del norte y trayectos terrestres cuidadosamente organizados." },
+      { title: "EXPERIENCIAS INTEGRADAS", description: "Templos emblemáticos, navegación por el Mekong, patrimonio UNESCO, cena Khantoke, santuario de elefantes y visitas culturales." },
+      { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Traslados, visitas, entradas y guía de habla hispana incluidos durante el recorrido." }
+    ],
+    aConsiderar: "Vuelos internacionales, actividades opcionales, gastos personales o preferencias abiertas para adaptarse a las decisiones y estilo de viaje de cada viajero.",
+    inversion: "desde $2,900 USD",
+    fechas: "Martes (Abr - Oct 2026)"
   },
   {
-    slug: "bali-bienestar",
-    title: "Bali & Bienestar",
+    slug: "matices-de-bali",
+    title: "Matices de Bali",
     subtitle: "INDONESIA",
     continent: "asia",
     heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_bali.webp",
-    heroDesc: "Retiros cuidadosamente seleccionados para renovar cuerpo, mente y espíritu en escenarios únicos.",
-    badges: ["Sanación Holística", "Templos Sagrados", "Villas Privadas"],
-    essenceHeading: "Habita el tiempo de una forma distinta en la mística Isla de los Dioses.",
-    essenceDesc: "Descubre el Bali más místico e inexplorado. Camina entre terrazas de arroz esmeralda en Ubud, sumérgete en rituales de purificación en manantiales sagrados y descansa en espectaculares villas privadas suspendidas sobre acantilados frente al Océano Índico.",
-    essenceImage: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=800",
+    heroDesc: "Una travesía que conecta los paisajes, templos y tradiciones que definen la isla.",
+    badges: ["7 Días / 6 Noches", "Ubud y Candidasa", "Guía en Español/Inglés"],
+    essenceHeading: "Una ruta que recorre la diversidad cultural y natural de Bali",
+    essenceDesc: "Más que permanecer en un solo destino, esta colección atraviesa distintas regiones de Bali para comprender sus contrastes. Desde los arrozales y templos de Ubud hasta las aldeas tradicionales, la costa oriental y el norte de la isla, propone un recorrido pausado para quienes valoran conocer el territorio con mayor profundidad.",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/indonesia.webp",
     moments: [
       {
         number: "01",
-        title: "Ubud",
-        description: "Clase privada de yoga y meditación al amanecer sobre una plataforma de bambú suspendida en la selva.",
-        image: "https://images.unsplash.com/photo-1545235617-9465d2a55698?q=80&w=800"
+        title: "Bali ancestral",
+        description: "Las terrazas de Tegallalang, el complejo arqueológico de Gunung Kawi y el Bosque de los Monos muestran el lado espiritual y natural que ha dado identidad a Bali durante siglos.",
+        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/indonesia/bali_entre_arrozales.webp"
       },
       {
         number: "02",
-        title: "Tirta Empul",
-        description: "Ritual privado de purificación espiritual Melukat guiado por un sacerdote balinés en fuentes sagradas históricas.",
-        image: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=800"
+        title: "Tradiciones vivas",
+        description: "La antigua aldea de Tenganan conserva costumbres, arquitectura y tejidos ceremoniales que forman parte del patrimonio cultural más representativo de la isla.",
+        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/estancias/indonesia_capella_ubud.webp"
       },
       {
         number: "03",
-        title: "Uluwatu",
-        description: "Atardecer exclusivo sobre un acantilado de Uluwatu presenciando la mística danza Kechak sin multitudes.",
-        image: "https://images.unsplash.com/photo-1554481923-a6918bd997bc?q=80&w=800"
+        title: "Templos frente al mar",
+        description: "El recorrido concluye entre lagos, templos y la costa de Tanah Lot, combinando paisajes volcánicos, santuarios emblemáticos y una de las postales más reconocidas de Bali.",
+        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/inmersiones/indonesia_komodo.webp"
       }
     ],
-    momentsCallout: "DEJA QUE LA ENERGÍA DE LA ISLA LIMPIE TUS PENSAMIENTOS Y RENUEVE TU FUERZA.",
-    organizedImage: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=800",
+    momentsCallout: "A VECES, COMPRENDER UNA ISLA REQUIERE RECORRER CADA UNO DE SUS CONTRASTES.",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_bali.webp",
     organizedPillars: [
-      { title: "VILLAS DE ENSUEÑO", description: "Alojamiento en resorts galardonados mundialmente por su arquitectura y spas holísticos." },
-      { title: "RITUALES EXCLUSIVOS", description: "Acceso privado a templos y curanderos tradicionales (Balian) respetando la cultura local." },
-      { title: "CONSERJE EN DESTINO", description: "Asistente personal asignado durante todo el viaje para gestionar reservas y peticiones especiales." },
-      { title: "SLOW TRAVEL", description: "Días libres programados estratégicamente para integrarte al ritmo pausado de la isla." }
-    ]
+      { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias en Ubud, Candidasa y Lovina, en categoría Superior." },
+      { title: "RITMO DEL RECORRIDO", description: "Un itinerario equilibrado que alterna jornadas de exploración con tiempo libre en distintos puntos de la isla." },
+      { title: "EXPERIENCIAS INTEGRADAS", description: "Traslados, visitas culturales, accesos incluidos y desayunos diarios, además del almuerzo indicado durante el recorrido." },
+      { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Vehículo con aire acondicionado, guía local durante traslados y excursiones, además de entradas y servicios previstos en el programa." }
+    ],
+    aConsiderar: "Vuelos internacionales, algunas comidas, actividades opcionales, gastos personales, seguro de viaje y otros servicios sujetos a preferencias individuales permanecen abiertos para que cada viajero adapte el recorrido a su manera.",
+    inversion: "desde $1,900 USD",
+    fechas: "Nov 2025 - Oct 2026"
   },
   {
-    slug: "corea-dinamica",
-    title: "Corea del Sur Dinámica",
-    subtitle: "COREA DEL SUR",
+    slug: "el-corazon-de-indochina",
+    title: "El Corazón de Indochina",
+    subtitle: "LAOS, VIETNAM Y CAMBOYA",
     continent: "asia",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_korea.webp",
-    heroDesc: "La fascinante fusión entre palacios tradicionales de madera y la vanguardia urbana de Seúl.",
-    badges: ["Cultura K-Luxury", "Patrimonio UNESCO", "Innovación y Diseño"],
-    essenceHeading: "Un recorrido por el país que marca el ritmo estético y contemporáneo del mundo.",
-    essenceDesc: "Corea del Sur te invita a experimentar una transición perfecta entre la historia y el mañana. Explora palacios reales vestidos con trajes tradicionales Hanbok, duerme en templos históricos y descubre la alta tecnología y el lujo cosmopolita de Seúl.",
-    essenceImage: "https://images.unsplash.com/photo-1517154421773-0529f29ea451?q=80&w=800",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/indonesia.webp",
+    heroDesc: "Tres países unidos por el legado espiritual e histórico del Sudeste Asiático.",
+    badges: ["13 Días / 12 Noches", "3 Países", "Grupo Máx. 20"],
+    essenceHeading: "Entre antiguos reinos, ciudades imperiales y paisajes declarados Patrimonio Mundial",
+    essenceDesc: "Esta colección conecta Laos, Vietnam y Camboya mediante un recorrido que reúne algunos de los mayores referentes culturales del Sudeste Asiático. Combina ciudades históricas, navegación por el Mekong y la Bahía de Halong, antiguas capitales imperiales y el legado monumental de Angkor, ofreciendo una visión amplia de la región dentro de un solo viaje cuidadosamente estructurado.",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/tailandia/tailandia_frente_al_mar.webp",
     moments: [
       {
         number: "01",
-        title: "Seúl Ancestral",
-        description: "Visita guiada VIP exclusiva fuera de horario al Palacio Gyeongbokgung con un curador de arte histórico.",
-        image: "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?q=80&w=800"
+        title: "Mekong Sagrado",
+        description: "La navegación por el río Mekong conduce hasta las cuevas de Pak Ou, donde miles de figuras de Buda reflejan una tradición espiritual preservada durante siglos.",
+        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/culinarias/indonesia_cena_ubud.webp"
       },
       {
         number: "02",
-        title: "Gyeongju",
-        description: "Exploración de los antiguos túmulos reales y el Templo de Bulguksa, patrimonio de la humanidad de la dinastía Silla.",
-        image: "https://images.unsplash.com/photo-1549488344-cbb6c34cf08b?q=80&w=800"
+        title: "Bahía Esmeralda",
+        description: "Un crucero entre islotes de piedra caliza permite recorrer uno de los paisajes naturales más representativos de Vietnam, reconocido como Patrimonio Mundial por la UNESCO.",
+        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/indonesia/bali_frente_al_mar.webp"
       },
       {
         number: "03",
-        title: "Busan",
-        description: "Crucero privado en yate por la barra de Haeundae, contemplando el skyline iluminado de la ciudad futurista.",
-        image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=800"
+        title: "Legado Angkor",
+        description: "El recorrido culmina entre los templos más emblemáticos del antiguo Imperio Jemer, incluyendo Angkor Thom, Ta Prohm y Angkor Wat al atardecer.",
+        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/culinarias/tailandia.webp"
       }
     ],
-    momentsCallout: "DONDE LA SABIDURÍA ANCESTRAL CUSTODIA LA VANGUARDIA DEL FUTURO.",
-    organizedImage: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=800",
+    momentsCallout: "HAY LUGARES CUYA HISTORIA PERMANECE MUCHO DESPUÉS DE ABANDONAR SUS TEMPLOS Y SUS RÍOS.",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/indonesia.webp",
     organizedPillars: [
-      { title: "ESTANCIAS HANOK", description: "Noches en residencias tradicionales de madera totalmente restauradas con el lujo actual." },
-      { title: "ALTA GASTRONOMÍA", description: "Mesas reservadas en restaurantes galardonados que reinterpretan la cocina coreana tradicional." },
-      { title: "ACCESOS VIP", description: "Entradas preferentes a museos de arte contemporáneo y galerías privadas exclusivas." },
-      { title: "TRASLADOS K-SPEED", description: "Trenes de alta velocidad y choferes privados que garantizan un viaje puntual y confortable." }
-    ]
+      { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias previstas en Luang Prabang, Hanói, Halong, Hoi An, Hue, Ho Chi Minh y Siem Reap." },
+      { title: "RITMO DEL RECORRIDO", description: "Una ruta continua con vuelos regionales, trayectos terrestres y navegaciones integradas entre tres países." },
+      { title: "EXPERIENCIAS INTEGRADAS", description: "Cruceros, templos históricos, patrimonio UNESCO, paseos tradicionales y visitas culturales contempladas en el programa." },
+      { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guías locales de habla hispana, traslados, entradas incluidas y coordinación durante todo el recorrido." }
+    ],
+    aConsiderar: "Vuelos internacionales, bebidas, gastos personales, visados y actividades opcionales, permanecen sujetos a las preferencias y decisiones individuales de cada viajero.",
+    inversion: "desde $5,800 USD",
+    fechas: "Salidas: Abr - Oct 2026"
   },
   {
-    slug: "maldivas-privada",
-    title: "Maldivas Privada",
-    subtitle: "MALDIVAS",
+    slug: "imperios-de-oriente",
+    title: "Imperios de Oriente",
+    subtitle: "CHINA Y JAPÓN",
     continent: "asia",
-    heroImage: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200",
-    heroDesc: "Un refugio íntimo de villas flotantes y aguas turquesas para una total reconexión mental.",
-    badges: ["Islas Privadas", "Ultra-Lujo Descalzo", "Vida Marina Única"],
-    essenceHeading: "El santuario definitivo de paz, donde el horizonte se une con el infinito del océano.",
-    essenceDesc: "Maldivas Privada ofrece una experiencia de desconexión absoluta. Hospédate en villas sobre el agua con piscina privada y acceso directo al arrecife de coral. Saborea cenas gourmet preparadas por chefs privados bajo las estrellas y reconéctate con el silencio.",
-    essenceImage: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?q=80&w=800",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/featured_japan.webp",
+    heroDesc: "Donde la historia imperial y la Asia contemporánea se encuentran en un mismo recorrido.",
+    badges: ["15 Días / 13 Noches", "China y Japón", "Grupo Máx. 36"],
+    essenceHeading: "Dos civilizaciones que transformaron Asia desde perspectivas completamente distintas.",
+    essenceDesc: "Se une dos recorridos cuidadosamente seleccionados para ofrecer una visión amplia de Asia Oriental. Desde la herencia imperial de Beijing y Xi'an hasta la armonía de Kyoto, Hakone y Tokio, el viaje conecta monumentos históricos, paisajes culturales y grandes metrópolis en una ruta que permite comprender la evolución de dos de las sociedades más influyentes del continente.",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/corea_del_sur/esencial.webp",
     moments: [
       {
         number: "01",
-        title: "Atolón Baa",
-        description: "Snorkel privado guiado por un biólogo marino residente en una reserva de la biosfera de la UNESCO con mantarrayas.",
-        image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=800"
+        title: "Legado imperial",
+        description: "La Ciudad Prohibida, la Gran Muralla y el Ejército de Guerreros de Terracota reúnen algunos de los escenarios que marcaron la historia política y cultural de China durante siglos.",
+        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/corea_del_sur/esencial.webp"
       },
       {
         number: "02",
-        title: "Isla Desierta",
-        description: "Almuerzo tipo picnic gourmet de ultra-lujo preparado en un banco de arena privado completamente deshabitado.",
-        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800"
+        title: "Entre tradición y calma",
+        description: "Templos, santuarios, jardines, aguas termales y el paisaje del Parque Nacional de Hakone muestran una faceta de Japón donde el tiempo parece avanzar con otro ritmo.",
+        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/japon/japon_esencial.webp"
       },
       {
         number: "03",
-        title: "Spa Flotante",
-        description: "Sesión de masajes exclusiva en una cabina con suelo de cristal templado, observando la colorida vida marina.",
-        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800"
+        title: "Asia contemporánea",
+        description: "Cada país concluye entre dos de las ciudades más dinámicas del continente, donde arquitectura, comercio, innovación y tradición conviven como parte de la vida cotidiana.",
+        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/japon/japon_contemporaneo.webp"
       }
     ],
-    momentsCallout: "EL LUJO DE NO PENSAR EN NADA, RODEADO POR LA INMENSIDAD DEL OCÉANO.",
-    organizedImage: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?q=80&w=800",
+    momentsCallout: "ALGUNAS CULTURAS SE VISITAN; OTRAS TRANSFORMAN LA MANERA DE COMPRENDER EL MUNDO.",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/featured_japan.webp",
     organizedPillars: [
-      { title: "VILLAS DE AGUA", description: "Resorts premium galardonados que ofrecen máxima privacidad y servicios de mayordomo privado." },
-      { title: "CENAS BAJO EL AGUA", description: "Reservas de almuerzos y cenas privadas en espectaculares restaurantes submarinos de cristal." },
-      { title: "CONECTIVIDAD AÉREA", description: "Vuelos en hidroavión privado o VIP programados a tu llegada para evitar esperas." },
-      { title: "RITMO DESCALZO", description: "Una experiencia de ultra-lujo sin etiquetas, diseñada para caminar descalzo sobre la arena." }
-    ]
-  },
-  {
-    slug: "singapur-moderno",
-    title: "Singapur Moderno",
-    subtitle: "SINGAPUR",
-    continent: "asia",
-    heroImage: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=1200",
-    heroDesc: "Sofisticación urbana y arquitectura futurista entrelazada con espectaculares jardines verticales.",
-    badges: ["Skyline Futurista", "Mixología Premium", "Jardines del Futuro"],
-    essenceHeading: "La metrópolis más limpia, verde y avanzada de Asia te abre sus puertas de lujo.",
-    essenceDesc: "Singapur representa la armonía perfecta entre el desarrollo urbano futurista y la naturaleza exuberante. Desde los superárboles iluminados de Gardens by the Bay hasta la histórica arquitectura colonial y la vibrante escena culinaria global de primer nivel.",
-    essenceImage: "https://images.unsplash.com/photo-1565967511849-76a60a516170?q=80&w=800",
-    moments: [
-      {
-        number: "01",
-        title: "Marina Bay",
-        description: "Acceso VIP a la terraza superior de Marina Bay Sands al atardecer, con cócteles personalizados y vistas aéreas.",
-        image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=800"
-      },
-      {
-        number: "02",
-        title: "Gardens by the Bay",
-        description: "Recorrido privado nocturno por los invernaderos de cristal y pasarela aérea iluminada antes de la apertura oficial.",
-        image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=800"
-      },
-      {
-        number: "03",
-        title: "Chinatown",
-        description: "Ruta gastronómica guiada por un crítico culinario local por los puestos de comida y restaurantes tradicionales escondidos.",
-        image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=800"
-      }
+      { title: "HOSPEDAJES SELECCIONADOS", description: "Hoteles previstos de categoría superior durante todo el recorrido, elegidos para mantener continuidad entre ambos países." },
+      { title: "RITMO DEL RECORRIDO", description: "Una combinación equilibrada de visitas guiadas, desplazamientos eficientes y espacios libres en ciudades estratégicas." },
+      { title: "EXPERIENCIAS INTEGRADAS", description: "Monumentos históricos, templos, jardines imperiales, la Gran Muralla, Guerreros de Terracota, Lago Ashi, onsen y recorridos urbanos forman parte del programa." },
+      { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Traslados, vuelos internos, trenes de alta velocidad, guía de habla hispana y servicios coordinados durante todo el recorrido." }
     ],
-    momentsCallout: "EL DISEÑO URBANO CONCEBIDO COMO UNA EXTENSIÓN DE LA PROPIA NATURALEZA.",
-    organizedImage: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=800",
-    organizedPillars: [
-      { title: "HOTELES EMBLEMÁTICOS", description: "Estancias en suites de hoteles históricos y modernos rascacielos de diseño contemporáneo." },
-      { title: "MIXOLOGÍA EXCLUSIVA", description: "Entradas preferentes y mesas reservadas en los bares de cócteles más aclamados de Asia." },
-      { title: "EXPERIENCIAS PRIVADAS", description: "Acceso privado a colecciones botánicas y museos de arte contemporáneo de vanguardia." },
-      { title: "CHÓFER A DISPOSICIÓN", description: "Vehículos ejecutivos eléctricos y chófer privado disponible durante toda tu estancia urbana." }
-    ]
+    aConsiderar: "Vuelos internacionales, algunas comidas, actividades opcionales y momentos libres permanecen abiertos para adaptarse a las preferencias personales.",
+    inversion: "desde $6,900 USD",
+    fechas: "Salidas todo el año"
   },
 
   // ── UNIVERSO EUROPA ──
@@ -309,7 +287,10 @@ export const coleccionesData: Coleccion[] = [
       { title: "RITMO DEL RECORRIDO", description: "Una ruta continua que equilibra visitas culturales, trayectos panorámicos y tiempo libre en las principales ciudades." },
       { title: "EXPERIENCIAS INTEGRADAS", description: "Castillos, patrimonio histórico, paisajes naturales, navegación en Lago Ness y visitas vinculadas al whisky y la cerveza." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía exclusivo de habla hispana, desayunos diarios y servicios organizados durante todo el recorrido." }
-    ]
+    ],
+    aConsiderar: "Gastos personales, comidas no indicadas, traslados específicos y decisiones individuales durante los tiempos libres permanecen sujetos a las preferencias de cada viajero.",
+    inversion: "desde $8,300 USD",
+    fechas: "May - Sep 2026"
   },
   {
     slug: "aurora-del-norte",
@@ -349,14 +330,17 @@ export const coleccionesData: Coleccion[] = [
       { title: "RITMO DEL RECORRIDO", description: "Un equilibrio entre visitas incluidas, desplazamientos eficientes y tiempo libre en las principales ciudades." },
       { title: "EXPERIENCIAS INTEGRADAS", description: "Observación de aurora boreal, encuentro cultural sami, paseo en trineo de renos, teleférico Fjellheisen y recorridos urbanos." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía de habla hispana, vuelos internos, tren rápido, traslados previstos y coordinación integral durante el recorrido." }
-    ]
+    ],
+    aConsiderar: "Actividades opcionales, gastos personales, comidas no especificadas o preferencias individuales de viaje, permanecen abiertos para que cada viajero adapte ciertos momentos a su propio estilo.",
+    inversion: "desde $7,300 USD",
+    fechas: "Nov 2026 - Feb 2027"
   },
   {
     slug: "la-esencia-de-los-balcanes",
     title: "La Esencia de los Balcanes",
     subtitle: "ESLOVENIA, CROACIA Y BOSNIA",
     continent: "europa",
-    heroImage: "https://images.unsplash.com/photo-1555992336-03a23c7b20eb?q=80&w=1200",
+    heroImage: "https://images.unsplash.com/photo-1555990793-da11153b2473?q=80&w=1200",
     heroDesc: "Entre ciudades históricas, costas adriáticas y culturas que conviven desde hace siglos.",
     badges: ["Mar Adriático", "Ciudades Amuralladas", "Cruce de Culturas"],
     essenceHeading: "Una ruta donde convergen historia, religión y Adriático",
@@ -373,7 +357,7 @@ export const coleccionesData: Coleccion[] = [
         number: "02",
         title: "La costa dálmata",
         description: "Palacios romanos, ciudades amuralladas y el mar Adriático acompañan una de las rutas más emblemáticas de la costa croata.",
-        image: "https://images.unsplash.com/photo-1555992336-03a23c7b20eb?q=80&w=800"
+        image: "https://images.unsplash.com/photo-1555990793-da11153b2473?q=80&w=800"
       },
       {
         number: "03",
@@ -389,7 +373,10 @@ export const coleccionesData: Coleccion[] = [
       { title: "RITMO DEL RECORRIDO", description: "Un recorrido estructurado que combina visitas guiadas, traslados organizados y espacios libres en ciudades clave." },
       { title: "EXPERIENCIAS INTEGRADAS", description: "Visitas culturales, acceso a las cuevas de Postojna y recorridos por los principales centros históricos del viaje." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía exclusivo de habla hispana, traslados previstos y coordinación integral durante todo el recorrido." }
-    ]
+    ],
+    aConsiderar: "Actividades opcionales, gastos personales y decisiones individuales durante los tiempos libres permanecen abiertos para que cada viajero adapte ciertos momentos del recorrido a sus propios intereses.",
+    inversion: "desde $5,500 USD",
+    fechas: "Abr - Oct 2026"
   },
   {
     slug: "la-herencia-de-alemania",
@@ -429,7 +416,10 @@ export const coleccionesData: Coleccion[] = [
       { title: "RITMO DEL RECORRIDO", description: "Una ruta lineal que combina patrimonio, naturaleza y ciudades históricas sin cambios constantes de destino." },
       { title: "EXPERIENCIAS INTEGRADAS", description: "Visitas culturales, acceso a castillos y recorridos por algunos de los paisajes más representativos del sur alemán." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía exclusivo de habla hispana, alojamientos, desayunos y traslados contemplados dentro del programa." }
-    ]
+    ],
+    aConsiderar: "Algunas comidas, gastos personales, actividades fuera del programa y preferencias individuales permanecen abiertos para que cada viajero pueda adaptar ciertos momentos del recorrido a su propio ritmo e intereses.",
+    inversion: "desde $4,900 USD",
+    fechas: "Abr - Oct 2026"
   },
   {
     slug: "fiordos-y-capitales-nordicas",
@@ -469,7 +459,10 @@ export const coleccionesData: Coleccion[] = [
       { title: "RITMO DEL RECORRIDO", description: "Equilibrio entre desplazamientos panorámicos, visitas urbanas y tiempo suficiente para apreciar cada región." },
       { title: "EXPERIENCIAS INTEGRADAS", description: "Cruceros por Geiranger y Sognefjord, funicular de Bergen, travesía Nordic y visitas panorámicas incluidas." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía exclusivo de habla hispana, desayunos diarios, cenas seleccionadas y traslados previstos durante el recorrido." }
-    ]
+    ],
+    aConsiderar: "Algunas comidas, actividades opcionales, gastos personales y preferencias particulares permanecen abiertos para que cada viajero adapte ciertos momentos del recorrido a sus propios intereses.",
+    inversion: "desde $6,300 USD",
+    fechas: "May - Sep 2026"
   },
   {
     slug: "capitales-del-norte",
@@ -509,7 +502,10 @@ export const coleccionesData: Coleccion[] = [
       { title: "RITMO DEL RECORRIDO", description: "Una ruta equilibrada que combina visitas guiadas, desplazamientos organizados y espacios libres para explorar cada ciudad." },
       { title: "EXPERIENCIAS INTEGRADAS", description: "Paseo por el Spree, navegación por los canales de Ámsterdam y visita con degustación en un museo de chocolate belga." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía exclusivo de habla hispana, alojamientos reservados, desayunos incluidos y coordinación general durante todo el recorrido." }
-    ]
+    ],
+    aConsiderar: "Actividades opcionales, comidas no especificadas y gastos personales permanecen abiertos para que cada viajero adapte ciertos momentos del recorrido según sus propios intereses y preferencias.",
+    inversion: "desde $5,500 USD",
+    fechas: "May - Oct 2026"
   },
 
   // ── UNIVERSO ÁFRICA ──
