@@ -352,6 +352,10 @@ const experienceImages: Record<string, string[][]> = {
                 return (
                   <div 
                     class="experience-slide group relative flex-none w-[280px] sm:w-[320px] md:w-[450px] aspect-[2/3] md:aspect-[2/3] overflow-hidden rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] origin-center cursor-pointer scale-90 opacity-40"
+                    data-experience-trigger
+                    data-category-index={i}
+                    data-category-name={exp.name}
+                    data-universe-slug={slug}
                   >
                     <!-- Gallery Images -->
                     {gallery.map((imgUrl, imgIdx) => (
@@ -520,6 +524,52 @@ const experienceImages: Record<string, string[][]> = {
       </div>
     </div>
 
+    <!-- MODAL EXPERIENCIAS/MOMENTOS INTERACTIVO -->
+    <div id="experiences-modal" class="fixed inset-0 z-50 hidden bg-[#EDE7D7] transition-all duration-500 opacity-0 translate-y-4 h-screen overflow-hidden">
+      <div class="max-w-[1920px] mx-auto h-full flex flex-col justify-between p-6 md:py-8 md:px-16 lg:py-10 lg:px-20 relative">
+        
+        <!-- Botón de Cerrar -->
+        <button id="close-experiences-modal-btn" class="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 md:w-12 md:h-12 rounded-full border border-[#1C1713]/15 flex items-center justify-center text-[#1C1713]/60 hover:text-[#1C1713] hover:border-[#1C1713] hover:bg-[#1C1713]/5 transition-all duration-300 cursor-pointer z-30">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <!-- Cabecera del Modal -->
+        <div class="text-center max-w-2xl 2xl:max-w-4xl mx-auto mb-4 mt-4 md:mt-8">
+          <span id="experiences-modal-subtitle" class="font-label text-[10px] md:text-xs 2xl:text-sm font-bold text-[#775A19] uppercase tracking-[0.2em] block mb-1">MOMENTOS DEL VIAJE</span>
+          <h2 id="experiences-modal-title" class="font-heading text-2xl md:text-4xl lg:text-5xl 2xl:text-6xl text-[#1C1713] mb-2">Estancias Seleccionadas</h2>
+          <div class="w-10 h-[1px] bg-[#D4AD65] mx-auto mt-4"></div>
+        </div>
+
+        <!-- Fila de Tarjetas Horizontales (Showcase de 5-6 momentos con scroll horizontal suave) -->
+        <div class="relative w-full overflow-hidden my-auto max-w-7xl 2xl:max-w-[1550px] mx-auto py-4">
+          <!-- Viewport of the modal -->
+          <div class="w-full overflow-x-auto overflow-y-hidden scrollbar-none py-4 px-2 md:px-0 scroll-smooth">
+            <div 
+              id="experiences-modal-track"
+              class="flex items-stretch gap-6 md:gap-8 lg:gap-10 pb-4 min-w-max px-4 md:px-8"
+            >
+              <!-- Las tarjetas se inyectarán dinámicamente aquí -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Indicador de Navegación del Modal al Pie -->
+        <div class="text-center mb-6">
+          <div class="flex items-center justify-center gap-2 text-[10px] 2xl:text-xs text-[#1C1713]/40 tracking-widest uppercase font-label">
+            <span>Desliza para explorar todos los momentos</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="animate-pulse">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </main>
 
   <Footer />
@@ -646,6 +696,40 @@ const experienceImages: Record<string, string[][]> = {
 
   .experiences-section .experience-slide.opacity-100 .slide-text-container {
     opacity: 1 !important;
+    transform: translateY(0);
+  }
+
+  /* Estilos del Modal de Experiencias (Moments) */
+  #experiences-modal .experiences-card-item {
+    border: 1px solid rgba(28, 23, 19, 0.08);
+    border-radius: 1.5rem;
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    height: 48vh;
+    max-height: 520px;
+    min-height: 280px;
+    aspect-ratio: 3 / 4;
+    width: auto;
+    background: #1C1713;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  #experiences-modal .experiences-card-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(119, 90, 25, 0.15);
+    border-color: #D4AD65;
+  }
+
+  /* Fade-in stagger animation classes */
+  .fade-in-stagger {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .fade-in-stagger.animate-in {
+    opacity: 1;
     transform: translateY(0);
   }
 </style>
@@ -1235,6 +1319,148 @@ const experienceImages: Record<string, string[][]> = {
       }
     };
 
+    const universeMomentsData: Record<string, Array<{
+      categoryName: string;
+      moments: Array<{
+        title: string;
+        place: string;
+        image: string;
+      }>;
+    }>> = {
+      asia: [
+        {
+          categoryName: "EXPERIENCIAS CULINARIAS",
+          moments: [
+            { title: "Cena Kaiseki Tradicional", place: "Kioto, Japón", image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/culinarias/japon_cena_kaiseki.jpg" },
+            { title: "Alta Cocina Balinesa", place: "Ubud (Bali), Indonesia", image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/culinarias/indonesia_cena_ubud.webp" },
+            { title: "Spago by Wolfgang Puck", place: "Marina Bay, Singapur", image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/culinarias/singapur_spago.webp" },
+            { title: "Sabores de Siam Gourmet", place: "Bangkok, Tailandia", image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/culinarias/tailandia.webp" },
+            { title: "Restaurante Mingles", place: "Seúl, Corea del Sur", image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/culinarias/corea_del_sur_mingles.webp" },
+            { title: "Cena Privada Bajo el Mar", place: "Atolón Baa, Maldivas", image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/culinarias/maldivas.webp" }
+          ]
+        },
+        {
+          categoryName: "ESTANCIAS SELECCIONADAS",
+          moments: [
+            { title: "Aman Kyoto", place: "Kioto, Japón", image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/estancias/japon_aman_kyoto.webp" },
+            { title: "Capella Ubud", place: "Bali, Indonesia", image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/estancias/indonesia_capella_ubud.webp" },
+            { title: "Raffles Singapore", place: "Singapur", image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/estancias/raffles_singapore.webp" },
+            { title: "Signiel Seoul", place: "Seúl, Corea del Sur", image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/estancias/signiel_seoul.webp" },
+            { title: "Soneva Jani", place: "Noonu Atoll, Maldivas", image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/estancias/soneva_jani.webp" },
+            { title: "Four Seasons Tented Camp", place: "Chiang Rai, Tailandia", image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/estancias/tailandia_four_seasons.webp" }
+          ]
+        },
+        {
+          categoryName: "INMERSIONES",
+          moments: [
+            { title: "Ceremonia del Té Privada", place: "Kioto, Japón", image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/inmersiones/japon.webp" },
+            { title: "Navegación Privada en Komodo", place: "Parque Nacional Komodo, Indonesia", image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/inmersiones/indonesia_komodo.webp" },
+            { title: "Jardines de la Bahía Exclusivos", place: "Singapur", image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/inmersiones/singapur.webp" },
+            { title: "Meditación Budista en Templo", place: "Monte Gyeongju, Corea del Sur", image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/inmersiones/corea_del_sur.jpg" },
+            { title: "Snorkel con Mantarrayas", place: "Bahía de Hanifaru, Maldivas", image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/inmersiones/maldivas.webp" },
+            { title: "Exploración de la Bahía Phang Nga", place: "Phuket, Tailandia", image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/inmersiones/tailandia_phang_nga.webp" }
+          ]
+        }
+      ],
+      europa: [
+        {
+          categoryName: "EXPERIENCIAS CULINARIAS",
+          moments: [
+            { title: "Degustación en las Cavas de Champagne", place: "Reims, Francia", image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/culinarias/francia_champagne.webp" },
+            { title: "Restaurante Oro (Belmond Cipriani)", place: "Venecia, Italia", image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/culinarias/italia_cipriani.webp" },
+            { title: "Restaurante RE-NAA (Estrellas Michelin)", place: "Stavanger, Noruega", image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/culinarias/noruega_re_naa.webp" },
+            { title: "Restaurant Martin Wishart", place: "Edimburgo, Escocia", image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/culinarias/escocia_martin_wishart.webp" },
+            { title: "Restaurante Selene", place: "Santorini, Grecia", image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/culinarias/grecia_selene.webp" },
+            { title: "Cheval Blanc by Peter Knogl", place: "Basilea, Suiza", image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/culinarias/suiza_peter_knogl.webp" }
+          ]
+        },
+        {
+          categoryName: "ESTANCIAS SELECCIONADAS",
+          moments: [
+            { title: "Cheval Blanc Paris", place: "París, Francia", image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/estancias/francia_cheval_blanc.webp" },
+            { title: "The Gleneagles Hotel", place: "Perthshire, Escocia", image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/estancias/escocia_gleneagles.webp" },
+            { title: "Katikies Santorini", place: "Santorini, Grecia", image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/estancias/grecia_katikies.webp" },
+            { title: "Villa Passalacqua", place: "Lago de Como, Italia", image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/estancias/italia_passalacqua.webp" },
+            { title: "Storfjord Hotel", place: "Sunnmøre, Noruega", image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/estancias/noruega_storfjord.webp" },
+            { title: "Bürgenstock Resort", place: "Lago de Lucerna, Suiza", image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/estancias/suiza_burgenstock.webp" }
+          ]
+        },
+        {
+          categoryName: "INMERSIONES",
+          moments: [
+            { title: "Crucero Privado en las Cícladas", place: "Santorini, Grecia", image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/inmersiones/grecia_yate.webp" },
+            { title: "Navegación Privada en la Riviera Francesa", place: "Niza, Francia", image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/inmersiones/francia_charter.webp" },
+            { title: "Paseo en Barco de Época por Como", place: "Lago de Como, Italia", image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/inmersiones/italia_como.webp" },
+            { title: "Sauna Flotante en los Fiordos", place: "Fiordo de Geiranger, Noruega", image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/inmersiones/noruega_sauna.webp" },
+            { title: "Sobrevuelo en Helicóptero por los Alpes", place: "Zermatt, Suiza", image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/inmersiones/suiza_alpes.jpg" },
+            { title: "Travesía Belmond Royal Scotsman", place: "Highlands, Escocia", image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/inmersiones/escocia_royal_scotsman.webp" }
+          ]
+        }
+      ],
+      africa: [
+        {
+          categoryName: "EXPERIENCIAS CULINARIAS",
+          moments: [
+            { title: "Cena de Gala en la Sabana", place: "Maasai Mara, Kenia", image: "https://garage-web.luxuryvoyageco.com/images/universos/africa/momentos/culinarias/kenia_bush_dinner_maasai_mara.webp" },
+            { title: "La Grande Table Marocaine", place: "Marrakech, Marruecos", image: "https://garage-web.luxuryvoyageco.com/images/universos/africa/momentos/culinarias/marruecos_la_grande_table_marocaine.webp" },
+            { title: "Alta Gastronomía Marroquí", place: "Fez, Marruecos", image: "https://garage-web.luxuryvoyageco.com/images/universos/africa/momentos/culinarias/marruecos_la_grande_table_marocaine1.webp" },
+            { title: "La Colombe Restaurant", place: "Ciudad del Cabo, Sudáfrica", image: "https://garage-web.luxuryvoyageco.com/images/universos/africa/momentos/culinarias/sudafrica_la_colombe.webp" },
+            { title: "Cena Privada Bajo el Firmamento", place: "Serengeti, Tanzania", image: "https://garage-web.luxuryvoyageco.com/images/universos/africa/momentos/culinarias/tanzania_cena_bajo_estrellas_serengeti.webp" }
+          ]
+        },
+        {
+          categoryName: "ESTANCIAS SELECCIONADAS",
+          moments: [
+            { title: "Angama Mara", place: "Maasai Mara, Kenia", image: "https://garage-web.luxuryvoyageco.com/images/universos/africa/momentos/estancias/angama_mara.webp" },
+            { title: "Mombo Camp", place: "Okavango Delta, Botsuana", image: "https://garage-web.luxuryvoyageco.com/images/universos/africa/momentos/estancias/mombo_camp.webp" },
+            { title: "Royal Malewane", place: "Parque Nacional Kruger, Sudáfrica", image: "https://garage-web.luxuryvoyageco.com/images/universos/africa/momentos/estancias/royal_malewane.webp" },
+            { title: "Royal Mansour", place: "Marrakech, Marruecos", image: "https://garage-web.luxuryvoyageco.com/images/universos/africa/momentos/estancias/royal_mansour_marrakech.webp" },
+            { title: "Singita Sasakwa Lodge", place: "Serengeti, Tanzania", image: "https://garage-web.luxuryvoyageco.com/images/universos/africa/momentos/estancias/singita_sasakwa_lodge.webp" },
+            { title: "Sofitel Legend Old Cataract", place: "Asuán, Egipto", image: "https://garage-web.luxuryvoyageco.com/images/universos/africa/momentos/estancias/sofitel_old_cataract_aswan.webp" }
+          ]
+        },
+        {
+          categoryName: "INMERSIONES",
+          moments: [
+            { title: "Vuelo en Globo al Amanecer", place: "Maasai Mara, Kenia", image: "https://garage-web.luxuryvoyageco.com/images/universos/africa/momentos/inmersiones/globo_maasai_mara.webp" },
+            { title: "Paseo Tradicional en Mokoro", place: "Okavango Delta, Botsuana", image: "https://garage-web.luxuryvoyageco.com/images/universos/africa/momentos/inmersiones/mokoro_botswana.jpg" },
+            { title: "Navegación en Dahabiya Privada", place: "Río Nilo, Egipto", image: "https://garage-web.luxuryvoyageco.com/images/universos/africa/momentos/inmersiones/dahabiya_en_el_nilo.webp" },
+            { title: "Sesión de Hammam Privado", place: "Marrakech, Marruecos", image: "https://garage-web.luxuryvoyageco.com/images/universos/africa/momentos/inmersiones/hammam_de_lujo.jpg" },
+            { title: "Vuelo en Helicóptero de Lujo", place: "Ciudad del Cabo, Sudáfrica", image: "https://garage-web.luxuryvoyageco.com/images/universos/africa/momentos/inmersiones/vuelo_ciudad_del_cabo.webp" }
+          ]
+        }
+      ],
+      "medio-oriente": [
+        {
+          categoryName: "EXPERIENCIAS CULINARIAS",
+          moments: [
+            { title: "Restaurante Tama en Habitas", place: "AlUla, Arabia Saudita", image: "https://garage-web.luxuryvoyageco.com/images/universos/medio-oriente/momentos/culinarias/arabia_saudita_tama.webp" },
+            { title: "IDAM by Alain Ducasse", place: "Doha, Catar", image: "https://garage-web.luxuryvoyageco.com/images/universos/medio-oriente/momentos/culinarias/catar_idam.webp" },
+            { title: "Al Muntaha (Burj Al Arab)", place: "Dubái, Emiratos Árabes", image: "https://garage-web.luxuryvoyageco.com/images/universos/medio-oriente/momentos/culinarias/emiratos_arabes_unidos_al_muntaha.webp" },
+            { title: "Restaurante de Tradición Rozna", place: "Mascate, Omán", image: "https://garage-web.luxuryvoyageco.com/images/universos/medio-oriente/momentos/culinarias/oman_rozna.webp" }
+          ]
+        },
+        {
+          categoryName: "ESTANCIAS SELECCIONADAS",
+          moments: [
+            { title: "Our Habitas AlUla", place: "AlUla, Arabia Saudita", image: "https://garage-web.luxuryvoyageco.com/images/universos/medio-oriente/momentos/estancias/arabia_saudita_habitas.webp" },
+            { title: "The Ned Doha", place: "Doha, Catar", image: "https://garage-web.luxuryvoyageco.com/images/universos/medio-oriente/momentos/estancias/catar_the_ned.webp" },
+            { title: "Atlantis The Royal", place: "Dubái, Emiratos Árabes", image: "https://garage-web.luxuryvoyageco.com/images/universos/medio-oriente/momentos/estancias/emiratos_arabes_unidos_atlantis.webp" },
+            { title: "Alila Jabal Akhdar", place: "Jabal Akhdar, Omán", image: "https://garage-web.luxuryvoyageco.com/images/universos/medio-oriente/momentos/estancias/oman_alila.webp" }
+          ]
+        },
+        {
+          categoryName: "INMERSIONES",
+          moments: [
+            { title: "Exploración del Valle de Ashar", place: "AlUla, Arabia Saudita", image: "https://garage-web.luxuryvoyageco.com/images/universos/medio-oriente/momentos/inmersiones/arabia_saudita_ashar.webp" },
+            { title: "Travesía al Mar Interior", place: "Khor Al Adaid, Catar", image: "https://garage-web.luxuryvoyageco.com/images/universos/medio-oriente/momentos/inmersiones/catar_inland_sea.webp" },
+            { title: "Navegación Privada Frente al Skyline", place: "Dubái, Emiratos Árabes", image: "https://garage-web.luxuryvoyageco.com/images/universos/medio-oriente/momentos/inmersiones/emiratos_arabes_unidos_yate.jpg" },
+            { title: "Astronomía en la Montaña Verde", place: "Jabal Akhdar, Omán", image: "https://garage-web.luxuryvoyageco.com/images/universos/medio-oriente/momentos/inmersiones/oman_astronomia.webp" }
+          ]
+        }
+      ]
+    };
+
     function initPlacesSwiper() {
         const target = document.querySelector('.placesSwiper');
         if (!target) return;
@@ -1592,6 +1818,106 @@ const experienceImages: Record<string, string[][]> = {
       window.addEventListener('resize', updateCarousel);
     }
 
+    function initExperiencesModal() {
+      const modal = document.getElementById('experiences-modal');
+      const closeBtn = document.getElementById('close-experiences-modal-btn');
+      const track = document.getElementById('experiences-modal-track');
+      const modalSubtitle = document.getElementById('experiences-modal-subtitle');
+      const modalTitle = document.getElementById('experiences-modal-title');
+
+      if (!modal || !closeBtn || !track) return;
+
+      function openExperiencesModal(universeSlug: string, categoryIndex: number, categoryName: string) {
+        // Clear track
+        track.innerHTML = '';
+
+        // Get universe moments data
+        const universeData = universeMomentsData[universeSlug];
+        if (!universeData || !universeData[categoryIndex]) return;
+
+        const categoryData = universeData[categoryIndex];
+        
+        // Update header
+        if (modalSubtitle) {
+          const names: Record<string, string> = {
+            asia: "UNIVERSO ASIA",
+            europa: "UNIVERSO EUROPA",
+            africa: "UNIVERSO ÁFRICA",
+            "medio-oriente": "UNIVERSO MEDIO ORIENTE"
+          };
+          modalSubtitle.textContent = names[universeSlug] || `UNIVERSO ${universeSlug.toUpperCase()}`;
+        }
+        if (modalTitle) {
+          modalTitle.textContent = categoryData.categoryName;
+        }
+
+        // Render cards
+        categoryData.moments.forEach((moment, index) => {
+          const cardEl = document.createElement('div');
+          cardEl.className = `experiences-card-item group relative flex-none overflow-hidden bg-[#1C1713] rounded-[1.5rem] shadow-lg fade-in-stagger`;
+          cardEl.style.transitionDelay = `${index * 100}ms`;
+
+          cardEl.innerHTML = `
+            <img src="${moment.image}" alt="${moment.title}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.08] opacity-80 group-hover:opacity-95" loading="eager" />
+            
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent z-10"></div>
+            
+            <div class="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 z-20 text-left">
+              <h3 class="font-heading text-sm md:text-base lg:text-lg text-[#FAF9F6] tracking-wider uppercase mb-1 leading-tight">${moment.title}</h3>
+              <p class="font-sans text-[10px] md:text-xs text-white/70 tracking-wide">
+                ${moment.place}
+              </p>
+            </div>
+          `;
+
+          track.appendChild(cardEl);
+        });
+
+        // Open modal with transition
+        modal.classList.remove('hidden');
+        modal.offsetHeight; // trigger reflow
+        modal.classList.remove('opacity-0', 'translate-y-4');
+        modal.classList.add('opacity-100', 'translate-y-0');
+        document.body.style.overflow = 'hidden';
+
+        // Animate cards in
+        setTimeout(() => {
+          track.querySelectorAll('.fade-in-stagger').forEach(card => {
+            card.classList.add('animate-in');
+          });
+        }, 100);
+      }
+
+      function closeExperiencesModal() {
+        modal.classList.remove('opacity-100', 'translate-y-0');
+        modal.classList.add('opacity-0', 'translate-y-4');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+          modal.classList.add('hidden');
+        }, 500);
+      }
+
+      closeBtn.addEventListener('click', closeExperiencesModal);
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+          closeExperiencesModal();
+        }
+      });
+
+      // Delegate click trigger to experience slides
+      document.addEventListener('click', (e) => {
+        const trigger = (e.target as HTMLElement)?.closest('[data-experience-trigger]');
+        if (trigger) {
+          e.preventDefault();
+          const universeSlug = trigger.getAttribute('data-universe-slug') || '';
+          const categoryIndex = parseInt(trigger.getAttribute('data-category-index') || '0', 10);
+          const categoryName = trigger.getAttribute('data-category-name') || '';
+          openExperiencesModal(universeSlug, categoryIndex, categoryName);
+        }
+      });
+    }
+
     function preloadImages() {
       const imagesToPreload = [];
       for (const key of Object.keys(destinationPhilosophyData)) {
@@ -1613,6 +1939,7 @@ const experienceImages: Record<string, string[][]> = {
         initPlacesSwiper();
         initExperiencesSlider();
         initDestinationModal();
+        initExperiencesModal();
         preloadImages();
     }
 
