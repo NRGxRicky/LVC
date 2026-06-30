@@ -525,45 +525,58 @@ const experienceImages: Record<string, string[][]> = {
     </div>
 
     <!-- MODAL EXPERIENCIAS/MOMENTOS INTERACTIVO -->
-    <div id="experiences-modal" class="fixed inset-0 z-50 hidden bg-[#EDE7D7] transition-all duration-500 opacity-0 translate-y-4 h-screen overflow-hidden">
+    <div id="experiences-modal" class="fixed inset-0 z-50 hidden bg-[#1C1713] transition-all duration-500 opacity-0 translate-y-4 h-screen overflow-hidden">
       <div class="max-w-[1920px] mx-auto h-full flex flex-col justify-between p-6 md:py-8 md:px-16 lg:py-10 lg:px-20 relative">
         
-        <!-- Botón de Cerrar -->
-        <button id="close-experiences-modal-btn" class="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 md:w-12 md:h-12 rounded-full border border-[#1C1713]/15 flex items-center justify-center text-[#1C1713]/60 hover:text-[#1C1713] hover:border-[#1C1713] hover:bg-[#1C1713]/5 transition-all duration-300 cursor-pointer z-30">
+        <!-- Botón de Cerrar (Blanco/Crema) -->
+        <button id="close-experiences-modal-btn" class="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 md:w-12 md:h-12 rounded-full border border-[#EDE7D7]/15 flex items-center justify-center text-[#EDE7D7]/60 hover:text-[#EDE7D7] hover:border-[#EDE7D7] hover:bg-[#EDE7D7]/5 transition-all duration-300 cursor-pointer z-30">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
 
-        <!-- Cabecera del Modal -->
+        <!-- Cabecera del Modal (Texto en Oro y Crema) -->
         <div class="text-center max-w-2xl 2xl:max-w-4xl mx-auto mb-4 mt-4 md:mt-8">
-          <span id="experiences-modal-subtitle" class="font-label text-[10px] md:text-xs 2xl:text-sm font-bold text-[#775A19] uppercase tracking-[0.2em] block mb-1">MOMENTOS DEL VIAJE</span>
-          <h2 id="experiences-modal-title" class="font-heading text-2xl md:text-4xl lg:text-5xl 2xl:text-6xl text-[#1C1713] mb-2">Estancias Seleccionadas</h2>
+          <span id="experiences-modal-subtitle" class="font-label text-[10px] md:text-xs 2xl:text-sm font-bold text-[#D4AD65] uppercase tracking-[0.2em] block mb-1">MOMENTOS DEL VIAJE</span>
+          <h2 id="experiences-modal-title" class="font-heading text-2xl md:text-4xl lg:text-5xl 2xl:text-6xl text-[#EDE7D7] mb-2">Estancias Seleccionadas</h2>
           <div class="w-10 h-[1px] bg-[#D4AD65] mx-auto mt-4"></div>
         </div>
 
-        <!-- Fila de Tarjetas Horizontales (Showcase de 5-6 momentos con scroll horizontal suave) -->
-        <div class="relative w-full overflow-hidden my-auto py-4">
-          <!-- Viewport of the modal -->
-          <div class="w-full overflow-x-auto overflow-y-hidden scrollbar-none py-4 px-2 scroll-smooth">
+        <!-- Slider de Tarjetas con efecto Expo Slider (Centrado e Interactivo con Swiper) -->
+        <div class="relative w-full overflow-hidden my-auto py-4 flex items-center">
+          
+          <!-- Botón Anterior -->
+          <button id="exp-prev-btn" class="absolute left-2 md:left-8 w-10 h-10 md:w-12 md:h-12 rounded-full border border-[#EDE7D7]/15 bg-[#1C1713]/85 backdrop-blur-sm flex items-center justify-center text-[#EDE7D7]/60 hover:text-[#EDE7D7] hover:border-[#EDE7D7] hover:bg-[#EDE7D7]/5 transition-all duration-300 cursor-pointer z-30">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
+
+          <!-- Botón Siguiente -->
+          <button id="exp-next-btn" class="absolute right-2 md:right-8 w-10 h-10 md:w-12 md:h-12 rounded-full border border-[#EDE7D7]/15 bg-[#1C1713]/85 backdrop-blur-sm flex items-center justify-center text-[#EDE7D7]/60 hover:text-[#EDE7D7] hover:border-[#EDE7D7] hover:bg-[#EDE7D7]/5 transition-all duration-300 cursor-pointer z-30">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+
+          <!-- Swiper Wrapper -->
+          <div id="experiences-modal-swiper" class="swiper w-full !overflow-visible py-4">
             <div 
               id="experiences-modal-track"
-              class="flex items-stretch gap-6 md:gap-8 lg:gap-10 pb-4 min-w-max"
+              class="swiper-wrapper"
             >
-              <!-- Las tarjetas se inyectarán dinámicamente aquí -->
+              <!-- Las tarjetas se inyectarán dinámicamente aquí como .swiper-slide -->
             </div>
           </div>
         </div>
 
         <!-- Indicador de Navegación del Modal al Pie -->
         <div class="text-center mb-6">
-          <div class="flex items-center justify-center gap-2 text-[10px] 2xl:text-xs text-[#1C1713]/40 tracking-widest uppercase font-label">
-            <span>Desliza para explorar todos los momentos</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="animate-pulse">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
+          <div class="flex items-center justify-center gap-2 text-[10px] 2xl:text-xs text-[#EDE7D7]/40 tracking-widest uppercase font-label">
+            <span>Usa las flechas o arrastra para navegar</span>
           </div>
         </div>
 
@@ -699,64 +712,49 @@ const experienceImages: Record<string, string[][]> = {
     transform: translateY(0);
   }
 
-  /* Estilos del Modal de Experiencias (Moments) */
-  #experiences-modal .experiences-card-item {
-    border: 1px solid rgba(28, 23, 19, 0.08);
-    border-radius: 1.5rem;
-    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    height: 38vh;
-    max-height: 420px;
-    min-height: 260px;
-    aspect-ratio: 3 / 4;
-    width: auto;
+  /* Estilos del Modal de Experiencias (Moments) con Efecto Expo Slider */
+  #experiences-modal .swiper-slide {
+    border: 1px solid rgba(237, 231, 215, 0.08);
+    border-radius: 2rem;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.3, 1), 
+                filter 0.8s cubic-bezier(0.25, 1, 0.3, 1), 
+                opacity 0.8s cubic-bezier(0.25, 1, 0.3, 1);
+    height: 48vh;
+    max-height: 520px;
+    min-height: 280px;
+    aspect-ratio: 16 / 10;
+    width: auto !important; /* Let swiper control slides width by height and aspect-ratio */
     background: #1C1713;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  }
-  @media (min-height: 700px) {
-    #experiences-modal .experiences-card-item {
-      height: 42vh;
-      max-height: 460px;
-    }
-  }
-  @media (min-width: 1024px) and (min-height: 800px) {
-    #experiences-modal .experiences-card-item {
-      height: 44vh;
-      max-height: 480px;
-    }
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    
+    /* Grayscale and scale down by default */
+    filter: grayscale(100%) brightness(0.6);
+    transform: scale(0.85);
+    opacity: 0.45;
   }
 
-  #experiences-modal .experiences-card-item:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(119, 90, 25, 0.15);
-    border-color: #D4AD65;
+  /* Active Centered Slide */
+  #experiences-modal .swiper-slide-active {
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+    border-color: rgba(212, 173, 101, 0.25);
   }
 
-  /* Fade-in stagger animation classes */
-  .fade-in-stagger {
+  /* Text overlay transitions */
+  #experiences-modal .swiper-slide .card-text-overlay {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transform: translateY(12px);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.3, 1), 
+                transform 0.8s cubic-bezier(0.25, 1, 0.3, 1);
   }
 
-  .fade-in-stagger.animate-in {
+  #experiences-modal .swiper-slide-active .card-text-overlay {
     opacity: 1;
     transform: translateY(0);
-  }
-
-  /* Centering trick that supports safe overflow scroll */
-  #experiences-modal-track {
-    min-width: 100%;
-    display: flex;
-    justify-content: start;
-  }
-
-  #experiences-modal-track::before,
-  #experiences-modal-track::after {
-    content: '';
-    flex-grow: 1;
-    transition: flex-grow 0.3s ease;
   }
 </style>
 
@@ -1844,6 +1842,8 @@ const experienceImages: Record<string, string[][]> = {
       window.addEventListener('resize', updateCarousel);
     }
 
+    let expSwiperInstance: any = null;
+
     function initExperiencesModal() {
       const modal = document.getElementById('experiences-modal');
       const closeBtn = document.getElementById('close-experiences-modal-btn');
@@ -1878,19 +1878,18 @@ const experienceImages: Record<string, string[][]> = {
         }
 
         // Render cards
-        categoryData.moments.forEach((moment, index) => {
+        categoryData.moments.forEach((moment) => {
           const cardEl = document.createElement('div');
-          cardEl.className = `experiences-card-item group relative flex-none overflow-hidden bg-[#1C1713] rounded-[1.5rem] shadow-lg fade-in-stagger`;
-          cardEl.style.transitionDelay = `${index * 100}ms`;
+          cardEl.className = `swiper-slide`;
 
           cardEl.innerHTML = `
-            <img src="${moment.image}" alt="${moment.title}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.08] opacity-80 group-hover:opacity-95" loading="eager" />
+            <img src="${moment.image}" alt="${moment.title}" class="w-full h-full object-cover opacity-80" loading="eager" />
             
-            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent z-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10"></div>
             
-            <div class="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 z-20 text-left">
-              <h3 class="font-heading text-sm md:text-base lg:text-lg text-[#FAF9F6] tracking-wider uppercase mb-1 leading-tight">${moment.title}</h3>
-              <p class="font-sans text-[10px] md:text-xs text-white/70 tracking-wide">
+            <div class="card-text-overlay absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 z-20 text-left">
+              <h3 class="font-heading text-lg md:text-2xl lg:text-3xl text-[#FAF9F6] tracking-wider uppercase mb-1 leading-tight">${moment.title}</h3>
+              <p class="font-sans text-[10px] md:text-xs lg:text-sm text-white/70 tracking-wide">
                 ${moment.place}
               </p>
             </div>
@@ -1906,12 +1905,27 @@ const experienceImages: Record<string, string[][]> = {
         modal.classList.add('opacity-100', 'translate-y-0');
         document.body.style.overflow = 'hidden';
 
-        // Animate cards in
-        setTimeout(() => {
-          track.querySelectorAll('.fade-in-stagger').forEach(card => {
-            card.classList.add('animate-in');
-          });
-        }, 100);
+        // Initialize Swiper Instance
+        if (expSwiperInstance) {
+          expSwiperInstance.destroy(true, true);
+        }
+
+        expSwiperInstance = new Swiper('#experiences-modal-swiper', {
+          slidesPerView: 'auto',
+          centeredSlides: true,
+          spaceBetween: 16,
+          slideToClickedSlide: true,
+          grabCursor: true,
+          initialSlide: 0,
+          breakpoints: {
+            768: {
+              spaceBetween: 30
+            },
+            1024: {
+              spaceBetween: 40
+            }
+          }
+        });
       }
 
       function closeExperiencesModal() {
@@ -1920,6 +1934,10 @@ const experienceImages: Record<string, string[][]> = {
         document.body.style.overflow = '';
         setTimeout(() => {
           modal.classList.add('hidden');
+          if (expSwiperInstance) {
+            expSwiperInstance.destroy(true, true);
+            expSwiperInstance = null;
+          }
         }, 500);
       }
 
@@ -1929,6 +1947,15 @@ const experienceImages: Record<string, string[][]> = {
         if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
           closeExperiencesModal();
         }
+      });
+
+      // Navigation arrows
+      document.getElementById('exp-prev-btn')?.addEventListener('click', () => {
+        expSwiperInstance?.slidePrev();
+      });
+
+      document.getElementById('exp-next-btn')?.addEventListener('click', () => {
+        expSwiperInstance?.slideNext();
       });
 
       // Delegate click trigger to experience slides
