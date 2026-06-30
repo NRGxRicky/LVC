@@ -990,5 +990,48 @@ export const coleccionesData: Coleccion[] = [
       { title: "MIXOLOGÍA Y ENTRADAS", description: "Mesas reservadas de forma prioritaria en los restaurantes de mayor renombre." },
       { title: "CHÓFER A DISPOSICIÓN", description: "Vehículos ejecutivos eléctricos con chófer disponible de forma exclusiva durante toda la estancia." }
     ]
+  },
+  {
+    slug: "corea-esencial",
+    title: "Corea Esencial",
+    subtitle: "COREA DEL SUR",
+    continent: "asia",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/corea_del_sur/esencial.webp",
+    heroDesc: "Tres ciudades que explican distintas formas de entender Corea.",
+    badges: ["8 Días / 7 Noches", "Corea del Sur", "Grupo Reducido"],
+    essenceHeading: "Donde la historia, la modernidad y el mar encuentran continuidad",
+    essenceDesc: "Conecta Seúl, Gyeongju y Busan mediante una ruta que equilibra patrimonio, vida urbana y paisaje costero, con ritmos distintos sin perder continuidad, ideal para quienes desean una primera aproximación amplia y bien estructurada a Corea del Sur.",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/corea_del_sur/esencial.webp",
+    moments: [
+      {
+        number: "01",
+        title: "Dos Seúles",
+        description: "La ruta reúne los barrios históricos y la arquitectura contemporánea de la capital, mostrando cómo tradición, diseño, gastronomía y vida cotidiana conviven en una misma ciudad.",
+        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/corea_del_sur/contemporanea.webp"
+      },
+      {
+        number: "02",
+        title: "Legado de Silla",
+        description: "Templos, antiguos observatorios, palacios y parques históricos permiten comprender el origen cultural de Corea a través de una de sus ciudades más representativas.",
+        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/corea_del_sur/tradicional.webp"
+      },
+      {
+        number: "03",
+        title: "Costa de Busan",
+        description: "Templos frente al mar, mercados tradicionales, miradores costeros y barrios con identidad propia muestran una perspectiva diferente del país antes del regreso a Seúl.",
+        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/inmersiones/corea_del_sur.jpg"
+      }
+    ],
+    momentsCallout: "ALGUNOS PAÍSES SE COMPRENDEN MEJOR CUANDO MUESTRAN MÁS DE UNA VERSIÓN DE SÍ MISMOS.",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_korea.webp",
+    organizedPillars: [
+      { title: "HOSPEDAJES SELECCIONADOS", description: "Cinco noches en Seúl, una en Gyeongju y una en Busan en categoría superior." },
+      { title: "RITMO DEL RECORRIDO", description: "Una ruta equilibrada que combina recorridos urbanos, patrimonio histórico y traslados eficientes entre ciudades." },
+      { title: "EXPERIENCIAS INTEGRADAS", description: "Entradas, cuatro almuerzos locales, tren bala KTX y visitas guiadas en español durante el recorrido principal." },
+      { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Traslados de llegada y salida, transporte durante las visitas y coordinación integral del itinerario." }
+    ],
+    aConsiderar: "Vuelos internacionales, algunas comidas, gastos personales, propinas y decisiones de cada viajero. La disponibilidad y el precio final se confirman al momento de la reserva.",
+    inversion: "desde $4,600 USD",
+    fechas: "Salidas 2026"
   }
 ];
