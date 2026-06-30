@@ -544,12 +544,12 @@ const experienceImages: Record<string, string[][]> = {
         </div>
 
         <!-- Fila de Tarjetas Horizontales (Showcase de 5-6 momentos con scroll horizontal suave) -->
-        <div class="relative w-full overflow-hidden my-auto max-w-7xl 2xl:max-w-[1550px] mx-auto py-4">
+        <div class="relative w-full overflow-hidden my-auto py-4">
           <!-- Viewport of the modal -->
-          <div class="w-full overflow-x-auto overflow-y-hidden scrollbar-none py-4 px-2 md:px-0 scroll-smooth">
+          <div class="w-full overflow-x-auto overflow-y-hidden scrollbar-none py-4 px-6 md:px-12 lg:px-16 scroll-smooth">
             <div 
               id="experiences-modal-track"
-              class="flex items-stretch gap-6 md:gap-8 lg:gap-10 pb-4 min-w-max px-4 md:px-8"
+              class="flex items-stretch gap-6 md:gap-8 lg:gap-10 pb-4 min-w-max"
             >
               <!-- Las tarjetas se inyectarán dinámicamente aquí -->
             </div>
@@ -731,6 +731,20 @@ const experienceImages: Record<string, string[][]> = {
   .fade-in-stagger.animate-in {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* Centering trick that supports safe overflow scroll */
+  #experiences-modal-track {
+    min-width: 100%;
+    display: flex;
+    justify-content: start;
+  }
+
+  #experiences-modal-track::before,
+  #experiences-modal-track::after {
+    content: '';
+    flex-grow: 1;
+    transition: flex-grow 0.3s ease;
   }
 </style>
 
