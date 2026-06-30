@@ -721,7 +721,7 @@ const experienceImages: Record<string, string[][]> = {
                 opacity 0.8s cubic-bezier(0.25, 1, 0.3, 1);
     width: 80vw !important;
     height: auto !important;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 3 / 2;
     background: #1C1713;
     overflow: hidden;
     position: relative;
@@ -733,13 +733,17 @@ const experienceImages: Record<string, string[][]> = {
     opacity: 0.45;
   }
 
+  #experiences-modal .swiper-slide img {
+    object-position: center 30% !important;
+  }
+
   @media (min-width: 768px) {
     #experiences-modal .swiper-slide {
       border-radius: 2rem;
       height: 48vh;
       max-height: 520px;
       min-height: 280px;
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 3 / 2;
       width: auto !important; /* Let swiper control slides width by height and aspect-ratio */
     }
   }
