@@ -637,7 +637,7 @@ ${consideraciones}`;
 
       // Enviar a HubSpot
       const portalId = import.meta.env.PUBLIC_HUBSPOT_PORTAL_ID || "51495057";
-      const formId = import.meta.env.PUBLIC_HUBSPOT_FORM_ID || "b25257b0-7b1a-43b8-a591-fa2853b7a244";
+      const formId = import.meta.env.PUBLIC_HUBSPOT_COLLECTIONS_FORM_ID || import.meta.env.PUBLIC_HUBSPOT_FORM_ID || "b25257b0-7b1a-43b8-a591-fa2853b7a244";
       const endpoint = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
 
       const payload = {
