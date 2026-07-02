@@ -600,7 +600,7 @@ export const coleccionesData: Coleccion[] = [
     title: "La Gran Ruta Salvaje",
     subtitle: "TANZANIA",
     continent: "africa",
-    heroImage: "https://images.unsplash.com/photo-1504829857797-ddff28127792?q=80&w=1200",
+    heroImage: "https://images.unsplash.com/photo-1759483412972-dcfcadf6ccec?q=80&w=1200",
     heroDesc: "Los grandes parques del norte de Tanzania unidos en una sola travesía.",
     badges: ["8 Días / 7 Noches", "Serengeti", "Cráter Ngorongoro"],
     essenceHeading: "Cuatro ecosistemas que revelan la diversidad del norte de Tanzania",
@@ -611,7 +611,7 @@ export const coleccionesData: Coleccion[] = [
         number: "01",
         title: "Llanuras infinitas",
         description: "Dos jornadas de safari permiten recorrer una de las reservas más emblemáticas de África, dedicando tiempo suficiente para explorar distintos sectores del parque.",
-        image: "https://images.unsplash.com/photo-1504829857797-ddff28127792?q=80&w=800"
+        image: "https://images.unsplash.com/photo-1759483412972-dcfcadf6ccec?q=80&w=800"
       },
       {
         number: "02",
