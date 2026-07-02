@@ -510,84 +510,133 @@ export const coleccionesData: Coleccion[] = [
 
   // ── UNIVERSO ÁFRICA ──
   {
-    slug: "safari-lujo",
-    title: "Safari de Lujo",
-    subtitle: "KENIA & TANZANIA",
+    slug: "safari-austral",
+    title: "Safari Austral",
+    subtitle: "SUDÁFRICA",
     continent: "africa",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/hero_carousel/africa.webp",
-    heroDesc: "Encuentros íntimos con la fauna salvaje en campamentos móviles de lujo en el Serengueti.",
-    badges: ["Gran Migración", "Campamentos de Lujo", "Globo Aerostático"],
-    essenceHeading: "La llamada de la naturaleza en su estado más puro y la majestuosidad de la Gran Migración.",
-    essenceDesc: "Siente el pulso de la sabana africana. Duerme en campamentos de lona de ultra-lujo al estilo de los antiguos exploradores, vuela sobre miles de ñus al amanecer y comparte momentos junto a guerreros Masái para comprender su estrecha relación con la tierra.",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_south_africa.webp",
+    heroDesc: "Entre la vida salvaje y la elegancia costera.",
+    badges: ["Kruger Privado", "Ruta Panorama", "Ciudad del Cabo VIP"],
+    essenceHeading: "Dos maneras de entender Sudáfrica en un mismo recorrido.",
+    essenceDesc: "Enlaza la energía urbana de Johannesburgo, una reserva privada en el área de Kruger y la atmósfera costera de Ciudad del Cabo. Su mayor valor reside en combinar safaris en un entorno exclusivo con tiempo suficiente para recorrer algunos de los escenarios más representativos del país, manteniendo una operación completamente acompañada en español.",
+    essenceImage: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=800",
+    moments: [
+      {
+        number: "01",
+        title: "Safari Privado",
+        description: "Tres safaris fotográficos en vehículos 4x4 abiertos permiten recorrer una reserva privada con guía de habla castellana y jornadas completas dentro del lodge.",
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_south_africa.webp"
+      },
+      {
+        number: "02",
+        title: "Paisajes Panorama",
+        description: "El recorrido atraviesa una de las regiones escénicas más reconocidas del país, incluyendo el Cañón del Río Blyde y Bourke's Luck Potholes, sujetos a condiciones operativas.",
+        image: "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=800"
+      },
+      {
+        number: "03",
+        title: "Ciudad del Cabo",
+        description: "Tres noches ofrecen tiempo para conocer la ciudad y complementar la estancia con recorridos opcionales hacia la Península, Bo-Kaap o la región vinícola.",
+        image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=800"
+      }
+    ],
+    momentsCallout: "ALGUNOS TERRITORIOS SE RECORREN; OTROS CAMBIAN LA MANERA DE OBSERVAR EL MUNDO.",
+    organizedImage: "https://images.unsplash.com/photo-1575089976121-8ed7b2a54265?q=80&w=800",
+    organizedPillars: [
+      { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias en Johannesburgo, una reserva privada del área de Kruger y Ciudad del Cabo con desayunos y régimen todo incluido en el lodge." },
+      { title: "RITMO DEL RECORRIDO", description: "Una ruta equilibrada entre ciudad, naturaleza y tiempo disponible para complementar la experiencia." },
+      { title: "EXPERIENCIAS INTEGRADAS", description: "Tres safaris fotográficos, recorrido panorámico por Mpumalanga y traslados durante el programa." },
+      { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Traslados, transporte terrestre y asistencia en español durante todo el recorrido." }
+    ],
+    aConsiderar: "Vuelos internacionales y domésticos, actividades, comidas específicas y posibles extensiones permanecen abiertas para adaptarse a las preferencias y decisiones de cada viajero durante la planificación.",
+    inversion: "desde $2,500 USD",
+    fechas: "Salidas lunes 2026"
+  },
+  {
+    slug: "los-paisajes-de-kenia",
+    title: "Los Paisajes de Kenia",
+    subtitle: "KENIA",
+    continent: "africa",
+    heroImage: "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?q=80&w=1200",
+    heroDesc: "La naturaleza de Kenia encuentra un cierre frente al océano.",
+    badges: ["10 Días / 9 Noches", "Masái Mara", "Costa de Diani"],
+    essenceHeading: "Los grandes paisajes de Kenia en una sola colección",
+    essenceDesc: "Reúne algunas de las regiones naturales más representativas de Kenia dentro de un recorrido continuo que equilibra safari, lagos, sabana y costa. Está pensada para quienes buscan una visión amplia del país sin renunciar al tiempo de descanso, integrando parques nacionales, fauna emblemática y varios días junto al océano Índico.",
     essenceImage: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=800",
     moments: [
       {
         number: "01",
         title: "Masái Mara",
-        description: "Vuelo al amanecer en globo aerostático sobre la llanura del Mara, seguido de un desayuno con champán en la sabana.",
-        image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=800"
+        description: "Dos jornadas de safari permiten recorrer una de las reservas más emblemáticas de África, con amplios paisajes abiertos y una de las mayores concentraciones de vida salvaje del continente.",
+        image: "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?q=80&w=800"
       },
       {
         number: "02",
-        title: "Serengueti",
-        description: "Safari fotográfico de día completo rastreando a los 'Cinco Grandes' acompañados por un guía naturalista experto.",
-        image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=800"
+        title: "Entre agua y sabana",
+        description: "El recorrido incorpora un paseo en barca por el Lago Naivasha antes de continuar hacia Amboseli, donde la sabana ofrece un paisaje completamente distinto dentro del mismo viaje.",
+        image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=800"
       },
       {
         number: "03",
-        title: "Cráter Ngorongoro",
-        description: "Almuerzo privado tipo picnic de etiqueta montado en el suelo del cráter, rodeado de cebras e hipopótamos.",
-        image: "https://garage-web.luxuryvoyageco.com/images/hero_carousel/africa.webp"
+        title: "Costa de Diani",
+        description: "Tras varios días de safari, la colección concluye con una estancia junto al Índico, ofreciendo tiempo para descansar antes del regreso internacional.",
+        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800"
       }
     ],
-    momentsCallout: "EL SILENCIO DE LA SABANA AL ATARDECER ES EL SONIDO MÁS PROFUNDO DE LA TIERRA.",
-    organizedImage: "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?q=80&w=800",
+    momentsCallout: "HAY VIAJES QUE TERMINAN CUANDO CAMBIA EL PAISAJE; OTROS ENCUENTRAN ALLÍ SU EQUILIBRIO.",
+    organizedImage: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800",
     organizedPillars: [
-      { title: "LOGIS DE ULTRA-LUJO", description: "Campamentos con tiendas de lona señoriales provistas de piscina privada y baños de cobre." },
-      { title: "NATURALISTAS CERTIFICADOS", description: "Rastreadores y guías dedicados exclusivamente a tu vehículo 4x4 durante todo el safari." },
-      { title: "VUELOS CÁLIDOS", description: "Avionetas privadas programadas para evitar los largos e incómodos trayectos por carretera." },
-      { title: "INMERSIÓN RESPETUOSA", description: "Visitas consensuadas a comunidades locales para apoyar proyectos de educación y conservación." }
-    ]
+      { title: "HOSPEDAJES SELECCIONADOS", description: "Lodges dentro de las principales reservas and tres noches frente al mar en Diani con régimen todo incluido." },
+      { title: "RITMO DEL RECORRIDO", description: "Una ruta progresiva que conecta reservas naturales, lago, sabana y costa mediante traslados organizados." },
+      { title: "EXPERIENCIAS INTEGRADAS", description: "Safaris, paseo en barca por el Lago Naivasha, entradas a parques nacionales y estancia en Diani." },
+      { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía de habla hispana garantizado desde dos viajeros, transporte 4x4 durante el safari y asistencia Flying Doctors." }
+    ],
+    aConsiderar: "Vuelos internacionales y domésticos, bebidas indicadas por el operador, inversión final y preferencias personales durante el tiempo libre, permanecen sujetos a elección del viajero o confirmación previa.",
+    inversion: "desde $4,500 USD",
+    fechas: "Salidas martes 2026"
   },
   {
-    slug: "sudafrica-exclusiva",
-    title: "Sudáfrica Exclusiva",
-    subtitle: "SUDÁFRICA",
+    slug: "la-gran-ruta-salvaje",
+    title: "La Gran Ruta Salvaje",
+    subtitle: "TANZANIA",
     continent: "africa",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_south_africa.webp",
-    heroDesc: "La ruta de los viñedos en Stellenbosch, el Cabo de Buena Esperanza y avistamiento de ballenas.",
-    badges: ["Viñedos Premium", "Avistamiento de Ballenas", "Ciudad del Cabo VIP"],
-    essenceHeading: "La vibrante fusión de una metrópolis costera rodeada por océanos y viñedos.",
-    essenceDesc: "Sudáfrica Exclusiva combina la belleza de Ciudad del Cabo, los viñedos históricos de Stellenbosch y los acantilados de Hermanus. Una inmersión en la alta gastronomía, vinos premiados internacionalmente y una geografía costera espectacular.",
-    essenceImage: "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?q=80&w=800",
+    heroImage: "https://images.unsplash.com/photo-1504829857797-ddff28127792?q=80&w=1200",
+    heroDesc: "Los grandes parques del norte de Tanzania unidos en una sola travesía.",
+    badges: ["8 Días / 7 Noches", "Serengeti", "Cráter Ngorongoro"],
+    essenceHeading: "Cuatro ecosistemas que revelan la diversidad del norte de Tanzania",
+    essenceDesc: "Enlaza algunos de los escenarios naturales más representativos de Tanzania: Lago Manyara, Serengeti, el Cráter de Ngorongoro y Tarangire. Su recorrido permite apreciar cómo cambia el paisaje y la vida salvaje entre cada región, convirtiéndose en una excelente elección para quienes buscan una visión amplia del safari clásico del norte del país.",
+    essenceImage: "https://images.unsplash.com/photo-1519074002996-a69e7ac46a42?q=80&w=800",
     moments: [
       {
         number: "01",
-        title: "Ciudad del Cabo",
-        description: "Vuelo privado en helicóptero sobre la península del Cabo, rodeando la icónica silueta de Table Mountain.",
-        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_south_africa.webp"
+        title: "Llanuras infinitas",
+        description: "Dos jornadas de safari permiten recorrer una de las reservas más emblemáticas de África, dedicando tiempo suficiente para explorar distintos sectores del parque.",
+        image: "https://images.unsplash.com/photo-1504829857797-ddff28127792?q=80&w=800"
       },
       {
         number: "02",
-        title: "Stellenbosch",
-        description: "Cata exclusiva y almuerzo de maridaje de 5 tiempos en una bodega histórica privada fundada en el siglo XVIII.",
-        image: "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=800"
+        title: "Dentro del cráter",
+        description: "El descenso al cráter concentra uno de los paisajes naturales más singulares del recorrido, complementado con una estancia dentro de esta reconocida área de conservación.",
+        image: "https://images.unsplash.com/photo-1519074002996-a69e7ac46a42?q=80&w=800"
       },
       {
         number: "03",
-        title: "Hermanus",
-        description: "Navegación costera privada en catamarán para el avistamiento de ballenas francas australes en temporada.",
-        image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=800"
+        title: "Entre baobabs",
+        description: "La última etapa del safari incorpora Tarangire, permitiendo descubrir otro ecosistema del norte de Tanzania antes del regreso a Arusha.",
+        image: "https://images.unsplash.com/photo-1528164344705-47542687000d?q=80&w=800"
       }
     ],
-    momentsCallout: "EL ENCUENTRO DE DOS OCÉANOS BAJO EL CIELO DE LA CIUDAD MÁS ESPECTACULAR DE ÁFRICA.",
-    organizedImage: "https://images.unsplash.com/photo-1575089976121-8ed7b2a54265?q=80&w=800",
+    momentsCallout: "CADA PAISAJE CAMBIA EL RITMO DEL VIAJE ANTES DE REVELAR EL SIGUIENTE.",
+    organizedImage: "https://images.unsplash.com/photo-1528164344705-47542687000d?q=80&w=800",
     organizedPillars: [
-      { title: "MANORS BOUTIQUE", description: "Estancia en residencias históricas y hoteles de diseño en el paseo marítimo con máxima seguridad." },
-      { title: "BODEGAS PRIVADAS", description: "Acceso exclusivo a bodegas familiares cerradas al público general con catas privadas." },
-      { title: "GASTRONOMÍA PREMIUM", description: "Reservas preferentes en los restaurantes clasificados entre los 50 mejores del mundo." },
-      { title: "GUÍAS LOCALES EXPERTOS", description: "Historiadores y naturalistas locales que te acompañan para dar contexto a cada visita." }
-    ]
+      { title: "HOSPEDAJES SELECCIONADOS", description: "Arusha, Lago Manyara, Serengeti, Ngorongoro y Tarangire con estancias previstas durante todo el recorrido." },
+      { title: "RITMO DEL RECORRIDO", description: "Una combinación equilibrada entre desplazamientos, safaris, tiempos de descanso y pensión completa durante la ruta." },
+      { title: "EXPERIENCIAS INTEGRADAS", description: "Safaris en 4x4, acceso a los parques nacionales, safari en Ngorongoro y almuerzo en Arusha antes del vuelo internacional." },
+      { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Traslados, conductor-guía de habla castellana, agua durante el safari y cobertura Flying Doctors incluidos según el programa." }
+    ],
+    aConsiderar: "Vuelos internacionales y domésticos, actividades disponibles en Ngorongoro permanecen como opcionales y ciertos aspectos operativos, como el sentido del recorrido, pueden ajustarse cuando la operación lo requiera.",
+    inversion: "desde $5,500 USD",
+    fechas: "Salidas martes 2026"
   },
   {
     slug: "marruecos-imperial",
@@ -710,45 +759,49 @@ export const coleccionesData: Coleccion[] = [
     ]
   },
   {
-    slug: "ruanda-gorilas",
-    title: "Gorilas en Ruanda",
-    subtitle: "RUANDA",
+    slug: "el-reino-de-los-gigantes",
+    title: "El Reino de los Gigantes",
+    subtitle: "UGANDA",
     continent: "africa",
-    heroImage: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1200",
-    heroDesc: "Senderismo en la selva nubosa para un encuentro íntimo de una hora con los últimos gorilas de montaña.",
-    badges: ["Trekking de Gorilas", "Selva de los Volcanes", "Conservación Activa"],
-    essenceHeading: "Un encuentro cercano y profundo con los últimos gigantes de la selva nubosa.",
-    essenceDesc: "Gorilas en Ruanda te ofrece una de las experiencias más conmovedoras de la vida. Adéntrate en el Parque Nacional de los Volcanes acompañado de guías expertos de conservación para pasar una hora contemplando de cerca a una familia de gorilas de montaña.",
-    essenceImage: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=800",
+    heroImage: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?q=80&w=1200",
+    heroDesc: "Los grandes encuentros de Uganda reunidos en una sola ruta.",
+    badges: ["9 Días / 8 Noches", "Bosque Impenetrable", "Gorilas & Chimpancés"],
+    essenceHeading: "Uganda reunida a través de sus encuentros con la vida salvaje",
+    essenceDesc: "Recorre algunos de los ecosistemas más representativos de Uganda, combinando reservas, bosques tropicales y parques nacionales en una misma ruta. Está pensada para quienes buscan comprender la diversidad natural del país más allá del safari tradicional, incorporando caminatas entre primates, navegación por el Nilo y paisajes que cambian de forma constante.",
+    essenceImage: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=800",
     moments: [
       {
         number: "01",
-        title: "Volcanes",
-        description: "Senderismo privado de montaña guiado por guardaparques para un encuentro de 1 hora con gorilas de montaña.",
-        image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=800"
-      },
-      {
-        number: "02",
-        title: "Kigali",
-        description: "Cena privada y encuentro de debate con un scientist de la fundación Dian Fossey Gorilla Fund.",
+        title: "Bosque Impenetrable",
+        description: "La caminata hasta los gorilas de montaña culmina con un encuentro cuidadosamente regulado, limitado a pequeños grupos y acompañado por los guardaparques del parque nacional.",
         image: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?q=80&w=800"
       },
       {
+        number: "02",
+        title: "El Nilo Salvaje",
+        description: "La navegación hacia la base de las cataratas permite observar hipopótamos, cocodrilos, elefantes y aves mientras el río se transforma antes de atravesar el estrecho cañón de Murchison.",
+        image: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=800"
+      },
+      {
         number: "03",
-        title: "Bosque Nyungwe",
-        description: "Caminata sobre puentes colgantes aéreos en el dosel de la selva nubosa buscando chimpancés salvajes.",
-        image: "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?q=80&w=800"
+        title: "Territorio Primate",
+        description: "Uno de los bosques con mayor concentración de primates de África ofrece la oportunidad de recorrer su interior en búsqueda de chimpancés y otras especies endémicas.",
+        image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=800"
       }
     ],
-    momentsCallout: "EL SILENCIO DE LA SELVA NUBOSA SE ROMPE SUTILMENTE CON LA MIRADA DE UN GIGANTE.",
-    organizedImage: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?q=80&w=800",
+    momentsCallout: "HAY LUGARES DONDE LA NATURALEZA CONSERVA EL PRIVILEGIO DE MARCAR EL RITMO DEL VIAJE.",
+    organizedImage: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=800",
     organizedPillars: [
-      { title: "LODGES EXCLUSIVOS", description: "Estancias de lujo sostenible que contribuyen directamente a la conservación de las especies." },
-      { title: "SEGUIMIENTO PRIVADO", description: "Rastreadores y guías dedicados a guiarte de forma segura por el terreno selvático." },
-      { title: "ACCESO VIP", description: "Gestión preferente de permisos oficiales de trekking requeridos por las autoridades de Ruanda." },
-      { title: "TRASLADOS PRIVADOS", description: "Vehículos 4x4 y helicópteros privados para una logística rápida y segura." }
-    ]
+      { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias dentro o junto a los principales parques nacionales, incluyendo lodges y resorts previstos en el programa." },
+      { title: "RITMO DEL RECORRIDO", description: "Una ruta lineal que conecta las regiones más representativas de Uganda combinando traslados, caminatas, safaris y navegación." },
+      { title: "EXPERIENCIAS INTEGRADAS", description: "Safaris terrestres, cruceros, observación de rinocerontes, chimpancés y gorilas, además de accesos a los parques nacionales incluidos." },
+      { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Transporte compartido, guía conductor, traductor de habla hispana y seguro médico de evacuación durante el recorrido." }
+    ],
+    aConsiderar: "Vuelos internacionales y domésticos, visado, bebidas, seguro de viaje y gastos individuales; además, los permisos de gorilas y chimpancés requieren confirmación previa y no son reembolsables.",
+    inversion: "desde $8,600 USD",
+    fechas: "Salidas sábados 2026"
   },
+
 
   // ── UNIVERSO MEDIO ORIENTE ──
   {
