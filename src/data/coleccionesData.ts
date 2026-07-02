@@ -763,7 +763,7 @@ export const coleccionesData: Coleccion[] = [
     title: "El Reino de los Gigantes",
     subtitle: "UGANDA",
     continent: "africa",
-    heroImage: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?q=80&w=1200",
+    heroImage: "https://images.unsplash.com/photo-1668541491433-e96f4059e345?q=80&w=1200",
     heroDesc: "Los grandes encuentros de Uganda reunidos en una sola ruta.",
     badges: ["9 Días / 8 Noches", "Bosque Impenetrable", "Gorilas & Chimpancés"],
     essenceHeading: "Uganda reunida a través de sus encuentros con la vida salvaje",
@@ -774,7 +774,7 @@ export const coleccionesData: Coleccion[] = [
         number: "01",
         title: "Bosque Impenetrable",
         description: "La caminata hasta los gorilas de montaña culmina con un encuentro cuidadosamente regulado, limitado a pequeños grupos y acompañado por los guardaparques del parque nacional.",
-        image: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?q=80&w=800"
+        image: "https://images.unsplash.com/photo-1668541491433-e96f4059e345?q=80&w=800"
       },
       {
         number: "02",
