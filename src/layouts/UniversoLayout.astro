@@ -719,9 +719,9 @@ const experienceImages: Record<string, string[][]> = {
     transition: transform 0.8s cubic-bezier(0.25, 1, 0.3, 1), 
                 filter 0.8s cubic-bezier(0.25, 1, 0.3, 1), 
                 opacity 0.8s cubic-bezier(0.25, 1, 0.3, 1);
-    width: 80vw !important;
-    height: auto !important;
-    aspect-ratio: 3 / 2;
+    height: 40vh !important;
+    width: auto !important;
+    max-width: 85vw;
     background: #1C1713;
     overflow: hidden;
     position: relative;
@@ -734,20 +734,21 @@ const experienceImages: Record<string, string[][]> = {
   }
 
   #experiences-modal .swiper-slide img {
-    object-fit: cover;
+    height: 100% !important;
+    width: auto !important;
+    object-fit: cover !important;
     object-position: center !important;
   }
 
   @media (min-width: 768px) {
     #experiences-modal .swiper-slide {
       border-radius: 2rem;
-      height: 48vh;
+      height: 48vh !important;
       max-height: 520px;
       min-height: 280px;
-      aspect-ratio: 3 / 2;
-      width: 72vh !important; /* Explicit width to prevent layout collapse in Safari / MacBook */
-      max-width: 780px;
-      min-width: 420px;
+      width: auto !important;
+      max-width: 85vw;
+      min-width: unset;
     }
   }
 
@@ -1899,7 +1900,7 @@ const experienceImages: Record<string, string[][]> = {
           cardEl.className = `swiper-slide`;
 
           cardEl.innerHTML = `
-            <img src="${moment.image}" alt="${moment.title}" class="w-full h-full object-cover opacity-80" loading="eager" />
+            <img src="${moment.image}" alt="${moment.title}" class="h-full object-cover opacity-80" loading="eager" />
             
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10"></div>
             
