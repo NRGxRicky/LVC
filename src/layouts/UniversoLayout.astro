@@ -719,9 +719,9 @@ const experienceImages: Record<string, string[][]> = {
     transition: transform 0.8s cubic-bezier(0.25, 1, 0.3, 1), 
                 filter 0.8s cubic-bezier(0.25, 1, 0.3, 1), 
                 opacity 0.8s cubic-bezier(0.25, 1, 0.3, 1);
-    width: 80vw !important;
+    width: 65vw !important;
     height: auto !important;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 2 / 3;
     background: #1C1713;
     overflow: hidden;
     position: relative;
@@ -737,19 +737,19 @@ const experienceImages: Record<string, string[][]> = {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    object-position: center top !important; /* Top crop to ensure no faces or main subjects are cut off */
+    object-position: center !important; /* Centered works perfectly for vertical photos in vertical cards */
   }
 
   @media (min-width: 768px) {
     #experiences-modal .swiper-slide {
       border-radius: 2rem;
-      height: 48vh !important;
-      max-height: 520px;
-      min-height: 280px;
-      aspect-ratio: 3 / 2;
-      width: 72vh !important; /* Explicit width to prevent layout collapse in Safari / MacBook */
-      max-width: 780px;
-      min-width: 420px;
+      height: 52vh !important;
+      max-height: 580px;
+      min-height: 350px;
+      aspect-ratio: 2 / 3;
+      width: 34.6vh !important; /* Explicit width to match 2/3 aspect ratio */
+      max-width: 387px;
+      min-width: 233px;
     }
   }
 
