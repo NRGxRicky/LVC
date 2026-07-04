@@ -745,7 +745,9 @@ const experienceImages: Record<string, string[][]> = {
       max-height: 520px;
       min-height: 280px;
       aspect-ratio: 3 / 2;
-      width: auto !important; /* Let swiper control slides width by height and aspect-ratio */
+      width: 72vh !important; /* Explicit width to prevent layout collapse in Safari / MacBook */
+      max-width: 780px;
+      min-width: 420px;
     }
   }
 
