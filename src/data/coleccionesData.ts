@@ -259,29 +259,29 @@ export const coleccionesData: Coleccion[] = [
     badges: ["Castillos Históricos", "Paisajes Legendarios", "Guía en Español"],
     essenceHeading: "Entre castillos, lagos y ciudades que marcaron una época",
     essenceDesc: "Conecta Inglaterra, Escocia e Irlanda a través de algunos de sus escenarios más representativos. Combina capitales históricas, regiones medievales, paisajes naturales y tradiciones profundamente arraigadas, incorporando accesos que difícilmente coinciden en una misma ruta. Una propuesta especialmente atractiva para quienes buscan comprender la identidad de las islas británicas desde distintas perspectivas.",
-    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/escocia/legendaria.webp",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/tierras-del-reino/essence.webp",
     moments: [
       {
         number: "01",
         title: "La Corona Británica",
         description: "Desde los símbolos más reconocidos de Londres hasta una de las residencias oficiales de la familia real, esta etapa conecta historia, tradición y patrimonio.",
-        image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/tierras-del-reino/moment_01.webp"
       },
       {
         number: "02",
         title: "Tierras Altas",
         description: "Una travesía por algunos de los paisajes más emblemáticos de Escocia, entre lagos, castillos, montañas y escenarios que han definido su identidad.",
-        image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/escocia/escencia.webp"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/tierras-del-reino/moment_02.webp"
       },
       {
         number: "03",
         title: "Atlántico Irlandés",
         description: "Dos de los enclaves naturales más impresionantes de Irlanda permiten apreciar la fuerza geológica y paisajística que caracteriza la isla.",
-        image: "https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/tierras-del-reino/moment_03.webp"
       }
     ],
     momentsCallout: "HAY TERRITORIOS QUE SE ENTIENDEN MEJOR CUANDO SE RECORREN SIGUIENDO EL HILO DE SU HISTORIA.",
-    organizedImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/inmersiones/escocia_royal_scotsman.webp",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/tierras-del-reino/organized.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "13 noches en hoteles previstos de categoría superior ubicados en ciudades clave del recorrido." },
       { title: "RITMO DEL RECORRIDO", description: "Una ruta continua que equilibra visitas culturales, trayectos panorámicos y tiempo libre en las principales ciudades." },
@@ -297,7 +297,7 @@ export const coleccionesData: Coleccion[] = [
     title: "Aurora del Norte",
     subtitle: "ESCANDINAVIA Y ÁRTICO",
     continent: "europa",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/noruega.jpg",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/aurora-del-norte/hero.webp",
     heroDesc: "Entre capitales escandinavas y el silencio del Ártico.",
     badges: ["Auroras Boreales", "Cultura Sami", "Capitales Nórdicas"],
     essenceHeading: "Escandinavia entre ciudades históricas y horizontes árticos",
@@ -308,23 +308,23 @@ export const coleccionesData: Coleccion[] = [
         number: "01",
         title: "Noche Ártica",
         description: "Una región de cielos despejados y mínima contaminación lumínica ofrece uno de los entornos más favorables para contemplar la aurora boreal.",
-        image: "https://images.unsplash.com/photo-1483168527879-c66136b56105?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/aurora-del-norte/moment_01.webp"
       },
       {
         number: "02",
         title: "Tradición Sami",
         description: "El encuentro con la cultura indígena del norte de Escandinavia incorpora gastronomía local, relatos tradicionales y actividades vinculadas al pastoreo de renos.",
-        image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/noruega/artica.webp"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/aurora-del-norte/moment_02.webp"
       },
       {
         number: "03",
         title: "Capitales del Norte",
         description: "Tres ciudades con identidades distintas permiten recorrer historia, arquitectura, tradición marítima y algunos de los símbolos más reconocidos de Escandinavia.",
-        image: "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/aurora-del-norte/moment_03.webp"
       }
     ],
     momentsCallout: "ALGUNAS LUCES SOLO APARECEN CUANDO EL MUNDO PARECE DETENERSE.",
-    organizedImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/estancias/noruega_storfjord.webp",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/aurora-del-norte/organized.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias previstas en Copenhague, Oslo, Tromsø y Estocolmo, además de una noche de navegación entre Dinamarca y Noruega." },
       { title: "RITMO DEL RECORRIDO", description: "Un equilibrio entre visitas incluidas, desplazamientos eficientes y tiempo libre en las principales ciudades." },
@@ -340,34 +340,34 @@ export const coleccionesData: Coleccion[] = [
     title: "La Esencia de los Balcanes",
     subtitle: "ESLOVENIA, CROACIA Y BOSNIA",
     continent: "europa",
-    heroImage: "https://images.unsplash.com/photo-1555990793-da11153b2473?q=80&w=1200",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-esencia-de-los-balcanes/hero.webp",
     heroDesc: "Entre ciudades históricas, costas adriáticas y culturas que conviven desde hace siglos.",
     badges: ["Mar Adriático", "Ciudades Amuralladas", "Cruce de Culturas"],
     essenceHeading: "Una ruta donde convergen historia, religión y Adriático",
     essenceDesc: "Conecta algunos de los territorios más representativos de los Balcanes a través de ciudades históricas, costas adriáticas y escenarios donde distintas culturas han convivido durante siglos. Desde Eslovenia hasta Bosnia y Croacia, el recorrido combina patrimonio, arquitectura, tradición y paisajes que rara vez coinciden en una misma ruta, ofreciendo una visión amplia y profunda de la región.",
-    essenceImage: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-esencia-de-los-balcanes/essence.webp",
     moments: [
       {
         number: "01",
         title: "Entre cuevas y lagos",
         description: "Las formaciones subterráneas de Postojna y la serenidad del lago Bled ofrecen uno de los contrastes naturales más representativos de Eslovenia.",
-        image: "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-esencia-de-los-balcanes/moment_01.webp"
       },
       {
         number: "02",
         title: "La costa dálmata",
         description: "Palacios romanos, ciudades amuralladas y el mar Adriático acompañan una de las rutas más emblemáticas de la costa croata.",
-        image: "https://images.unsplash.com/photo-1555990793-da11153b2473?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-esencia-de-los-balcanes/moment_02.webp"
       },
       {
         number: "03",
         title: "Cruce de culturas",
         description: "Dos ciudades que reflejan siglos de encuentros entre tradiciones religiosas, herencias imperiales y una identidad balcánica profundamente diversa.",
-        image: "https://images.unsplash.com/photo-1560613271-9f206587c699?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-esencia-de-los-balcanes/moment_03.webp"
       }
     ],
     momentsCallout: "ALGUNOS TERRITORIOS SE COMPRENDEN MEJOR CUANDO VARIAS CULTURAS COMPARTEN LA MISMA GEOGRAFÍA.",
-    organizedImage: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=800",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-esencia-de-los-balcanes/organized.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias previstas en Ljubljana, Split, Dubrovnik, Sarajevo y Zagreb en hoteles de categoría superior." },
       { title: "RITMO DEL RECORRIDO", description: "Un recorrido estructurado que combina visitas guiadas, traslados organizados y espacios libres en ciudades clave." },
@@ -383,30 +383,30 @@ export const coleccionesData: Coleccion[] = [
     title: "La Herencia de Alemania",
     subtitle: "BAVIERA Y SELVA NEGRA",
     continent: "europa",
-    heroImage: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=1200",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-herencia-de-alemania/hero.webp",
     heroDesc: "Una ruta entre ciudades históricas, bosques legendarios y castillos que marcaron la identidad de Baviera.",
     badges: ["Selva Negra", "Castillos de Baviera", "Pueblos Medievales"],
     essenceHeading: "Entre la Alemania medieval y los paisajes de Baviera",
     essenceDesc: "Conecta algunos de los escenarios más representativos del sur de Alemania: ciudades históricas, pueblos medievales, la Selva Negra, el lago Constanza y los castillos de Luis II de Baviera. Atractiva para quienes valoran la arquitectura, la historia, los paisajes culturales y una ruta que combina tradición, naturaleza y patrimonio en un mismo recorrido.",
-    essenceImage: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-herencia-de-alemania/essence.webp",
     moments: [
       {
         number: "01",
         title: "Ciudad detenida",
         description: "Murallas intactas, calles empedradas y fachadas de entramado de madera convierten a Rothenburg en una de las estampas medievales mejor conservadas de Alemania.",
-        image: "https://images.unsplash.com/photo-1599946347371-68eb71b16afc?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-herencia-de-alemania/moment_01.webp"
       },
       {
         number: "02",
         title: "Corazón de la Selva",
         description: "Bosques, pueblos tradicionales, el reloj de cuco más grande del mundo y la llegada a Lindau construyen una de las jornadas más representativas del sur alemán.",
-        image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-herencia-de-alemania/moment_02.webp"
       },
       {
         number: "03",
         title: "Castillos de Baviera",
         description: "Los palacios impulsados por la visión de Luis II reúnen arquitectura, simbolismo y algunos de los escenarios más reconocibles de toda Alemania.",
-        image: "https://images.unsplash.com/photo-1508849789987-4e5333c12b78?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-herencia-de-alemania/moment_03.webp"
       }
     ],
     momentsCallout: "HAY LUGARES DONDE LA HISTORIA PERMANECE VISIBLE MUCHO DESPUÉS DE HABER PARTIDO.",
@@ -426,7 +426,7 @@ export const coleccionesData: Coleccion[] = [
     title: "Fiordos y Capitales Nórdicas",
     subtitle: "SUECIA, NORUEGA Y DINAMARCA",
     continent: "europa",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/noruega/friodos.webp",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/fiordos-y-capitales-nordicas/hero.webp",
     heroDesc: "Entre ciudades nórdicas y paisajes esculpidos por el agua.",
     badges: ["Navegación en Fiordos", "Crucero Escandinavo", "Bergen y Estocolmo"],
     essenceHeading: "Donde los grandes fiordos encuentran la elegancia nórdica",
@@ -437,23 +437,23 @@ export const coleccionesData: Coleccion[] = [
         number: "01",
         title: "Geiranger desde el agua",
         description: "La navegación entre montañas, cascadas y paredes rocosas permite comprender por qué este fiordo ocupa un lugar central dentro de los paisajes más admirados de Noruega.",
-        image: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/inmersiones/noruega_sauna.webp"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/fiordos-y-capitales-nordicas/moment_01.webp"
       },
       {
         number: "02",
         title: "El corazón de Bergen",
         description: "El antiguo barrio hanseático, el mercado junto al puerto y las vistas desde el funicular revelan una de las ciudades con mayor personalidad de Escandinavia.",
-        image: "https://images.unsplash.com/photo-1531168556465-2742918a0008?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/fiordos-y-capitales-nordicas/moment_02.webp"
       },
       {
         number: "03",
         title: "Navegando el Norte",
         description: "La travesía nocturna entre Oslo y Copenhague aporta una transición distinta al recorrido, conectando dos capitales nórdicas a través del mar.",
-        image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/fiordos-y-capitales-nordicas/moment_03.webp"
       }
     ],
     momentsCallout: "ALGUNOS PAISAJES NO BUSCAN IMPRESIONAR; SIMPLEMENTE PERMANECEN.",
-    organizedImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/culinarias/noruega_re_naa.webp",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/fiordos-y-capitales-nordicas/organized.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias previstas en ciudades clave de Suecia, Noruega y Dinamarca, incluyendo alojamiento junto a los fiordos." },
       { title: "RITMO DEL RECORRIDO", description: "Equilibrio entre desplazamientos panorámicos, visitas urbanas y tiempo suficiente para apreciar cada región." },
@@ -469,7 +469,7 @@ export const coleccionesData: Coleccion[] = [
     title: "Capitales del Norte",
     subtitle: "BERLÍN, ÁMSTERDAM, BRUJAS, BRUSELAS Y PARÍS",
     continent: "europa",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/francia.webp",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/capitales-del-norte/hero.webp",
     heroDesc: "De Berlín a París, una ruta que conecta historia, canales y grandes ciudades europeas.",
     badges: ["Ciudades Imperiales", "Canales de Ámsterdam", "París Sofisticado"],
     essenceHeading: "Entre capitales históricas y ciudades que marcaron Europa",
@@ -480,23 +480,23 @@ export const coleccionesData: Coleccion[] = [
         number: "01",
         title: "Berlín desde el agua",
         description: "Un recorrido por el río Spree ofrece una perspectiva distinta de la capital alemana, entre puentes históricos, arquitectura contemporánea y algunos de sus espacios más emblemáticos.",
-        image: "https://images.unsplash.com/photo-1599946347371-68eb71b16afc?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/capitales-del-norte/moment_01.webp"
       },
       {
         number: "02",
         title: "Canales históricos",
         description: "Dos ciudades marcadas por el agua revelan parte de su identidad a través de canales, fachadas centenarias y centros históricos que conservan el carácter de otra época.",
-        image: "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/capitales-del-norte/moment_02.webp"
       },
       {
         number: "03",
         title: "Tradición belga",
         description: "La visita a un museo especializado permite conocer una de las tradiciones más reconocidas de Bélgica mediante demostraciones artesanales y degustaciones incluidas.",
-        image: "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/capitales-del-norte/moment_03.webp"
       }
     ],
     momentsCallout: "ALGUNAS CIUDADES SE CONOCEN; OTRAS PERMANECEN MUCHO DESPUÉS DE HABER PARTIDO.",
-    organizedImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/momentos/estancias/francia_cheval_blanc.webp",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/capitales-del-norte/organized.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias previstas en Berlín, Ámsterdam, Brujas, Bruselas y París, en hoteles de categoría superior cuidadosamente elegidos." },
       { title: "RITMO DEL RECORRIDO", description: "Una ruta equilibrada que combina visitas guiadas, desplazamientos organizados y espacios libres para explorar cada ciudad." },
