@@ -38,7 +38,7 @@ export const coleccionesData: Coleccion[] = [
     title: "Senderos de Japón",
     subtitle: "JAPÓN",
     continent: "asia",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_japan.webp",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/senderos-de-japon/hero.webp",
     heroDesc: "Entre antiguas rutas, ciudades históricas y paisajes que aún conservan otro ritmo.",
     badges: ["10 Días / 9 Noches", "Grupo Máx. 36", "Servicio en Español"],
     essenceHeading: "Donde el Japón histórico encuentra su ritmo más auténtico",
@@ -49,29 +49,30 @@ export const coleccionesData: Coleccion[] = [
         number: "01",
         title: "Ruta Nakasendo",
         description: "El recorrido atraviesa dos antiguos pueblos de posta de la histórica Ruta Nakasendo, donde la arquitectura tradicional y los antiguos caminos conservan el carácter del Japón feudal.",
-        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/japon/tradicional.jpg"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/senderos-de-japon/moment_01.webp"
       },
       {
         number: "02",
         title: "Aldeas Patrimonio",
         description: "La visita a Shirakawa-go permite conocer una de las aldeas más representativas del país, reconocida por la UNESCO y por sus emblemáticas casas tradicionales Gassho-zukuri.",
-        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/japon/japon_termal.webp"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/senderos-de-japon/moment_02.webp"
       },
       {
         number: "03",
         title: "Hakone Natural",
         description: "El recorrido combina un crucero por el Lago Ashi y el teleférico de Hakone, con la posibilidad de contemplar el Monte Fuji cuando las condiciones meteorológicas lo permiten.",
-        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/japon/japon_contemporaneo.webp"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/senderos-de-japon/moment_03.webp"
       }
     ],
     momentsCallout: "ALGUNOS CAMINOS PERMANECEN MUCHO DESPUÉS DE HABERLOS RECORRIDO.",
-    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/featured_japan.webp",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/senderos-de-japon/organized.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias previstas en Osaka, Kyoto, Takayama, Hakone y Tokyo, con categorías Superior o Lujo." },
       { title: "RITMO DEL RECORRIDO", description: "Una ruta que combina ciudades, regiones históricas y paisajes naturales con tiempos libres en Kyoto and Tokyo." },
       { title: "EXPERIENCIAS INTEGRADAS", description: "Visitas guiadas, tren bala, entradas a monumentos señalados, cinco almuerzos, dos cenas y acceso a onsen." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía de habla española durante el circuito, traslados de llegada y salida, además del manejo logístico del equipaje entre ciudades." }
     ],
+    moment04Image: "https://garage-web.luxuryvoyageco.com/images/colecciones/senderos-de-japon/moment_04.webp",
     aConsiderar: "Experiencias opcionales, bebidas durante las comidas, gastos personales, requisitos migratorios y ciertos servicios específicos permanecen sujetos a las preferencias individuales y a las condiciones indicadas para cada salida.",
     inversion: "desde $8,600 USD",
     fechas: "Salidas todo el año"
@@ -81,30 +82,30 @@ export const coleccionesData: Coleccion[] = [
     title: "El Legado de Tailandia",
     subtitle: "TAILANDIA",
     continent: "asia",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_thailand.webp",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-legado-de-tailandia/hero.webp",
     heroDesc: "Del legado del antiguo Siam a las montañas del norte en un mismo recorrido.",
     badges: ["9 Días / 8 Noches", "Siam Histórico", "Servicio en Español"],
     essenceHeading: "Una ruta que conecta el corazón histórico y cultural de Tailandia",
     essenceDesc: "Reúne en un solo recorrido Bangkok, las antiguas capitales del reino, los paisajes del norte y el entorno del río Mekong. La combinación de patrimonio, comunidades locales, naturaleza y tradiciones convierte el trayecto en una propuesta especialmente activa para quienes buscan comprender Tailandia más allá de sus destinos más conocidos.",
-    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/tailandia.webp",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-legado-de-tailandia/essence.webp",
     moments: [
       {
         number: "01",
         title: "Antiguo Siam",
         description: "Dos antiguas capitales permiten recorrer algunos de los conjuntos históricos más representativos del país, incluyendo templos, ruinas y espacios reconocidos como Patrimonio Mundial por UNESCO.",
-        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/tailandia/tailandia_sagrada.webp"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-legado-de-tailandia/moment_01.webp"
       },
       {
         number: "02",
         title: "Fronteras del Mekong",
         description: "El recorrido incorpora navegación tradicional por el río Mekong, el Museo del Opio y encuentros con comunidades del norte, ofreciendo una perspectiva poco habitual sobre esta región fronteriza.",
-        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/inmersiones/tailandia_phang_nga.webp"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-legado-de-tailandia/moment_02.webp"
       },
       {
         number: "03",
         title: "Tradiciones del Norte",
         description: "El viaje concluye entre templos de montaña, gastronomía regional, expresiones culturales y un santuario de elefantes, reflejando una faceta distinta del norte tailandés.",
-        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/estancias/tailandia_four_seasons.webp"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-legado-de-tailandia/moment_03.webp"
       }
     ],
     momentsCallout: "ALGUNOS TERRITORIOS SE COMPRENDEN MEJOR CUANDO SE RECORREN DE PRINCIPIO A FIN.",
@@ -115,6 +116,7 @@ export const coleccionesData: Coleccion[] = [
       { title: "EXPERIENCIAS INTEGRADAS", description: "Templos emblemáticos, navegación por el Mekong, patrimonio UNESCO, cena Khantoke, santuario de elefantes y visitas culturales." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Traslados, visitas, entradas y guía de habla hispana incluidos durante el recorrido." }
     ],
+    moment04Image: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-legado-de-tailandia/moment_04.webp",
     aConsiderar: "Vuelos internacionales, actividades opcionales, gastos personales o preferencias abiertas para adaptarse a las decisiones y estilo de viaje de cada viajero.",
     inversion: "desde $2,900 USD",
     fechas: "Martes (Abr - Oct 2026)"
@@ -124,34 +126,34 @@ export const coleccionesData: Coleccion[] = [
     title: "Matices de Bali",
     subtitle: "INDONESIA",
     continent: "asia",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_bali.webp",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/matices-de-bali/hero.webp",
     heroDesc: "Una travesía que conecta los paisajes, templos y tradiciones que definen la isla.",
     badges: ["7 Días / 6 Noches", "Ubud y Candidasa", "Guía en Español/Inglés"],
     essenceHeading: "Una ruta que recorre la diversidad cultural y natural de Bali",
     essenceDesc: "Más que permanecer en un solo destino, esta colección atraviesa distintas regiones de Bali para comprender sus contrastes. Desde los arrozales y templos de Ubud hasta las aldeas tradicionales, la costa oriental y el norte de la isla, propone un recorrido pausado para quienes valoran conocer el territorio con mayor profundidad.",
-    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/indonesia.webp",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/matices-de-bali/essence.webp",
     moments: [
       {
         number: "01",
         title: "Bali ancestral",
         description: "Las terrazas de Tegallalang, el complejo arqueológico de Gunung Kawi y el Bosque de los Monos muestran el lado espiritual y natural que ha dado identidad a Bali durante siglos.",
-        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/indonesia/bali_entre_arrozales.webp"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/matices-de-bali/moment_01.webp"
       },
       {
         number: "02",
         title: "Tradiciones vivas",
         description: "La antigua aldea de Tenganan conserva costumbres, arquitectura y tejidos ceremoniales que forman parte del patrimonio cultural más representativo de la isla.",
-        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/estancias/indonesia_capella_ubud.webp"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/matices-de-bali/moment_02.webp"
       },
       {
         number: "03",
         title: "Templos frente al mar",
         description: "El recorrido concluye entre lagos, templos y la costa de Tanah Lot, combinando paisajes volcánicos, santuarios emblemáticos y una de las postales más reconocidas de Bali.",
-        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/inmersiones/indonesia_komodo.webp"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/matices-de-bali/moment_03.webp"
       }
     ],
     momentsCallout: "A VECES, COMPRENDER UNA ISLA REQUIERE RECORRER CADA UNO DE SUS CONTRASTES.",
-    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_bali.webp",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/matices-de-bali/organized.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias en Ubud, Candidasa y Lovina, en categoría Superior." },
       { title: "RITMO DEL RECORRIDO", description: "Un itinerario equilibrado que alterna jornadas de exploración con tiempo libre en distintos puntos de la isla." },
@@ -167,30 +169,30 @@ export const coleccionesData: Coleccion[] = [
     title: "El Corazón de Indochina",
     subtitle: "LAOS, VIETNAM Y CAMBOYA",
     continent: "asia",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/indonesia.webp",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-corazon-de-indochina/hero.webp",
     heroDesc: "Tres países unidos por el legado espiritual e histórico del Sudeste Asiático.",
     badges: ["13 Días / 12 Noches", "3 Países", "Grupo Máx. 20"],
     essenceHeading: "Entre antiguos reinos, ciudades imperiales y paisajes declarados Patrimonio Mundial",
     essenceDesc: "Esta colección conecta Laos, Vietnam y Camboya mediante un recorrido que reúne algunos de los mayores referentes culturales del Sudeste Asiático. Combina ciudades históricas, navegación por el Mekong y la Bahía de Halong, antiguas capitales imperiales y el legado monumental de Angkor, ofreciendo una visión amplia de la región dentro de un solo viaje cuidadosamente estructurado.",
-    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/tailandia/tailandia_frente_al_mar.webp",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-corazon-de-indochina/essence.webp",
     moments: [
       {
         number: "01",
         title: "Mekong Sagrado",
         description: "La navegación por el río Mekong conduce hasta las cuevas de Pak Ou, donde miles de figuras de Buda reflejan una tradición espiritual preservada durante siglos.",
-        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/culinarias/indonesia_cena_ubud.webp"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-corazon-de-indochina/moment_01.webp"
       },
       {
         number: "02",
         title: "Bahía Esmeralda",
         description: "Un crucero entre islotes de piedra caliza permite recorrer uno de los paisajes naturales más representativos de Vietnam, reconocido como Patrimonio Mundial por la UNESCO.",
-        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/indonesia/bali_frente_al_mar.webp"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-corazon-de-indochina/moment_02.webp"
       },
       {
         number: "03",
         title: "Legado Angkor",
         description: "El recorrido culmina entre los templos más emblemáticos del antiguo Imperio Jemer, incluyendo Angkor Thom, Ta Prohm y Angkor Wat al atardecer.",
-        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/culinarias/tailandia.webp"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-corazon-de-indochina/moment_03.webp"
       }
     ],
     momentsCallout: "HAY LUGARES CUYA HISTORIA PERMANECE MUCHO DESPUÉS DE ABANDONAR SUS TEMPLOS Y SUS RÍOS.",
@@ -201,6 +203,7 @@ export const coleccionesData: Coleccion[] = [
       { title: "EXPERIENCIAS INTEGRADAS", description: "Cruceros, templos históricos, patrimonio UNESCO, paseos tradicionales y visitas culturales contempladas en el programa." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guías locales de habla hispana, traslados, entradas incluidas y coordinación durante todo el recorrido." }
     ],
+    moment04Image: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-corazon-de-indochina/moment_04.webp",
     aConsiderar: "Vuelos internacionales, bebidas, gastos personales, visados y actividades opcionales, permanecen sujetos a las preferencias y decisiones individuales de cada viajero.",
     inversion: "desde $5,800 USD",
     fechas: "Salidas: Abr - Oct 2026"
@@ -210,40 +213,41 @@ export const coleccionesData: Coleccion[] = [
     title: "Imperios de Oriente",
     subtitle: "CHINA Y JAPÓN",
     continent: "asia",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/featured_japan.webp",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/imperios-de-oriente/hero.webp",
     heroDesc: "Donde la historia imperial y la Asia contemporánea se encuentran en un mismo recorrido.",
     badges: ["15 Días / 13 Noches", "China y Japón", "Grupo Máx. 36"],
     essenceHeading: "Dos civilizaciones que transformaron Asia desde perspectivas completamente distintas.",
     essenceDesc: "Se une dos recorridos cuidadosamente seleccionados para ofrecer una visión amplia de Asia Oriental. Desde la herencia imperial de Beijing y Xi'an hasta la armonía de Kyoto, Hakone y Tokio, el viaje conecta monumentos históricos, paisajes culturales y grandes metrópolis en una ruta que permite comprender la evolución de dos de las sociedades más influyentes del continente.",
-    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/corea_del_sur/esencial.webp",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/imperios-de-oriente/essence.webp",
     moments: [
       {
         number: "01",
         title: "Legado imperial",
         description: "La Ciudad Prohibida, la Gran Muralla y el Ejército de Guerreros de Terracota reúnen algunos de los escenarios que marcaron la historia política y cultural de China durante siglos.",
-        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/corea_del_sur/esencial.webp"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/imperios-de-oriente/moment_01.webp"
       },
       {
         number: "02",
         title: "Entre tradición y calma",
         description: "Templos, santuarios, jardines, aguas termales y el paisaje del Parque Nacional de Hakone muestran una faceta de Japón donde el tiempo parece avanzar con otro ritmo.",
-        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/japon/japon_esencial.webp"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/imperios-de-oriente/moment_02.webp"
       },
       {
         number: "03",
         title: "Asia contemporánea",
         description: "Cada país concluye entre dos de las ciudades más dinámicas del continente, donde arquitectura, comercio, innovación y tradición conviven como parte de la vida cotidiana.",
-        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/japon/japon_contemporaneo.webp"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/imperios-de-oriente/moment_03.webp"
       }
     ],
     momentsCallout: "ALGUNAS CULTURAS SE VISITAN; OTRAS TRANSFORMAN LA MANERA DE COMPRENDER EL MUNDO.",
-    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/featured_japan.webp",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/imperios-de-oriente/organized.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "Hoteles previstos de categoría superior durante todo el recorrido, elegidos para mantener continuidad entre ambos países." },
       { title: "RITMO DEL RECORRIDO", description: "Una combinación equilibrada de visitas guiadas, desplazamientos eficientes y espacios libres en ciudades estratégicas." },
       { title: "EXPERIENCIAS INTEGRADAS", description: "Monumentos históricos, templos, jardines imperiales, la Gran Muralla, Guerreros de Terracota, Lago Ashi, onsen y recorridos urbanos forman parte del programa." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Traslados, vuelos internos, trenes de alta velocidad, guía de habla hispana y servicios coordinados durante todo el recorrido." }
     ],
+    moment04Image: "https://garage-web.luxuryvoyageco.com/images/colecciones/imperios-de-oriente/moment_04.webp",
     aConsiderar: "Vuelos internacionales, algunas comidas, actividades opcionales y momentos libres permanecen abiertos para adaptarse a las preferencias personales.",
     inversion: "desde $6,900 USD",
     fechas: "Salidas todo el año"
@@ -1056,30 +1060,30 @@ export const coleccionesData: Coleccion[] = [
     title: "Corea Esencial",
     subtitle: "COREA DEL SUR",
     continent: "asia",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/corea_del_sur/esencial.webp",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/corea-esencial/hero.webp",
     heroDesc: "Tres ciudades que explican distintas formas de entender Corea.",
     badges: ["8 Días / 7 Noches", "Corea del Sur", "Grupo Reducido"],
     essenceHeading: "Donde la historia, la modernidad y el mar encuentran continuidad",
     essenceDesc: "Conecta Seúl, Gyeongju y Busan mediante una ruta que equilibra patrimonio, vida urbana y paisaje costero, con ritmos distintos sin perder continuidad, ideal para quienes desean una primera aproximación amplia y bien estructurada a Corea del Sur.",
-    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/corea_del_sur/esencial.webp",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/corea-esencial/essence.webp",
     moments: [
       {
         number: "01",
         title: "Dos Seúles",
         description: "La ruta reúne los barrios históricos y la arquitectura contemporánea de la capital, mostrando cómo tradición, diseño, gastronomía y vida cotidiana conviven en una misma ciudad.",
-        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/corea_del_sur/contemporanea.webp"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/corea-esencial/moment_01.webp"
       },
       {
         number: "02",
         title: "Legado de Silla",
         description: "Templos, antiguos observatorios, palacios y parques históricos permiten comprender el origen cultural de Corea a través de una de sus ciudades más representativas.",
-        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/corea_del_sur/tradicional.webp"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/corea-esencial/moment_02.webp"
       },
       {
         number: "03",
         title: "Costa de Busan",
         description: "Templos frente al mar, mercados tradicionales, miradores costeros y barrios con identidad propia muestran una perspectiva diferente del país antes del regreso a Seúl.",
-        image: "https://garage-web.luxuryvoyageco.com/images/universos/asia/momentos/inmersiones/corea_del_sur.jpg"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/corea-esencial/moment_03.webp"
       }
     ],
     momentsCallout: "ALGUNOS PAÍSES SE COMPRENDEN MEJOR CUANDO MUESTRAN MÁS DE UNA VERSIÓN DE SÍ MISMOS.",
@@ -1090,6 +1094,7 @@ export const coleccionesData: Coleccion[] = [
       { title: "EXPERIENCIAS INTEGRADAS", description: "Entradas, cuatro almuerzos locales, tren bala KTX y visitas guiadas en español durante el recorrido principal." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Traslados de llegada y salida, transporte durante las visitas y coordinación integral del itinerario." }
     ],
+    moment04Image: "https://garage-web.luxuryvoyageco.com/images/colecciones/corea-esencial/moment_04.webp",
     aConsiderar: "Vuelos internacionales, algunas comidas, gastos personales, propinas y decisiones de cada viajero. La disponibilidad y el precio final se confirman al momento de la reserva.",
     inversion: "desde $4,600 USD",
     fechas: "Salidas 2026"
