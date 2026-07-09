@@ -856,7 +856,7 @@ export const coleccionesData: Coleccion[] = [
     ],
     aConsiderar: "Vuelos internacionales, visados, propinas, bebidas, gastos personales o servicios opcionales, permanecen sujetos a las preferencias individuales y a las condiciones aplicables al momento del viaje.",
     inversion: "desde $2,200 USD",
-    fechas: "Salidas garantizadas durante 2026 con operación semanal"
+    fechas: "Salidas semanales 2026"
   },
   {
     slug: "oasis-golfo",
@@ -939,7 +939,7 @@ export const coleccionesData: Coleccion[] = [
     ],
     aConsiderar: "Vuelos internacionales, seguro de viaje, visado, gastos personales, actividades opcionales o noches adicionales, permanecen abiertos para adaptarse a las preferencias y decisiones de cada viajero.",
     inversion: "desde $2,100 USD",
-    fechas: "Salidas cuidadosamente seleccionadas entre septiembre de 2026 y agosto de 2027"
+    fechas: "Salidas Sept 2026 - Ago 2027"
   },
   {
     slug: "doha-sofisticacion",
@@ -1022,7 +1022,7 @@ export const coleccionesData: Coleccion[] = [
     ],
     aConsiderar: "Algunos elementos permanecen sujetos a decisiones personales, como vuelos internacionales y domésticos, visa electrónica, seguro de viaje, propinas o servicios adicionales no contemplados dentro del programa publicado.",
     inversion: "desde $3,500 USD",
-    fechas: "Salidas seleccionadas entre agosto de 2026 y mayo de 2027"
+    fechas: "Salidas Ago 2026 - May 2027"
   },
   {
     slug: "joyas-abu-dabi",
