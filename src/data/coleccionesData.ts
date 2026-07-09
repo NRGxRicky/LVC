@@ -816,44 +816,47 @@ export const coleccionesData: Coleccion[] = [
 
   // ── UNIVERSO MEDIO ORIENTE ──
   {
-    slug: "petra-secreta",
-    title: "Petra Secreta",
+    slug: "la-ruta-nabatea",
+    title: "La Ruta Nabatea",
     subtitle: "JORDANIA",
     continent: "medio-oriente",
     heroImage: "https://garage-web.luxuryvoyageco.com/images/hero_carousel/medio_oriente.webp",
-    heroDesc: "Exploración de la mística ciudad rosa tallada en roca y noche en el desierto de Wadi Rum.",
-    badges: ["Ciudad de Petra", "Desierto Wadi Rum", "Flotación Mar Muerto"],
-    essenceHeading: "La mística de los desfiladeros de roca rosa y las caravanas comerciales del pasado.",
-    essenceDesc: "Petra Secreta te revela los misterios del reino nabateo. Cruza el Siq al atardecer en una visita privada con velas, duerme en domos futuristas de lujo en medio del paisaje lunar de Wadi Rum y sumérgete en las curativas aguas del Mar Muerto.",
+    heroDesc: "Un recorrido que revela la diversidad histórica y natural de Jordania.",
+    badges: ["8 Días / 7 Noches", "Jordania", "Salidas Semanales"],
+    essenceHeading: "Un país donde cada paisaje cambia la forma del recorrido",
+    essenceDesc: "Más que visitar Petra, reúne algunos de los escenarios más representativos de Jordania: ciudades históricas, fortalezas, desierto, Mar Muerto y vestigios bíblicos. Es una ruta equilibrada para quienes desean comprender el país a través de su diversidad, manteniendo una operación organizada y accesible.",
     essenceImage: "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?q=80&w=800",
     moments: [
       {
         number: "01",
-        title: "Petra",
-        description: "Acceso privado al Tesoro de Petra iluminado por más de 1,500 velas al anochecer, con música tradicional en vivo.",
+        title: "La ciudad esculpida",
+        description: "Permite recorrer con calma el sitio arqueológico más emblemático del país, acompañado por el tradicional acceso a caballo.",
         image: "https://garage-web.luxuryvoyageco.com/images/hero_carousel/medio_oriente.webp"
       },
       {
         number: "02",
-        title: "Wadi Rum",
-        description: "Recorrido privado en todoterreno por los cañones de arena roja de Wadi Rum, seguido de cena en campamento de domos.",
+        title: "Silencio del desierto",
+        description: "El recorrido en vehículo 4x4 atraviesa uno de los paisajes más representativos de Jordania, donde la inmensidad del desierto transforma por completo el ritmo del viaje.",
         image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?q=80&w=800"
       },
       {
         number: "03",
-        title: "Mar Muerto",
-        description: "Tarde de relajación y flotación en una playa privada de hotel spa con barros ricos en minerales curativos.",
+        title: "Historia y fe",
+        description: "Dos lugares profundamente vinculados con la historia y la tradición religiosa complementan la ruta antes de continuar hacia Petra.",
         image: "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?q=80&w=800"
       }
     ],
-    momentsCallout: "EL DESIERTO ROJO DE JORDANIA GUARDA EL SILENCIO Y LA HISTORIA DE MIL CARAVANAS DEL PASADO.",
+    momentsCallout: "HAY DESTINOS QUE SE COMPRENDEN MEJOR CUANDO CADA PAISAJE CAMBIA LA PERSPECTIVA DEL ANTERIOR.",
     organizedImage: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800",
     organizedPillars: [
-      { title: "DOMOS Y SPAS", description: "Campamentos espaciales y resorts cinco estrellas en la playa del Mar Muerto con tratamientos privados." },
-      { title: "ACCESOS EXCLUSIVOS", description: "Entradas preferentes de arqueología para evitar las multitudes y disfrutar del paisaje." },
-      { title: "GUÍA DEDICADO", description: "Historiadores y guías oficiales que reviven las leyendas nabateas en cada templo." },
-      { title: "VEHÍCULOS SUV", description: "Traslados privados en cómodas camionetas todoterreno ejecutivas con aire acondicionado." }
-    ]
+      { title: "HOSPEDAJES SELECCIONADOS", description: "Hoteles cuidadosamente seleccionados para un mejor descanso." },
+      { title: "RITMO DEL RECORRIDO", description: "Combina patrimonio, naturaleza y tiempos suficientes en los principales escenarios." },
+      { title: "EXPERIENCIAS INTEGRADAS", description: "Entradas, paseo a caballo en Petra, recorrido en Wadi Rum y régimen de media pensión incluidos." },
+      { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía en español, traslados, asistencia de llegada y salida, y operación regular garantizada desde dos viajeros." }
+    ],
+    aConsiderar: "Vuelos internacionales, visados, propinas, bebidas, gastos personales o servicios opcionales, permanecen sujetos a las preferencias individuales y a las condiciones aplicables al momento del viaje.",
+    inversion: "desde $2,200 USD",
+    fechas: "Salidas garantizadas durante 2026 con operación semanal"
   },
   {
     slug: "oasis-golfo",
@@ -896,44 +899,47 @@ export const coleccionesData: Coleccion[] = [
     ]
   },
   {
-    slug: "oman-tradicional",
-    title: "Omán Tradicional",
+    slug: "el-gran-sultanato",
+    title: "El Gran Sultanato",
     subtitle: "OMÁN",
     continent: "medio-oriente",
     heroImage: "https://images.unsplash.com/photo-1578894381163-e72c17f2d45f?q=80&w=1200",
-    heroDesc: "Cañones espectaculares, fuertes antiguos y la hospitalidad más pura de la Península Arábiga.",
-    badges: ["Fuertes Antiguos", "Cañones Espectaculares", "Costas de Mascate"],
-    essenceHeading: "El tesoro mejor guardado de Medio Oriente, donde la tradición y la arquitectura se funden.",
-    essenceDesc: "Omán Tradicional te ofrece una experiencia auténtica de Arabia. Explora cañones de piedra impresionantes, visita mercados históricos de incienso en Mascate y quédate en campamentos beduinos de lujo rodeados de un mar de dunas naranjas.",
+    heroDesc: "Fortalezas, oasis y desierto que revela el carácter más auténtico del sultanato.",
+    badges: ["7 Días / 6 Noches", "Omán", "Guía en Español"],
+    essenceHeading: "Donde el patrimonio omaní encuentra su paisaje más espectacular",
+    essenceDesc: "Recorre Omán desde su costa hasta el interior montañoso y el desierto, combinando fortalezas históricas, oasis, pueblos tradicionales y reservas naturales. Es atractiva para quienes desean comprender la diversidad del país más allá de Mascate, manteniendo un recorrido equilibrado entre patrimonio, naturaleza y cultura local.",
     essenceImage: "https://images.unsplash.com/photo-1578894381163-e72c17f2d45f?q=80&w=800",
     moments: [
       {
         number: "01",
-        title: "Jebel Akhdar",
-        description: "Caminata de exploración privada por los cañones de montaña de la cordillera del Hajar, con picnic al borde.",
+        title: "Desierto Beduino",
+        description: "Las dunas de Wahiba ofrecen uno de los paisajes más representativos de Omán, con recorridos en vehículos 4x4, atardeceres abiertos y una noche en campamento dentro del desierto.",
         image: "https://images.unsplash.com/photo-1578894381163-e72c17f2d45f?q=80&w=800"
       },
       {
         number: "02",
-        title: "Wahiba Sands",
-        description: "Noche estrellada en un campamento de tiendas bereberes, con cata de café con cardamomo y dátiles frescos.",
+        title: "Corazón Histórico",
+        description: "Fortalezas, mercados tradicionales y uno de los castillos mejor conservados del país muestran la importancia histórica y cultural que aún conserva el antiguo interior omaní.",
         image: "https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?q=80&w=800"
       },
       {
         number: "03",
-        title: "Mascate",
-        description: "Navegación al atardecer en una embarcación de vela Dhow tradicional de madera por la bahía costera de Mascate.",
+        title: "Oasis Naturales",
+        description: "Alterna oasis de aguas color esmeralda con las panorámicas del Gran Cañón de Omán, revelando la sorprendente diversidad natural del sultanato.",
         image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=800"
       }
     ],
-    momentsCallout: "EL INCIENSO Y LA ROSA MARCAN EL CAMINO EN UN MEDIO ORIENTE QUE SUTILMENTE PRESERVA SU PASADO.",
+    momentsCallout: "HAY DESTINOS QUE NO IMPRESIONAN POR EXCESO, SINO POR LA SERENIDAD CON LA QUE PERMANECEN EN LA MEMORIA.",
     organizedImage: "https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?q=80&w=800",
     organizedPillars: [
-      { title: "CAMPAMENTOS BEREBERES", description: "Alojamiento boutique de tiendas saharianas con camas king size y baños privados completos." },
-      { title: "RUTAS DE MONTAÑA", description: "Guías omaníes locales con gran conocimiento de la geología y la historia de los fuertes." },
-      { title: "SLOW TRAVEL", description: "Días programados con tiempo libre para disfrutar del spa de los hoteles de montaña." },
-      { title: "TRASLADOS SUV", description: "Vehículos 4x4 de alta gama para recorrer los sinuosos caminos de los cañones de piedra." }
-    ]
+      { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias en Mascate, Sur o Al Asala Resort, un campamento en Wahiba Sands y alojamiento en Nizwa." },
+      { title: "RITMO DEL RECORRIDO", description: "Combina patrimonio, naturaleza y desplazamientos equilibrados, incluyendo una noche en el desierto antes del regreso a Mascate." },
+      { title: "EXPERIENCIAS INTEGRADAS", description: "Entradas a monumentos, fortalezas, recorridos culturales, vehículos 4x4 en el desierto y comidas señaladas durante el programa." },
+      { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Traslados con aire acondicionado, guía de habla hispana y operación garantizada desde dos participantes." }
+    ],
+    aConsiderar: "Vuelos internacionales, seguro de viaje, visado, gastos personales, actividades opcionales o noches adicionales, permanecen abiertos para adaptarse a las preferencias y decisiones de cada viajero.",
+    inversion: "desde $2,100 USD",
+    fechas: "Salidas cuidadosamente seleccionadas entre septiembre de 2026 y agosto de 2027"
   },
   {
     slug: "doha-sofisticacion",
@@ -976,44 +982,47 @@ export const coleccionesData: Coleccion[] = [
     ]
   },
   {
-    slug: "alula-arqueologica",
-    title: "AlUla Arqueológica",
+    slug: "territorios-de-arabia",
+    title: "Territorios de Arabia",
     subtitle: "ARABIA SAUDITA",
     continent: "medio-oriente",
     heroImage: "https://images.unsplash.com/photo-1663900108404-a05e8bf82cda?q=80&w=1200",
-    heroDesc: "Exploración en helicóptero sobre las antiguas tumbas de Hegra y estancia en el vanguardista hotel de espejos Maraya.",
-    badges: ["Tumbas de Hegra", "Hotel de Espejos Maraya", "Exploración en Helicóptero"],
-    essenceHeading: "El museo al aire libre más espectacular y misterioso del reino de Arabia.",
-    essenceDesc: "AlUla Arqueológica te invita a descubrir una de las fronteras de exploración más fascinantes del planeta. Explora las tumbas nabateas talladas en roca de Hegra, visita la estructura de espejos más grande del mundo en medio del desierto y vuela sobre cañones.",
+    heroDesc: "Recorrido por el patrimonio, los paisajes y la transformación cultural de Arabia Saudita.",
+    badges: ["8 Días / 7 Noches", "Arabia Saudita", "Servicio Regular"],
+    essenceHeading: "Del legado nabateo a las ciudades que definen la Arabia actual",
+    essenceDesc: "Una mirada amplia sobre Arabia Saudita al recorrer ciudades históricas, enclaves arqueológicos y capitales contemporáneas en un mismo viaje. Combina patrimonio declarado por la UNESCO, paisajes desérticos, tradición islámica y la evolución cultural del país mediante una ruta cuidadosamente estructurada para comprender distintas facetas del Reino.",
     essenceImage: "https://images.unsplash.com/photo-1663900108404-a05e8bf82cda?q=80&w=800",
     moments: [
       {
         number: "01",
-        title: "Hegra",
-        description: "Visita privada exclusiva fuera de horario en vehículo vintage de época por los monumentos funerarios tallados en roca.",
+        title: "Legado Nabateo",
+        description: "El primer sitio saudí inscrito como Patrimonio Mundial por la UNESCO reúne monumentales tumbas excavadas en roca y uno de los testimonios arqueológicos más importantes de la península.",
         image: "https://images.unsplash.com/photo-1663900108404-a05e8bf82cda?q=80&w=800"
       },
       {
         number: "02",
-        title: "Maraya",
-        description: "Asistencia privada y cena exclusiva en el restaurante gourmet de la terraza superior del asombroso edificio Maraya.",
+        title: "Historia Viva",
+        description: "Las mezquitas históricas y el museo dedicado a la biografía del Profeta ofrecen un contexto esencial para comprender la evolución espiritual y cultural del mundo islámico.",
         image: "https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=800"
       },
       {
         number: "03",
-        title: "Cañón del Sharaan",
-        description: "Sobrevuelo en helicóptero privado sobre las gargantas rocosas y formaciones del desierto de AlUla.",
+        title: "Mar y Tradición",
+        description: "El paseo marítimo del Mar Rojo, la arquitectura histórica de Al-Balad y la Casa de las Artes Islámicas muestran el carácter cosmopolita de la ciudad.",
         image: "https://images.unsplash.com/photo-1663900108404-a05e8bf82cda?q=80&w=800"
       }
     ],
-    momentsCallout: "EL PASADO SE ENCUENTRA CON EL MAÑANA EN UN DESIERTO DONDE LA PIEDRA REFLEJA EL INFINITO.",
+    momentsCallout: "ALGUNOS TERRITORIOS SE COMPRENDEN MEJOR CUANDO PERMITEN OBSERVAR TODAS SUS ÉPOCAS EN UN MIISMO RECORRIDO.",
     organizedImage: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800",
     organizedPillars: [
-      { title: "RESORTS DE DISEÑO", description: "Alojamiento en hoteles de villas vanguardistas integrados arquitectónicamente en la roca." },
-      { title: "VUELOS CÓMODOS", description: "Vuelos escénicos y de conexión interna coordinados en aviones y helicópteros privados." },
-      { title: "ARQUEÓLOGOS VIP", description: "Acompañamiento a cargo de especialistas e historiadores con doctorados en la cultura nabatea." },
-      { title: "LOGÍSTICA EXCLUSIVA", description: "Flota de camionetas todoterreno de lujo totalmente climatizadas con conductores locales." }
-    ]
+      { title: "HOSPEDAJES SELECCIONADOS", description: "Siete noches de alojamiento previstas en Jiddah, AlUla, Tabuk y Riyadh con hoteles de categoría 4 estrellas o similares." },
+      { title: "RITMO DEL RECORRIDO", description: "La ruta combina tren, carretera y vuelos internos para recorrer distintas regiones con una secuencia bien planificada." },
+      { title: "EXPERIENCIAS INTEGRADAS", description: "Entradas incluidas, visitas culturales, sitios UNESCO, dos almuerzos y recorridos seleccionados durante todo el viaje." },
+      { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Traslados organizados, transporte terrestre privado y guía en español en Jiddah, Medina y Riyadh." }
+    ],
+    aConsiderar: "Algunos elementos permanecen sujetos a decisiones personales, como vuelos internacionales y domésticos, visa electrónica, seguro de viaje, propinas o servicios adicionales no contemplados dentro del programa publicado.",
+    inversion: "desde $3,500 USD",
+    fechas: "Salidas seleccionadas entre agosto de 2026 y mayo de 2027"
   },
   {
     slug: "joyas-abu-dabi",
