@@ -28,6 +28,7 @@ export interface Coleccion {
   aConsiderar?: string;
   inversion?: string;
   fechas?: string;
+  moment04Image?: string;
 }
 
 export const coleccionesData: Coleccion[] = [
@@ -288,6 +289,7 @@ export const coleccionesData: Coleccion[] = [
       { title: "EXPERIENCIAS INTEGRADAS", description: "Castillos, patrimonio histórico, paisajes naturales, navegación en Lago Ness y visitas vinculadas al whisky y la cerveza." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía exclusivo de habla hispana, desayunos diarios y servicios organizados durante todo el recorrido." }
     ],
+    moment04Image: "https://garage-web.luxuryvoyageco.com/images/colecciones/tierras-del-reino/moment_04.webp",
     aConsiderar: "Gastos personales, comidas no indicadas, traslados específicos y decisiones individuales durante los tiempos libres permanecen sujetos a las preferencias de cada viajero.",
     inversion: "desde $8,300 USD",
     fechas: "May - Sep 2026"
@@ -331,6 +333,7 @@ export const coleccionesData: Coleccion[] = [
       { title: "EXPERIENCIAS INTEGRADAS", description: "Observación de aurora boreal, encuentro cultural sami, paseo en trineo de renos, teleférico Fjellheisen y recorridos urbanos." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía de habla hispana, vuelos internos, tren rápido, traslados previstos y coordinación integral durante el recorrido." }
     ],
+    moment04Image: "https://garage-web.luxuryvoyageco.com/images/colecciones/aurora-del-norte/moment_04.webp",
     aConsiderar: "Actividades opcionales, gastos personales, comidas no especificadas o preferencias individuales de viaje, permanecen abiertos para que cada viajero adapte ciertos momentos a su propio estilo.",
     inversion: "desde $7,300 USD",
     fechas: "Nov 2026 - Feb 2027"
@@ -374,6 +377,7 @@ export const coleccionesData: Coleccion[] = [
       { title: "EXPERIENCIAS INTEGRADAS", description: "Visitas culturales, acceso a las cuevas de Postojna y recorridos por los principales centros históricos del viaje." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía exclusivo de habla hispana, traslados previstos y coordinación integral durante todo el recorrido." }
     ],
+    moment04Image: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-esencia-de-los-balcanes/moment_04.webp",
     aConsiderar: "Actividades opcionales, gastos personales y decisiones individuales durante los tiempos libres permanecen abiertos para que cada viajero adapte ciertos momentos del recorrido a sus propios intereses.",
     inversion: "desde $5,500 USD",
     fechas: "Abr - Oct 2026"
@@ -417,6 +421,7 @@ export const coleccionesData: Coleccion[] = [
       { title: "EXPERIENCIAS INTEGRADAS", description: "Visitas culturales, acceso a castillos y recorridos por algunos de los paisajes más representativos del sur alemán." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía exclusivo de habla hispana, alojamientos, desayunos y traslados contemplados dentro del programa." }
     ],
+    moment04Image: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-herencia-de-alemania/moment_04.webp",
     aConsiderar: "Algunas comidas, gastos personales, actividades fuera del programa y preferencias individuales permanecen abiertos para que cada viajero pueda adaptar ciertos momentos del recorrido a su propio ritmo e intereses.",
     inversion: "desde $4,900 USD",
     fechas: "Abr - Oct 2026"
@@ -460,6 +465,7 @@ export const coleccionesData: Coleccion[] = [
       { title: "EXPERIENCIAS INTEGRADAS", description: "Cruceros por Geiranger y Sognefjord, funicular de Bergen, travesía Nordic y visitas panorámicas incluidas." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía exclusivo de habla hispana, desayunos diarios, cenas seleccionadas y traslados previstos durante el recorrido." }
     ],
+    moment04Image: "https://garage-web.luxuryvoyageco.com/images/colecciones/fiordos-y-capitales-nordicas/moment_04.webp",
     aConsiderar: "Algunas comidas, actividades opcionales, gastos personales y preferencias particulares permanecen abiertos para que cada viajero adapte ciertos momentos del recorrido a sus propios intereses.",
     inversion: "desde $6,300 USD",
     fechas: "May - Sep 2026"
@@ -503,6 +509,7 @@ export const coleccionesData: Coleccion[] = [
       { title: "EXPERIENCIAS INTEGRADAS", description: "Paseo por el Spree, navegación por los canales de Ámsterdam y visita con degustación en un museo de chocolate belga." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía exclusivo de habla hispana, alojamientos reservados, desayunos incluidos y coordinación general durante todo el recorrido." }
     ],
+    moment04Image: "https://garage-web.luxuryvoyageco.com/images/colecciones/capitales-del-norte/moment_04.webp",
     aConsiderar: "Actividades opcionales, comidas no especificadas y gastos personales permanecen abiertos para que cada viajero adapte ciertos momentos del recorrido según sus propios intereses y preferencias.",
     inversion: "desde $5,500 USD",
     fechas: "May - Oct 2026"

@@ -256,7 +256,7 @@ function toTitleCase(str: string): string {
                 <!-- Imagen Detalle (izquierda) -->
                 <div class="hidden sm:block sm:col-span-6 relative aspect-[4/3] overflow-hidden rounded-lg shadow-md cursor-pointer">
                   <img 
-                    src={item.organizedImage} 
+                    src={item.moment04Image || item.organizedImage} 
                     alt="Detalle de la colección" 
                     class="w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-105"
                     loading="lazy"
