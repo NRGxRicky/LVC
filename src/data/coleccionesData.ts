@@ -864,6 +864,7 @@ export const coleccionesData: Coleccion[] = [
     inversion: "desde $2,200 USD",
     fechas: "Salidas semanales 2026"
   },
+  /*
   {
     slug: "oasis-golfo",
     title: "Oasis del Golfo",
@@ -904,6 +905,7 @@ export const coleccionesData: Coleccion[] = [
       { title: "TRASLADOS EN HELICÓPTERO", description: "Transporte aéreo privado para traslados rápidos y espectaculares sobre el golfo." }
     ]
   },
+  */
   {
     slug: "el-gran-sultanato",
     title: "El Gran Sultanato",
@@ -947,6 +949,7 @@ export const coleccionesData: Coleccion[] = [
     inversion: "desde $2,100 USD",
     fechas: "Salidas Sept 2026 - Ago 2027"
   },
+  /*
   {
     slug: "doha-sofisticacion",
     title: "Doha & Sofisticación",
@@ -987,6 +990,7 @@ export const coleccionesData: Coleccion[] = [
       { title: "VEHÍCULOS PREMIUM", description: "Flota de autos de alta gama eléctricos con choferes uniformados a tu servicio todo el día." }
     ]
   },
+  */
   {
     slug: "territorios-de-arabia",
     title: "Territorios de Arabia",
@@ -1030,6 +1034,7 @@ export const coleccionesData: Coleccion[] = [
     inversion: "desde $3,500 USD",
     fechas: "Salidas Ago 2026 - May 2027"
   },
+  /*
   {
     slug: "joyas-abu-dabi",
     title: "Joyas de Abu Dabi",
@@ -1069,6 +1074,50 @@ export const coleccionesData: Coleccion[] = [
       { title: "MIXOLOGÍA Y ENTRADAS", description: "Mesas reservadas de forma prioritaria en los restaurantes de mayor renombre." },
       { title: "CHÓFER A DISPOSICIÓN", description: "Vehículos ejecutivos eléctricos con chófer disponible de forma exclusiva durante toda la estancia." }
     ]
+  },
+  */
+  {
+    slug: "espiritu-emirati",
+    title: "Espíritu Emiratí",
+    subtitle: "EMIRATOS ÁRABES UNIDOS",
+    continent: "medio-oriente",
+    heroImage: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=1200",
+    heroDesc: "Una mirada a los Emiratos desde sus tradiciones, su gente y su transformación contemporánea.",
+    badges: ["6 Días / 5 Noches", "Emiratos Árabes", "Guía en Español"],
+    essenceHeading: "Tradiciones vivas detrás del horizonte contemporáneo de los Emiratos",
+    essenceDesc: "Más allá de los grandes símbolos de Dubái, esta colección propone comprender la identidad emiratí desde sus barrios históricos, encuentros con habitantes locales y espacios culturales poco habituales. La ruta incorpora Ras Al Khaimah y Abu Dhabi para ofrecer una visión más amplia del país, equilibrando patrimonio, arquitectura contemporánea y vida cotidiana.",
+    essenceImage: "https://images.unsplash.com/photo-1546412414-e188526119af?q=80&w=800",
+    moments: [
+      {
+        number: "01",
+        title: "Historias compartidas",
+        description: "Una cena en el hogar de una familia emiratí abre la puerta a conversaciones sobre costumbres, gastronomía y vida cotidiana desde una perspectiva cercana y auténtica.",
+        image: "https://images.unsplash.com/photo-1541518763669-27fef04b14ea?q=80&w=800"
+      },
+      {
+        number: "02",
+        title: "Tradición escrita",
+        description: "El encuentro con un calígrafo local permite conocer uno de los lenguajes artísticos más representativos del mundo árabe y llevar consigo una creación personal.",
+        image: "https://images.unsplash.com/photo-1564981797816-104346cc47db?q=80&w=800"
+      },
+      {
+        number: "03",
+        title: "Tres Emiratos",
+        description: "La combinación de patrimonio histórico, comunidades locales, paisajes desérticos y arquitectura contemporánea ofrece una visión más completa de los Emiratos Árabes Unidos.",
+        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800"
+      }
+    ],
+    momentsCallout: "CONOCER UN PAÍS COMIENZA CUANDO ALGUIEN DECIDE ABRIR LA PUERTA DE SU PROPIA HISTORIA.",
+    organizedImage: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=800",
+    organizedPillars: [
+      { title: "HOSPEDAJES SELECCIONADOS", description: "Cinco noches en Dubai, con una única base para recorrer la región." },
+      { title: "RITMO DEL RECORRIDO", description: "La propuesta alterna patrimonio, ciudades contemporáneas, encuentros culturales y tiempo para recorrer cada destino con equilibrio." },
+      { title: "EXPERIENCIAS INTEGRADAS", description: "Museos, clase de caligrafía, taxi acuático, visitas culturales, granja de dromedarios, Biblioteca Mohammed Bin Rashid y Louvre Abu Dhabi." },
+      { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Traslados, transporte terrestre, guía de habla hispana durante las visitas, entradas previstas y comidas señaladas en el programa." }
+    ],
+    aConsiderar: "Vuelos internacionales, visados, propinas, bebidas, asistencia sanitaria, tasas de estancia, gastos personales o servicios opcionales, sujetos a las preferencias individuales.",
+    inversion: "desde $2,200 USD",
+    fechas: "Salidas programadas durante el año"
   },
   {
     slug: "corea-esencial",
