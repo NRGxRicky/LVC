@@ -1018,7 +1018,7 @@ export const coleccionesData: Coleccion[] = [
         image: "https://images.unsplash.com/photo-1663900108404-a05e8bf82cda?q=80&w=800"
       }
     ],
-    momentsCallout: "ALGUNOS TERRITORIOS SE COMPRENDEN MEJOR CUANDO PERMITEN OBSERVAR TODAS SUS ÉPOCAS EN UN MIISMO RECORRIDO.",
+    momentsCallout: "ALGUNOS TERRITORIOS SE COMPRENDEN MEJOR CUANDO PERMITEN OBSERVAR TODAS SUS ÉPOCAS EN UN MISMO RECORRIDO.",
     organizedImage: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "Siete noches de alojamiento previstas en Jiddah, AlUla, Tabuk y Riyadh con hoteles de categoría 4 estrellas o similares." },
