@@ -1081,34 +1081,34 @@ export const coleccionesData: Coleccion[] = [
     title: "Espíritu Emiratí",
     subtitle: "EMIRATOS ÁRABES UNIDOS",
     continent: "medio-oriente",
-    heroImage: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=1200",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/espiritu-emirati/hero.webp",
     heroDesc: "Una mirada a los Emiratos desde sus tradiciones, su gente y su transformación contemporánea.",
     badges: ["6 Días / 5 Noches", "Emiratos Árabes", "Guía en Español"],
     essenceHeading: "Tradiciones vivas detrás del horizonte contemporáneo de los Emiratos",
     essenceDesc: "Más allá de los grandes símbolos de Dubái, esta colección propone comprender la identidad emiratí desde sus barrios históricos, encuentros con habitantes locales y espacios culturales poco habituales. La ruta incorpora Ras Al Khaimah y Abu Dhabi para ofrecer una visión más amplia del país, equilibrando patrimonio, arquitectura contemporánea y vida cotidiana.",
-    essenceImage: "https://images.unsplash.com/photo-1546412414-e188526119af?q=80&w=800",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/espiritu-emirati/essence.webp",
     moments: [
       {
         number: "01",
         title: "Historias compartidas",
         description: "Una cena en el hogar de una familia emiratí abre la puerta a conversaciones sobre costumbres, gastronomía y vida cotidiana desde una perspectiva cercana y auténtica.",
-        image: "https://images.unsplash.com/photo-1541518763669-27fef04b14ea?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/espiritu-emirati/moment_01.webp"
       },
       {
         number: "02",
         title: "Tradición escrita",
         description: "El encuentro con un calígrafo local permite conocer uno de los lenguajes artísticos más representativos del mundo árabe y llevar consigo una creación personal.",
-        image: "https://images.unsplash.com/photo-1564981797816-104346cc47db?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/espiritu-emirati/moment_02.webp"
       },
       {
         number: "03",
         title: "Tres Emiratos",
         description: "La combinación de patrimonio histórico, comunidades locales, paisajes desérticos y arquitectura contemporánea ofrece una visión más completa de los Emiratos Árabes Unidos.",
-        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/espiritu-emirati/moment_03.webp"
       }
     ],
     momentsCallout: "CONOCER UN PAÍS COMIENZA CUANDO ALGUIEN DECIDE ABRIR LA PUERTA DE SU PROPIA HISTORIA.",
-    organizedImage: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=800",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/espiritu-emirati/organized.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "Cinco noches en Dubai, con una única base para recorrer la región." },
       { title: "RITMO DEL RECORRIDO", description: "La propuesta alterna patrimonio, ciudades contemporáneas, encuentros culturales y tiempo para recorrer cada destino con equilibrio." },
