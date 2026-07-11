@@ -652,6 +652,7 @@ export const coleccionesData: Coleccion[] = [
     inversion: "desde $5,500 USD",
     fechas: "Salidas martes 2026"
   },
+  /*
   {
     slug: "marruecos-imperial",
     title: "Marruecos Imperial",
@@ -772,6 +773,7 @@ export const coleccionesData: Coleccion[] = [
       { title: "RITMO TRANQUILO", description: "Un itinerario de safari íntimo diseñado para evitar la acumulación de vehículos." }
     ]
   },
+  */
   {
     slug: "el-reino-de-los-gigantes",
     title: "El Reino de los Gigantes",
