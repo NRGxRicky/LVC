@@ -525,40 +525,41 @@ export const coleccionesData: Coleccion[] = [
     title: "Safari Austral",
     subtitle: "SUDÁFRICA",
     continent: "africa",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_south_africa.webp",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/safari-austral/hero.webp",
     heroDesc: "Entre la vida salvaje y la elegancia costera.",
     badges: ["Kruger Privado", "Ruta Panorama", "Ciudad del Cabo VIP"],
     essenceHeading: "Dos maneras de entender Sudáfrica en un mismo recorrido.",
     essenceDesc: "Enlaza la energía urbana de Johannesburgo, una reserva privada en el área de Kruger y la atmósfera costera de Ciudad del Cabo. Su mayor valor reside en combinar safaris en un entorno exclusivo con tiempo suficiente para recorrer algunos de los escenarios más representativos del país, manteniendo una operación completamente acompañada en español.",
-    essenceImage: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=800",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/safari-austral/essence.webp",
     moments: [
       {
         number: "01",
         title: "Safari Privado",
         description: "Tres safaris fotográficos en vehículos 4x4 abiertos permiten recorrer una reserva privada con guía de habla castellana y jornadas completas dentro del lodge.",
-        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_south_africa.webp"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/safari-austral/moment_01.webp"
       },
       {
         number: "02",
         title: "Paisajes Panorama",
         description: "El recorrido atraviesa una de las regiones escénicas más reconocidas del país, incluyendo el Cañón del Río Blyde y Bourke's Luck Potholes, sujetos a condiciones operativas.",
-        image: "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/safari-austral/moment_02.webp"
       },
       {
         number: "03",
         title: "Ciudad del Cabo",
         description: "Tres noches ofrecen tiempo para conocer la ciudad y complementar la estancia con recorridos opcionales hacia la Península, Bo-Kaap o la región vinícola.",
-        image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/safari-austral/moment_03.webp"
       }
     ],
     momentsCallout: "ALGUNOS TERRITORIOS SE RECORREN; OTROS CAMBIAN LA MANERA DE OBSERVAR EL MUNDO.",
-    organizedImage: "https://images.unsplash.com/photo-1575089976121-8ed7b2a54265?q=80&w=800",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/safari-austral/organized.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias en Johannesburgo, una reserva privada del área de Kruger y Ciudad del Cabo con desayunos y régimen todo incluido en el lodge." },
       { title: "RITMO DEL RECORRIDO", description: "Una ruta equilibrada entre ciudad, naturaleza y tiempo disponible para complementar la experiencia." },
       { title: "EXPERIENCIAS INTEGRADAS", description: "Tres safaris fotográficos, recorrido panorámico por Mpumalanga y traslados durante el programa." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Traslados, transporte terrestre y asistencia en español durante todo el recorrido." }
     ],
+    moment04Image: "https://garage-web.luxuryvoyageco.com/images/colecciones/safari-austral/moment_04.webp",
     aConsiderar: "Vuelos internacionales y domésticos, actividades, comidas específicas y posibles extensiones permanecen abiertas para adaptarse a las preferencias y decisiones de cada viajero durante la planificación.",
     inversion: "desde $2,500 USD",
     fechas: "Salidas lunes 2026"
@@ -568,40 +569,41 @@ export const coleccionesData: Coleccion[] = [
     title: "Los Paisajes de Kenia",
     subtitle: "KENIA",
     continent: "africa",
-    heroImage: "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?q=80&w=1200",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/los-paisajes-de-kenia/hero.webp",
     heroDesc: "La naturaleza de Kenia encuentra un cierre frente al océano.",
     badges: ["10 Días / 9 Noches", "Masái Mara", "Costa de Diani"],
     essenceHeading: "Los grandes paisajes de Kenia en una sola colección",
     essenceDesc: "Reúne algunas de las regiones naturales más representativas de Kenia dentro de un recorrido continuo que equilibra safari, lagos, sabana y costa. Está pensada para quienes buscan una visión amplia del país sin renunciar al tiempo de descanso, integrando parques nacionales, fauna emblemática y varios días junto al océano Índico.",
-    essenceImage: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=800",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/los-paisajes-de-kenia/essence.webp",
     moments: [
       {
         number: "01",
         title: "Masái Mara",
         description: "Dos jornadas de safari permiten recorrer una de las reservas más emblemáticas de África, con amplios paisajes abiertos y una de las mayores concentraciones de vida salvaje del continente.",
-        image: "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/los-paisajes-de-kenia/moment_01.webp"
       },
       {
         number: "02",
         title: "Entre agua y sabana",
         description: "El recorrido incorpora un paseo en barca por el Lago Naivasha antes de continuar hacia Amboseli, donde la sabana ofrece un paisaje completamente distinto dentro del mismo viaje.",
-        image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/los-paisajes-de-kenia/moment_02.webp"
       },
       {
         number: "03",
         title: "Costa de Diani",
         description: "Tras varios días de safari, la colección concluye con una estancia junto al Índico, ofreciendo tiempo para descansar antes del regreso internacional.",
-        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/los-paisajes-de-kenia/moment_03.webp"
       }
     ],
     momentsCallout: "HAY VIAJES QUE TERMINAN CUANDO CAMBIA EL PAISAJE; OTROS ENCUENTRAN ALLÍ SU EQUILIBRIO.",
-    organizedImage: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/los-paisajes-de-kenia/organized.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "Lodges dentro de las principales reservas and tres noches frente al mar en Diani con régimen todo incluido." },
       { title: "RITMO DEL RECORRIDO", description: "Una ruta progresiva que conecta reservas naturales, lago, sabana y costa mediante traslados organizados." },
       { title: "EXPERIENCIAS INTEGRADAS", description: "Safaris, paseo en barca por el Lago Naivasha, entradas a parques nacionales y estancia en Diani." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía de habla hispana garantizado desde dos viajeros, transporte 4x4 durante el safari y asistencia Flying Doctors." }
     ],
+    moment04Image: "https://garage-web.luxuryvoyageco.com/images/colecciones/los-paisajes-de-kenia/moment_04.webp",
     aConsiderar: "Vuelos internacionales y domésticos, bebidas indicadas por el operador, inversión final y preferencias personales durante el tiempo libre, permanecen sujetos a elección del viajero o confirmación previa.",
     inversion: "desde $4,500 USD",
     fechas: "Salidas martes 2026"
@@ -611,40 +613,41 @@ export const coleccionesData: Coleccion[] = [
     title: "La Gran Ruta Salvaje",
     subtitle: "TANZANIA",
     continent: "africa",
-    heroImage: "https://images.unsplash.com/photo-1759483412972-dcfcadf6ccec?q=80&w=1200",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-gran-ruta-salvaje/hero.webp",
     heroDesc: "Los grandes parques del norte de Tanzania unidos en una sola travesía.",
     badges: ["8 Días / 7 Noches", "Serengeti", "Cráter Ngorongoro"],
     essenceHeading: "Cuatro ecosistemas que revelan la diversidad del norte de Tanzania",
     essenceDesc: "Enlaza algunos de los escenarios naturales más representativos de Tanzania: Lago Manyara, Serengeti, el Cráter de Ngorongoro y Tarangire. Su recorrido permite apreciar cómo cambia el paisaje y la vida salvaje entre cada región, convirtiéndose en una excelente elección para quienes buscan una visión amplia del safari clásico del norte del país.",
-    essenceImage: "https://images.unsplash.com/photo-1519074002996-a69e7ac46a42?q=80&w=800",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-gran-ruta-salvaje/essence.webp",
     moments: [
       {
         number: "01",
         title: "Llanuras infinitas",
         description: "Dos jornadas de safari permiten recorrer una de las reservas más emblemáticas de África, dedicando tiempo suficiente para explorar distintos sectores del parque.",
-        image: "https://images.unsplash.com/photo-1759483412972-dcfcadf6ccec?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-gran-ruta-salvaje/moment_01.webp"
       },
       {
         number: "02",
         title: "Dentro del cráter",
         description: "El descenso al cráter concentra uno de los paisajes naturales más singulares del recorrido, complementado con una estancia dentro de esta reconocida área de conservación.",
-        image: "https://images.unsplash.com/photo-1519074002996-a69e7ac46a42?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-gran-ruta-salvaje/moment_02.webp"
       },
       {
         number: "03",
         title: "Entre baobabs",
         description: "La última etapa del safari incorpora Tarangire, permitiendo descubrir otro ecosistema del norte de Tanzania antes del regreso a Arusha.",
-        image: "https://images.unsplash.com/photo-1528164344705-47542687000d?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-gran-ruta-salvaje/moment_03.webp"
       }
     ],
     momentsCallout: "CADA PAISAJE CAMBIA EL RITMO DEL VIAJE ANTES DE REVELAR EL SIGUIENTE.",
-    organizedImage: "https://images.unsplash.com/photo-1528164344705-47542687000d?q=80&w=800",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-gran-ruta-salvaje/organized.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "Arusha, Lago Manyara, Serengeti, Ngorongoro y Tarangire con estancias previstas durante todo el recorrido." },
       { title: "RITMO DEL RECORRIDO", description: "Una combinación equilibrada entre desplazamientos, safaris, tiempos de descanso y pensión completa durante la ruta." },
       { title: "EXPERIENCIAS INTEGRADAS", description: "Safaris en 4x4, acceso a los parques nacionales, safari en Ngorongoro y almuerzo en Arusha antes del vuelo internacional." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Traslados, conductor-guía de habla castellana, agua durante el safari y cobertura Flying Doctors incluidos según el programa." }
     ],
+    moment04Image: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-gran-ruta-salvaje/moment_04.webp",
     aConsiderar: "Vuelos internacionales y domésticos, actividades disponibles en Ngorongoro permanecen como opcionales y ciertos aspectos operativos, como el sentido del recorrido, pueden ajustarse cuando la operación lo requiera.",
     inversion: "desde $5,500 USD",
     fechas: "Salidas martes 2026"
@@ -774,40 +777,41 @@ export const coleccionesData: Coleccion[] = [
     title: "El Reino de los Gigantes",
     subtitle: "UGANDA",
     continent: "africa",
-    heroImage: "https://images.unsplash.com/photo-1668541491433-e96f4059e345?q=80&w=1200",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-reino-de-los-gigantes/hero.webp",
     heroDesc: "Los grandes encuentros de Uganda reunidos en una sola ruta.",
     badges: ["9 Días / 8 Noches", "Bosque Impenetrable", "Gorilas & Chimpancés"],
     essenceHeading: "Uganda reunida a través de sus encuentros con la vida salvaje",
     essenceDesc: "Recorre algunos de los ecosistemas más representativos de Uganda, combinando reservas, bosques tropicales y parques nacionales en una misma ruta. Está pensada para quienes buscan comprender la diversidad natural del país más allá del safari tradicional, incorporando caminatas entre primates, navegación por el Nilo y paisajes que cambian de forma constante.",
-    essenceImage: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=800",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-reino-de-los-gigantes/essence.webp",
     moments: [
       {
         number: "01",
         title: "Bosque Impenetrable",
         description: "La caminata hasta los gorilas de montaña culmina con un encuentro cuidadosamente regulado, limitado a pequeños grupos y acompañado por los guardaparques del parque nacional.",
-        image: "https://images.unsplash.com/photo-1668541491433-e96f4059e345?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-reino-de-los-gigantes/moment_01.webp"
       },
       {
         number: "02",
         title: "El Nilo Salvaje",
         description: "La navegación hacia la base de las cataratas permite observar hipopótamos, cocodrilos, elefantes y aves mientras el río se transforma antes de atravesar el estrecho cañón de Murchison.",
-        image: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-reino-de-los-gigantes/moment_02.webp"
       },
       {
         number: "03",
         title: "Territorio Primate",
         description: "Uno de los bosques con mayor concentración de primates de África ofrece la oportunidad de recorrer su interior en búsqueda de chimpancés y otras especies endémicas.",
-        image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-reino-de-los-gigantes/moment_03.webp"
       }
     ],
     momentsCallout: "HAY LUGARES DONDE LA NATURALEZA CONSERVA EL PRIVILEGIO DE MARCAR EL RITMO DEL VIAJE.",
-    organizedImage: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=800",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-reino-de-los-gigantes/organized.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias dentro o junto a los principales parques nacionales, incluyendo lodges y resorts previstos en el programa." },
       { title: "RITMO DEL RECORRIDO", description: "Una ruta lineal que conecta las regiones más representativas de Uganda combinando traslados, caminatas, safaris y navegación." },
       { title: "EXPERIENCIAS INTEGRADAS", description: "Safaris terrestres, cruceros, observación de rinocerontes, chimpancés y gorilas, además de accesos a los parques nacionales incluidos." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Transporte compartido, guía conductor, traductor de habla hispana y seguro médico de evacuación durante el recorrido." }
     ],
+    moment04Image: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-reino-de-los-gigantes/moment_04.webp",
     aConsiderar: "Vuelos internacionales y domésticos, visado, bebidas, seguro de viaje y gastos individuales; además, los permisos de gorilas y chimpancés requieren confirmación previa y no son reembolsables.",
     inversion: "desde $8,600 USD",
     fechas: "Salidas sábados 2026"
