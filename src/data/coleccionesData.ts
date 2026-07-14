@@ -818,6 +818,49 @@ export const coleccionesData: Coleccion[] = [
     inversion: "desde $8,600 USD",
     fechas: "Salidas sábados 2026"
   },
+  {
+    slug: "egipto-mar-rojo",
+    title: "Egipto & Mar Rojo",
+    subtitle: "EGIPTO",
+    continent: "africa",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/egipto-mar-rojo/hero.webp",
+    heroDesc: "Donde la grandeza de la historia encuentra el ritmo sereno del Mar Rojo.",
+    badges: ["10 Días / 9 Noches", "Grupo Reducido", "Salidas Todo el Año"],
+    essenceHeading: "El legado de los faraones y las aguas del Mar Rojo",
+    essenceDesc: "Propone una lectura amplia de Egipto: comienza entre algunos de los monumentos más representativos de su civilización, continúa navegando el Nilo entre templos históricos y concluye junto al Mar Rojo, donde el ritmo cambia por completo. Busca equilibrar patrimonio cultural, navegación y descanso.",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/egipto-mar-rojo/essence.webp",
+    moments: [
+      {
+        number: "01",
+        title: "El origen eterno",
+        description: "Las Pirámides, la Esfinge y el Gran Museo Egipcio ofrecen una perspectiva que une los grandes símbolos del antiguo Egipto con la mayor colección arqueológica dedicada a una sola civilización.",
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/egipto-mar-rojo/moment_01.webp"
+      },
+      {
+        number: "02",
+        title: "El Nilo histórico",
+        description: "El crucero recorre algunos de los templos más relevantes del Alto Egipto, enlazando Philae, Kom Ombo, Edfu, Karnak y Luxor a través del curso del Nilo.",
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/egipto-mar-rojo/moment_02.webp"
+      },
+      {
+        number: "03",
+        title: "El cambio de ritmo",
+        description: "Hurghada introduce un ambiente relajado junto al Mar Rojo, con tiempo libre y la posibilidad de realizar actividades acuáticas opcionales.",
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/egipto-mar-rojo/moment_03.webp"
+      }
+    ],
+    momentsCallout: "ALGUNOS VIAJES EXPLICAN UNA CIVILIZACIÓN; OTROS TAMBIÉN ENSEÑAN CUÁNDO DETENERSE.",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/egipto-mar-rojo/organized.webp",
+    organizedPillars: [
+      { title: "HOSPEDAJES SELECCIONADOS", description: "Tres noches en El Cairo, tres noches de crucero por el Nilo y tres noches en Hurghada." },
+      { title: "RITMO DEL RECORRIDO", description: "Combina visitas culturales, navegación por el Nilo y una estancia final dedicada al descanso junto al Mar Rojo." },
+      { title: "EXPERIENCIAS INTEGRADAS", description: "Pirámides de Giza, Esfinge, Gran Museo Egipcio, Philae, Kom Ombo, Edfu, Karnak, Luxor, Valle de los Reyes y Hatshepsut." },
+      { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Traslados, asistencia a la llegada y salida, además de visitas con guía en español durante todo el recorrido." }
+    ],
+    aConsiderar: "Vuelos internacionales y domésticos, visado, propinas, bebidas, gastos personales y experiencias opcionales, permitiendo adaptar el viaje a las preferencias de cada viajero.",
+    inversion: "desde $3,600 USD",
+    fechas: "Salidas programadas durante el año"
+  },
 
 
   // ── UNIVERSO MEDIO ORIENTE ──
