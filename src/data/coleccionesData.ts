@@ -869,40 +869,41 @@ export const coleccionesData: Coleccion[] = [
     title: "La Ruta Nabatea",
     subtitle: "JORDANIA",
     continent: "medio-oriente",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/hero_carousel/medio_oriente.webp",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-ruta-nabatea/hero.webp",
     heroDesc: "Un recorrido que revela la diversidad histórica y natural de Jordania.",
     badges: ["8 Días / 7 Noches", "Jordania", "Salidas Semanales"],
     essenceHeading: "Un país donde cada paisaje cambia la forma del recorrido",
     essenceDesc: "Más que visitar Petra, reúne algunos de los escenarios más representativos de Jordania: ciudades históricas, fortalezas, desierto, Mar Muerto y vestigios bíblicos. Es una ruta equilibrada para quienes desean comprender el país a través de su diversidad, manteniendo una operación organizada y accesible.",
-    essenceImage: "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?q=80&w=800",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-ruta-nabatea/essence.webp",
     moments: [
       {
         number: "01",
         title: "La ciudad esculpida",
         description: "Permite recorrer con calma el sitio arqueológico más emblemático del país, acompañado por el tradicional acceso a caballo.",
-        image: "https://garage-web.luxuryvoyageco.com/images/hero_carousel/medio_oriente.webp"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-ruta-nabatea/moment_01.webp"
       },
       {
         number: "02",
         title: "Silencio del desierto",
         description: "El recorrido en vehículo 4x4 atraviesa uno de los paisajes más representativos de Jordania, donde la inmensidad del desierto transforma por completo el ritmo del viaje.",
-        image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-ruta-nabatea/moment_02.webp"
       },
       {
         number: "03",
         title: "Historia y fe",
         description: "Dos lugares profundamente vinculados con la historia y la tradición religiosa complementan la ruta antes de continuar hacia Petra.",
-        image: "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-ruta-nabatea/moment_03.webp"
       }
     ],
     momentsCallout: "HAY DESTINOS QUE SE COMPRENDEN MEJOR CUANDO CADA PAISAJE CAMBIA LA PERSPECTIVA DEL ANTERIOR.",
-    organizedImage: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-ruta-nabatea/organized.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "Hoteles cuidadosamente seleccionados para un mejor descanso." },
       { title: "RITMO DEL RECORRIDO", description: "Combina patrimonio, naturaleza y tiempos suficientes en los principales escenarios." },
       { title: "EXPERIENCIAS INTEGRADAS", description: "Entradas, paseo a caballo en Petra, recorrido en Wadi Rum y régimen de media pensión incluidos." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía en español, traslados, asistencia de llegada y salida, y operación regular garantizada desde dos viajeros." }
     ],
+    moment04Image: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-ruta-nabatea/moment_04.webp",
     aConsiderar: "Vuelos internacionales, visados, propinas, bebidas, gastos personales o servicios opcionales, permanecen sujetos a las preferencias individuales y a las condiciones aplicables al momento del viaje.",
     inversion: "desde $2,200 USD",
     fechas: "Salidas semanales 2026"
@@ -954,40 +955,41 @@ export const coleccionesData: Coleccion[] = [
     title: "El Gran Sultanato",
     subtitle: "OMÁN",
     continent: "medio-oriente",
-    heroImage: "https://images.unsplash.com/photo-1578894381163-e72c17f2d45f?q=80&w=1200",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-gran-sultanato/hero.webp",
     heroDesc: "Fortalezas, oasis y desierto que revela el carácter más auténtico del sultanato.",
     badges: ["7 Días / 6 Noches", "Omán", "Guía en Español"],
     essenceHeading: "Donde el patrimonio omaní encuentra su paisaje más espectacular",
     essenceDesc: "Recorre Omán desde su costa hasta el interior montañoso y el desierto, combinando fortalezas históricas, oasis, pueblos tradicionales y reservas naturales. Es atractiva para quienes desean comprender la diversidad del país más allá de Mascate, manteniendo un recorrido equilibrado entre patrimonio, naturaleza y cultura local.",
-    essenceImage: "https://images.unsplash.com/photo-1578894381163-e72c17f2d45f?q=80&w=800",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-gran-sultanato/essence.webp",
     moments: [
       {
         number: "01",
         title: "Desierto Beduino",
         description: "Las dunas de Wahiba ofrecen uno de los paisajes más representativos de Omán, con recorridos en vehículos 4x4, atardeceres abiertos y una noche en campamento dentro del desierto.",
-        image: "https://images.unsplash.com/photo-1578894381163-e72c17f2d45f?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-gran-sultanato/moment_01.webp"
       },
       {
         number: "02",
         title: "Corazón Histórico",
         description: "Fortalezas, mercados tradicionales y uno de los castillos mejor conservados del país muestran la importancia histórica y cultural que aún conserva el antiguo interior omaní.",
-        image: "https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-gran-sultanato/moment_02.webp"
       },
       {
         number: "03",
         title: "Oasis Naturales",
         description: "Alterna oasis de aguas color esmeralda con las panorámicas del Gran Cañón de Omán, revelando la sorprendente diversidad natural del sultanato.",
-        image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-gran-sultanato/moment_03.webp"
       }
     ],
     momentsCallout: "HAY DESTINOS QUE NO IMPRESIONAN POR EXCESO, SINO POR LA SERENIDAD CON LA QUE PERMANECEN EN LA MEMORIA.",
-    organizedImage: "https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?q=80&w=800",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-gran-sultanato/organized.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias en Mascate, Sur o Al Asala Resort, un campamento en Wahiba Sands y alojamiento en Nizwa." },
       { title: "RITMO DEL RECORRIDO", description: "Combina patrimonio, naturaleza y desplazamientos equilibrados, incluyendo una noche en el desierto antes del regreso a Mascate." },
       { title: "EXPERIENCIAS INTEGRADAS", description: "Entradas a monumentos, fortalezas, recorridos culturales, vehículos 4x4 en el desierto y comidas señaladas durante el programa." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Traslados con aire acondicionado, guía de habla hispana y operación garantizada desde dos participantes." }
     ],
+    moment04Image: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-gran-sultanato/moment_04.webp",
     aConsiderar: "Vuelos internacionales, seguro de viaje, visado, gastos personales, actividades opcionales o noches adicionales, permanecen abiertos para adaptarse a las preferencias y decisiones de cada viajero.",
     inversion: "desde $2,100 USD",
     fechas: "Salidas Sept 2026 - Ago 2027"
@@ -1039,40 +1041,41 @@ export const coleccionesData: Coleccion[] = [
     title: "Territorios de Arabia",
     subtitle: "ARABIA SAUDITA",
     continent: "medio-oriente",
-    heroImage: "https://images.unsplash.com/photo-1663900108404-a05e8bf82cda?q=80&w=1200",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/territorios-de-arabia/hero.webp",
     heroDesc: "Recorrido por el patrimonio, los paisajes y la transformación cultural de Arabia Saudita.",
     badges: ["8 Días / 7 Noches", "Arabia Saudita", "Servicio Regular"],
     essenceHeading: "Del legado nabateo a las ciudades que definen la Arabia actual",
     essenceDesc: "Una mirada amplia sobre Arabia Saudita al recorrer ciudades históricas, enclaves arqueológicos y capitales contemporáneas en un mismo viaje. Combina patrimonio declarado por la UNESCO, paisajes desérticos, tradición islámica y la evolución cultural del país mediante una ruta cuidadosamente estructurada para comprender distintas facetas del Reino.",
-    essenceImage: "https://images.unsplash.com/photo-1663900108404-a05e8bf82cda?q=80&w=800",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/territorios-de-arabia/essence.webp",
     moments: [
       {
         number: "01",
         title: "Legado Nabateo",
         description: "El primer sitio saudí inscrito como Patrimonio Mundial por la UNESCO reúne monumentales tumbas excavadas en roca y uno de los testimonios arqueológicos más importantes de la península.",
-        image: "https://images.unsplash.com/photo-1663900108404-a05e8bf82cda?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/territorios-de-arabia/moment_01.webp"
       },
       {
         number: "02",
         title: "Historia Viva",
         description: "Las mezquitas históricas y el museo dedicado a la biografía del Profeta ofrecen un contexto esencial para comprender la evolución espiritual y cultural del mundo islámico.",
-        image: "https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/territorios-de-arabia/moment_02.webp"
       },
       {
         number: "03",
         title: "Mar y Tradición",
         description: "El paseo marítimo del Mar Rojo, la arquitectura histórica de Al-Balad y la Casa de las Artes Islámicas muestran el carácter cosmopolita de la ciudad.",
-        image: "https://images.unsplash.com/photo-1663900108404-a05e8bf82cda?q=80&w=800"
+        image: "https://garage-web.luxuryvoyageco.com/images/colecciones/territorios-de-arabia/moment_03.webp"
       }
     ],
     momentsCallout: "ALGUNOS TERRITORIOS SE COMPRENDEN MEJOR CUANDO PERMITEN OBSERVAR TODAS SUS ÉPOCAS EN UN MISMO RECORRIDO.",
-    organizedImage: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/territorios-de-arabia/organized.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "Siete noches de alojamiento previstas en Jiddah, AlUla, Tabuk y Riyadh con hoteles de categoría 4 estrellas o similares." },
       { title: "RITMO DEL RECORRIDO", description: "La ruta combina tren, carretera y vuelos internos para recorrer distintas regiones con una secuencia bien planificada." },
       { title: "EXPERIENCIAS INTEGRADAS", description: "Entradas incluidas, visitas culturales, sitios UNESCO, dos almuerzos y recorridos seleccionados durante todo el viaje." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Traslados organizados, transporte terrestre privado y guía en español en Jiddah, Medina y Riyadh." }
     ],
+    moment04Image: "https://garage-web.luxuryvoyageco.com/images/colecciones/territorios-de-arabia/moment_04.webp",
     aConsiderar: "Algunos elementos permanecen sujetos a decisiones personales, como vuelos internacionales y domésticos, visa electrónica, seguro de viaje, propinas o servicios adicionales no contemplados dentro del programa publicado.",
     inversion: "desde $3,500 USD",
     fechas: "Salidas Ago 2026 - May 2027"
