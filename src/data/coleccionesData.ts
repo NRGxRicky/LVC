@@ -43,7 +43,7 @@ export const coleccionesData: Coleccion[] = [
     badges: ["10 Días / 9 Noches", "Grupo Máx. 36", "Servicio en Español"],
     essenceHeading: "Donde el Japón histórico encuentra su ritmo más auténtico",
     essenceDesc: "Conecta las ciudades imprescindibles de Japón con regiones que rara vez forman parte de los recorridos convencionales. La antigua Ruta Nakasendo, Takayama, Shirakawa-go y Hakone aportan una perspectiva más pausada del país, equilibrando patrimonio, naturaleza y tradición sin renunciar a la comodidad de una operación cuidadosamente coordinada.",
-    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/japon/japon_esencial.webp",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/senderos-de-japon/essence.webp",
     moments: [
       {
         number: "01",
@@ -109,7 +109,7 @@ export const coleccionesData: Coleccion[] = [
       }
     ],
     momentsCallout: "ALGUNOS TERRITORIOS SE COMPRENDEN MEJOR CUANDO SE RECORREN DE PRINCIPIO A FIN.",
-    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_thailand.webp",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-legado-de-tailandia/organized.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias en Bangkok, Ayutthaya, Sukhothai, Chiang Rai y Chiang Mai, en categoría Superior." },
       { title: "RITMO DEL RECORRIDO", description: "Una ruta progresiva que enlaza ciudades históricas, regiones del norte y trayectos terrestres cuidadosamente organizados." },
@@ -160,6 +160,7 @@ export const coleccionesData: Coleccion[] = [
       { title: "EXPERIENCIAS INTEGRADAS", description: "Traslados, visitas culturales, accesos incluidos y desayunos diarios, además del almuerzo indicado durante el recorrido." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Vehículo con aire acondicionado, guía local durante traslados y excursiones, además de entradas y servicios previstos en el programa." }
     ],
+    moment04Image: "https://garage-web.luxuryvoyageco.com/images/colecciones/matices-de-bali/moment_04.webp",
     aConsiderar: "Vuelos internacionales, algunas comidas, actividades opcionales, gastos personales, seguro de viaje y otros servicios sujetos a preferencias individuales permanecen abiertos para que cada viajero adapte el recorrido a su manera.",
     inversion: "desde $1,900 USD",
     fechas: "Nov 2025 - Oct 2026"
@@ -196,7 +197,7 @@ export const coleccionesData: Coleccion[] = [
       }
     ],
     momentsCallout: "HAY LUGARES CUYA HISTORIA PERMANECE MUCHO DESPUÉS DE ABANDONAR SUS TEMPLOS Y SUS RÍOS.",
-    organizedImage: "https://garage-web.luxuryvoyageco.com/images/universos/asia/escenarios/indonesia.webp",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/el-corazon-de-indochina/organized.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias previstas en Luang Prabang, Hanói, Halong, Hoi An, Hue, Ho Chi Minh y Siem Reap." },
       { title: "RITMO DEL RECORRIDO", description: "Una ruta continua con vuelos regionales, trayectos terrestres y navegaciones integradas entre tres países." },
@@ -259,7 +260,7 @@ export const coleccionesData: Coleccion[] = [
     title: "Tierras del Reino",
     subtitle: "INGLATERRA, ESCOCIA E IRLANDA",
     continent: "europa",
-    heroImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/escocia.webp",
+    heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/tierras-del-reino/hero.webp",
     heroDesc: "Tres naciones unidas por historia, paisajes y tradiciones que siguen definiendo las islas británicas.",
     badges: ["Castillos Históricos", "Paisajes Legendarios", "Guía en Español"],
     essenceHeading: "Entre castillos, lagos y ciudades que marcaron una época",
@@ -308,7 +309,7 @@ export const coleccionesData: Coleccion[] = [
     badges: ["Auroras Boreales", "Cultura Sami", "Capitales Nórdicas"],
     essenceHeading: "Escandinavia entre ciudades históricas y horizontes árticos",
     essenceDesc: "Conecta algunas de las ciudades más representativas del norte de Europa con una estancia en Tromsø, una de las puertas de entrada al Ártico. La combinación de cultura urbana, navegación entre países, paisajes polares y encuentros con la tradición sami aporta una profundidad poco habitual dentro de las rutas escandinavas convencionales.",
-    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/noruega/friodos.webp",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/aurora-del-norte/essence.webp",
     moments: [
       {
         number: "01",
@@ -418,7 +419,7 @@ export const coleccionesData: Coleccion[] = [
       }
     ],
     momentsCallout: "HAY LUGARES DONDE LA HISTORIA PERMANECE VISIBLE MUCHO DESPUÉS DE HABER PARTIDO.",
-    organizedImage: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=800",
+    organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/la-herencia-de-alemania/organized.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias previstas en Frankfurt, Heidelberg, Friburgo y Múnich con categoría superior." },
       { title: "RITMO DEL RECORRIDO", description: "Una ruta lineal que combina patrimonio, naturaleza y ciudades históricas sin cambios constantes de destino." },
@@ -440,7 +441,7 @@ export const coleccionesData: Coleccion[] = [
     badges: ["Navegación en Fiordos", "Crucero Escandinavo", "Bergen y Estocolmo"],
     essenceHeading: "Donde los grandes fiordos encuentran la elegancia nórdica",
     essenceDesc: "Conecta algunas de las regiones más representativas de Escandinavia a través de una ruta que combina capitales históricas, pueblos de montaña, navegación entre fiordos y paisajes de gran escala. Su valor reside en recorrer los territorios más emblemáticos de Noruega sin renunciar al contexto cultural de Estocolmo y Copenhague, creando una visión amplia y equilibrada del norte de Europa.",
-    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/noruega/escenica.webp",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/fiordos-y-capitales-nordicas/essence.webp",
     moments: [
       {
         number: "01",
@@ -484,7 +485,7 @@ export const coleccionesData: Coleccion[] = [
     badges: ["Ciudades Imperiales", "Canales de Ámsterdam", "París Sofisticado"],
     essenceHeading: "Entre capitales históricas y ciudades que marcaron Europa",
     essenceDesc: "Conecta algunas de las ciudades más representativas del norte de Europa a través de una ruta que combina patrimonio, arquitectura, tradición y vida urbana. Berlín, Ámsterdam, Brujas, Gante, Bruselas y París aparecen unidas por recorridos cuidadosamente seleccionados que equilibran cultura, historia y tiempo para disfrutar cada ciudad con profundidad.",
-    essenceImage: "https://garage-web.luxuryvoyageco.com/images/universos/europa/escenarios/francia/atemporal.jpg",
+    essenceImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/capitales-del-norte/essence.webp",
     moments: [
       {
         number: "01",
