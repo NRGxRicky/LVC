@@ -565,10 +565,10 @@ function toTitleCase(str: string): string {
         class="bg-[#EDE7D7] border border-[#775A19]/25 w-full max-w-lg p-10 text-center shadow-2xl scale-95 transition-transform duration-500 relative"
       >
         <div class="text-[#775A19] text-3xl mb-4">✦</div>
-        <h2 class="font-heading text-xl md:text-2xl text-[#1C1713] uppercase tracking-wider mb-2">Diseño en Proceso</h2>
+        <h2 class="font-heading text-xl md:text-2xl text-[#1C1713] uppercase tracking-wider mb-2">Tu experiencia comienza aquí</h2>
         <div class="w-12 h-[1px] bg-[#D4AD65] mx-auto mb-4"></div>
         <p id="success-modal-message" class="font-sans text-xs md:text-sm text-[#1C1713]/80 leading-relaxed mb-6">
-          Tu solicitud ha sido recibida con éxito.
+          Gracias por considerar a Luxury Voyage Collection para acompañarte en este viaje. Uno de nuestros Travel Designer ya ha comenzado a revisar la información que compartiste. En breve, se pondrá en contacto contigo para dar continuidad al diseño de tu experiencia.
         </p>
         <button
           type="button"
@@ -682,7 +682,7 @@ ${consideraciones}`;
 
       // Mostrar modal de éxito
       if (successModalMessage) {
-        successModalMessage.innerHTML = `Estimado(a) <strong>${nombre}</strong>, tu solicitud para la colección <strong>${coleccion}</strong> ha sido recibida con éxito. Un Diseñador de Viajes de Luxury Voyage Collection analizará tus preferencias y se pondrá en contacto contigo en un plazo máximo de 24 horas.`;
+        successModalMessage.innerHTML = `Estimado(a) <strong>${nombre}</strong>, gracias por considerar a Luxury Voyage Collection para acompañarte en este viaje.<br/><br/>Uno de nuestros Travel Designer ya ha comenzado a revisar la información que compartiste. En breve, se pondrá en contacto contigo a través del medio que elegiste para dar continuidad al diseño de tu experiencia de la colección <strong>${coleccion}</strong>.`;
       }
 
       if (successModal && successModalCard) {

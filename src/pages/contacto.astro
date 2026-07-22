@@ -366,10 +366,10 @@ const meetingsLink = import.meta.env.PUBLIC_HUBSPOT_MEETINGS_LINK || "";
         <div class="bg-[#EDE7D7] border border-[#D4AD65]/30 p-8 md:p-12 max-w-xl w-full text-center relative shadow-2xl rounded-[2px] transform scale-95 transition-transform duration-500" id="modal-card">
           <div id="modal-inner-content">
             <div class="text-[#D4AD65] text-2xl mb-6">✦</div>
-            <h2 id="modal-title" class="font-heading text-2xl md:text-3xl text-[#1C1713] uppercase tracking-wider mb-4">Diseño en Proceso</h2>
+            <h2 id="modal-title" class="font-heading text-2xl md:text-3xl text-[#1C1713] uppercase tracking-wider mb-4">Tu experiencia comienza aquí</h2>
             <div class="w-12 h-[1px] bg-[#D4AD65] mx-auto mb-6"></div>
             <p id="modal-message" class="font-sans text-sm md:text-base text-[#1C1713]/80 leading-relaxed mb-8">
-              Tu solicitud ha sido recibida con éxito. Un Diseñador de Viajes de Luxury Voyage Collection analizará tus preferencias y se pondrá en contacto contigo en un plazo máximo de 24 horas para dar inicio al diseño de tu experiencia a la medida.
+              Gracias por considerar a Luxury Voyage Collection para acompañarte en este viaje.<br/><br/>Uno de nuestros Travel Designer ya ha comenzado a revisar la información que compartiste. En breve, se pondrá en contacto contigo a través del medio que elegiste para dar continuidad al diseño de tu experiencia.
             </p>
             <button
               type="button"
@@ -832,65 +832,27 @@ ${idea}`;
         else if (pref === "zoom") canalText = "Zoom";
 
         // Handle success display (dynamic HubSpot Meetings calendar or fallback)
-        const meetingsConfig = document.getElementById('meetings-config');
-        const meetingsLinkVal = meetingsConfig ? meetingsConfig.getAttribute('data-link') : '';
-        const modalInner = document.getElementById('modal-inner-content');
-
-        if (meetingsLinkVal && modalInner && successModal && modalCard) {
-          modalInner.innerHTML = `
-            <div class="text-[#D4AD65] text-2xl mb-4">✦</div>
-            <h2 class="font-heading text-xl md:text-2xl text-[#1C1713] uppercase tracking-wider mb-2">Diseño en Proceso</h2>
-            <div class="w-12 h-[1px] bg-[#D4AD65] mx-auto mb-4"></div>
-            <p class="font-sans text-xs md:text-sm text-[#1C1713]/80 leading-relaxed mb-6">
-              Estimado(a) <strong>${nombre}</strong>, tu solicitud ha sido recibida con éxito. Para agilizar el inicio del diseño a la medida, **agenda una llamada de asesoría de 15 minutos** directamente en el calendario de uno de nuestros Diseñadores de Viajes en el siguiente programador:
-            </p>
-            <div class="w-full h-[360px] md:h-[450px] overflow-hidden border border-[#D4AD65]/20 rounded-md bg-white">
-              <iframe src="https://meetings.hubspot.com/${meetingsLinkVal}?embed=true" width="100%" height="100%" frameborder="0"></iframe>
-            </div>
-            <button
-              type="button"
-              id="close-modal-meetings"
-              class="mt-6 inline-flex font-label text-[10px] uppercase tracking-widest font-bold text-[#FAF9F6] bg-[#1C1713] hover:bg-[#D4AD65] hover:text-[#1C1713] transition-all duration-300 px-8 py-3.5 cursor-pointer"
-            >
-              Cerrar y Regresar
-            </button>
-          `;
-
-          const closeMeetingsBtn = document.getElementById('close-modal-meetings');
-          if (closeMeetingsBtn) {
-            closeMeetingsBtn.addEventListener('click', () => {
-              successModal.classList.remove('opacity-100');
-              successModal.classList.add('opacity-0', 'pointer-events-none');
-              modalCard.classList.remove('scale-100');
-              modalCard.classList.add('scale-95');
-              document.body.style.overflow = "";
-              form.reset();
-              startDate = null;
-              endDate = null;
-              if (input) input.value = "";
-              showStep(1);
-            });
-          }
-        } else {
-          if (modalMessage) {
-            modalMessage.innerHTML = `Estimado(a) <strong>${nombre}</strong>, su solicitud ha sido recibida con éxito. Un Diseñador de Viajes de Luxury Voyage Collection analizará sus preferencias y se pondrá en contacto con usted mediante <strong>${canalText}</strong> en un plazo máximo de 24 horas.`;
-          }
-          
-          // Fallback reset on normal close modal click
-          if (closeModal) {
-            closeModal.addEventListener('click', () => {
-              successModal.classList.remove('opacity-100');
-              successModal.classList.add('opacity-0', 'pointer-events-none');
-              modalCard.classList.remove('scale-100');
-              modalCard.classList.add('scale-95');
-              document.body.style.overflow = "";
-              form.reset();
-              startDate = null;
-              endDate = null;
-              if (input) input.value = "";
-              showStep(1);
-            });
-          }
+        const modalTitle = document.getElementById('modal-title');
+        if (modalTitle) {
+          modalTitle.textContent = "Tu experiencia comienza aquí";
+        }
+        if (modalMessage) {
+          modalMessage.innerHTML = `Estimado(a) <strong>${nombre}</strong>, gracias por considerar a Luxury Voyage Collection para acompañarte en este viaje.<br/><br/>Uno de nuestros Travel Designer ya ha comenzado a revisar la información que compartiste. En breve, se pondrá en contacto contigo a través de <strong>${canalText}</strong> para dar continuidad al diseño de tu experiencia.`;
+        }
+        
+        if (closeModal) {
+          closeModal.addEventListener('click', () => {
+            successModal.classList.remove('opacity-100');
+            successModal.classList.add('opacity-0', 'pointer-events-none');
+            modalCard.classList.remove('scale-100');
+            modalCard.classList.add('scale-95');
+            document.body.style.overflow = "";
+            form.reset();
+            startDate = null;
+            endDate = null;
+            if (input) input.value = "";
+            showStep(1);
+          });
         }
 
         // Show Success Modal
