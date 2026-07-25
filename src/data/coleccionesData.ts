@@ -858,6 +858,7 @@ export const coleccionesData: Coleccion[] = [
       { title: "EXPERIENCIAS INTEGRADAS", description: "Pirámides de Giza, Esfinge, Gran Museo Egipcio, Philae, Kom Ombo, Edfu, Karnak, Luxor, Valle de los Reyes y Hatshepsut." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Traslados, asistencia a la llegada y salida, además de visitas con guía en español durante todo el recorrido." }
     ],
+    moment04Image: "https://garage-web.luxuryvoyageco.com/images/colecciones/egipto-mar-rojo/moment_04.webp",
     aConsiderar: "Vuelos internacionales y domésticos, visado, propinas, bebidas, gastos personales y experiencias opcionales, permitiendo adaptar el viaje a las preferencias de cada viajero.",
     inversion: "desde $3,600 USD",
     fechas: "Salidas programadas durante el año"
@@ -1162,6 +1163,7 @@ export const coleccionesData: Coleccion[] = [
       { title: "EXPERIENCIAS INTEGRADAS", description: "Museos, clase de caligrafía, taxi acuático, visitas culturales, granja de dromedarios, Biblioteca Mohammed Bin Rashid y Louvre Abu Dhabi." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Traslados, transporte terrestre, guía de habla hispana durante las visitas, entradas previstas y comidas señaladas en el programa." }
     ],
+    moment04Image: "https://garage-web.luxuryvoyageco.com/images/colecciones/espiritu-emirati/moment_04.webp",
     aConsiderar: "Vuelos internacionales, visados, propinas, bebidas, asistencia sanitaria, tasas de estancia, gastos personales o servicios opcionales, sujetos a las preferencias individuales.",
     inversion: "desde $2,200 USD",
     fechas: "Salidas programadas durante el año"
