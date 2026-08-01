@@ -242,26 +242,65 @@ const experiencias = [
           </h2>
         </div>
 
-        <!-- Columna Derecha: Video -->
+        <!-- Columna Derecha: Video Card -->
         <div class="w-full md:w-[65%] flex justify-center md:justify-end reveal-up reveal-delay-200">
-          <div class="relative w-full max-w-[720px] aspect-[16/10] overflow-hidden rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.12)] group cursor-pointer">
-            <img 
-              src="https://garage-web.luxuryvoyageco.com/images/luxury_video_placeholder.webp" 
-              alt="La forma en la que el viaje permanece contigo" 
+          <div 
+            id="video-card-trigger"
+            class="relative w-full max-w-[720px] aspect-[16/10] overflow-hidden rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.12)] group cursor-pointer"
+          >
+            <video 
+              src="https://garage-web.luxuryvoyageco.com/videos/oficial_web.mp4" 
+              poster="https://garage-web.luxuryvoyageco.com/images/oficial_poster.webp"
+              autoplay 
+              muted 
+              loop 
+              playsinline
               class="w-full h-full object-cover transition-transform duration-[3000ms] ease-out group-hover:scale-[1.05]"
-            />
-            <div class="absolute inset-0 bg-black/10 transition-colors duration-500 group-hover:bg-black/20"></div>
+            ></video>
+            <div class="absolute inset-0 bg-black/15 transition-colors duration-500 group-hover:bg-black/25"></div>
             
             <!-- Botón de Play -->
-            <div class="absolute bottom-6 left-6 w-11 h-11 rounded-full border border-[#D4AD65] flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-[#1C1713]/30 backdrop-blur-[2px]">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="#D4AD65" viewBox="0 0 24 24" class="w-3.5 h-3.5 ml-0.5">
+            <div class="absolute bottom-6 left-6 w-12 h-12 rounded-full border border-[#D4AD65] bg-[#1C1713]/40 backdrop-blur-sm flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-[#D4AD65] group-hover:text-[#1C1713]">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-4 h-4 ml-0.5 text-[#D4AD65] group-hover:text-[#1C1713] transition-colors">
                 <path d="M8 5v14l11-7z"/>
               </svg>
             </div>
+            
+            <span class="absolute bottom-7 left-22 font-label text-[10px] uppercase tracking-widest text-[#FAF9F6] opacity-90 group-hover:opacity-100 transition-opacity hidden sm:inline-block font-semibold">
+              Ver Video Completo
+            </span>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- MODAL REPRODUCTOR DE VIDEO -->
+    <div 
+      id="video-modal" 
+      class="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md flex items-center justify-center p-4 md:p-8 opacity-0 pointer-events-none transition-opacity duration-300"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Reproductor de video oficial"
+    >
+      <button 
+        id="close-video-modal" 
+        class="absolute top-6 right-6 text-white/70 hover:text-white transition-colors duration-300 p-3 text-3xl font-light cursor-pointer z-10"
+        aria-label="Cerrar video"
+      >
+        ✕
+      </button>
+
+      <div class="relative w-full max-w-5xl aspect-video rounded-lg overflow-hidden shadow-2xl bg-black">
+        <video 
+          id="modal-video-player"
+          src="https://garage-web.luxuryvoyageco.com/videos/oficial_web.mp4" 
+          poster="https://garage-web.luxuryvoyageco.com/images/oficial_poster.webp"
+          controls 
+          playsinline
+          class="w-full h-full object-contain"
+        ></video>
+      </div>
+    </div>
 
     <!-- SECCIÓN 4: EXPERIENCIAS (Generales) -->
     <section id="home-experiences" class="w-full bg-[#EDE7D7] py-16 md:py-24 overflow-hidden">
@@ -444,6 +483,41 @@ const experiencias = [
     // Inicializar y recalcular en caso de resize
     updateCarousel();
     window.addEventListener('resize', updateCarousel);
+
+    // --- VIDEO MODAL LOGIC ---
+    const videoTrigger = document.getElementById('video-card-trigger');
+    const videoModal = document.getElementById('video-modal');
+    const closeVideoBtn = document.getElementById('close-video-modal');
+    const modalVideoPlayer = document.getElementById('modal-video-player') as HTMLVideoElement;
+
+    function openVideoModal() {
+      if (!videoModal || !modalVideoPlayer) return;
+      videoModal.classList.remove('opacity-0', 'pointer-events-none');
+      videoModal.classList.add('opacity-100');
+      document.body.style.overflow = 'hidden';
+      modalVideoPlayer.currentTime = 0;
+      modalVideoPlayer.play().catch(() => {});
+    }
+
+    function closeVideoModal() {
+      if (!videoModal || !modalVideoPlayer) return;
+      videoModal.classList.remove('opacity-100');
+      videoModal.classList.add('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = '';
+      modalVideoPlayer.pause();
+    }
+
+    videoTrigger?.addEventListener('click', openVideoModal);
+    closeVideoBtn?.addEventListener('click', closeVideoModal);
+    videoModal?.addEventListener('click', (e) => {
+      if (e.target === videoModal) closeVideoModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && videoModal?.classList.contains('opacity-100')) {
+        closeVideoModal();
+      }
+    });
   });
 </script>
 
