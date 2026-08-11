@@ -629,6 +629,102 @@ function toTitleCase(str: string): string {
 
     if (!form) return;
 
+    function formatPhoneForHubSpot(rawInput: string, selectedLada: string = '+52'): string {
+      if (!rawInput) return '';
+      let lada = selectedLada ? selectedLada.trim() : '+52';
+      if (!lada.startsWith('+')) {
+        lada = '+' + lada.replace(/[^\d]/g, '');
+      }
+      let trimmed = rawInput.trim();
+      if (trimmed.startsWith('+')) {
+        const knownLadas = [
+          '+506', '+502', '+503', '+504', '+505', '+598', '+591', '+595', '+593', '+507',
+          '+52', '+57', '+34', '+54', '+56', '+51', '+44', '+33', '+49', '+39', '+41', '+1'
+        ];
+        const found = knownLadas.find(code => trimmed.startsWith(code));
+        if (found) {
+          lada = found;
+          trimmed = trimmed.slice(found.length);
+        } else {
+          const match = trimmed.match(/^\+(\d{1,3})[\s-]*(.*)$/);
+          if (match) {
+            lada = '+' + match[1];
+            trimmed = match[2];
+          }
+        }
+      } else if (trimmed.startsWith('52') && trimmed.length >= 12) {
+        lada = '+52';
+        trimmed = trimmed.slice(2);
+      }
+      let digits = trimmed.replace(/[^\d]/g, '').replace(/^0+/, '');
+      if (!digits) return lada;
+      const ladaClean = lada.replace(/[^\d+]/g, '');
+      if (ladaClean === '+52') {
+        if (digits.length === 10) {
+          const area2 = ['55', '81', '33'];
+          if (area2.includes(digits.slice(0, 2))) {
+            return `${ladaClean}-${digits.slice(0, 2)}-${digits.slice(2, 6)}-${digits.slice(6, 10)}`;
+          } else {
+            return `${ladaClean}-${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6, 10)}`;
+          }
+        } else if (digits.length === 11 && digits.startsWith('1')) {
+          const realDigits = digits.slice(1);
+          const area2 = ['55', '81', '33'];
+          if (area2.includes(realDigits.slice(0, 2))) {
+            return `${ladaClean}-${realDigits.slice(0, 2)}-${realDigits.slice(2, 6)}-${realDigits.slice(6, 10)}`;
+          } else {
+            return `${ladaClean}-${realDigits.slice(0, 3)}-${realDigits.slice(3, 6)}-${realDigits.slice(6, 10)}`;
+          }
+        }
+      } else if (ladaClean === '+1') {
+        if (digits.length === 10) {
+          return `${ladaClean}-${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6, 10)}`;
+        }
+      } else if (ladaClean === '+34') {
+        if (digits.length === 9) {
+          return `${ladaClean}-${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6, 9)}`;
+        }
+      }
+      if (digits.length === 10) {
+        const area2 = ['55', '81', '33'];
+        if (area2.includes(digits.slice(0, 2))) {
+          return `${ladaClean}-${digits.slice(0, 2)}-${digits.slice(2, 6)}-${digits.slice(6, 10)}`;
+        }
+        return `${ladaClean}-${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6, 10)}`;
+      } else if (digits.length === 9) {
+        return `${ladaClean}-${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6, 9)}`;
+      } else if (digits.length === 8) {
+        return `${ladaClean}-${digits.slice(0, 4)}-${digits.slice(4, 8)}`;
+      }
+      if (digits.length > 4) {
+        return `${ladaClean}-${digits.slice(0, 2)}-${digits.slice(2)}`;
+      }
+      return `${ladaClean}-${digits}`;
+    }
+
+    const waEl = document.getElementById('form-whatsapp') as HTMLInputElement | null;
+    if (waEl) {
+      waEl.addEventListener('input', () => {
+        const val = waEl.value;
+        if (val.startsWith('+')) return;
+        const digits = val.replace(/[^\d]/g, '').slice(0, 10);
+        if (!digits) {
+          waEl.value = '';
+          return;
+        }
+        const area2 = ['55', '81', '33'];
+        if (area2.includes(digits.slice(0, 2))) {
+          if (digits.length <= 2) waEl.value = digits;
+          else if (digits.length <= 6) waEl.value = `${digits.slice(0, 2)}-${digits.slice(2)}`;
+          else waEl.value = `${digits.slice(0, 2)}-${digits.slice(2, 6)}-${digits.slice(6)}`;
+        } else {
+          if (digits.length <= 3) waEl.value = digits;
+          else if (digits.length <= 6) waEl.value = `${digits.slice(0, 3)}-${digits.slice(3)}`;
+          else waEl.value = `${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6)}`;
+        }
+      });
+    }
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       console.log("✦ LVC: Enviando consulta de colección...");
@@ -656,11 +752,7 @@ function toTitleCase(str: string): string {
       const consideraciones = sanitize(consideracionesInput.value.trim()) || "Sin consideraciones adicionales";
       const coleccion = coleccionInput.value;
 
-      // E.164 formatting
-      let formattedPhone = rawWhatsapp.replace(/[^\d+]/g, '');
-      if (!formattedPhone.startsWith('+')) {
-        formattedPhone = `${lada}${formattedPhone.replace(/^0+/, '')}`;
-      }
+      const formattedPhone = formatPhoneForHubSpot(rawWhatsapp, lada);
 
       const compiledMessage = `--- DETALLES DEL VIAJE (DESDE COLECCIÓN) ---
 • Colección de interés: ${coleccion}
