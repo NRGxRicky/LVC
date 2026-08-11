@@ -313,7 +313,25 @@ const meetingsLink = import.meta.env.PUBLIC_HUBSPOT_MEETINGS_LINK || "";
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div class="flex flex-col gap-2">
                 <label for="telefono" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Teléfono / WhatsApp *</label>
-                <input type="tel" id="telefono" name="telefono" required class="w-full bg-transparent border-0 border-b border-[#1C1713]/20 pb-3 pt-1 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none focus:border-[#D4AD65] transition-colors rounded-none placeholder:text-[#1C1713]/30" placeholder="+52 55 1234 5678" />
+                <div class="flex items-center border-0 border-b border-[#1C1713]/20 pb-1">
+                  <select id="contacto-lada" name="lada" class="bg-transparent border-0 font-sans text-sm text-[#1C1713]/70 focus:ring-0 focus:outline-none cursor-pointer pr-2">
+                    <option value="+52">🇲🇽 +52</option>
+                    <option value="+1">🇺🇸 +1</option>
+                    <option value="+57">🇨🇴 +57</option>
+                    <option value="+34">🇪🇸 +34</option>
+                    <option value="+54">🇦🇷 +54</option>
+                    <option value="+56">🇨🇱 +56</option>
+                    <option value="+51">🇵🇪 +51</option>
+                    <option value="+502">🇬🇹 +502</option>
+                    <option value="+506">🇨🇷 +506</option>
+                    <option value="+507">🇵🇦 +507</option>
+                    <option value="+593">🇪🇨 +593</option>
+                    <option value="+44">🇬🇧 +44</option>
+                    <option value="+33">🇫🇷 +33</option>
+                    <option value="+49">🇩🇪 +49</option>
+                  </select>
+                  <input type="tel" id="telefono" name="telefono" required class="w-full bg-transparent border-0 pb-2 pt-1 font-sans text-base text-[#1C1713] focus:ring-0 focus:outline-none placeholder:text-[#1C1713]/30" placeholder="Número de 10 dígitos" />
+                </div>
               </div>
               <div class="flex flex-col gap-2 relative">
                 <label for="contacto_pref" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">Método de contacto preferido *</label>
@@ -564,8 +582,12 @@ const meetingsLink = import.meta.env.PUBLIC_HUBSPOT_MEETINGS_LINK || "";
     if (prevBtn) {
       prevBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        current = new Date(current.getFullYear(), current.getMonth() - 1, 1);
-        render();
+        const prevMonth = new Date(current.getFullYear(), current.getMonth() - 1, 1);
+        const minMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+        if (prevMonth >= minMonth) {
+          current = prevMonth;
+          render();
+        }
       });
     }
 
@@ -781,6 +803,14 @@ ${idea}`;
         const firstname = nameParts[0] || "";
         const lastname = nameParts.slice(1).join(" ") || "";
 
+        const ladaSelect = document.getElementById('contacto-lada') as HTMLSelectElement | null;
+        const selectedLada = ladaSelect ? ladaSelect.value : '+52';
+        const rawTelefono = telefonoInput.value.trim();
+        let formattedPhone = rawTelefono.replace(/[^\d+]/g, '');
+        if (!formattedPhone.startsWith('+')) {
+          formattedPhone = `${selectedLada}${formattedPhone.replace(/^0+/, '')}`;
+        }
+
         const portalId = import.meta.env.PUBLIC_HUBSPOT_PORTAL_ID || "51495057";
         const formId = import.meta.env.PUBLIC_HUBSPOT_FORM_ID || "b25257b0-7b1a-43b8-a591-fa2853b7a244";
         const endpoint = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
@@ -790,7 +820,7 @@ ${idea}`;
             { name: "firstname", value: firstname },
             { name: "lastname", value: lastname },
             { name: "email", value: emailInput.value.trim() },
-            { name: "phone", value: telefonoInput.value.trim() },
+            { name: "phone", value: formattedPhone },
             { name: "message", value: compiledMessage }
           ],
           context: {

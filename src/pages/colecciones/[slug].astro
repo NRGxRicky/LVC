@@ -441,19 +441,39 @@ function toTitleCase(str: string): string {
 
               <!-- Fila 2: WhatsApp y Correo -->
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- WhatsApp -->
+                <!-- WhatsApp / Teléfono con Lada Internacional -->
                 <div class="flex flex-col gap-2">
-                  <label for="form-whatsapp" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">WhatsApp *</label>
+                  <label for="form-whatsapp" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">WhatsApp / Teléfono *</label>
                   <div class="flex bg-[#FAF9F5] border border-[#1C1713]/10 rounded overflow-hidden focus-within:border-[#775A19]/50 transition-colors">
-                    <div class="flex items-center gap-2 px-3 border-r border-[#1C1713]/10 bg-[#FAF9F5] select-none text-xs">
-                      <span class="text-base">🇲🇽</span>
-                      <span class="text-[#1C1713]/60 font-sans">+52</span>
-                    </div>
+                    <select id="form-lada" name="lada" class="bg-[#EFECE6] border-r border-[#1C1713]/10 px-2 py-3 text-xs font-bold text-[#1C1713] focus:outline-none cursor-pointer shrink-0">
+                      <option value="+52">🇲🇽 +52 (MX)</option>
+                      <option value="+1">🇺🇸 +1 (US/CA)</option>
+                      <option value="+57">🇨🇴 +57 (CO)</option>
+                      <option value="+34">🇪🇸 +34 (ES)</option>
+                      <option value="+54">🇦🇷 +54 (AR)</option>
+                      <option value="+56">🇨🇱 +56 (CL)</option>
+                      <option value="+51">🇵🇪 +51 (PE)</option>
+                      <option value="+502">🇬🇹 +502 (GT)</option>
+                      <option value="+506">🇨🇷 +506 (CR)</option>
+                      <option value="+507">🇵🇦 +507 (PA)</option>
+                      <option value="+593">🇪🇨 +593 (EC)</option>
+                      <option value="+503">🇸🇻 +503 (SV)</option>
+                      <option value="+504">🇭🇳 +504 (HN)</option>
+                      <option value="+505">🇳🇮 +505 (NI)</option>
+                      <option value="+598">🇺🇾 +598 (UY)</option>
+                      <option value="+591">🇧🇴 +591 (BO)</option>
+                      <option value="+595">🇵🇾 +595 (PY)</option>
+                      <option value="+44">🇬🇧 +44 (UK)</option>
+                      <option value="+33">🇫🇷 +33 (FR)</option>
+                      <option value="+49">🇩🇪 +49 (DE)</option>
+                      <option value="+39">🇮🇹 +39 (IT)</option>
+                      <option value="+41">🇨🇭 +41 (CH)</option>
+                    </select>
                     <input 
                       type="tel" 
                       name="whatsapp" 
                       id="form-whatsapp" 
-                      placeholder="Escribe tu número" 
+                      placeholder="Número de 10 dígitos" 
                       required
                       class="w-full bg-transparent border-0 px-4 py-3 font-sans text-sm text-[#1C1713] focus:outline-none focus:ring-0"
                     />
@@ -485,19 +505,7 @@ function toTitleCase(str: string): string {
                     required
                     class="w-full bg-[#FAF9F5] border border-[#1C1713]/10 px-4 py-3 rounded text-sm text-[#1C1713] focus:outline-none focus:border-[#775A19]/50 transition-colors cursor-pointer"
                   >
-                    <option value="" disabled selected>Selecciona el mes</option>
-                    <option value="enero">Enero 2026 / 2027</option>
-                    <option value="febrero">Febrero 2026 / 2027</option>
-                    <option value="marzo">Marzo 2026 / 2027</option>
-                    <option value="abril">Abril 2026 / 2027</option>
-                    <option value="mayo">Mayo 2026 / 2027</option>
-                    <option value="junio">Junio 2026 / 2027</option>
-                    <option value="julio">Julio 2026 / 2027</option>
-                    <option value="agosto">Agosto 2026 / 2027</option>
-                    <option value="septiembre">Septiembre 2026 / 2027</option>
-                    <option value="octubre">Octubre 2026 / 2027</option>
-                    <option value="noviembre">Noviembre 2026 / 2027</option>
-                    <option value="diciembre">Diciembre 2026 / 2027</option>
+                    <option value="" disabled selected>Cargando fechas de viaje...</option>
                   </select>
                 </div>
 
@@ -587,7 +595,30 @@ function toTitleCase(str: string): string {
 
 <script>
   (() => {
-    console.log("✦ LVC: Script de formulario de colección cargado!");
+    document.addEventListener('DOMContentLoaded', () => {
+      // Populate dynamic future months (18 months ahead)
+      const fechasSelect = document.getElementById('form-fechas') as HTMLSelectElement | null;
+      if (fechasSelect) {
+        const monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+        const now = new Date();
+        const currentYear = now.getFullYear();
+        const currentMonthIndex = now.getMonth();
+
+        fechasSelect.innerHTML = '<option value="" disabled selected>Selecciona el mes aproximado</option>';
+
+        for (let i = 0; i < 18; i++) {
+          const targetDate = new Date(currentYear, currentMonthIndex + i, 1);
+          const mName = monthNames[targetDate.getMonth()];
+          const mYear = targetDate.getFullYear();
+          const labelText = `${mName} ${mYear}`;
+          
+          const opt = document.createElement('option');
+          opt.value = labelText;
+          opt.textContent = labelText;
+          fechasSelect.appendChild(opt);
+        }
+      }
+    });
 
     const form = document.getElementById('collection-contact-form') as HTMLFormElement | null;
     const successModal = document.getElementById('success-modal');
@@ -605,6 +636,7 @@ function toTitleCase(str: string): string {
       const nombreInput = document.getElementById('form-nombre') as HTMLInputElement | null;
       const emailInput = document.getElementById('form-email') as HTMLInputElement | null;
       const whatsappInput = document.getElementById('form-whatsapp') as HTMLInputElement | null;
+      const ladaSelect = document.getElementById('form-lada') as HTMLSelectElement | null;
       const fechasInput = document.getElementById('form-fechas') as HTMLSelectElement | null;
       const viajerosInput = document.getElementById('form-viajeros') as HTMLSelectElement | null;
       const consideracionesInput = document.getElementById('form-consideraciones') as HTMLTextAreaElement | null;
@@ -617,11 +649,18 @@ function toTitleCase(str: string): string {
       const sanitize = (val: string) => val.replace(/</g, "&lt;").replace(/>/g, "&gt;");
       const nombre = sanitize(nombreInput.value.trim());
       const email = emailInput.value.trim();
-      const whatsapp = whatsappInput.value.trim();
+      const rawWhatsapp = whatsappInput.value.trim();
+      const lada = ladaSelect ? ladaSelect.value : '+52';
       const fechas = fechasInput.value;
       const viajeros = viajerosInput.value;
       const consideraciones = sanitize(consideracionesInput.value.trim()) || "Sin consideraciones adicionales";
       const coleccion = coleccionInput.value;
+
+      // E.164 formatting
+      let formattedPhone = rawWhatsapp.replace(/[^\d+]/g, '');
+      if (!formattedPhone.startsWith('+')) {
+        formattedPhone = `${lada}${formattedPhone.replace(/^0+/, '')}`;
+      }
 
       const compiledMessage = `--- DETALLES DEL VIAJE (DESDE COLECCIÓN) ---
 • Colección de interés: ${coleccion}
@@ -645,7 +684,7 @@ ${consideraciones}`;
           { name: "firstname", value: firstname },
           { name: "lastname", value: lastname },
           { name: "email", value: email },
-          { name: "phone", value: `+52 ${whatsapp}` },
+          { name: "phone", value: formattedPhone },
           { name: "message", value: compiledMessage }
         ],
         context: {
