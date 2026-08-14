@@ -659,47 +659,8 @@ function toTitleCase(str: string): string {
       let digits = trimmed.replace(/[^\d]/g, '').replace(/^0+/, '');
       if (!digits) return lada;
       const ladaClean = lada.replace(/[^\d+]/g, '');
-      if (ladaClean === '+52') {
-        if (digits.length === 10) {
-          const area2 = ['55', '81', '33'];
-          if (area2.includes(digits.slice(0, 2))) {
-            return `${ladaClean}-${digits.slice(0, 2)}-${digits.slice(2, 6)}-${digits.slice(6, 10)}`;
-          } else {
-            return `${ladaClean}-${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6, 10)}`;
-          }
-        } else if (digits.length === 11 && digits.startsWith('1')) {
-          const realDigits = digits.slice(1);
-          const area2 = ['55', '81', '33'];
-          if (area2.includes(realDigits.slice(0, 2))) {
-            return `${ladaClean}-${realDigits.slice(0, 2)}-${realDigits.slice(2, 6)}-${realDigits.slice(6, 10)}`;
-          } else {
-            return `${ladaClean}-${realDigits.slice(0, 3)}-${realDigits.slice(3, 6)}-${realDigits.slice(6, 10)}`;
-          }
-        }
-      } else if (ladaClean === '+1') {
-        if (digits.length === 10) {
-          return `${ladaClean}-${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6, 10)}`;
-        }
-      } else if (ladaClean === '+34') {
-        if (digits.length === 9) {
-          return `${ladaClean}-${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6, 9)}`;
-        }
-      }
-      if (digits.length === 10) {
-        const area2 = ['55', '81', '33'];
-        if (area2.includes(digits.slice(0, 2))) {
-          return `${ladaClean}-${digits.slice(0, 2)}-${digits.slice(2, 6)}-${digits.slice(6, 10)}`;
-        }
-        return `${ladaClean}-${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6, 10)}`;
-      } else if (digits.length === 9) {
-        return `${ladaClean}-${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6, 9)}`;
-      } else if (digits.length === 8) {
-        return `${ladaClean}-${digits.slice(0, 4)}-${digits.slice(4, 8)}`;
-      }
-      if (digits.length > 4) {
-        return `${ladaClean}-${digits.slice(0, 2)}-${digits.slice(2)}`;
-      }
-      return `${ladaClean}-${digits}`;
+      // Standard E.164 without hyphens (+525586145716) ensures HubSpot CRM detects Country Code (+52 Mexico) and enables 1-click calls and WhatsApp
+      return `${ladaClean}${digits}`;
     }
 
     const waEl = document.getElementById('form-whatsapp') as HTMLInputElement | null;
