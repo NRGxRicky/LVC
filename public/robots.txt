@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://luxuryvoyageco.com/sitemap-index.xml

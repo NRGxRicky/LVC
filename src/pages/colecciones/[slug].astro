@@ -44,12 +44,45 @@ function toTitleCase(str: string): string {
   }).join(' ');
 }
 
+const itinerarioList = Array.isArray(item.itinerario) ? item.itinerario : [];
+const touristTripSchema = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": item.title,
+  "description": item.heroDesc || item.tagline || "",
+  "image": item.heroImage || "",
+  "touristType": ["Luxury Travel", "Custom Travel"],
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "TravelAgency",
+      "name": "Luxury Voyage Collection",
+      "url": "https://luxuryvoyageco.com"
+    }
+  },
+  ...(itinerarioList.length > 0 ? {
+    "itinerary": {
+      "@type": "ItemList",
+      "numberOfItems": itinerarioList.length,
+      "itemListElement": itinerarioList.map((dia, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "name": dia.diaTitle || `Día ${index + 1}`,
+        "description": dia.desc || ""
+      }))
+    }
+  } : {})
+};
 ---
 
 <Layout
-  title={`${item.title} — Luxury Voyage Collection`}
-  description={item.heroDesc}
+  title={`${item.title}: Viaje de Lujo a Medida | Luxury Voyage Collection`}
+  description={`${item.heroDesc} Diseña tu experiencia de ultra lujo personalizada en ${item.universo} con Luxury Voyage Collection.`}
+  image={item.heroImage}
 >
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(touristTripSchema)} />
   <Navbar theme="dark" />
 
   <main class="w-full overflow-hidden">

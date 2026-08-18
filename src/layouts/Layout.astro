@@ -5,16 +5,44 @@ import CookieBanner from "../components/CookieBanner.astro";
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
 }
 
 const {
-  title = "Luxury Voyage Collection — The Architectural Silence",
-  description = "Curaduría global de experiencias de viaje de ultra-lujo. Definimos el estándar del silencio arquitectónico.",
+  title = "Viajes de Lujo a Medida y Experiencias Exclusivas | Luxury Voyage Collection",
+  description = "Agencia de viajes de lujo especializada en itinerarios a medida y experiencias personalizadas en Asia, Europa, África y Medio Oriente.",
+  image = "https://garage-web.luxuryvoyageco.com/images/contacto_bottom_1776311078622.webp"
 } = Astro.props;
 
 const gaId = import.meta.env.PUBLIC_GA_ID;
 const pixelId = import.meta.env.PUBLIC_META_PIXEL_ID;
 const hubspotPortalId = import.meta.env.PUBLIC_HUBSPOT_PORTAL_ID;
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "name": "Luxury Voyage Collection",
+  "alternateName": "LVC",
+  "url": "https://luxuryvoyageco.com",
+  "logo": "https://garage-web.luxuryvoyageco.com/images/logo-diamond.webp",
+  "image": image,
+  "description": description,
+  "priceRange": "$$$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "MX"
+  },
+  "sameAs": [
+    "https://www.instagram.com/luxuryvoyagecollection/"
+  ],
+  "knowsAbout": [
+    "Viajes de Lujo",
+    "Safaris Privados",
+    "Viajes a Medida",
+    "Itinerarios Exclusivos",
+    "Turismo de Ultra Lujo"
+  ]
+};
 ---
 
 <!doctype html>
@@ -30,7 +58,7 @@ const hubspotPortalId = import.meta.env.PUBLIC_HUBSPOT_PORTAL_ID;
     <meta property="og:url" content={Astro.url.href} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://garage-web.luxuryvoyageco.com/images/contacto_bottom_1776311078622.webp" />
+    <meta property="og:image" content={image} />
     <meta property="og:site_name" content="Luxury Voyage Collection" />
 
     <!-- Twitter -->
@@ -38,13 +66,16 @@ const hubspotPortalId = import.meta.env.PUBLIC_HUBSPOT_PORTAL_ID;
     <meta property="twitter:url" content={Astro.url.href} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content="https://garage-web.luxuryvoyageco.com/images/contacto_bottom_1776311078622.webp" />
+    <meta property="twitter:image" content={image} />
 
     <!-- Canonical URL -->
     <link rel="canonical" href={Astro.url.href} />
 
     <link rel="icon" type="image/png" href="https://garage-web.luxuryvoyageco.com/images/logo-diamond.webp?v=2" />
     <title>{title}</title>
+
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
 
     <!-- Google Analytics (GA4) -->
     {gaId && (
