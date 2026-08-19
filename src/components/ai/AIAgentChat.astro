@@ -1,0 +1,649 @@
+---
+/**
+ * AIAgentChat.astro
+ * Luxury AI Concierge & Autonomous Agent Chat Widget para Luxury Voyage Collection (LVC).
+ * Desarrollado con arquitectura de Tool Calling Paramétrico, Entrada por Voz (STT), Generador de PDF y UI Atelier.
+ */
+---
+
+<div id="lvc-agent-container" class="fixed bottom-6 right-6 z-50 font-body text-on-background select-none">
+  <!-- Launcher Button -->
+  <button
+    id="lvc-agent-launcher"
+    class="group relative flex items-center gap-3 px-5 py-3.5 rounded-full shadow-2xl transition-all duration-500 ease-out hover:scale-105 active:scale-95 focus:outline-none"
+    style="background: linear-gradient(135deg, #1C1713 0%, #2D241E 100%); border: 1px solid rgba(212, 173, 101, 0.45); box-shadow: 0 10px 30px -5px rgba(28, 23, 19, 0.6), 0 0 20px 2px rgba(212, 173, 101, 0.25);"
+    aria-label="Abrir Asistente de IA de LVC"
+  >
+    <!-- Glowing pulse ring -->
+    <span class="absolute -inset-0.5 rounded-full bg-gradient-to-r from-[#775A19] via-[#D4AD65] to-[#775A19] opacity-75 blur-sm group-hover:opacity-100 transition duration-500 animate-pulse"></span>
+    
+    <div class="relative flex items-center gap-3 z-10">
+      <div class="w-8 h-8 rounded-full flex items-center justify-center bg-[#D4AD65]/20 border border-[#D4AD65]/40 text-[#D4AD65]">
+        <span class="material-symbols-outlined text-[18px]">diamond</span>
+      </div>
+      <div class="flex flex-col text-left">
+        <span class="font-headline text-[13px] font-semibold tracking-wider text-[#EDE7D7] group-hover:text-[#D4AD65] transition-colors">
+          LVC AI CONCIERGE
+        </span>
+        <span class="font-label text-[10px] tracking-widest text-[#D4AD65] uppercase flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+          Asesor Privado 2.0
+        </span>
+      </div>
+    </div>
+  </button>
+
+  <!-- Main Chat Modal / Drawer -->
+  <div
+    id="lvc-agent-modal"
+    class="hidden fixed inset-x-4 bottom-4 md:inset-auto md:bottom-6 md:right-6 w-auto md:w-[450px] max-h-[85vh] h-[650px] flex-col rounded-2xl shadow-2xl overflow-hidden transition-all duration-300 transform scale-95 opacity-0 z-50"
+    style="background: rgba(28, 23, 19, 0.96); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(212, 173, 101, 0.35); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 35px rgba(119, 90, 25, 0.2);"
+  >
+    <!-- Header -->
+    <div class="px-5 py-4 border-b border-[#D4AD65]/20 flex items-center justify-between bg-gradient-to-r from-[#1C1713] via-[#2A221C] to-[#1C1713]">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full flex items-center justify-center bg-[#D4AD65]/15 border border-[#D4AD65]/40 text-[#D4AD65] shadow-inner">
+          <span class="material-symbols-outlined text-[20px]">diamond</span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h3 class="font-headline text-[15px] font-semibold tracking-wide text-[#FAF9F6]">LVC Concierge de Autor</h3>
+            <span class="text-[9px] px-1.5 py-0.5 rounded bg-[#775A19]/40 border border-[#D4AD65]/30 text-[#D4AD65] font-label font-medium uppercase tracking-wider">Voice & PDF</span>
+          </div>
+          <p class="font-label text-[11px] text-[#C5BCB7] flex items-center gap-1.5 mt-0.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            Online · Especialista en Viajes de Ultra Lujo
+          </p>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="flex items-center gap-1.5 text-[#C5BCB7]">
+        <!-- Tech Inspector Toggle Button -->
+        <button
+          id="lvc-audit-toggle"
+          title="Ver Auditoría Técnica (Tool Calling & Seguridad)"
+          class="p-1.5 rounded-lg hover:bg-white/10 hover:text-[#D4AD65] transition-colors flex items-center gap-1 text-[11px] font-label px-2 border border-white/10"
+        >
+          <span class="material-symbols-outlined text-[15px]">terminal</span>
+          <span class="hidden sm:inline">Inspector</span>
+        </button>
+        <!-- Close Button -->
+        <button
+          id="lvc-agent-close"
+          class="p-1.5 rounded-lg hover:bg-white/10 hover:text-white transition-colors"
+          aria-label="Cerrar chat"
+        >
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Tech Audit Inspector Panel (Collapsible) -->
+    <div id="lvc-audit-panel" class="hidden bg-[#14100E] border-b border-[#D4AD65]/25 p-3 text-[11px] font-mono text-[#D4AD65] max-h-40 overflow-y-auto scrollbar-none">
+      <div class="flex items-center justify-between text-[10px] text-gray-400 mb-1.5 pb-1 border-b border-white/10">
+        <span class="flex items-center gap-1 text-emerald-400 font-bold">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span> RBAC & TOOL CALLING AUDIT LOG
+        </span>
+        <span id="audit-timestamp">Ready</span>
+      </div>
+      <div class="space-y-1 text-[10px]">
+        <div><span class="text-gray-400">Última Herramienta:</span> <span id="audit-tool-name" class="text-white font-bold">None</span></div>
+        <div><span class="text-gray-400">Argumentos Paramétricos:</span> <span id="audit-tool-args" class="text-amber-200">{}</span></div>
+        <div class="flex items-center justify-between">
+          <span><span class="text-gray-400">Confidence Score:</span> <span id="audit-confidence" class="text-emerald-400 font-bold">98.5%</span></span>
+          <span><span class="text-gray-400">Latencia:</span> <span id="audit-latency" class="text-cyan-300">12ms</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Messages Container -->
+    <div id="lvc-chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 text-[13px] leading-relaxed scrollbar-none">
+      <!-- Welcome Message -->
+      <div class="flex items-start gap-2.5 message-in">
+        <div class="w-7 h-7 rounded-full bg-[#775A19]/30 border border-[#D4AD65]/40 text-[#D4AD65] flex items-center justify-center shrink-0 mt-0.5">
+          <span class="material-symbols-outlined text-[15px]">diamond</span>
+        </div>
+        <div class="bg-[#2A221C] border border-[#D4AD65]/20 rounded-2xl rounded-tl-sm p-3.5 text-[#EDE7D7] shadow-lg max-w-[88%]">
+          <p class="font-headline text-[13.5px] font-medium text-[#FAF9F6] mb-1.5">
+            Bienvenido al Atelier Privado de Luxury Voyage Collection
+          </p>
+          <p class="text-[12.5px] text-[#D0C9C3]">
+            Soy su **Concierge de IA**, especializado en el diseño de travesías a medida, cotizaciones de alta gama y generación de **Dossiers PDF**.
+          </p>
+          <p class="text-[11.5px] text-[#D4AD65] mt-2 flex items-center gap-1">
+            <span class="material-symbols-outlined text-[14px]">mic</span> Puede escribir o dictarme por voz su destino de ensueño.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Prompt Chips -->
+    <div id="lvc-quick-chips" class="px-4 py-2 border-t border-white/5 flex items-center gap-1.5 overflow-x-auto scrollbar-none bg-[#1C1713]/80 text-[11.5px]">
+      <button class="chip-btn shrink-0 px-3 py-1.5 rounded-full bg-[#2A221C] hover:bg-[#775A19]/40 border border-[#D4AD65]/30 text-[#EDE7D7] hover:text-[#D4AD65] transition-all" data-prompt="Quiero conocer la colección Senderos de Japón">
+        🎌 Senderos de Japón
+      </button>
+      <button class="chip-btn shrink-0 px-3 py-1.5 rounded-full bg-[#2A221C] hover:bg-[#775A19]/40 border border-[#D4AD65]/30 text-[#EDE7D7] hover:text-[#D4AD65] transition-all" data-prompt="Generar Dossier en PDF de Safari Privado en África">
+        📄 Dossier PDF Safari
+      </button>
+      <button class="chip-btn shrink-0 px-3 py-1.5 rounded-full bg-[#2A221C] hover:bg-[#775A19]/40 border border-[#D4AD65]/30 text-[#EDE7D7] hover:text-[#D4AD65] transition-all" data-prompt="¿Cuánto cuesta un viaje a medida para 2 personas a Europa?">
+        💎 Cotizar Itinerario
+      </button>
+      <button class="chip-btn shrink-0 px-3 py-1.5 rounded-full bg-[#2A221C] hover:bg-[#775A19]/40 border border-[#D4AD65]/30 text-[#EDE7D7] hover:text-[#D4AD65] transition-all" data-prompt="Deseo hablar directamente con un Travel Advisor por WhatsApp">
+        ✨ Contactar Concierge
+      </button>
+    </div>
+
+    <!-- Voice Listening Active Banner -->
+    <div id="lvc-voice-banner" class="hidden px-4 py-2.5 bg-gradient-to-r from-red-950/80 via-rose-900/60 to-red-950/80 border-t border-red-500/40 flex items-center justify-between text-[11.5px] text-red-200">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping"></span>
+        <span class="font-medium">Escuchando su voz... Hable con tranquilidad</span>
+      </div>
+      <button id="lvc-voice-stop" class="text-xs px-2 py-0.5 rounded bg-red-800 hover:bg-red-700 text-white font-bold">
+        Detener
+      </button>
+    </div>
+
+    <!-- Typing Indicator (Hidden by default) -->
+    <div id="lvc-typing-indicator" class="hidden px-5 py-2 flex items-center gap-2 text-[11px] text-[#D4AD65] bg-[#1C1713]/90">
+      <span class="w-1.5 h-1.5 rounded-full bg-[#D4AD65] animate-bounce"></span>
+      <span class="w-1.5 h-1.5 rounded-full bg-[#D4AD65] animate-bounce [animation-delay:0.2s]"></span>
+      <span class="w-1.5 h-1.5 rounded-full bg-[#D4AD65] animate-bounce [animation-delay:0.4s]"></span>
+      <span class="ml-1 text-[#C5BCB7] italic font-label">Consultando itinerarios exclusivos...</span>
+    </div>
+
+    <!-- Input Box with Voice Mic & Send Button -->
+    <div class="p-3.5 border-t border-[#D4AD65]/20 bg-[#1C1713]">
+      <form id="lvc-chat-form" class="flex items-center gap-2">
+        <!-- Voice Input Button -->
+        <button
+          type="button"
+          id="lvc-voice-btn"
+          title="Dictar por voz"
+          class="p-2.5 rounded-xl bg-[#2A221C] hover:bg-[#775A19]/50 border border-[#D4AD65]/30 text-[#D4AD65] hover:text-white transition-all flex items-center justify-center"
+        >
+          <span class="material-symbols-outlined text-[18px]">mic</span>
+        </button>
+
+        <input
+          type="text"
+          id="lvc-chat-input"
+          placeholder="Escriba o hable (ej. Japón, safari, dossier PDF)..."
+          class="flex-1 bg-[#2A221C] border border-[#D4AD65]/30 rounded-xl px-4 py-2.5 text-[12.5px] text-[#FAF9F6] placeholder-[#9E9590] focus:outline-none focus:border-[#D4AD65] focus:ring-1 focus:ring-[#D4AD65] transition-all"
+          autocomplete="off"
+        />
+
+        <button
+          type="submit"
+          id="lvc-chat-send"
+          class="p-2.5 rounded-xl bg-gradient-to-r from-[#775A19] to-[#D4AD65] text-[#1C1713] font-bold hover:brightness-110 active:scale-95 transition-all shadow-md flex items-center justify-center"
+          aria-label="Enviar mensaje"
+        >
+          <span class="material-symbols-outlined text-[18px]">send</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { LVCAgentEngine, type AgentResponse } from "../../lib/agent/lvcAgentEngine";
+
+  // Elements
+  const launcher = document.getElementById("lvc-agent-launcher");
+  const modal = document.getElementById("lvc-agent-modal");
+  const closeBtn = document.getElementById("lvc-agent-close");
+  const auditToggle = document.getElementById("lvc-audit-toggle");
+  const auditPanel = document.getElementById("lvc-audit-panel");
+  const messagesContainer = document.getElementById("lvc-chat-messages");
+  const chatForm = document.getElementById("lvc-chat-form");
+  const chatInput = document.getElementById("lvc-chat-input") as HTMLInputElement;
+  const typingIndicator = document.getElementById("lvc-typing-indicator");
+  const quickChips = document.getElementById("lvc-quick-chips");
+  const voiceBtn = document.getElementById("lvc-voice-btn");
+  const voiceBanner = document.getElementById("lvc-voice-banner");
+  const voiceStopBtn = document.getElementById("lvc-voice-stop");
+
+  // Audit elements
+  const auditTimestamp = document.getElementById("audit-timestamp");
+  const auditToolName = document.getElementById("audit-tool-name");
+  const auditToolArgs = document.getElementById("audit-tool-args");
+  const auditConfidence = document.getElementById("audit-confidence");
+  const auditLatency = document.getElementById("audit-latency");
+
+  let isOpen = false;
+  let chatHistory: { role: string; content: string }[] = [];
+  let recognition: any = null;
+  let isRecording = false;
+
+  // Toggle Modal Open/Close
+  function toggleChat(open?: boolean) {
+    isOpen = typeof open === "boolean" ? open : !isOpen;
+    if (isOpen) {
+      modal?.classList.remove("hidden");
+      setTimeout(() => {
+        modal?.classList.remove("scale-95", "opacity-0");
+        modal?.classList.add("scale-100", "opacity-100");
+        chatInput?.focus();
+      }, 10);
+    } else {
+      modal?.classList.add("scale-95", "opacity-0");
+      modal?.classList.remove("scale-100", "opacity-100");
+      setTimeout(() => {
+        modal?.classList.add("hidden");
+      }, 300);
+    }
+  }
+
+  launcher?.addEventListener("click", () => toggleChat(true));
+  closeBtn?.addEventListener("click", () => toggleChat(false));
+
+  // Toggle Tech Audit Inspector
+  auditToggle?.addEventListener("click", () => {
+    auditPanel?.classList.toggle("hidden");
+  });
+
+  // Speech-to-Text Setup
+  function initSpeechRecognition() {
+    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      alert("El reconocimiento por voz está soportado en navegadores modernos como Chrome, Edge o Safari.");
+      return;
+    }
+
+    recognition = new SpeechRecognition();
+    recognition.lang = "es-MX";
+    recognition.interimResults = false;
+    recognition.continuous = false;
+
+    recognition.onstart = () => {
+      isRecording = true;
+      voiceBanner?.classList.remove("hidden");
+      voiceBtn?.classList.add("bg-red-700", "text-white", "animate-pulse");
+    };
+
+    recognition.onresult = (event: any) => {
+      const transcript = event.results[0][0].transcript;
+      if (chatInput) {
+        chatInput.value = transcript;
+        handleSendMessage(transcript);
+      }
+    };
+
+    recognition.onerror = (event: any) => {
+      console.warn("Speech recognition error:", event.error);
+      stopRecording();
+    };
+
+    recognition.onend = () => {
+      stopRecording();
+    };
+  }
+
+  function startRecording() {
+    if (!recognition) initSpeechRecognition();
+    if (recognition) {
+      try {
+        recognition.start();
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+  }
+
+  function stopRecording() {
+    isRecording = false;
+    voiceBanner?.classList.add("hidden");
+    voiceBtn?.classList.remove("bg-red-700", "text-white", "animate-pulse");
+    if (recognition) {
+      try {
+        recognition.stop();
+      } catch (e) {}
+    }
+  }
+
+  voiceBtn?.addEventListener("click", () => {
+    if (isRecording) {
+      stopRecording();
+    } else {
+      startRecording();
+    }
+  });
+
+  voiceStopBtn?.addEventListener("click", stopRecording);
+
+  // Generate and Open Luxury PDF Dossier
+  function openLuxuryDossierPDF(pdfData: any) {
+    const dest = pdfData.destino;
+    const client = pdfData.cliente || "Viajero Distinguido";
+    const ref = pdfData.codigo_referencia;
+    const date = pdfData.fecha_emision;
+
+    const printWindow = window.open("", "_blank");
+    if (!printWindow) {
+      alert("Por favor permite las ventanas emergentes para visualizar el Dossier PDF.");
+      return;
+    }
+
+    printWindow.document.write(`
+      <!DOCTYPE html>
+      <html lang="es">
+      <head>
+        <meta charset="UTF-8">
+        <title>LVC Luxury Dossier - ${dest.title} - ${ref}</title>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <style>
+          * { margin: 0; padding: 0; box-sizing: border-box; }
+          body { font-family: 'Manrope', sans-serif; background: #FAF9F6; color: #1C1713; padding: 40px; }
+          .container { max-width: 800px; margin: 0 auto; background: #FFF; border: 2px solid #D4AD65; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border-radius: 8px; }
+          .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #775A19; padding-bottom: 20px; margin-bottom: 30px; }
+          .logo { font-family: 'Noto Serif', serif; font-size: 20px; font-weight: 700; color: #775A19; letter-spacing: 2px; }
+          .ref-badge { text-align: right; font-size: 11px; color: #645D5A; }
+          .hero-banner { width: 100%; height: 260px; object-fit: cover; border-radius: 6px; margin-bottom: 25px; border: 1px solid #D4AD65; }
+          h1 { font-family: 'Noto Serif', serif; font-size: 28px; color: #1C1713; margin-bottom: 8px; }
+          .subtitle { font-size: 14px; color: #775A19; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 20px; }
+          .meta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; background: #EDE7D7; padding: 15px; border-radius: 6px; margin-bottom: 25px; border-left: 4px solid #775A19; }
+          .meta-item { font-size: 12px; }
+          .meta-item strong { display: block; font-size: 10px; text-transform: uppercase; color: #645D5A; }
+          .section-title { font-family: 'Noto Serif', serif; font-size: 18px; color: #775A19; margin: 25px 0 12px; border-bottom: 1px solid #E2DED7; padding-bottom: 6px; }
+          .desc { font-size: 13.5px; line-height: 1.7; color: #3B2A06; margin-bottom: 20px; }
+          .highlights { list-style: none; }
+          .highlights li { font-size: 13px; margin-bottom: 10px; padding-left: 20px; position: relative; }
+          .highlights li::before { content: '◆'; position: absolute; left: 0; color: #D4AD65; font-size: 10px; top: 2px; }
+          .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #D4AD65; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: #645D5A; }
+          .print-btn { background: #775A19; color: #FFF; border: none; padding: 10px 20px; border-radius: 4px; font-weight: bold; cursor: pointer; }
+          @media print { .print-btn { display: none; } body { padding: 0; } .container { border: none; box-shadow: none; } }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">
+            <div>
+              <div class="logo">LUXURY VOYAGE COLLECTION</div>
+              <div style="font-size: 11px; color: #D4AD65; font-weight: 600; letter-spacing: 1px;">ATELIER DE VIAJES DE ALTA GAMA</div>
+            </div>
+            <div class="ref-badge">
+              <div><strong>REF:</strong> ${ref}</div>
+              <div><strong>FECHA:</strong> ${date}</div>
+              <div><strong>CLIENTE:</strong> ${client}</div>
+            </div>
+          </div>
+
+          <img src="${dest.heroImage}" alt="${dest.title}" class="hero-banner" />
+
+          <h1>${dest.title}</h1>
+          <div class="subtitle">${dest.subtitle}</div>
+
+          <div class="meta-grid">
+            <div class="meta-item"><strong>DURACIÓN</strong>${dest.duration}</div>
+            <div class="meta-item"><strong>TIPO DE SERVICIO</strong>${dest.groupSize}</div>
+            <div class="meta-item"><strong>INVERSIÓN ESTIMADA</strong>${dest.investment}</div>
+          </div>
+
+          <div class="section-title">Esencia de la Travesía</div>
+          <p class="desc">${dest.summary}</p>
+
+          <div class="section-title">Experiencias y Momentos Exclusivos</div>
+          <ul class="highlights">
+            ${dest.highlights.map((h: string) => `<li>${h}</li>`).join("")}
+          </ul>
+
+          <div class="section-title">Garantía Atelier LVC</div>
+          <p class="desc">Cada itinerario cuenta con asistencia privada 24/7 de un Travel Advisor en español, traslados de categoría ejecutiva, accesos a puerta cerrada y hotelería 5★ Gran Lujo cuidadosamente curada.</p>
+
+          <div class="footer">
+            <div>
+              <div><strong>Luxury Voyage Collection</strong> | Ciudad de México</div>
+              <div>WhatsApp VIP: +52 (221) 224-6632 | concierge@luxuryvoyageco.com</div>
+            </div>
+            <button class="print-btn" onclick="window.print()">Imprimir / Guardar en PDF</button>
+          </div>
+        </div>
+      </body>
+      </html>
+    `);
+    printWindow.document.close();
+  }
+
+  // Append user message
+  function appendUserMessage(text: string) {
+    if (!messagesContainer) return;
+    const msgDiv = document.createElement("div");
+    msgDiv.className = "flex items-start justify-end gap-2.5";
+    msgDiv.innerHTML = `
+      <div class="bg-gradient-to-r from-[#775A19] to-[#9A7522] border border-[#D4AD65]/30 rounded-2xl rounded-tr-sm p-3.5 text-[#FAF9F6] shadow-md max-w-[85%]">
+        <p class="text-[12.5px] leading-relaxed">${escapeHtml(text)}</p>
+      </div>
+    `;
+    messagesContainer.appendChild(msgDiv);
+    scrollToBottom();
+  }
+
+  // Append Agent message with cards
+  function appendAgentResponse(res: AgentResponse) {
+    if (!messagesContainer) return;
+    const msgDiv = document.createElement("div");
+    msgDiv.className = "flex items-start gap-2.5";
+
+    let cardsHtml = "";
+    if (res.cards && res.cards.length > 0) {
+      cardsHtml = `<div class="mt-3 space-y-2.5 w-full">` + res.cards.map((card, idx) => {
+        if (card.type === "destination") {
+          const badgesHtml = (card.badges || []).map(b => `<span class="text-[10px] px-2 py-0.5 rounded bg-[#775A19]/40 border border-[#D4AD65]/30 text-[#D4AD65] font-medium">${b}</span>`).join("");
+          return `
+            <div class="rounded-xl overflow-hidden border border-[#D4AD65]/30 bg-[#1C1713] shadow-lg">
+              ${card.image ? `<img src="${card.image}" alt="${card.title}" class="w-full h-28 object-cover brightness-90 hover:scale-105 transition-transform duration-500" />` : ""}
+              <div class="p-3">
+                <div class="flex flex-wrap gap-1 mb-1.5">${badgesHtml}</div>
+                <h4 class="font-headline text-[14px] font-semibold text-[#FAF9F6]">${card.title}</h4>
+                <p class="text-[11px] text-[#C5BCB7] mt-0.5">${card.subtitle || ""}</p>
+                ${card.actionUrl ? `
+                  <a href="${card.actionUrl}" class="mt-2.5 inline-flex items-center justify-center gap-1.5 w-full py-1.5 rounded-lg bg-gradient-to-r from-[#775A19] to-[#D4AD65] text-[#1C1713] text-[11.5px] font-bold hover:brightness-110 transition-all">
+                    <span>${card.actionLabel || "Explorar"}</span>
+                    <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+                  </a>
+                ` : ""}
+              </div>
+            </div>
+          `;
+        }
+
+        if (card.type === "dossier_pdf") {
+          const badgesHtml = (card.badges || []).map(b => `<span class="text-[10px] px-2 py-0.5 rounded bg-[#775A19]/40 border border-[#D4AD65]/30 text-[#D4AD65] font-medium">${b}</span>`).join("");
+          const detailsHtml = (card.details || []).map(d => `
+            <div class="flex justify-between py-1 border-b border-white/5 text-[11px]">
+              <span class="text-[#C5BCB7]">${d.label}:</span>
+              <span class="text-[#FAF9F6] font-semibold">${d.value}</span>
+            </div>
+          `).join("");
+
+          return `
+            <div class="rounded-xl overflow-hidden border border-[#D4AD65]/60 bg-gradient-to-b from-[#1C1713] to-[#251D17] shadow-xl">
+              ${card.image ? `<img src="${card.image}" alt="${card.title}" class="w-full h-24 object-cover brightness-75" />` : ""}
+              <div class="p-3.5">
+                <div class="flex flex-wrap gap-1 mb-2">${badgesHtml}</div>
+                <div class="flex items-center gap-2 mb-1 text-[#D4AD65]">
+                  <span class="material-symbols-outlined text-[20px]">picture_as_pdf</span>
+                  <h4 class="font-headline text-[13.5px] font-semibold text-[#FAF9F6]">${card.title}</h4>
+                </div>
+                <p class="text-[10.5px] text-[#9E9590] mb-2.5">${card.subtitle || ""}</p>
+                <div class="space-y-0.5 mb-3">${detailsHtml}</div>
+                <button
+                  type="button"
+                  class="btn-open-pdf inline-flex items-center justify-center gap-1.5 w-full py-2 rounded-lg bg-gradient-to-r from-[#775A19] via-[#D4AD65] to-[#775A19] text-[#1C1713] text-[12px] font-bold shadow-lg hover:brightness-110 active:scale-95 transition-all"
+                  data-pdf='${escapeHtml(JSON.stringify(card.pdfData || {}))}'
+                >
+                  <span class="material-symbols-outlined text-[16px]">download</span>
+                  <span>${card.actionLabel || "Descargar Dossier PDF"}</span>
+                </button>
+              </div>
+            </div>
+          `;
+        }
+
+        if (card.type === "quote") {
+          const detailsHtml = (card.details || []).map(d => `
+            <div class="flex justify-between py-1 border-b border-white/5 text-[11px]">
+              <span class="text-[#C5BCB7]">${d.label}:</span>
+              <span class="text-[#FAF9F6] font-semibold">${d.value}</span>
+            </div>
+          `).join("");
+          return `
+            <div class="rounded-xl border border-[#D4AD65]/40 bg-[#1C1713] p-3.5 shadow-lg">
+              <div class="flex items-center gap-2 mb-2 text-[#D4AD65]">
+                <span class="material-symbols-outlined text-[18px]">payments</span>
+                <h4 class="font-headline text-[13.5px] font-semibold text-[#FAF9F6]">${card.title}</h4>
+              </div>
+              <p class="text-[11px] text-[#9E9590] mb-2">${card.subtitle || ""}</p>
+              <div class="space-y-0.5 mb-3">${detailsHtml}</div>
+              ${card.actionUrl ? `
+                <a href="${card.actionUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-1.5 w-full py-2 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white text-[11.5px] font-bold transition-all shadow-md">
+                  <span class="material-symbols-outlined text-[15px]">chat</span>
+                  <span>${card.actionLabel || "Personalizar"}</span>
+                </a>
+              ` : ""}
+            </div>
+          `;
+        }
+
+        if (card.type === "whatsapp_handover") {
+          const detailsHtml = (card.details || []).map(d => `
+            <div class="flex justify-between py-1 border-b border-white/5 text-[11px]">
+              <span class="text-[#C5BCB7]">${d.label}:</span>
+              <span class="text-[#FAF9F6] font-semibold">${d.value}</span>
+            </div>
+          `).join("");
+          return `
+            <div class="rounded-xl border border-emerald-500/40 bg-gradient-to-b from-[#1C1713] to-[#16221A] p-3.5 shadow-lg">
+              <div class="flex items-center gap-2 mb-2 text-emerald-400">
+                <span class="material-symbols-outlined text-[20px]">support_agent</span>
+                <h4 class="font-headline text-[14px] font-semibold text-[#FAF9F6]">${card.title}</h4>
+              </div>
+              <p class="text-[11px] text-[#C5BCB7] mb-2.5">${card.subtitle || ""}</p>
+              <div class="space-y-0.5 mb-3">${detailsHtml}</div>
+              ${card.actionUrl ? `
+                <a href="${card.actionUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-1.5 w-full py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-[12px] font-bold transition-all shadow-md">
+                  <span class="material-symbols-outlined text-[16px]">chat</span>
+                  <span>${card.actionLabel || "Iniciar Chat VIP"}</span>
+                </a>
+              ` : ""}
+            </div>
+          `;
+        }
+        return "";
+      }).join("") + `</div>`;
+    }
+
+    const formattedText = formatMarkdown(res.message);
+
+    msgDiv.innerHTML = `
+      <div class="w-7 h-7 rounded-full bg-[#775A19]/30 border border-[#D4AD65]/40 text-[#D4AD65] flex items-center justify-center shrink-0 mt-0.5 shadow-inner">
+        <span class="material-symbols-outlined text-[15px]">diamond</span>
+      </div>
+      <div class="bg-[#2A221C] border border-[#D4AD65]/20 rounded-2xl rounded-tl-sm p-3.5 text-[#EDE7D7] shadow-lg max-w-[88%]">
+        <p class="text-[12.5px] leading-relaxed">${formattedText}</p>
+        ${cardsHtml}
+      </div>
+    `;
+
+    messagesContainer.appendChild(msgDiv);
+
+    // Attach PDF events
+    msgDiv.querySelectorAll(".btn-open-pdf").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        const raw = (e.currentTarget as HTMLElement).getAttribute("data-pdf");
+        if (raw) {
+          try {
+            const data = JSON.parse(raw);
+            openLuxuryDossierPDF(data);
+          } catch (err) {
+            console.error(err);
+          }
+        }
+      });
+    });
+
+    // Update Quick Reply Chips
+    if (res.quickReplies && res.quickReplies.length > 0 && quickChips) {
+      quickChips.innerHTML = res.quickReplies.map(qr => `
+        <button class="chip-btn shrink-0 px-3 py-1.5 rounded-full bg-[#2A221C] hover:bg-[#775A19]/40 border border-[#D4AD65]/30 text-[#EDE7D7] hover:text-[#D4AD65] transition-all" data-prompt="${escapeHtml(qr)}">
+          ${escapeHtml(qr)}
+        </button>
+      `).join("");
+      attachChipEvents();
+    }
+
+    // Update Tech Audit Inspector
+    if (res.audit) {
+      if (auditTimestamp) auditTimestamp.textContent = new Date().toLocaleTimeString();
+      if (auditToolName) auditToolName.textContent = res.audit.toolCalled || "Direct NLP Response";
+      if (auditToolArgs) auditToolArgs.textContent = JSON.stringify(res.audit.toolArgs || {});
+      if (auditConfidence) auditConfidence.textContent = `${(res.audit.confidenceScore * 100).toFixed(1)}%`;
+      if (auditLatency) auditLatency.textContent = `${res.audit.latencyMs}ms`;
+    }
+
+    scrollToBottom();
+  }
+
+  function scrollToBottom() {
+    if (messagesContainer) {
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+  }
+
+  function escapeHtml(text: string) {
+    const div = document.createElement("div");
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  function formatMarkdown(text: string) {
+    return escapeHtml(text)
+      .replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-semibold">$1</strong>')
+      .replace(/\n\n/g, '<br/><br/>')
+      .replace(/\n/g, '<br/>');
+  }
+
+  // Handle Form Submission
+  async function handleSendMessage(text: string) {
+    if (!text || !text.trim()) return;
+    const clean = text.trim();
+
+    appendUserMessage(clean);
+    chatHistory.push({ role: "user", content: clean });
+    if (chatInput) chatInput.value = "";
+
+    typingIndicator?.classList.remove("hidden");
+    scrollToBottom();
+
+    try {
+      await new Promise(r => setTimeout(r, 450));
+      const response = await LVCAgentEngine.processMessage(clean, chatHistory);
+      typingIndicator?.classList.add("hidden");
+      appendAgentResponse(response);
+      chatHistory.push({ role: "assistant", content: response.message });
+    } catch (e) {
+      typingIndicator?.classList.add("hidden");
+      console.error("Agent error:", e);
+    }
+  }
+
+  chatForm?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    handleSendMessage(chatInput?.value || "");
+  });
+
+  function attachChipEvents() {
+    document.querySelectorAll(".chip-btn").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        const prompt = (e.currentTarget as HTMLElement).getAttribute("data-prompt");
+        if (prompt) {
+          handleSendMessage(prompt);
+        }
+      });
+    });
+  }
+
+  attachChipEvents();
+</script>
