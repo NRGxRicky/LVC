@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /journal/
+Disallow: /journal
 
 Sitemap: https://luxuryvoyageco.com/sitemap-index.xml

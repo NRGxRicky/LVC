@@ -7,7 +7,11 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://luxuryvoyageco.com',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes('/journal')
+    })
+  ],
   image: {
     domains: ['images.unsplash.com', 'garage-web.luxuryvoyageco.com']
   },
