@@ -347,6 +347,40 @@ const meetingsLink = import.meta.env.PUBLIC_HUBSPOT_MEETINGS_LINK || "";
               </div>
             </div>
           </div>
+
+          <!-- AVISO DE PRIVACIDAD SIMPLIFICADO Y CASILLAS DE CONSENTIMIENTO -->
+          <div class="border-t border-[#1C1713]/10 pt-6 mt-2 flex flex-col gap-4 text-xs font-sans text-[#1C1713]/70">
+            <p class="leading-relaxed">
+              <strong>Luxury Voyage Collection (LVC)</strong>, con domicilio en C. Orizaba 154, Roma Nte., Cuauhtémoc, 06700 Ciudad de México, CDMX, es responsable del tratamiento de tus datos personales, incluyendo datos sensibles relativos a tu salud, alergias o condiciones médicas relevantes para tu viaje, los cuales utilizamos para diseñar, reservar y operar la experiencia que nos solicites, así como para gestionar trámites migratorios, seguros de viaje y pagos asociados.
+            </p>
+
+            <p class="leading-relaxed">
+              Tus datos podrán transferirse a hoteles, aerolíneas, operadores locales, aseguradoras y plataformas globales de distribución (incluyendo proveedores ubicados fuera de México), exclusivamente para la prestación del servicio que contrates.
+            </p>
+
+            <p class="leading-relaxed">
+              Conoce el detalle de los datos que recabamos, las finalidades, las transferencias y el procedimiento para ejercer tus derechos de Acceso, Rectificación, Cancelación y Oposición (“ARCO”), así como para revocar tu consentimiento, en nuestro
+              <a href="/aviso-de-privacidad" target="_blank" rel="noopener noreferrer" class="text-[#775A19] underline font-bold hover:text-[#1C1713]">Aviso de Privacidad Integral</a>, o escribiendo a
+              <a href="mailto:contacto@luxuryvoyageco.com" class="text-[#775A19] underline font-bold hover:text-[#1C1713]">contacto@luxuryvoyageco.com</a>.
+            </p>
+
+            <div class="flex flex-col gap-3 mt-2 bg-[#1C1713]/5 p-4 border border-[#1C1713]/10">
+              <label class="flex items-start gap-3 cursor-pointer group">
+                <input type="checkbox" id="consentimiento_privacidad" name="consentimiento_privacidad" required class="mt-0.5 accent-[#775A19] cursor-pointer" />
+                <span class="text-xs text-[#1C1713]/85 leading-snug">
+                  He leído y acepto el
+                  <a href="/aviso-de-privacidad" target="_blank" rel="noopener noreferrer" class="text-[#775A19] underline font-bold hover:text-[#1C1713]">Aviso de Privacidad Integral</a> de Luxury Voyage Collection, y otorgo mi consentimiento expreso para el tratamiento de mis datos sensibles y su transferencia nacional e internacional conforme a lo ahí descrito. *
+                </span>
+              </label>
+
+              <label class="flex items-start gap-3 cursor-pointer group">
+                <input type="checkbox" id="consentimiento_marketing" name="consentimiento_marketing" class="mt-0.5 accent-[#775A19] cursor-pointer" />
+                <span class="text-xs text-[#1C1713]/70 leading-snug">
+                  Deseo recibir contenido editorial, ofertas e invitaciones exclusivas de Luxury Voyage Collection. <em class="text-[#1C1713]/50">(Opcional — puedes contratar tu experiencia sin marcar esta casilla)</em>
+                </span>
+              </label>
+            </div>
+          </div>
         </div>
 
         <!-- BOTONES DE NAVEGACIÓN Y ENVÍO -->
@@ -718,6 +752,13 @@ const meetingsLink = import.meta.env.PUBLIC_HUBSPOT_MEETINGS_LINK || "";
         const inversionSelect = document.getElementById('inversion') as HTMLSelectElement | null;
         if (inversionSelect && inversionSelect.value === "") {
           alert("Por favor selecciona tu rango de inversión aproximado.");
+          return false;
+        }
+      }
+      if (step === 4) {
+        const privacidadCheck = document.getElementById('consentimiento_privacidad') as HTMLInputElement | null;
+        if (privacidadCheck && !privacidadCheck.checked) {
+          alert("Por favor acepta el Aviso de Privacidad Integral para enviar tu solicitud.");
           return false;
         }
       }
