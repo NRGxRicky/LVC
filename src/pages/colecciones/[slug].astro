@@ -547,7 +547,7 @@ const touristTripSchema = {
             </div>
 
             <!-- Formulario -->
-            <form id="collection-contact-form" class="flex flex-col gap-6" data-collection-title={item.title}>
+            <form id="collection-contact-form" class="hs-ignore flex flex-col gap-6" data-collection-title={item.title}>
               <!-- Campo Oculto de Colección -->
               <input type="hidden" name="coleccion" id="form-coleccion" value={item.title} />
               
@@ -570,7 +570,7 @@ const touristTripSchema = {
                 <div class="flex flex-col gap-2">
                   <label for="form-whatsapp" class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-[#1C1713]/50">WhatsApp / Teléfono *</label>
                   <div class="flex bg-[#FAF9F5] border border-[#1C1713]/10 rounded overflow-hidden focus-within:border-[#775A19]/50 transition-colors">
-                    <select id="form-lada" name="lada" class="bg-[#EFECE6] border-r border-[#1C1713]/10 px-2 py-3 text-xs font-bold text-[#1C1713] focus:outline-none cursor-pointer shrink-0">
+                    <select id="form-lada" name="lada_local" class="hs-ignore bg-[#EFECE6] border-r border-[#1C1713]/10 px-2 py-3 text-xs font-bold text-[#1C1713] focus:outline-none cursor-pointer shrink-0">
                       <option value="+52">🇲🇽 +52 (MX)</option>
                       <option value="+1">🇺🇸 +1 (US/CA)</option>
                       <option value="+57">🇨🇴 +57 (CO)</option>
@@ -596,11 +596,11 @@ const touristTripSchema = {
                     </select>
                     <input 
                       type="tel" 
-                      name="whatsapp" 
+                      name="whatsapp_local" 
                       id="form-whatsapp" 
                       placeholder="Número de 10 dígitos" 
                       required
-                      class="w-full bg-transparent border-0 px-4 py-3 font-sans text-sm text-[#1C1713] focus:outline-none focus:ring-0"
+                      class="hs-ignore w-full bg-transparent border-0 px-4 py-3 font-sans text-sm text-[#1C1713] focus:outline-none focus:ring-0"
                     />
                   </div>
                 </div>
