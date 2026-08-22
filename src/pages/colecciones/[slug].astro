@@ -777,14 +777,16 @@ const touristTripSchema = {
             trimmed = match[2];
           }
         }
-      } else if (trimmed.startsWith('52') && trimmed.length >= 12) {
-        lada = '+52';
-        trimmed = trimmed.slice(2);
+      } else {
+        const allDigits = trimmed.replace(/[^\d]/g, '');
+        if (allDigits.startsWith('52') && allDigits.length >= 12) {
+          lada = '+52';
+          trimmed = allDigits.slice(2);
+        }
       }
       let digits = trimmed.replace(/[^\d]/g, '').replace(/^0+/, '');
       if (!digits) return lada;
       const ladaClean = lada.replace(/[^\d+]/g, '');
-      // Standard E.164 without hyphens (+525586145716) ensures HubSpot CRM detects Country Code (+52 Mexico) and enables 1-click calls and WhatsApp
       return `${ladaClean}${digits}`;
     }
 

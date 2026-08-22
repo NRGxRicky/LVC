@@ -822,14 +822,16 @@ const meetingsLink = import.meta.env.PUBLIC_HUBSPOT_MEETINGS_LINK || "";
             trimmed = match[2];
           }
         }
-      } else if (trimmed.startsWith('52') && trimmed.length >= 12) {
-        lada = '+52';
-        trimmed = trimmed.slice(2);
+      } else {
+        const allDigits = trimmed.replace(/[^\d]/g, '');
+        if (allDigits.startsWith('52') && allDigits.length >= 12) {
+          lada = '+52';
+          trimmed = allDigits.slice(2);
+        }
       }
       let digits = trimmed.replace(/[^\d]/g, '').replace(/^0+/, '');
       if (!digits) return lada;
       const ladaClean = lada.replace(/[^\d+]/g, '');
-      // Standard E.164 without hyphens (+525586145716) ensures HubSpot CRM detects Country Code (+52 Mexico) and enables 1-click calls and WhatsApp
       return `${ladaClean}${digits}`;
     }
 
@@ -886,7 +888,12 @@ const meetingsLink = import.meta.env.PUBLIC_HUBSPOT_MEETINGS_LINK || "";
         const viajeros = (document.querySelector('input[name="viajeros"]:checked') as HTMLInputElement)?.value || 'No especificado';
         const idea = (document.getElementById('idea') as HTMLTextAreaElement | null)?.value?.trim() || 'Sin mensaje adicional';
 
+        const ladaSelect = document.getElementById('contacto-lada') as HTMLSelectElement | null;
+        const selectedLada = ladaSelect ? ladaSelect.value : '+52';
+        const formattedPhone = formatPhoneForHubSpot(telefonoInput.value, selectedLada);
+
         const compiledMessage = `--- DETALLES DEL VIAJE ---
+• Teléfono de contacto: ${formattedPhone}
 • Método de contacto preferido: ${pref}
 • Destinos de interés: ${destinos}
 • Fechas de viaje: ${fecha} (Flexible: ${flexible})
@@ -900,11 +907,6 @@ ${idea}`;
         const nameParts = nombre.split(" ");
         const firstname = nameParts[0] || "";
         const lastname = nameParts.slice(1).join(" ") || "";
-
-        const ladaSelect = document.getElementById('contacto-lada') as HTMLSelectElement | null;
-        const selectedLada = ladaSelect ? ladaSelect.value : '+52';
-        const formattedPhone = formatPhoneForHubSpot(telefonoInput.value, selectedLada);
-
         const portalId = import.meta.env.PUBLIC_HUBSPOT_PORTAL_ID || "51495057";
         const formId = import.meta.env.PUBLIC_HUBSPOT_FORM_ID || "b25257b0-7b1a-43b8-a591-fa2853b7a244";
         const endpoint = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
