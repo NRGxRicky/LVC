@@ -44,14 +44,106 @@ function toTitleCase(str: string): string {
   }).join(' ');
 }
 
+const coleccionSEOMap: Record<string, { title: string; description: string }> = {
+  "senderos-de-japon": {
+    title: "Senderos de Japón | Viaje Premium | LVC",
+    description: "Descubre Japón con un itinerario premium entre Tokio, Kioto, la Ruta Nakasendo, Takayama, Shirakawa-go y Hakone, con servicio en español."
+  },
+  "el-legado-de-tailandia": {
+    title: "El Legado de Tailandia | Viaje Premium | LVC",
+    description: "Recorre Tailandia en un viaje premium entre Bangkok, antiguas capitales, el río Mekong, Chiang Rai y Chiang Mai, con servicio en español."
+  },
+  "matices-de-bali": {
+    title: "Matices de Bali | Itinerario Premium | LVC",
+    description: "Descubre Bali con un itinerario premium entre Ubud, aldeas tradicionales, templos, arrozales y la costa, recorriendo distintas regiones de la isla."
+  },
+  "el-corazon-de-indochina": {
+    title: "El Corazón de Indochina | Itinerario Premium | LVC",
+    description: "Viaja por Laos, Vietnam y Camboya con un itinerario premium que reúne el Mekong, la Bahía de Halong, ciudades imperiales y los templos de Angkor."
+  },
+  "imperios-de-oriente": {
+    title: "Imperios de Oriente | Gran Ruta Premium | LVC",
+    description: "Descubre China y Japón en un viaje premium que conecta dos grandes culturas de Asia en un mismo recorrido entre historia y vida contemporánea."
+  },
+  "corea-esencial": {
+    title: "Corea Esencial | Itinerario Premium | LVC",
+    description: "Descubre Corea del Sur con un itinerario premium que conecta Seúl, Gyeongju y Jeju entre patrimonio, cultura y vida contemporánea."
+  },
+  "tierras-del-reino": {
+    title: "Tierras del Reino | Ruta Premium | LVC",
+    description: "Recorre Inglaterra, Escocia e Irlanda en un viaje premium entre ciudades históricas, paisajes y tradiciones de las islas británicas."
+  },
+  "aurora-del-norte": {
+    title: "Aurora del Norte | Viaje Premium | LVC",
+    description: "Descubre Escandinavia y el Ártico con un viaje premium entre capitales nórdicas, paisajes extraordinarios y experiencias en el extremo norte."
+  },
+  "la-esencia-de-los-balcanes": {
+    title: "La Esencia de los Balcanes | Itinerario Premium | LVC",
+    description: "Recorre Eslovenia, Croacia y Bosnia con un itinerario premium entre ciudades históricas, paisajes, culturas centenarias y la costa del Adriático."
+  },
+  "la-herencia-de-alemania": {
+    title: "La Herencia de Alemania | Ruta Premium | LVC",
+    description: "Descubre Alemania con un viaje premium por Baviera y la Selva Negra, entre ciudades históricas, bosques legendarios y castillos emblemáticos."
+  },
+  "fiordos-y-capitales-nordicas": {
+    title: "Fiordos y Capitales Nórdicas | Viaje Premium | LVC",
+    description: "Recorre Suecia, Noruega y Dinamarca en un viaje premium que combina capitales nórdicas, grandes fiordos y paisajes esculpidos por el agua."
+  },
+  "capitales-del-norte": {
+    title: "Capitales del Norte | Gran Ruta Premium | LVC",
+    description: "Descubre Berlín, Ámsterdam, Brujas, Bruselas y París con un viaje premium que conecta historia, canales y grandes ciudades europeas."
+  },
+  "safari-austral": {
+    title: "Safari Austral | Safari Premium | LVC",
+    description: "Vive un safari premium en Sudáfrica entre Johannesburgo, una reserva privada en Kruger y Ciudad del Cabo, combinando naturaleza y vida urbana."
+  },
+  "los-paisajes-de-kenia": {
+    title: "Los Paisajes de Kenia | Safari Premium | LVC",
+    description: "Vive un safari premium en Kenia por Masái Mara, Lago Naivasha y Amboseli, combinado con una estancia en la costa de Diani Beach."
+  },
+  "la-gran-ruta-salvaje": {
+    title: "La Gran Ruta Salvaje | Safari Premium | LVC",
+    description: "Vive un safari premium en Tanzania por Manyara, Serengeti, Ngorongoro y Tarangire, recorriendo los grandes escenarios naturales del norte."
+  },
+  "el-reino-de-los-gigantes": {
+    title: "El Reino de los Gigantes | Expedición & Safari Premium | LVC",
+    description: "Descubre Uganda con un viaje premium que combina gorilas en Bwindi, navegación por el Nilo y chimpancés en el Bosque de Kibale."
+  },
+  "egipto-mar-rojo": {
+    title: "Egipto & Mar Rojo | Viaje Premium | LVC",
+    description: "Descubre Egipto con un viaje premium que combina el legado de los faraones y el Nilo con una estancia junto a las aguas del Mar Rojo."
+  },
+  "la-ruta-nabatea": {
+    title: "La Ruta Nabatea | Itinerario Premium | LVC",
+    description: "Descubre Jordania con un itinerario premium entre su patrimonio histórico, paisajes desérticos y algunos de los escenarios más emblemáticos del país."
+  },
+  "el-gran-sultanato": {
+    title: "El Gran Sultanato | Viaje Premium | LVC",
+    description: "Descubre Omán con un viaje premium entre fortalezas, oasis y desierto, recorriendo paisajes y tradiciones que revelan el carácter del sultanato."
+  },
+  "territorios-de-arabia": {
+    title: "Territorios de Arabia | Viaje Premium | LVC",
+    description: "Descubre Arabia Saudita con un viaje premium entre patrimonio, paisajes y la transformación cultural que está redefiniendo el reino."
+  },
+  "espiritu-emirati": {
+    title: "Espíritu Emiratí | Viaje Premium | LVC",
+    description: "Descubre Emiratos Árabes Unidos con un viaje premium entre tradiciones, cultura local y la transformación contemporánea del país."
+  }
+};
+
+const seoInfo = coleccionSEOMap[item.slug] || {
+  title: `${item.title} | Viaje Premium | LVC`,
+  description: `${item.heroDesc || item.tagline || ''} Conoce el itinerario completo de nuestra Colección Premium con Luxury Voyage Collection.`
+};
+
 const itinerarioList = Array.isArray(item.itinerario) ? item.itinerario : [];
 const touristTripSchema = {
   "@context": "https://schema.org",
   "@type": "TouristTrip",
   "name": item.title,
-  "description": item.heroDesc || item.tagline || "",
+  "description": seoInfo.description,
   "image": item.heroImage || "",
-  "touristType": ["Luxury Travel", "Custom Travel"],
+  "touristType": ["Luxury Travel", "Premium Travel"],
   "offers": {
     "@type": "Offer",
     "priceCurrency": "USD",
@@ -78,8 +170,8 @@ const touristTripSchema = {
 ---
 
 <Layout
-  title={`${item.title}: Viaje Premium a Medida | Luxury Voyage Collection`}
-  description={`${item.heroDesc} Diseña tu experiencia premium personalizada en ${item.universo} con Luxury Voyage Collection.`}
+  title={seoInfo.title}
+  description={seoInfo.description}
   image={item.heroImage}
 >
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(touristTripSchema)} />
