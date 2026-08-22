@@ -45,7 +45,7 @@ const meetingsLink = import.meta.env.PUBLIC_HUBSPOT_MEETINGS_LINK || "";
       <div id="meetings-config" data-link={meetingsLink} class="hidden"></div>
 
       <!-- FORMULARIO PRINCIPAL -->
-      <form id="experience-form" class="flex flex-col gap-10 reveal-up reveal-delay-300">
+      <form id="experience-form" data-hs-cf-ignore="true" class="flex flex-col gap-10 reveal-up reveal-delay-300">
         
         <!-- PROGRESS INDICATOR BAR -->
         <div class="flex items-center justify-between max-w-xl mx-auto w-full mb-10 relative px-2 select-none">
@@ -891,6 +891,7 @@ const meetingsLink = import.meta.env.PUBLIC_HUBSPOT_MEETINGS_LINK || "";
         const ladaSelect = document.getElementById('contacto-lada') as HTMLSelectElement | null;
         const selectedLada = ladaSelect ? ladaSelect.value : '+52';
         const formattedPhone = formatPhoneForHubSpot(telefonoInput.value, selectedLada);
+        telefonoInput.value = formattedPhone;
 
         const compiledMessage = `--- DETALLES DEL VIAJE ---
 • Teléfono de contacto: ${formattedPhone}
