@@ -9,7 +9,7 @@ readTime: "4 min de lectura"
 
 Hay pocos encuentros tan transformadores como contemplar el amanecer en la inmensidad de la sabana africana. Sin embargo, en la era de los viajes masificados, la verdadera magia de África reside en la capacidad de experimentar este espectáculo en absoluta intimidad.
 
-El safari de ultra-lujo ha evolucionado. Ya no se limita a la búsqueda de los *Cinco Grandes*, sino a la creación de una inmersión sensorial donde el campamento, la gastronomía y los guías privados forman un ecosistema de exclusividad incomparable.
+El safari de lujo ha evolucionado. Ya no se limita a la búsqueda de los *Cinco Grandes*, sino a la creación de una inmersión sensorial donde el campamento, la gastronomía y los guías privados forman un ecosistema de exclusividad incomparable.
 
 ---
 

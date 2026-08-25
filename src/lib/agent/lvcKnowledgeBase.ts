@@ -60,7 +60,7 @@ export const LVC_DESTINATIONS: DestinationItem[] = [
     groupSize: "Privado VIP (Vehículo 4x4 exclusivo)",
     investment: "desde $12,500 USD",
     heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/senderos-de-japon/organized.webp",
-    summary: "Vuelo en avioneta privada entre lodges de ultra lujo en Masai Mara y Serengueti con guías naturalistas de élite y sobrevuelo en globo aerostático al amanecer.",
+    summary: "Vuelo en avioneta privada entre lodges de lujo en Masai Mara y Serengueti con guías naturalistas de élite y sobrevuelo en globo aerostático al amanecer.",
     highlights: ["Gran Migración con acceso privilegiado", "Campamentos de tiendas de lujo eco-responsables", "Vuelo en globo aerostático con champagne", "Guías locales masai certificados"],
     tags: ["africa", "safari", "kenya", "tanzania", "masai mara", "animales", "aventura de lujo"]
   },

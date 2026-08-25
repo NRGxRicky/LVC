@@ -7,7 +7,7 @@ author: "Luxury Voyage Atelier"
 readTime: "5 min de lectura"
 ---
 
-Europa no solo custodia la historia de occidente, sino el arte de saber vivir. En las últimas décadas, un movimiento silencioso ha comenzado a transformar el paisaje de la hospitalidad de ultra-lujo en el viejo continente: la reinvención de sus propiedades más históricas.
+Europa no solo custodia la historia de occidente, sino el arte de saber vivir. En las últimas décadas, un movimiento silencioso ha comenzado a transformar el paisaje de la hospitalidad de lujo en el viejo continente: la reinvención de sus propiedades más históricas.
 
 Hablamos del renacimiento de los *châteaux* franceses, las *masserie* de Apulia y las *villas* renacentistas de la Toscana. Espacios que en su día albergaron a la aristocracia y que hoy abren sus puertas bajo un concepto totalmente renovado de privacidad, donde el pasado dialoga con el diseño contemporáneo más vanguardista.
 

@@ -9,7 +9,7 @@ readTime: "4 min de lectura"
 
 El desierto ha sido, desde tiempos inmemoriales, el escenario por excelencia de la introspección y la aventura. En Medio Oriente, este mar de dunas y cañones de piedra ha visto florecer una nueva tipología de viaje que combina la herencia nómada con una arquitectura que desafía las leyes del paisaje: el lujo de la desconexión desértica.
 
-Ya no se trata de los tradicionales resorts de oasis urbanos, sino de campamentos de diseño ultra-futurista situados en el corazón de desiertos milenarios como el de Wahiba Sands en Omán o el espectacular desierto de Al-Ula en Arabia Saudita.
+Ya no se trata de los tradicionales resorts de oasis urbanos, sino de campamentos de diseño vanguardista situados en el corazón de desiertos milenarios como el de Wahiba Sands en Omán o el espectacular desierto de Al-Ula en Arabia Saudita.
 
 ---
 

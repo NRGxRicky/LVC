@@ -68,7 +68,7 @@ export const coleccionesData: Coleccion[] = [
     organizedImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/senderos-de-japon/organized.webp",
     organizedPillars: [
       { title: "HOSPEDAJES SELECCIONADOS", description: "Estancias previstas en Osaka, Kyoto, Takayama, Hakone y Tokyo, con categorías Superior o Lujo." },
-      { title: "RITMO DEL RECORRIDO", description: "Una ruta que combina ciudades, regiones históricas y paisajes naturales con tiempos libres en Kyoto and Tokyo." },
+      { title: "RITMO DEL RECORRIDO", description: "Una ruta que combina ciudades, regiones históricas y paisajes naturales con tiempos libres en Kyoto y Tokyo." },
       { title: "EXPERIENCIAS INTEGRADAS", description: "Visitas guiadas, tren bala, entradas a monumentos señalados, cinco almuerzos, dos cenas y acceso a onsen." },
       { title: "ACOMPAÑAMIENTO Y LOGÍSTICA", description: "Guía de habla española durante el circuito, traslados de llegada y salida, además del manejo logístico del equipaje entre ciudades." }
     ],
@@ -743,7 +743,7 @@ export const coleccionesData: Coleccion[] = [
     heroDesc: "Exploración en mokoro por el Delta del Okavango, el santuario de vida silvestre más exclusivo.",
     badges: ["Delta del Okavango", "Navegación Mokoro", "Lodges de Lujo"],
     essenceHeading: "El agua que inunda el desierto del Kalahari y crea el delta interior más grande del mundo.",
-    essenceDesc: "Botsuana Salvaje representa la cumbre del safari exclusivo. Descubre el Delta del Okavango deslizándose en canoas tradicionales mokoro, realiza safaris de rastreo nocturno y hospédate en lodges de ultra-lujo construidos sobre plataformas de madera.",
+    essenceDesc: "Botsuana Salvaje representa la cumbre del safari exclusivo. Descubre el Delta del Okavango deslizándose en canoas tradicionales mokoro, realiza safaris de rastreo nocturno y hospédate en lodges de lujo construidos sobre plataformas de madera.",
     essenceImage: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=800",
     moments: [
       {
@@ -917,10 +917,10 @@ export const coleccionesData: Coleccion[] = [
     subtitle: "EMIRATOS ÁRABES",
     continent: "medio-oriente",
     heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_dubai.webp",
-    heroDesc: "Arquitectura vanguardista en Dubái, cultura en Abu Dabi y retiros de dunas de ultra-lujo.",
+    heroDesc: "Arquitectura vanguardista en Dubái, cultura en Abu Dabi y retiros de dunas de lujo.",
     badges: ["Rascacielos Futuristas", "Desierto de Liwa", "Lujo Contemporáneo"],
     essenceHeading: "La visión futurista de una metrópolis que emerge con esplendor entre dunas doradas.",
-    essenceDesc: "Oasis del Golfo combina la espectacular arquitectura de Dubái con la herencia cultural de Abu Dabi. Disfruta de una cena privada en el desierto bajo una tienda beduina tradicional y relájate en un resort de ultra-lujo en medio de la nada.",
+    essenceDesc: "Oasis del Golfo combina la espectacular arquitectura de Dubái con la herencia cultural de Abu Dabi. Disfruta de una cena privada en el desierto bajo una tienda beduina tradicional y relájate en un resort de lujo en medio de la nada.",
     essenceImage: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800",
     moments: [
       {
@@ -932,7 +932,7 @@ export const coleccionesData: Coleccion[] = [
       {
         number: "02",
         title: "Desierto de Liwa",
-        description: "Estancia en un oasis de ultra-lujo en medio de las dunas, con paseos privados en camello al atardecer.",
+        description: "Estancia en un oasis de lujo en medio de las dunas, con paseos privados en camello al atardecer.",
         image: "https://garage-web.luxuryvoyageco.com/images/colecciones/card_dubai.webp"
       },
       {
@@ -1018,7 +1018,7 @@ export const coleccionesData: Coleccion[] = [
       {
         number: "02",
         title: "Khor Al Adaid",
-        description: "Excursión en 4x4 de ultra-lujo por las dunas que limitan directamente con el mar en el impresionante Mar Interior.",
+        description: "Excursión en 4x4 de alta gama por las dunas que limitan directamente con el mar en el impresionante Mar Interior.",
         image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=800"
       },
       {
@@ -1031,7 +1031,7 @@ export const coleccionesData: Coleccion[] = [
     momentsCallout: "EL CONTRASTE ENTRE LAS DUNAS ANCESTRALES Y LA SOFISTICACIÓN DEL NUEVO MUNDO.",
     organizedImage: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=800",
     organizedPillars: [
-      { title: "HOTELES DE MARCA", description: "Estancias en suites de hoteles boutique y resorts de ultra-lujo ubicados en islas privadas." },
+      { title: "HOTELES DE MARCA", description: "Estancias en suites de hoteles boutique y resorts de lujo ubicados en islas privadas." },
       { title: "ACCESOS CULTURALES", description: "Entradas preferenciales y visitas VIP a las galerías y centros de arte contemporáneo." },
       { title: "MIXOLOGÍA Y CENAS", description: "Reservas especiales confirmadas en los mejores restaurantes de Doha." },
       { title: "VEHÍCULOS PREMIUM", description: "Flota de autos de alta gama eléctricos con choferes uniformados a tu servicio todo el día." }
@@ -1131,7 +1131,7 @@ export const coleccionesData: Coleccion[] = [
     continent: "medio-oriente",
     heroImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/espiritu-emirati/hero.webp",
     heroDesc: "Una mirada a los Emiratos desde sus tradiciones, su gente y su transformación contemporánea.",
-    badges: ["6 Días / 5 Noches", "Emiratos Árabes", "Guía en Español"],
+    badges: ["6 Días / 5 Noches", "Emiratos Árabes Unidos", "Guía en Español"],
     essenceHeading: "Tradiciones vivas detrás del horizonte contemporáneo de los Emiratos",
     essenceDesc: "Más allá de los grandes símbolos de Dubái, esta colección propone comprender la identidad emiratí desde sus barrios históricos, encuentros con habitantes locales y espacios culturales poco habituales. La ruta incorpora Ras Al Khaimah y Abu Dhabi para ofrecer una visión más amplia del país, equilibrando patrimonio, arquitectura contemporánea y vida cotidiana.",
     essenceImage: "https://garage-web.luxuryvoyageco.com/images/colecciones/espiritu-emirati/essence.webp",

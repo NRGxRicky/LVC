@@ -90,7 +90,7 @@ export class LVCAgentEngine {
       const result = LVCToolExecutor.execute(toolName, toolArgs);
       const dossier = result.data;
 
-      responseText = `He preparado el **Dossier Ejecutivo de Ultra Lujo** para **${dossier.destino.title}** con membrete oficial de LVC, desglose de experiencias y especificaciones de alta gama listo para su visualización o descarga:`;
+      responseText = `He preparado el **Dossier Ejecutivo** para **${dossier.destino.title}** con membrete oficial de LVC, desglose de experiencias y especificaciones de alta gama listo para su visualización o descarga:`;
       
       cards.push({
         type: "dossier_pdf",
@@ -211,7 +211,7 @@ export class LVCAgentEngine {
       const res = LVCToolExecutor.execute(toolName, toolArgs);
       const dest = res.data.destinos[0] || LVC_DESTINATIONS[2];
 
-      responseText = `En África orquestamos **${dest.title}**, una experiencia de conservación y ultra lujo con campamentos privados en Masai Mara y Serengueti con vuelos en avioneta privada.`;
+      responseText = `En África orquestamos **${dest.title}**, una experiencia de conservación y lujo con campamentos privados en Masai Mara y Serengueti con vuelos en avioneta privada.`;
       
       cards.push({
         type: "destination",
@@ -286,7 +286,7 @@ export class LVCAgentEngine {
       toolArgs = { continente: "todos", termino: "" };
       const res = LVCToolExecutor.execute(toolName, toolArgs);
 
-      responseText = `Bienvenido al **Atelier de IA de Luxury Voyage Collection**. Somos especialistas en la creación de itinerarios privados de ultra lujo en los 4 Universos del mundo: **Asia, África, Europa y Medio Oriente**.\n\nPuede escribirme, usar el botón de **micrófono 🎙️** para dictar su consulta o solicitar un **Dossier PDF 📄** de cualquiera de nuestras colecciones.`;
+      responseText = `Bienvenido al **Atelier de IA de Luxury Voyage Collection**. Somos especialistas en la creación de itinerarios privados de lujo en los 4 Universos del mundo: **Asia, África, Europa y Medio Oriente**.\n\nPuede escribirme, usar el botón de **micrófono 🎙️** para dictar su consulta o solicitar un **Dossier PDF 📄** de cualquiera de nuestras colecciones.`;
       
       const top2 = res.data.destinos.slice(0, 2);
       cards = top2.map((dest: DestinationItem) => ({

@@ -18,7 +18,7 @@ export interface ToolDefinition {
 export const LVC_TOOL_DEFINITIONS: ToolDefinition[] = [
   {
     name: "buscar_destinos_lvc",
-    description: "Busca en el catálogo de LVC colecciones de ultra lujo filtrando por continente, término de búsqueda o duración.",
+    description: "Busca en el catálogo de LVC colecciones de lujo filtrando por continente, término de búsqueda o duración.",
     parameters: {
       type: "object",
       properties: {
@@ -56,7 +56,7 @@ export const LVC_TOOL_DEFINITIONS: ToolDefinition[] = [
         nivel_exclusividad: {
           type: "string",
           description: "Nivel de experiencia",
-          enum: ["Signature LVC", "Ultra-Luxury Bespoke", "Royal / Private Jet Experience"]
+          enum: ["Signature LVC", "Grand Luxury Bespoke", "Royal / Private Jet Experience"]
         }
       },
       required: ["destino_slug_o_nombre"]
@@ -165,7 +165,7 @@ export class LVCToolExecutor {
         const tier = args.nivel_exclusividad || "Signature LVC";
 
         let baseNightRate = 850;
-        if (tier === "Ultra-Luxury Bespoke") baseNightRate = 1350;
+        if (tier === "Grand Luxury Bespoke" || tier === "Ultra-Luxury Bespoke") baseNightRate = 1350;
         if (tier === "Royal / Private Jet Experience") baseNightRate = 2400;
 
         if (slugOrName.includes("safari") || slugOrName.includes("africa")) {
@@ -244,7 +244,7 @@ export class LVCToolExecutor {
         const nombre = args.nombre_viajero || "Estimado Viajero";
         const destino = args.destino_interes || "Itinerario a Medida";
         const fechas = args.fechas_tentativas || "Por definir";
-        const notas = args.notas_especiales || "Deseo recibir una propuesta personalizada de ultra lujo.";
+        const notas = args.notas_especiales || "Deseo recibir una propuesta personalizada de viaje de lujo.";
 
         const rawText = `*SOLICITUD LVC LUXURY CONCIERGE*\n\n👤 *Viajero:* ${nombre}\n🌍 *Destino de Interés:* ${destino}\n📅 *Fechas Estimadas:* ${fechas}\n✨ *Detalles / Notas:* ${notas}\n\n_Mensaje generado desde LVC AI Concierge_`;
         const encoded = encodeURIComponent(rawText);

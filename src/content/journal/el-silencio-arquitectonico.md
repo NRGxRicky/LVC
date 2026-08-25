@@ -1,6 +1,6 @@
 ---
 title: "El Silencio Arquitectónico: Espacios de Desconexión Absoluta"
-excerpt: "¿Cómo influye el espacio y la simetría en nuestro estado mental? Exploramos los refugios de ultra-lujo que definen la nueva era del viaje contemplativo."
+excerpt: "¿Cómo influye el espacio y la simetría en nuestro estado mental? Exploramos los refugios de lujo que definen la nueva era del viaje contemplativo."
 publishDate: "2026-05-20"
 image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1600&q=80"
 author: "Luxury Voyage Atelier"
@@ -27,4 +27,4 @@ Cuando la arquitectura se integra de forma orgánica con el paisaje, el viaje se
 2. **Amangiri (Utah, EE. UU.):** Un bloque monolítico de hormigón que se mimetiza con los cañones rojizos del desierto, creando un diálogo silencioso entre la obra humana y la inmensidad de la naturaleza.
 3. **Villa d'Este (Lago de Como, Italia):** Donde el agua y los jardines renacentistas dictan un compás de elegancia atemporal que ha cautivado a generaciones.
 
-El diseño contemporáneo de ultra-lujo ya no se mide por la cantidad de ornamentos, sino por el aire que dejas entre las cosas. Es la elegancia de la sustracción.
+El diseño contemporáneo de lujo ya no se mide por la cantidad de ornamentos, sino por el aire que dejas entre las cosas. Es la elegancia de la sustracción.
