@@ -9,8 +9,34 @@ export async function getStaticPaths() {
     props: { post },
   }));
 }
+
+const { post } = Astro.props;
+
+const journalSEOMap: Record<string, { title: string; description: string }> = {
+  "el-arte-del-safari-privado": {
+    title: "El Arte del Safari Privado | Journal LVC",
+    description: "Descubre qué distingue a un safari privado de lujo: reservas seleccionadas, privacidad, conservación y una conexión más profunda con África."
+  },
+  "el-refugio-del-viento-en-el-desierto": {
+    title: "El Refugio del Viento | Journal LVC",
+    description: "Una mirada al lujo en el desierto a través de estancias excepcionales, arquitectura, privacidad y experiencias que transforman la forma de viajar."
+  },
+  "el-renacimiento-de-los-chateaux": {
+    title: "Châteaux y Estancias de Lujo en Europa | Journal LVC",
+    description: "Descubre cómo châteaux, palacios y residencias históricas de Europa se transforman en estancias de lujo donde patrimonio y hospitalidad conviven."
+  },
+  "el-silencio-arquitectonico": {
+    title: "El Silencio Arquitectónico | Journal LVC",
+    description: "Explora cómo arquitectura, privacidad, naturaleza y diseño transforman una estancia de lujo en una experiencia que permanece después del viaje."
+  }
+};
+
+const seo = journalSEOMap[post.id] || {
+  title: `${post.data.title} | Journal LVC`,
+  description: post.data.excerpt || ""
+};
 ---
-<Layout title="Luxury Voyage Collection">
+<Layout title={seo.title} description={seo.description}>
   <meta http-equiv="refresh" content="0;url=/" slot="head" />
   <script is:inline>window.location.href = "/";</script>
 </Layout>
