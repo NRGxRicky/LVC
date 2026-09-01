@@ -423,6 +423,20 @@ const experienceImages: Record<string, string[][]> = {
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover/cta:translate-x-1 transition-transform duration-500"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </span>
           </a>
+
+          <!-- CTA Secundario Editorial WhatsApp -->
+          <div class="mt-6 flex flex-col items-center gap-1.5">
+            <p class="font-body text-sm text-[#1C1713]/70">Todo gran viaje comienza con una conversación.</p>
+            <a 
+              href={`https://wa.me/525611877271?text=${encodeURIComponent(`Hola, estoy considerando un viaje por ${heroTitle} y me gustaría recibir orientación.`)}`} 
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 font-body text-sm text-[#775A19] hover:text-[#D4AD65] font-medium border-b border-[#775A19]/30 hover:border-[#D4AD65] pb-0.5 transition-colors"
+            >
+              <span>Habla con un Travel Designer</span>
+              <span class="text-xs text-[#D4AD65]">↗</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

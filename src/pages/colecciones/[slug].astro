@@ -680,6 +680,20 @@ const touristTripSchema = {
                 <span class="material-symbols-outlined text-xs">lock</span>
                 Tu información está protegida y será utilizada únicamente para ayudarte con tu experiencia de viaje.
               </p>
+
+              <!-- CTA Secundario Editorial WhatsApp -->
+              <div class="mt-8 pt-6 border-t border-[#1C1713]/10 flex flex-col items-center gap-1.5 text-center">
+                <p class="font-body text-sm text-[#1C1713]/70">¿Tienes alguna pregunta?</p>
+                <a 
+                  href={`https://wa.me/525611877271?text=${encodeURIComponent(`Hola, me interesa ${item.title} y quisiera conocer más detalles.`)}`} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 font-body text-sm text-[#775A19] hover:text-[#D4AD65] font-medium border-b border-[#775A19]/30 hover:border-[#D4AD65] pb-0.5 transition-colors"
+                >
+                  <span>Habla con un Travel Designer</span>
+                  <span class="text-xs text-[#D4AD65]">↗</span>
+                </a>
+              </div>
             </form>
           </div>
 
