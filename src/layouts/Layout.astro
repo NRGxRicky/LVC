@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import CookieBanner from "../components/CookieBanner.astro";
+import WhatsAppFloatingButton from "../components/ui/WhatsAppFloatingButton.astro";
 
 interface Props {
   title?: string;
@@ -139,6 +140,7 @@ const schemaData = {
   </head>
     <slot />
     <CookieBanner />
+    <WhatsAppFloatingButton />
     
     <style is:global>
       .reveal-up {
